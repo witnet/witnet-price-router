@@ -2,8 +2,14 @@
 // each contracts' constructor arguments (you can freely edit those and the compiler will respect them).
 const Witnet = artifacts.require("Witnet")
 const WitnetRequestsBoardProxy = artifacts.require("WitnetRequestsBoardProxy")
+const BtcUsdPriceFeed = artifacts.require("BtcUsdPriceFeed")
+const GoldEurPriceFeed = artifacts.require("GoldEurPriceFeed")
+const EthUsdPriceFeed = artifacts.require("EthUsdPriceFeed")
+
 
 module.exports = function (deployer) {
-  deployer.link(Witnet, [])
-
+  deployer.link(Witnet, [BtcUsdPriceFeed, GoldEurPriceFeed, EthUsdPriceFeed])
+  deployer.deploy(BtcUsdPriceFeed, WitnetRequestsBoardProxy.address)
+  deployer.deploy(GoldEurPriceFeed, WitnetRequestsBoardProxy.address)
+  deployer.deploy(EthUsdPriceFeed, WitnetRequestsBoardProxy.address)
 }

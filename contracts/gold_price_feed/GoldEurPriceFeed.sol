@@ -9,7 +9,7 @@ import "adomedianizer/contracts/IERC2362.sol";
 import "../requests/GoldPrice.sol";
 
 // Your contract needs to inherit from UsingWitnet
-contract PriceFeed is UsingWitnet, IERC2362 {
+contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
 
   // The public gold price point
   uint64 public goldPrice;

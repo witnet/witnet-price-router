@@ -34,23 +34,25 @@ module.exports = {
       provider: require("ganache-cli").provider({ gasLimit: 100000000 }),
       network_id: "*",
     },
-    rinkeby: {
-      network_id: 4,
-      host: "localhost",
-      port: 9004,
-      gas: 6500000,
-    },
     ropsten: {
       network_id: 3,
       host: "localhost",
-      port: 9005,
-      gas: 6500000,
+      port: 8543,
+    },
+    rinkeby: {
+      network_id: 4,
+      host: "localhost",
+      port: 8544,
     },
     goerli: {
       network_id: 5,
       host: "localhost",
-      port: 9006,
-      gas: 6500000,
+      port: 8545,
+    },
+    kovan: {
+      network_id: 42,
+      host: "localhost",
+      port: 8542,
     },
   },
 
