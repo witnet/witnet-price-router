@@ -7,6 +7,24 @@ const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/ethus
   .multiply(1000)
   .round()
 
+// Retrieves USD price of eth from the coincap API
+const coincap = new Witnet.Source("https://api.coincap.io/v2/assets")
+  .parseMapJSON()
+  .getArray("data")
+  .getMap(1)
+  .getFloat("priceUsd")
+  .multiply(1000)
+  .round()
+
+  // Retrieves USD price of eth from the coinpaprika API
+  const coinpaprika = new Witnet.Source("https://api.coinpaprika.com/v1/tickers")
+  .parseArrayJSON()
+  .getMap(3)
+  .getMap("quotes")
+  .getMap("USD")
+  .getFloat("price")
+  .multiply(1000)
+  .round()
 
 // Filters out any value that is more than 1.5 times the standard
 // deviationaway from the average, then computes the average mean of the
@@ -18,7 +36,7 @@ const aggregator = new Witnet.Aggregator({
     reducer: Witnet.Types.REDUCERS.averageMean,
   })
   
-  // Filters out any value that is more than 1.5 times the standard
+  // Filters out any value that is more than 1.0 times the standard
   // deviationaway from the average, then computes the average mean of the
   // values that pass the filter.
   const tally = new Witnet.Tally({
@@ -31,6 +49,8 @@ const aggregator = new Witnet.Aggregator({
   // This is the Witnet.Request object that needs to be exported
   const request = new Witnet.Request()
     .addSource(bitstamp) // Use source 1
+    .addSource(coincap) // Use source 2
+    .addSource(coinpaprika) // Use source 3
     .setAggregator(aggregator) // Set the aggregator function
     .setTally(tally) // Set the tally function
     .setQuorum(4, 1, 2, 5, 70) // Set witness count
