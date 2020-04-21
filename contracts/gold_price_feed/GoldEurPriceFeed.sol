@@ -42,6 +42,10 @@ contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
     request = new GoldPriceRequest();
   }
 
+  /**
+  * @notice Sends `request` to the WitnetRequestsBoard.
+  * @dev This method will only succeed if `pending` is 0.
+  **/
   function requestUpdate() public payable {
     require(!pending, "An update is already pending. Complete it first before requesting another update.");
 
@@ -58,9 +62,12 @@ contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
     pending = true;
   }
 
-  // The `witnetRequestAccepted` modifier comes with `UsingWitnet` and allows to
-  // protect your methods from being called before the request has been successfully
-  // relayed into Witnet.
+  /**
+  * @notice Reads the result, if ready, from the WitnetRequestsBoard.
+  * @dev The `witnetRequestAccepted` modifier comes with `UsingWitnet` and allows to
+  * protect your methods from being called before the request has been successfully
+  * relayed into Witnet.
+  **/
   function completeUpdate() public witnetRequestAccepted(lastRequestId) {
     require(pending, "There is no pending update.");
 

@@ -10,16 +10,25 @@ import "../requests/BitcoinPrice.sol";
 
 // Your contract needs to inherit from UsingWitnet
 contract BtcUsdPriceFeed is UsingWitnet, IERC2362 {
-  uint64 public bitcoinPrice; // The public Bitcoin price point
-  uint256 public lastRequestId;      // Stores the ID of the last Witnet request
-  uint256 public timestamp; // Stores the timestamp of the last time the public price point was updated
-  bool public pending;               // Tells if an update has been requested but not yet completed
-  Request public request;            // The Witnet request object, is set in the constructor
+  // The public Bitcoin price point
+  uint64 public bitcoinPrice;
 
-  // emits when the price is updated
+  // Stores the ID of the last Witnet request
+  uint256 public lastRequestId;
+
+  // Stores the timestamp of the last time the public price point was updated
+  uint256 public timestamp;
+
+  // Tells if an update has been requested but not yet completed
+  bool public pending;
+
+  // The Witnet request object, is set in the constructor
+  Request public request;
+
+  // Emits when the price is updated
   event priceUpdated(uint64);
 
-  // emits when found an error decoding request result
+  // Emits when found an error decoding request result
   event resultError(string);
 
   // This is `keccak256("Price-BTC/USD-3")`
@@ -32,6 +41,10 @@ contract BtcUsdPriceFeed is UsingWitnet, IERC2362 {
     request = new BitcoinPriceRequest();
   }
 
+  /**
+  * @notice Sends `request` to the WitnetRequestsBoard.
+  * @dev This method will only succeed if `pending` is 0.
+  **/
   function requestUpdate() public payable {
     require(!pending, "An update is already pending. Complete it first before requesting another update.");
 
@@ -48,9 +61,12 @@ contract BtcUsdPriceFeed is UsingWitnet, IERC2362 {
     pending = true;
   }
 
-  // The `witnetRequestAccepted` modifier comes with `UsingWitnet` and allows to
-  // protect your methods from being called before the request has been successfully
-  // relayed into Witnet.
+  /**
+  * @notice Reads the result, if ready, from the WitnetRequestsBoard.
+  * @dev The `witnetRequestAccepted` modifier comes with `UsingWitnet` and allows to
+  * protect your methods from being called before the request has been successfully
+  * relayed into Witnet.
+  **/
   function completeUpdate() public witnetRequestAccepted(lastRequestId) {
     require(pending, "There is no pending update.");
 

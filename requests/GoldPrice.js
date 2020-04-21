@@ -1,11 +1,13 @@
 import * as Witnet from "witnet-requests"
 
+// Retrieves USD gold price from the coinyep API
 const coinyep = new Witnet.Source("https://coinyep.com/api/v1/?from=XAU&to=EUR&lang=es&format=json")
   .parseMapJSON() // Parse a Map from the retrieved String
   .getFloat("price") // Get the Map value associated to the price key
   .multiply(1000)
   .round()
 
+// Retrieves USD gold price from the dataasg API
 const dataasg = new Witnet.Source("https://data-asg.goldprice.org/dbXRates/EUR")
   .parseMapJSON()
   .getArray("items")
@@ -14,6 +16,7 @@ const dataasg = new Witnet.Source("https://data-asg.goldprice.org/dbXRates/EUR")
   .multiply(1000)
   .round()
 
+// Retrieves USD gold price from the mycurrencytransfer API
 const mycurrencytransfer = new Witnet.Source("https://www.mycurrencytransfer.com/api/current/XAU/EUR")
   .parseMapJSON()
   .getMap("data")
@@ -21,6 +24,7 @@ const mycurrencytransfer = new Witnet.Source("https://www.mycurrencytransfer.com
   .multiply(1000)
   .round()
 
+// Retrieves USD gold price from the inversoro API
 const inversoro = new Witnet.Source("https://www.inversoro.es/datos/?period=3year&xignite_code=XAU&currency=EUR&weight_unit=ounces")
   .parseMapJSON()
   .getMap("table_data")
