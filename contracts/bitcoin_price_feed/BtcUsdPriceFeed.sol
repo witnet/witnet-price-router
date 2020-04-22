@@ -11,7 +11,7 @@ import "../requests/BitcoinPrice.sol";
 // Your contract needs to inherit from UsingWitnet
 contract BtcUsdPriceFeed is UsingWitnet, IERC2362 {
   // The public Bitcoin price point
-  uint64 public bitcoinPrice;
+  uint64 public lastPrice;
 
   // Stores the ID of the last Witnet request
   uint256 public lastRequestId;
@@ -77,11 +77,19 @@ contract BtcUsdPriceFeed is UsingWitnet, IERC2362 {
     // If the Witnet request succeeded, decode the result and update the price point
     // If it failed, revert the transaction with a pretty-printed error message
     if (result.isOk()) {
-      bitcoinPrice = result.asUint64();
+      lastPrice = result.asUint64();
       timestamp = block.timestamp;
-      emit priceUpdated(bitcoinPrice);
+      emit priceUpdated(lastPrice);
     } else {
-      (, string memory errorMessage) = result.asErrorMessage();
+      string memory errorMessage;
+
+      // Try to read the value as an error message, catch error bytes if read fails
+      try result.asErrorMessage() returns (Witnet.ErrorCodes errorCode, string memory e) {
+        errorMessage = e;
+      }
+      catch (bytes memory errorBytes){
+        errorMessage = string(errorBytes);
+      }
       emit resultError(errorMessage);
     }
 
@@ -100,7 +108,7 @@ contract BtcUsdPriceFeed is UsingWitnet, IERC2362 {
     // No value is yet available for the queried data point ID
     if (timestamp == 0) return(0, 0, 404);
 
-    int256 value = int256(bitcoinPrice);
+    int256 value = int256(lastPrice);
 
     return(value, timestamp, 200);
   }
