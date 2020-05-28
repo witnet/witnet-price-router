@@ -21,8 +21,8 @@ contract("EthUsdPriceFeed", accounts => {
     })
 
     it("completes the flow with a correct result", async () => {
-        const halfEther = web3.utils.toWei("0.5", "ether")
-        await feed.requestUpdate({value: halfEther})
+        const requestPrice = web3.utils.toWei("0.0002", "ether")
+        await feed.requestUpdate({value: requestPrice})
         id = await feed.lastRequestId()
         await wrbInstance.reportDrHash(id, "0xAA")
   
@@ -38,8 +38,8 @@ contract("EthUsdPriceFeed", accounts => {
     })
 
     it("log an event if errored CBOR decoding", async () => {
-      const halfEther = web3.utils.toWei("0.5", "ether")
-      await feed.requestUpdate({value: halfEther})
+      const requestPrice = web3.utils.toWei("0.0002", "ether")
+      await feed.requestUpdate({value: requestPrice})
       id = await feed.lastRequestId()
       let expectedError = 'Tried to read `uint64` from a `CBOR.Value` with majorType != 0'
       await wrbInstance.reportDrHash(id, "0xAA")
@@ -48,7 +48,7 @@ contract("EthUsdPriceFeed", accounts => {
       await wrbInstance.reportResult(id, "0xD827831851F93800FB3FE6666666666666")
       let tx = await feed.completeUpdate()
       // check emission of the event and its message correctness
-      truffleAssert.eventEmitted(tx, "resultError", (ev) => {
+      truffleAssert.eventEmitted(tx, "ResultError", (ev) => {
         return ev[0].toString().includes(expectedError)
       })
 
@@ -56,8 +56,8 @@ contract("EthUsdPriceFeed", accounts => {
     })
 
     it("reverts when result not ready", async () => {
-        const halfEther = web3.utils.toWei("0.5", "ether")
-        await feed.requestUpdate({value: halfEther})
+        const requestPrice = web3.utils.toWei("0.0002", "ether")
+        await feed.requestUpdate({value: requestPrice})
         let expectedError = 'Found empty buffer when parsing CBOR value'
         await wrbInstance.reportDrHash(id, "0xAA")
   
@@ -69,13 +69,13 @@ contract("EthUsdPriceFeed", accounts => {
     })
 
     it("reverts when a DR is already pending", async () => {
-        const halfEther = web3.utils.toWei("0.5", "ether")
-        await feed.requestUpdate({value: halfEther})
+        const requestPrice = web3.utils.toWei("0.0002", "ether")
+        await feed.requestUpdate({value: requestPrice})
         let expectedError = 'An update is already pending'
   
         // should fail to insert another DR
         await truffleAssert.reverts(
-        feed.requestUpdate({value: halfEther}), expectedError)
+        feed.requestUpdate({value: requestPrice}), expectedError)
 
         assert.equal(await feed.pending(), true)
     })

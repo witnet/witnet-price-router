@@ -1,4 +1,5 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: MIT
+pragma solidity 0.6.8;
 pragma experimental ABIEncoderV2;
 
 // Import the UsingWitnet library that enables interacting with Witnet
@@ -26,17 +27,17 @@ contract BtcUsdPriceFeed is UsingWitnet, IERC2362 {
   Request public request;
 
   // Emits when the price is updated
-  event priceUpdated(uint64);
+  event PriceUpdated(uint64);
 
   // Emits when found an error decoding request result
-  event resultError(string);
+  event ResultError(string);
 
   // This is `keccak256("Price-BTC/USD-3")`
   bytes32 constant public BTCUSD3ID = bytes32(hex"637b7efb6b620736c247aaa282f3898914c0bef6c12faff0d3fe9d4bea783020");
 
   // This constructor does a nifty trick to tell the `UsingWitnet` library where
   // to find the Witnet contracts on whatever Ethereum network you use.
-  constructor (address _wrb) UsingWitnet(_wrb) public {
+  constructor (address _wrb) public UsingWitnet(_wrb) {
     // Instantiate the Witnet request
     request = new BitcoinPriceRequest();
   }
@@ -79,7 +80,7 @@ contract BtcUsdPriceFeed is UsingWitnet, IERC2362 {
     if (result.isOk()) {
       lastPrice = result.asUint64();
       timestamp = block.timestamp;
-      emit priceUpdated(lastPrice);
+      emit PriceUpdated(lastPrice);
     } else {
       string memory errorMessage;
 
@@ -90,7 +91,7 @@ contract BtcUsdPriceFeed is UsingWitnet, IERC2362 {
       catch (bytes memory errorBytes){
         errorMessage = string(errorBytes);
       }
-      emit resultError(errorMessage);
+      emit ResultError(errorMessage);
     }
 
     // In any case, set `pending` to false so a new update can be requested

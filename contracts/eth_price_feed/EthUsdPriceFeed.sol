@@ -1,4 +1,5 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: MIT
+pragma solidity 0.6.8;
 pragma experimental ABIEncoderV2;
 
 // Import the UsingWitnet library that enables interacting with Witnet
@@ -27,17 +28,17 @@ contract EthUsdPriceFeed is UsingWitnet, IERC2362 {
   Request public request;
 
   // Emits when the price is updated
-  event priceUpdated(uint64);
+  event PriceUpdated(uint64);
 
   // Emits when found an error decoding request result
-  event resultError(string);
+  event ResultError(string);
 
   // This is the ERC2362 identifier for a eth price feed, computed as `keccak256("Price-ETH/USD-3")`
   bytes32 constant public ETHUSD3ID = bytes32(hex"dfaa6f747f0f012e8f2069d6ecacff25f5cdf0258702051747439949737fc0b5");
 
   // This constructor does a nifty trick to tell the `UsingWitnet` library where
   // to find the Witnet contracts on whatever Ethereum network you use.
-  constructor (address _wrb) UsingWitnet(_wrb) public {
+  constructor (address _wrb) public UsingWitnet(_wrb) {
     // Instantiate the Witnet request
     request = new EthPriceRequest();
   }
@@ -80,7 +81,7 @@ contract EthUsdPriceFeed is UsingWitnet, IERC2362 {
     if (result.isOk()) {
       lastPrice = result.asUint64();
       timestamp = block.timestamp;
-      emit priceUpdated(lastPrice);
+      emit PriceUpdated(lastPrice);
     } else {
       string memory errorMessage;
 
@@ -91,7 +92,7 @@ contract EthUsdPriceFeed is UsingWitnet, IERC2362 {
       catch (bytes memory errorBytes){
         errorMessage = string(errorBytes);
       }
-      emit resultError(errorMessage);
+      emit ResultError(errorMessage);
     }
 
     // In any case, set `pending` to false so a new update can be requested
