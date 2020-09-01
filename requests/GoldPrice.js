@@ -2,14 +2,14 @@ import * as Witnet from "witnet-requests"
 
 // Retrieves USD gold price from the coinyep API
 const coinyep = new Witnet.Source("https://coinyep.com/api/v1/?from=XAU&to=EUR&lang=es&format=json")
-  .parseMapJSON() // Parse a Map from the retrieved String
+  .parseJSONMap() // Parse a Map from the retrieved String
   .getFloat("price") // Get the Map value associated to the price key
   .multiply(1000)
   .round()
 
 // Retrieves USD gold price from the dataasg API
 const dataasg = new Witnet.Source("https://data-asg.goldprice.org/dbXRates/EUR")
-  .parseMapJSON()
+  .parseJSONMap()
   .getArray("items")
   .getMap(0)
   .getFloat("xauPrice")
@@ -18,7 +18,7 @@ const dataasg = new Witnet.Source("https://data-asg.goldprice.org/dbXRates/EUR")
 
 // Retrieves USD gold price from the mycurrencytransfer API
 const mycurrencytransfer = new Witnet.Source("https://www.mycurrencytransfer.com/api/current/XAU/EUR")
-  .parseMapJSON()
+  .parseJSONMap()
   .getMap("data")
   .getFloat("rate")
   .multiply(1000)
@@ -26,7 +26,7 @@ const mycurrencytransfer = new Witnet.Source("https://www.mycurrencytransfer.com
 
 // Retrieves USD gold price from the inversoro API
 const inversoro = new Witnet.Source("https://www.inversoro.es/datos/?period=3year&xignite_code=XAU&currency=EUR&weight_unit=ounces")
-  .parseMapJSON()
+  .parseJSONMap()
   .getMap("table_data")
   .getFloat("metal_price_current")
   .multiply(1000)
@@ -60,8 +60,8 @@ const request = new Witnet.Request()
   .addSource(inversoro) // Use source 4
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
-  .setQuorum(4, 1, 2, 5, 70) // Set witness count
-  .setFees(10, 1, 1, 1) // Set economic incentives
+  .setQuorum(4, 70) // Set witness count
+  .setFees(10, 1) // Set economic incentives
   .schedule(0) // Make this request immediately solvable
 
 // Do not forget to export the request object

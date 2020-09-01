@@ -2,14 +2,14 @@ import * as Witnet from "witnet-requests"
 
 // Retrieves USD price of eth from the BitStamp API
 const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/ethusd/")
-  .parseMapJSON() // Parse a `Map` from the retrieved `String`
+  .parseJSONMap() // Parse a `Map` from the retrieved `String`
   .getFloat("last") // Get the `Float` value associated to the `last` key
   .multiply(1000)
   .round()
 
 // Retrieves USD price of eth from the coincap API
 const coincap = new Witnet.Source("https://api.coincap.io/v2/assets")
-  .parseMapJSON()
+  .parseJSONMap()
   .getArray("data")
   .getMap(1)
   .getFloat("priceUsd")
@@ -18,7 +18,7 @@ const coincap = new Witnet.Source("https://api.coincap.io/v2/assets")
 
 // Retrieves USD price of eth from the coinpaprika API
 const coinpaprika = new Witnet.Source("https://api.coinpaprika.com/v1/tickers")
-  .parseArrayJSON()
+  .parseJSONMap()
   .getMap(3)
   .getMap("quotes")
   .getMap("USD")
@@ -53,8 +53,8 @@ const request = new Witnet.Request()
   .addSource(coinpaprika) // Use source 3
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
-  .setQuorum(4, 1, 2, 5, 70) // Set witness count
-  .setFees(10, 1, 1, 1) // Set economic incentives
+  .setQuorum(4, 70) // Set witness count
+  .setFees(10, 1) // Set economic incentives
   .schedule(0) // Make this request immediately solvable
 
 // Do not forget to export the request object
