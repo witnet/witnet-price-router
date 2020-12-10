@@ -67,7 +67,7 @@ module.exports = {
             runs: 200 
           } 
         },
-      version: "0.6.8"
+      version: "0.6.12"
     },
   },
 
