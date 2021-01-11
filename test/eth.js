@@ -21,7 +21,7 @@ contract("EthUsdPriceFeed", accounts => {
     })
 
     it("completes the flow with a correct result", async () => {
-        const requestPrice = web3.utils.toWei("0.0002", "ether")
+        const requestPrice = web3.utils.toWei("0.0003", "ether")
         await feed.requestUpdate({value: requestPrice})
         id = await feed.lastRequestId()
         await wrbInstance.reportDrHash(id, "0xAA")
@@ -38,25 +38,27 @@ contract("EthUsdPriceFeed", accounts => {
     })
 
     it("log an event if errored CBOR decoding", async () => {
-      const requestPrice = web3.utils.toWei("0.0002", "ether")
+      const requestPrice = web3.utils.toWei("0.0003", "ether")
       await feed.requestUpdate({value: requestPrice})
       id = await feed.lastRequestId()
       let expectedError = 'Tried to read `uint64` from a `CBOR.Value` with majorType != 0'
       await wrbInstance.reportDrHash(id, "0xAA")
 
-      // This error message triggers a rever when reading it asErrorMessage
+      // This error message triggers a revert when reading it asErrorMessage
       await wrbInstance.reportResult(id, "0xD827831851F93800FB3FE6666666666666")
       let tx = await feed.completeUpdate()
       // check emission of the event and its message correctness
-      truffleAssert.eventEmitted(tx, "ResultError", (ev) => {
-        return ev[0].toString().includes(expectedError)
+      let event = tx.receipt.rawLogs.some(l => {
+        return web3.utils.hexToAscii(l.data.toString()).includes(expectedError)
       })
-
+      // As we are emiting a string event of bytes that are not in UTF8 format, truffle asserts doesn't detect it
+      // In this case, we should check the rawLogs directly
+      assert(event)
       assert.equal(await feed.pending(), false)
     })
 
     it("reverts when result not ready", async () => {
-        const requestPrice = web3.utils.toWei("0.0002", "ether")
+        const requestPrice = web3.utils.toWei("0.0003", "ether")
         await feed.requestUpdate({value: requestPrice})
         let expectedError = 'Found empty buffer when parsing CBOR value'
         await wrbInstance.reportDrHash(id, "0xAA")
@@ -69,7 +71,7 @@ contract("EthUsdPriceFeed", accounts => {
     })
 
     it("reverts when a DR is already pending", async () => {
-        const requestPrice = web3.utils.toWei("0.0002", "ether")
+        const requestPrice = web3.utils.toWei("0.0003", "ether")
         await feed.requestUpdate({value: requestPrice})
         let expectedError = 'An update is already pending'
   
