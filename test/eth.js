@@ -10,7 +10,11 @@ contract("EthUsdPriceFeed", accounts => {
     let wrbInstance
     let wrbProxy
     let feed
-    beforeEach(async () => {
+    const inclPrice = web3.utils.toWei("0.0001", "ether")
+    const resPrice = web3.utils.toWei("0.0001", "ether")
+    const blockPrice = web3.utils.toWei("0.0001", "ether")
+    const requestPrice = web3.utils.toWei("0.0003", "ether")
+    beforeEach(async () => {  
       witnet = await Witnet.new()
       wrbInstance = await WRB.new()
       wrbProxy = await WRBproxy.new(wrbInstance.address, {
@@ -21,25 +25,23 @@ contract("EthUsdPriceFeed", accounts => {
     })
 
     it("completes the flow with a correct result", async () => {
-        const requestPrice = web3.utils.toWei("0.0003", "ether")
-        await feed.requestUpdate({value: requestPrice})
-        id = await feed.lastRequestId()
-        await wrbInstance.reportDrHash(id, "0xAA")
+      await feed.requestUpdate(inclPrice, resPrice, blockPrice, {value: requestPrice})
+      id = await feed.lastRequestId()
+      await wrbInstance.reportDrHash(id, "0xAA")
   
-        await wrbInstance.reportResult(id, "0x1b0020000000000000")
-        let tx = await feed.completeUpdate()
-        let value = await feed.valueFor("0xdfaa6f747f0f012e8f2069d6ecacff25f5cdf0258702051747439949737fc0b5")
+      await wrbInstance.reportResult(id, "0x1b0020000000000000")
+      let tx = await feed.completeUpdate()
+      let value = await feed.valueFor("0xdfaa6f747f0f012e8f2069d6ecacff25f5cdf0258702051747439949737fc0b5")
 
-        assert.equal(web3.utils.toHex(await feed.lastPrice()), 0x20000000000000)
-        assert.equal(await feed.pending(), false)
-        assert.equal(value[0], 0x20000000000000)
-        assert.notEqual(value[1], 0)
-        assert.equal(value[2], 200)
+      assert.equal(web3.utils.toHex(await feed.lastPrice()), 0x20000000000000)
+      assert.equal(await feed.pending(), false)
+      assert.equal(value[0], 0x20000000000000)
+      assert.notEqual(value[1], 0)
+      assert.equal(value[2], 200)
     })
 
     it("log an event if errored CBOR decoding", async () => {
-      const requestPrice = web3.utils.toWei("0.0003", "ether")
-      await feed.requestUpdate({value: requestPrice})
+      await feed.requestUpdate(inclPrice, resPrice, blockPrice, {value: requestPrice})
       id = await feed.lastRequestId()
       let expectedError = 'Tried to read `uint64` from a `CBOR.Value` with majorType != 0'
       await wrbInstance.reportDrHash(id, "0xAA")
@@ -58,37 +60,34 @@ contract("EthUsdPriceFeed", accounts => {
     })
 
     it("reverts when result not ready", async () => {
-        const requestPrice = web3.utils.toWei("0.0003", "ether")
-        await feed.requestUpdate({value: requestPrice})
-        let expectedError = 'Found empty buffer when parsing CBOR value'
-        await wrbInstance.reportDrHash(id, "0xAA")
+      await feed.requestUpdate(inclPrice, resPrice, blockPrice, {value: requestPrice})
+      let expectedError = 'Found empty buffer when parsing CBOR value'
+      await wrbInstance.reportDrHash(id, "0xAA")
   
-         // should fail to fetch the result
-        await truffleAssert.reverts(
-        feed.completeUpdate(), expectedError)
+      // should fail to fetch the result
+      await truffleAssert.reverts(
+      feed.completeUpdate(), expectedError)
 
-        assert.equal(await feed.pending(), true)
+      assert.equal(await feed.pending(), true)
     })
 
     it("reverts when a DR is already pending", async () => {
-        const requestPrice = web3.utils.toWei("0.0003", "ether")
-        await feed.requestUpdate({value: requestPrice})
-        let expectedError = 'An update is already pending'
+      await feed.requestUpdate(inclPrice, resPrice, blockPrice, {value: requestPrice})
+      let expectedError = 'An update is already pending'
   
-        // should fail to insert another DR
-        await truffleAssert.reverts(
-        feed.requestUpdate({value: requestPrice}), expectedError)
+      // should fail to insert another DR
+      await truffleAssert.reverts(
+      feed.requestUpdate(inclPrice, resPrice, blockPrice, {value: requestPrice}), expectedError)
 
-        assert.equal(await feed.pending(), true)
+      assert.equal(await feed.pending(), true)
     })
 
     it("should fetch 0, 0, 400 if fetching value for non-correct ID", async () => {
-        let value = await feed.valueFor("0xAA")
+      let value = await feed.valueFor("0xAA")
 
-        assert.equal(value[0], 0)
-        assert.equal(value[1], 0)
-        assert.equal(value[2], 400)
-
+      assert.equal(value[0], 0)
+      assert.equal(value[1], 0)
+      assert.equal(value[2], 400)
     })
 
     it("should fetch 0, 0, 404 if no update has completed yet", async () => {
