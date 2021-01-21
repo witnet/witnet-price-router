@@ -10,9 +10,7 @@ contract("EthUsdPriceFeed", accounts => {
     let wrbInstance
     let wrbProxy
     let feed
-    const inclPrice = web3.utils.toWei("0.0001", "ether")
-    const resPrice = web3.utils.toWei("0.0001", "ether")
-    const blockPrice = web3.utils.toWei("0.0001", "ether")
+    const gasPrice = 20000
     const requestPrice = web3.utils.toWei("0.0003", "ether")
     beforeEach(async () => {  
       witnet = await Witnet.new()
@@ -25,7 +23,8 @@ contract("EthUsdPriceFeed", accounts => {
     })
 
     it("completes the flow with a correct result", async () => {
-      await feed.requestUpdate(inclPrice, resPrice, blockPrice, {value: requestPrice})
+      let rewards = await feed.estimateGasCost.call(gasPrice)
+      await feed.requestUpdate(rewards[0], rewards[1], rewards[2], {value: rewards[0].add(rewards[1].add(rewards[2])), gasPrice: gasPrice})
       id = await feed.lastRequestId()
       await wrbInstance.reportDrHash(id, "0xAA")
   
@@ -41,7 +40,8 @@ contract("EthUsdPriceFeed", accounts => {
     })
 
     it("log an event if errored CBOR decoding", async () => {
-      await feed.requestUpdate(inclPrice, resPrice, blockPrice, {value: requestPrice})
+      let rewards = await feed.estimateGasCost.call(gasPrice)
+      await feed.requestUpdate(rewards[0], rewards[1], rewards[2], {value: rewards[0].add(rewards[1].add(rewards[2])), gasPrice: gasPrice})
       id = await feed.lastRequestId()
       let expectedError = 'Tried to read `uint64` from a `CBOR.Value` with majorType != 0'
       await wrbInstance.reportDrHash(id, "0xAA")
@@ -60,7 +60,8 @@ contract("EthUsdPriceFeed", accounts => {
     })
 
     it("reverts when result not ready", async () => {
-      await feed.requestUpdate(inclPrice, resPrice, blockPrice, {value: requestPrice})
+      let rewards = await feed.estimateGasCost.call(gasPrice)
+      await feed.requestUpdate(rewards[0], rewards[1], rewards[2], {value: rewards[0].add(rewards[1].add(rewards[2])), gasPrice: gasPrice})
       let expectedError = 'Found empty buffer when parsing CBOR value'
       await wrbInstance.reportDrHash(id, "0xAA")
   
@@ -72,14 +73,24 @@ contract("EthUsdPriceFeed", accounts => {
     })
 
     it("reverts when a DR is already pending", async () => {
-      await feed.requestUpdate(inclPrice, resPrice, blockPrice, {value: requestPrice})
+      let rewards = await feed.estimateGasCost.call(gasPrice)
+      await feed.requestUpdate(rewards[0], rewards[1], rewards[2], {value: rewards[0].add(rewards[1].add(rewards[2])), gasPrice: gasPrice})
       let expectedError = 'An update is already pending'
   
       // should fail to insert another DR
       await truffleAssert.reverts(
-      feed.requestUpdate(inclPrice, resPrice, blockPrice, {value: requestPrice}), expectedError)
+      feed.requestUpdate(rewards[0], rewards[1], rewards[2], {value: rewards[0].add(rewards[1].add(rewards[2])), gasPrice: gasPrice}), expectedError)
 
       assert.equal(await feed.pending(), true)
+    })
+
+    it("reverts when rewards do not cover Gas Costs", async () => {
+      let rewards = await feed.estimateGasCost.call(gasPrice-1)
+      let expectedError = 'The rewards do not cover gas expenses for bridge nodes. You can get an estimate of these rewards by calling the estimateGasCost function'
+  
+      // should fail to insert another DR
+      await truffleAssert.reverts(
+      feed.requestUpdate(rewards[0], rewards[1], rewards[2], {value: rewards[0].add(rewards[1].add(rewards[2])), gasPrice: gasPrice}), expectedError)
     })
 
     it("should fetch 0, 0, 400 if fetching value for non-correct ID", async () => {

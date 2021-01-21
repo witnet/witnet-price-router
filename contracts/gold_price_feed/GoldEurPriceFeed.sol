@@ -47,12 +47,17 @@ contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
   * @notice Sends `request` to the WitnetRequestsBoard.
   * @dev This method will only succeed if `pending` is 0.
   **/
-  function requestUpdate(uint256 _witnetRequestReward, uint256 _witnetResultReward, uint256 _witnetBlockReward) public payable {
+  function requestUpdate(uint256 _witnetInclusionReward, uint256 _witnetResultReward, uint256 _witnetBlockReward) public payable {
     require(!pending, "An update is already pending. Complete it first before requesting another update.");
+
+    // Check whether we are covering gas prices
+    (uint256 minInclusionReward, uint256 minResultReward, uint256 minBlockReward) = witnetEstimateGasCost(tx.gasprice);
+    require(_witnetInclusionReward >= minInclusionReward && _witnetResultReward >= minResultReward && _witnetBlockReward >= minBlockReward,
+    "The rewards do not cover gas expenses for bridge nodes. You can get an estimate of these rewards by calling the estimateGasCost function");
 
     // Send the request to Witnet and store the ID for later retrieval of the result
     // The `witnetPostRequest` method comes with `UsingWitnet`
-    lastRequestId = witnetPostRequest(request, _witnetRequestReward, _witnetResultReward, _witnetBlockReward);
+    lastRequestId = witnetPostRequest(request, _witnetInclusionReward, _witnetResultReward, _witnetBlockReward);
 
     // Signal that there is already a pending request
     pending = true;
@@ -92,6 +97,13 @@ contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
 
     // In any case, set `pending` to false so a new update can be requested
     pending = false;
+  }
+
+  /// @dev Estimate the amount of reward we need to insert for the current tx gas price.
+  /// @param _gasPrice The gas price for which we need to calculate the rewards.
+  /// @return The rewards to be included for the given gas price as inclusionReward, resultReward, blockReward.
+  function estimateGasCost(uint256 _gasPrice) external view returns(uint256, uint256, uint256){
+    return witnetEstimateGasCost(_gasPrice);
   }
 
   /**
