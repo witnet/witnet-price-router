@@ -44,27 +44,27 @@ contract EthUsdPriceFeed is UsingWitnet, IERC2362 {
   }
 
   /**
-  * @notice Sends `request` to the WitnetRequestsBoard.
+  * @notice Sends `request` to the WitnetRequestBoard.
   * @dev This method will only succeed if `pending` is 0.
   **/
-  function requestUpdate(uint256 _witnetRequestReward, uint256 _witnetResultReward, uint256 _witnetBlockReward) public payable {
-    require(!pending, "An update is already pending. Complete it first before requesting another update.");
+  function requestUpdate() public payable {
+    require(!pending, "Complete pending request before requesting a new one");
 
     // Send the request to Witnet and store the ID for later retrieval of the result
     // The `witnetPostRequest` method comes with `UsingWitnet`
-    lastRequestId = witnetPostRequest(request, _witnetRequestReward, _witnetResultReward, _witnetBlockReward);
+    lastRequestId = witnetPostRequest(request);
 
     // Signal that there is already a pending request
     pending = true;
   }
 
   /**
-  * @notice Reads the result, if ready, from the WitnetRequestsBoard.
+  * @notice Reads the result, if ready, from the WitnetRequestBoard.
   * @dev The `witnetRequestAccepted` modifier comes with `UsingWitnet` and allows to
   * protect your methods from being called before the request has been successfully
   * relayed into Witnet.
   **/
-  function completeUpdate() public witnetRequestAccepted(lastRequestId) {
+  function completeUpdate() public witnetRequestResolved(lastRequestId) {
     require(pending, "There is no pending update.");
 
     // Read the result of the Witnet request
@@ -75,13 +75,14 @@ contract EthUsdPriceFeed is UsingWitnet, IERC2362 {
     // If it failed, revert the transaction with a pretty-printed error message
     if (result.isOk()) {
       lastPrice = result.asUint64();
+      // solhint-disable-next-line not-rely-on-time
       timestamp = block.timestamp;
       emit PriceUpdated(lastPrice);
     } else {
       string memory errorMessage;
 
       // Try to read the value as an error message, catch error bytes if read fails
-      try result.asErrorMessage() returns (Witnet.ErrorCodes errorCode, string memory e) {
+      try result.asErrorMessage() returns (Witnet.ErrorCodes, string memory e) {
         errorMessage = e;
       }
       catch (bytes memory errorBytes){
