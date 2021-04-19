@@ -1,9 +1,9 @@
 {
-  "name": "witnet-pricefeeds-examples",
+  "name": "witnet-pricefeed-examples",
   "version": "0.1.1",
   "description": "Price feed examples using the Witnet decentralized oracle network",
   "main": "",
-  "repository": "https://github.com/witnet/witnet-pricefeeds-examples",
+  "repository": "https://github.com/witnet/witnet-pricefeed-examples",
   "author": "Witnet Devs <devs@witnet.io>",
   "license": "MIT",
   "private": false,
