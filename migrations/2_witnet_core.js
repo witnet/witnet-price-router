@@ -7,14 +7,14 @@ const Witnet = artifacts.require("Witnet")
 
 const addresses = {
   "goerli": {
-    "CBOR": "0x4ADd24Cb572b8951808f81b8235ac302D9910c63",
-    "Witnet": "0x80Dc9287085ea7C103c3EAe117Ad9A1CcCd02C46",
-    "WitnetRequestBoardProxy": "0xd58615B1e77E6eD3a583CB12A7D0016cad7A8438",
+    "CBOR": "0x8e3b1DD86560c99070C4852242235Cb7065277Fe",
+    "Witnet": "0x06B871C3a9FDd68a6e1Db1F4050C645A3229f929",
+    "WitnetRequestBoardProxy": "0xF1788C0e04322d54a07f6c8E8f933185D4cddca7",
   },
   "rinkeby": {
-    "CBOR": "0xFBB631ec0F7b423d23c649bd5733bc450Ab5b366",
-    "Witnet": "0x47689bc2d27770Ab3a358C1C2C9c998028ea0823",
-    "WitnetRequestBoardProxy": "0xE1EC13d1521B98ee7b826751048806E85DC1F1bA",
+    "CBOR": "0x5E5E204dB746f97E1bBBFAf3639E760177eDbFf9",
+    "Witnet": "0x14a2C568AF4F3fa834C907cC08E2C6c5019daaC1",
+    "WitnetRequestBoardProxy": "0x3F993030e2ba6473B5AaC2DaEA4A64b05500Ac8B",
   },
 }
 
