@@ -26,7 +26,8 @@
     "verify-flattened": "npx truffle run verify"
   },
   "dependencies": {
-    "adomedianizer": "git+https://github.com/tellor-io/ADOMedianizer.git",
+    "@openzeppelin/contracts": "^4.1.0",
+    "adomedianizer": "git+https://github.com/adoracles/ado-contracts",
     "openzeppelin-solidity": "^2.4.0",
     "witnet-ethereum-bridge": "git+https://github.com/witnet/witnet-ethereum-bridge",
     "witnet-requests": "git+https://github.com/witnet/witnet-requests-js"

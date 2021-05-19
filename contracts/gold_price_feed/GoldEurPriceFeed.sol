@@ -1,16 +1,17 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.6.12;
-pragma experimental ABIEncoderV2;
+pragma solidity 0.8.4;
 
 // Import the UsingWitnet library that enables interacting with Witnet
 import "witnet-ethereum-bridge/contracts/UsingWitnet.sol";
 // Import the ERC2362 interface
-import "adomedianizer/contracts/IERC2362.sol";
+import "adomedianizer/contracts/interfaces/IERC2362.sol";
 // Import the goldPrice request that you created before
 import "../requests/GoldPrice.sol";
 
 // Your contract needs to inherit from UsingWitnet
 contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
+
+  using Witnet for Witnet.Result;
 
   // The public gold price point
   uint64 public lastPrice;
@@ -38,7 +39,7 @@ contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
 
   // This constructor does a nifty trick to tell the `UsingWitnet` library where
   // to find the Witnet contracts on whatever Ethereum network you use.
-  constructor (address _wrb) public UsingWitnet(_wrb) {
+  constructor (address _wrb) UsingWitnet(_wrb) {
     // Instantiate the Witnet request
     request = new GoldPriceRequest();
   }
@@ -106,7 +107,7 @@ contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
     // No value is yet available for the queried data point ID
     if (timestamp == 0) return(0, 0, 404);
 
-    int256 value = int256(lastPrice);
+    int256 value = int256(uint256(lastPrice));
 
     return(value, timestamp, 200);
   }
