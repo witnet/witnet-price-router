@@ -1,19 +1,21 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.4;
+pragma solidity >=0.7.0 <0.9.0;
+pragma experimental ABIEncoderV2;
+
 
 // Import the UsingWitnet library that enables interacting with Witnet
 import "witnet-ethereum-bridge/contracts/UsingWitnet.sol";
 // Import the ERC2362 interface
 import "adomedianizer/contracts/interfaces/IERC2362.sol";
-// Import the goldPrice request that you created before
-import "../requests/GoldPrice.sol";
+// Import the BitcoinPrice request that you created before
+import "./requests/BitcoinPrice.sol";
 
 // Your contract needs to inherit from UsingWitnet
-contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
+contract BtcUsdPriceFeed is UsingWitnet, IERC2362 {
 
   using Witnet for Witnet.Result;
 
-  // The public gold price point
+  // The public Bitcoin price point
   uint64 public lastPrice;
 
   // Stores the ID of the last Witnet request
@@ -34,14 +36,14 @@ contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
   // Emits when found an error decoding request result
   event ResultError(string);
 
-  // This is the ERC2362 identifier for a gold price feed, computed as `keccak256("Price-XAU/EUR-3")`
-  bytes32 constant public XAUEUR3ID = bytes32(hex"68cba0705475e40c1ddbf7dc7c1ae4e7320ca094c4e118d1067c4dea5df28590");
+  // This is `keccak256("Price-BTC/USD-3")`
+  bytes32 constant public BTCUSD3ID = bytes32(hex"637b7efb6b620736c247aaa282f3898914c0bef6c12faff0d3fe9d4bea783020");
 
   // This constructor does a nifty trick to tell the `UsingWitnet` library where
   // to find the Witnet contracts on whatever Ethereum network you use.
   constructor (address _wrb) UsingWitnet(_wrb) {
     // Instantiate the Witnet request
-    request = new GoldPriceRequest();
+    request = new BitcoinPriceRequest();
   }
 
   /**
@@ -103,7 +105,7 @@ contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
   **/
   function valueFor(bytes32 _id) external view override returns(int256, uint256, uint256) {
     // Unsupported data point ID
-    if(_id != XAUEUR3ID) return(0, 0, 400);
+    if(_id != BTCUSD3ID) return(0, 0, 400);
     // No value is yet available for the queried data point ID
     if (timestamp == 0) return(0, 0, 404);
 

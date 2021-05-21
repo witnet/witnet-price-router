@@ -3,13 +3,12 @@
 const Witnet = artifacts.require("Witnet")
 const WitnetRequestBoardProxy = artifacts.require("WitnetRequestBoardProxy")
 const BtcUsdPriceFeed = artifacts.require("BtcUsdPriceFeed")
-const GoldEurPriceFeed = artifacts.require("GoldEurPriceFeed")
 const EthUsdPriceFeed = artifacts.require("EthUsdPriceFeed")
+const GoldEurPriceFeed = artifacts.require("GoldEurPriceFeed")
 
-
-module.exports = function (deployer) {
-  deployer.link(Witnet, [BtcUsdPriceFeed, GoldEurPriceFeed, EthUsdPriceFeed])
-  deployer.deploy(BtcUsdPriceFeed, WitnetRequestBoardProxy.address)
-  deployer.deploy(GoldEurPriceFeed, WitnetRequestBoardProxy.address)
-  deployer.deploy(EthUsdPriceFeed, WitnetRequestBoardProxy.address)
+module.exports = async function (deployer) {
+  await deployer.link(Witnet, [BtcUsdPriceFeed, EthUsdPriceFeed, GoldEurPriceFeed])
+  await deployer.deploy(BtcUsdPriceFeed, WitnetRequestBoardProxy.address)
+  await deployer.deploy(EthUsdPriceFeed, WitnetRequestBoardProxy.address)
+  await deployer.deploy(GoldEurPriceFeed, WitnetRequestBoardProxy.address)
 }
