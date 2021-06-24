@@ -30,6 +30,11 @@ module.exports = {
       host: "localhost",
       port: 8542,
     },
+    conflux: {
+      network_id: 1,
+      host: "localhost",
+      port: 3000,
+    },
   },
   // Set default mocha options here, use special reporters etc.
   mocha: {
