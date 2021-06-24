@@ -4,7 +4,7 @@ pragma experimental ABIEncoderV2;
 
 
 // Import the UsingWitnet library that enables interacting with Witnet
-import "witnet-ethereum-bridge/contracts/UsingWitnet.sol";
+import "witnet-ethereum-bridge/contracts/exports/UsingWitnet.sol";
 // Import the ERC2362 interface
 import "adomedianizer/contracts/interfaces/IERC2362.sol";
 // Import the goldPrice request that you created before
@@ -13,7 +13,7 @@ import "./requests/GoldPrice.sol";
 // Your contract needs to inherit from UsingWitnet
 contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
 
-  using Witnet for Witnet.Result;
+  using Witnet for WitnetTypes.Result;
 
   // The public gold price point
   uint64 public lastPrice;
@@ -28,7 +28,7 @@ contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
   bool public pending;
 
   // The Witnet request object, is set in the constructor
-  Request public request;
+  WitnetRequest public request;
 
   // Emits when the price is updated
   event PriceUpdated(uint64);
@@ -71,8 +71,8 @@ contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
     require(pending, "There is no pending update.");
 
     // Read the result of the Witnet request
-    // The `witnetReadResult` method comes with `UsingWitnet`
-    Witnet.Result memory result = witnetReadResult(lastRequestId);
+    // The `witnetDestroyResult` method that comes with `UsingWitnet`
+    WitnetTypes.Result memory result = witnetDestroyResult(lastRequestId);
 
     // If the Witnet request succeeded, decode the result and update the price point
     // If it failed, revert the transaction with a pretty-printed error message
@@ -85,7 +85,7 @@ contract GoldEurPriceFeed is UsingWitnet, IERC2362 {
       string memory errorMessage;
 
       // Try to read the value as an error message, catch error bytes if read fails
-      try result.asErrorMessage() returns (Witnet.ErrorCodes, string memory e) {
+      try result.asErrorMessage() returns (WitnetTypes.ErrorCodes, string memory e) {
         errorMessage = e;
       }
       catch (bytes memory errorBytes){

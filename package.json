@@ -1,6 +1,6 @@
 {
   "name": "witnet-price-feed-examples",
-  "version": "0.1.1",
+  "version": "0.3.1",
   "description": "Price feed examples using the Witnet decentralized oracle network",
   "main": "",
   "repository": "https://github.com/witnet/witnet-pricefeed-examples",
@@ -29,8 +29,8 @@
     "@openzeppelin/contracts": "^4.1.0",
     "adomedianizer": "git+https://github.com/adoracles/ado-contracts",
     "openzeppelin-solidity": "^2.4.0",
-    "witnet-ethereum-bridge": "git+https://github.com/witnet/witnet-ethereum-bridge",
-    "witnet-requests": "git+https://github.com/witnet/witnet-requests-js"
+    "witnet-ethereum-bridge": "git+https://github.com/guidiaz/witnet-ethereum-bridge#destructible-drs-mono-interface",
+    "witnet-requests": "git+https://github.com/guidiaz/witnet-requests-js#0.3.1"
   },
   "devDependencies": {
     "dotenv": "8.2.0",
