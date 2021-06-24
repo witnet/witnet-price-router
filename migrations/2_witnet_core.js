@@ -20,7 +20,7 @@ module.exports = function (deployer, network, accounts) {
     Witnet.address = addresses[network]["Witnet"]
     WitnetRequestBoard.address = addresses[network]["WitnetProxy"]
   } else {
-    console.log("Fatal: cannot deploy price feeds if no Witnet addresses are provided.")
-    exit(-1)
+    console.log("Info: cannot deploy price feeds if no Witnet addresses are provided.")
+    process.exit(0)
   }
 }
