@@ -60,7 +60,7 @@ const request = new Witnet.Request()
   .addSource(inversoro) // Use source 4
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
-  .setQuorum(4, 70) // Set witness count
+  .setQuorum(100, 70) // Set witness count
   .setFees(10, 1) // Set economic incentives
   .schedule(0) // Make this request immediately solvable
 

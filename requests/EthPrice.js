@@ -53,7 +53,7 @@ const request = new Witnet.Request()
   .addSource(coinpaprika) // Use source 3
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
-  .setQuorum(4, 70) // Set witness count
+  .setQuorum(100, 70) // Set witness count
   .setFees(10, 1) // Set economic incentives
   .schedule(0) // Make this request immediately solvable
 
