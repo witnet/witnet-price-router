@@ -54,11 +54,18 @@ module.exports = {
       host: "localhost",
       port: 8542,
     },
-    conflux: {
+    "conflux.testnet": {
       network_id: 1,
       host: "localhost",
       port: 3000,
-    }
+      gasPrice: 1,
+    },
+    "conflux.mainnet": {
+      network_id: 1029,
+      host: "localhost",
+      port: 3000,
+      gasPrice: 1,
+    },
   },
 
   // The `solc` compiler is set to optimize output bytecode with 200 runs, which is the standard these days
