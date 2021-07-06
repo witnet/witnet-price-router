@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "test": "npx truffle test",
+    "test": "npm run compile-requests && npx truffle test",
     "console": "npx truffle console",
     "compile": "npm run compile-contracts",
     "compile-requests": "npx rad2sol",
