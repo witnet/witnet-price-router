@@ -8,3 +8,7 @@ package-lock.json
 .old
 
 Flattened*.sol
+contracts/flattened/**
+contracts/requests/*
+migrations/2_witnet_core.js
+migrations/3_user_contracts.js
