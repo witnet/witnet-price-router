@@ -5,10 +5,9 @@ yarn.lock
 package-lock.json
 
 .env
-.old
 
 Flattened*.sol
 contracts/flattened/**
-contracts/requests/*
+contracts/requests/**
 migrations/2_witnet_core.js
 migrations/3_user_contracts.js

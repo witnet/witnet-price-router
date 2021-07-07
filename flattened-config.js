@@ -1,6 +1,7 @@
 // In order to load environment variables (e.g. API keys)
 module.exports = {
-  contracts_directory: "./contracts/flattened/",
+  contracts_directory: process.env.FLATTENED_DIRECTORY,
+  migrations_directory: process.env.FLATTENED_DIRECTORY,
   networks: {
     test: {
       provider: require("ganache-cli").provider({ gasLimit: 100000000, seed: 1234 }),
@@ -19,6 +20,7 @@ module.exports = {
       network_id: 4,
       host: "localhost",
       port: 8544,
+      gasPrice: 1e9
     },
     goerli: {
       network_id: 5,

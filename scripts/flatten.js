@@ -1,23 +1,53 @@
-const exec = require('child_process').exec
-const path = require('path')
-const fs = require('fs')
+const exec = require("child_process").exec
+const fs = require("fs")
+const os = require("os")
+const path = require("path")
 
 if (process.argv.length < 3) {
-  console.log("Usage: node flatten.js /path/to/solidity/files/")
-  process.exit(1)
+  console.log("Usage: npm|yarn flatten </path/to/contracts/folder/ | /path/to/contract/file.sol>")
+  process.exit(0)
 }
 
-const dirname = path.dirname(process.argv[2])
-
-if (!fs.existsSync(".\\contracts\\flattened\\")) {
-  exec("mkdir contracts\\flattened\\")
+try {
+  createFolder("./contracts/flattened")
+  const stats = fs.lstatSync(process.argv[2])
+  if (stats.isFile()) {
+    flatten(path.parse(process.argv[2]).dir, process.argv[2])
+  } else if (stats.isDirectory()) {
+    const basedir = path.normalize(process.argv[2]).replace(/\\/g, "/")
+    const files = fs.readdirSync(basedir).filter(filename => filename.endsWith(".sol"))
+    files.forEach(filename => {
+      flatten(basedir, filename)
+    })
+    console.log(`Flattened ${files.length} Solidity files.`)
+  }
+} catch (e) {
+  console.log("Fatal:", e)
+  process.exit(-1)
 }
 
-const files = fs.readdirSync(dirname).filter(filename => filename.endsWith(".sol"))
-files.forEach(filename => {
-  const target = dirname + "\\" + filename
-  console.log(`Flattening ${target}...`)
-  exec(`npx truffle-flattener ${target} > .\\contracts\\flattened\\Flattened${filename}`)
-})
+/// ////////////////////////////////////////////////////////////////////////////
 
-console.log(`Flattened ${files.length} Solidity files.`)
+function createFolder (folder) {
+  if (!fs.existsSync(folder)) {
+    if (os.type() === "Windows_NT") {
+      folder = folder.replace(/\//g, "\\")
+      exec(`mkdir ${folder}`)
+    } else {
+      exec(`mkdir -p ${folder}`)
+    }
+  }
+}
+
+function flatten (basedir, filepath) {
+  const filename = path.parse(filepath).base
+  const basename = path.parse(filepath).name
+  const flattened = `contracts/flattened/${basename}/Flattened${basename}.sol`
+  createFolder(`contracts/flattened/${basename}/`)
+  if (fs.existsSync(flattened)) {
+    console.log(`Skipping ${filename}: already flattened as '${flattened}'...`)
+  } else {
+    console.log(`Flattening ${filename} into '${flattened}...`)
+    exec(`npx truffle-flattener ${basedir}/${filename} > ${flattened}`)
+  }
+}
