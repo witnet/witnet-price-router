@@ -12,8 +12,8 @@
     "console": "npx truffle console",
     "compile": "npm run compile-contracts",
     "compile-requests": "npx rad2sol",
-    "compile-contracts": "npm run postinstall && npx truffle compile",
-    "compile-flattened": "npx truffle compile --all --config flattened-config.js ",
+    "compile-contracts": "npm run postinstall && npm run compile-requests && npx truffle compile",
+    "compile-flattened": "npm run compile-contracts && npx truffle compile --all --config flattened-config.js ",
     "coverage": "solidity-coverage",
     "flatten": "node ./scripts/flatten.js 2>&1",
     "fmt": "solhint --max-warnings 0 \"contracts/**/*.sol\" && eslint ./test && solhint \"test/**/*.sol\"",
@@ -22,7 +22,7 @@
     "solium": "solium -d contracts",
     "solium:fix": "solium -d contracts --fix",
     "migrate": "npx truffle migrate",
-    "migrate-flattened": "npm run flatten && npx truffle migrate --config flattened-config.js",
+    "migrate-flattened": "npm run compile-flattened && npx truffle migrate --config flattened-config.js",
     "verify-flattened": "npx truffle run verify"
   },
   "dependencies": {
