@@ -1,9 +1,13 @@
-var exec = require('child_process').exec;
-var os = require('os');
+var exec = require('child_process').exec
+var os = require('os')
+var fs = require('fs')
 
 switch (os.type()) {
   case "Windows_NT":
-    exec("mkdir build\\contracts\\ && copy node_modules\\witnet-ethereum-bridge\\build\\contracts\\*.json build\\contracts")
+    if (!fs.existsSync(".\\build\\contracts\\")) {
+      exec("mkdir build\\contracts\\")
+    }
+    exec("copy node_modules\\witnet-ethereum-bridge\\build\\contracts\\Witnet*.json build\\contracts")
     break;
   default:
     exec("mkdir -p build/contracts/./ && cp node_modules/witnet-ethereum-bridge/build/contracts/*.json build/contracts")
