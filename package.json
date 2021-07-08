@@ -9,6 +9,7 @@
   "private": false,
   "scripts": {
     "console": "npx truffle console",
+    "clean": "npm run clean:flattened && node ./scripts/clean.js && npm run postinstall",
     "clean:flattened": "node ./scripts/flattened-clean.js",
     "compile": "npm run compile:contracts",
     "compile:requests": "npx rad2sol",
