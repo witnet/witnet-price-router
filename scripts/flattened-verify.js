@@ -1,17 +1,19 @@
 /* eslint-disable camelcase */
 /* eslint-disable new-cap */
+/* eslint-disable no-multi-str */
+/* eslint-disable no-template-curly-in-string */
 
 const exec = require("child_process").exec
 const fs = require("fs")
-const os = require("os")
 const cli = new cli_func()
 
 require("dotenv").config()
 
 if (process.argv.length < 4) {
-  console.log()
-  console.log("Usage: npm|yarn verify:flattened <ArtifactName> <Network>")
-  console.log()
+  console.log("\n\
+    Usage: yarn verify:flattened <ArtifactName> <Network>\n\
+       or: npm run verify:flattened <ArtifactName> <Network>\n\n\
+  ")
   process.exit(0)
 }
 
@@ -20,19 +22,19 @@ const network = process.argv[3]
 process.env.FLATTENED_DIRECTORY = `./contracts/flattened/${artifact}/`
 
 if (!fs.existsSync(`${process.env.FLATTENED_DIRECTORY}/Flattened${artifact}.sol`)) {
-  console.log()
-  console.log("> Please, flatten the artifact first. E.g.:")
-  console.log(`  $ yarn flatten contracts${os.type() === "Windows_NT" ? "\\" : "/"}${artifact}.sol`)
-  console.log()
-  process.exit(0)
+  console.error("\n\
+    > Please, flatten the artifact first. E.g.:\n\
+      $ yarn flatten contracts${os.type() === \"Windows_NT\" ? \"\\\\\" : \"/\"}${artifact}.sol\n\n\
+  ")
+  process.exit(1)
 }
 
 verifyFlattened(artifact, network).catch(err => {
-  console.log("Fatal:", err)
-  console.log()
-  console.log("> Please, make sure you run migrate:flattened the artifact first. E.g.:")
-  console.log(`  $ yarn migrate:flatten ${artifact} ${network}`)
-  console.log()
+  console.error("Fatal:", err)
+  console.error("\n\
+    > Please, make sure you run migrate:flattened the artifact first. E.g.:\n\
+      $ yarn migrate:flattened ${artifact} ${network}\n\n\
+  ")
   process.exit(1)
 })
 
@@ -54,5 +56,5 @@ function cli_func () {
 
 async function verifyFlattened (artifact, network) {
   console.log(`> Verifying from ${process.env.FLATTENED_DIRECTORY} into network '${network}'...`)
-  await cli.exec(`truffle run verify --config flattened-config.js ${process.argv[2]} --network ${network}`)
+  await cli.exec(`truffle run verify --config flattened-config.js ${artifact} --network ${network}`)
 }

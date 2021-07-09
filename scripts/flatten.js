@@ -1,10 +1,15 @@
+/* eslint-disable no-multi-str */
+
 const exec = require("child_process").exec
 const fs = require("fs")
 const os = require("os")
 const path = require("path")
 
 if (process.argv.length < 3) {
-  console.log("Usage: npm|yarn flatten </path/to/contracts/folder/ | /path/to/contract/file.sol>")
+  console.log("\n\
+    Usage: yarn flatten </path/to/contracts/folder/ | /path/to/contract/file.sol>\n\
+       or: npm run flatten </path/to/contracts/folder/ | /path/to/contract/file.sol>\n\n\
+  ")
   process.exit(0)
 }
 

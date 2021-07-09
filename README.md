@@ -15,7 +15,7 @@ Witnet repository containing:
   yarn compile:requests
   ```
 
-- Feel free to modify/add your own Data Feed Solidity inside the `./contracts` directory. May you follow [this other tutorial](), or have a look to the included examples:
+- Feel free to modify/add your own Data Feed Solidity inside the `./contracts` directory. May you follow [this other tutorial](https://docs.witnet.io/tutorials/bitcoin-price-feed/contract/), or have a look to the included examples:
   `./contracts/BtcUsdPriceFeed.sol`
   `./contracts/EthUsdPriceFeed.sol`
   `./contracts/GoldEurPriceFeed.sol`
@@ -23,11 +23,11 @@ Witnet repository containing:
   ```console
   yarn compile
   ```
-- For migrating your contracts, please revist first `./truffle-config.js`, setup desired network properly, and then:
+- For migrating your contracts, please open first `./truffle-config.js`, setup the desired network properly, and then:
    ```console
    yarn migrate --network rinkeby
    ```
-- Some scripts are ready for you in case you wanted not only to deploy your data feed contracts, but also **verify** them into ***Etherscan***:
+- Some scripts are ready for you in case you wanted not only to deploy your data feed contracts, but also **verify** them in ***Etherscan***:
   - Get an API_KEY from [Etherscan](https://etherscan.io/apis).
   - Create a new file **`.env`** inside the root directory and complete the following line:
     ```console
@@ -37,11 +37,11 @@ Witnet repository containing:
     ```console
     yarn flatten contracts/BtcUsdPriceFeed.sol
     ```
-  - Migrate flattened contracts into preferred network:
+  - Migrate flattened contracts into the preferred network:
     ```console
     yarn migrate:flattened BtcUsdPriceFeed rinkeby
     ```
-  - Verify desired artifact into preferred network:
+  - Verify the desired artifact into the preferred network:
     ```console
     yarn verify:flattened BtcUsdPriceFeed rinkeby
     ```

@@ -17,9 +17,8 @@ const coincap = new Witnet.Source("https://api.coincap.io/v2/assets")
   .round()
 
 // Retrieves USD price of eth from the coinpaprika API
-const coinpaprika = new Witnet.Source("https://api.coinpaprika.com/v1/tickers")
+const coinpaprika = new Witnet.Source("https://api.coinpaprika.com/v1/tickers/eth-ethereum")
   .parseJSONMap()
-  .getMap(3)
   .getMap("quotes")
   .getMap("USD")
   .getFloat("price")

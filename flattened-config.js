@@ -15,22 +15,25 @@ module.exports = {
       network_id: 3,
       host: "localhost",
       port: 8543,
+      gasPrice: 1e9
     },
     rinkeby: {
       network_id: 4,
       host: "localhost",
       port: 8544,
-      gasPrice: 1e9
+      gasPrice: 10e9
     },
     goerli: {
       network_id: 5,
       host: "localhost",
       port: 8545,
+      gasPrice: 1e9
     },
     kovan: {
       network_id: 42,
       host: "localhost",
       port: 8542,
+      gasPrice: 1e9
     },
   },
   // Set default mocha options here, use special reporters etc.
