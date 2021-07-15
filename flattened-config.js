@@ -35,6 +35,12 @@ module.exports = {
       port: 8542,
       gasPrice: 1e9
     },
+    mainnet: {
+      network_id: 1,
+      host: "localhost",
+      port: 9545,
+      gasPrice: 20000000000, // 20 gwei
+    },
   },
   // Set default mocha options here, use special reporters etc.
   mocha: {
