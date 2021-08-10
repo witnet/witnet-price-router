@@ -2,18 +2,32 @@ const exec = require("child_process").execSync
 const os = require("os")
 const fs = require("fs")
 
-if (fs.existsSync("./migrations")) {
-  if (os.type() === "Windows_NT") {
-    exec("del .\\migrations\\2_witnet_core.js .\\migrations\\3_user_contracts.js /f /q")
-  } else {
-    exec("rm -f ./migrations/2_witnet_core.js ./migrations/3_user_contracts.js")
-  }
+if (process.argv.length < 3) {
+  console.log(`Usage: ${0} ${1} /path/or/file/to/be/cleaned`)
+  process.exit(0)
 }
 
-if (fs.existsSync("./contracts/requests")) {
-  if (os.type() === "Windows_NT") {
-    exec("del .\\contracts\\requests\\*.sol /f /q")
-  } else {
-    exec("rm -f ./contracts/requests/*.sol")
+const targets = process.argv.slice(2)
+
+targets.forEach(target => {
+  console.log(`Deleting ${target}...`)
+  if (fs.existsSync(target)) {
+    if (fs.lstatSync(target).isDirectory()) {
+      if (os.type() === "Windows_NT") {
+        target = target.replace(/\//g, "\\")
+        exec(`del ${target}\\ /f /q /s`)
+      } else {
+        target = target.replace(/\\/g, "/")
+        exec(`rm -rf ${target}/*`)
+      }
+    } else {
+      if (os.type() === "Windows_NT") {
+        target = target.replace(/\//g, "\\")
+        exec(`del ${target} /f /q`)
+      } else {
+        target = target.replace(/\\/g, "/")
+        exec(`rm -f ${target}`)
+      }
+    }
   }
-}
+})

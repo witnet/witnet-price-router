@@ -29,6 +29,9 @@ jobs:
     - name: Compile solidity contracts
       run: |
         npm run compile:contracts
+    - name: Flatten solidity contracts
+      run: |
+        npm run flatten
     - name: Run tests
       run: |
         npm run test

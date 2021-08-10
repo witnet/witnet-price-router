@@ -14,7 +14,7 @@ if (process.argv.length < 3) {
 }
 
 try {
-  createFolder("./contracts/flattened")
+  createFolder("./flattened")
   const stats = fs.lstatSync(process.argv[2])
   if (stats.isFile()) {
     flatten(path.parse(process.argv[2]).dir, process.argv[2])
@@ -24,7 +24,7 @@ try {
     files.forEach(filename => {
       flatten(basedir, filename)
     })
-    console.log(`Flattened ${files.length} Solidity files.`)
+    console.log(`\nFlattened ${files.length} Solidity files.\n`)
   }
 } catch (e) {
   console.log("Fatal:", e)
@@ -47,8 +47,8 @@ function createFolder (folder) {
 function flatten (basedir, filepath) {
   const filename = path.parse(filepath).base
   const basename = path.parse(filepath).name
-  const flattened = `contracts/flattened/${basename}/Flattened${basename}.sol`
-  createFolder(`contracts/flattened/${basename}/`)
+  const flattened = `flattened/${basename}/Flattened${basename}.sol`
+  createFolder(`flattened/${basename}/`)
   if (fs.existsSync(flattened)) {
     console.log(`Skipping ${filename}: already flattened as '${flattened}'...`)
   } else {

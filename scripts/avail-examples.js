@@ -1,0 +1,5 @@
+const radons = require("../migrations/radons")
+const datafeeds = Object.keys(radons)
+console.log("Available data feed examples ready for deployment:\n")
+datafeeds.forEach(datafeed => console.log(`  ${datafeed}`))
+console.log()

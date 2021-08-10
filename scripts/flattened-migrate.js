@@ -3,35 +3,55 @@
 /* eslint-disable no-multi-str */
 /* eslint-disable no-template-curly-in-string */
 
+require("dotenv").config()
+
 const exec = require("child_process").exec
 const fs = require("fs")
 const os = require("os")
 const cli = new cli_func()
 
+const realm = process.env.WITNET_EVM_REALM.toLowerCase() || "default"
+const settings = require("../migrations/settings")
+
+const radons = require("../migrations/radons")
+
 if (process.argv.length < 4) {
   console.log()
   console.log("\n\
-    Usage: yarn migrate:flattened <ArtifactName> <Network>\n\
-       or: npm run migrate:flattened <ArtifactName> <Network>\n\n\
+    Usage: yarn migrate:flattened <PriceFeedExample> <Network>\n\
+       or: npm run migrate:flattened <PriceFeedExample> <Network>\n\n\
   ")
   process.exit(0)
 }
 
-const artifact = process.argv[2]
+const artifact = settings.artifacts[realm].ERC2362PriceFeed || settings.artifacts.default.ERC2362PriceFeed
+const pricefeed = process.argv[2]
 const network = process.argv[3]
-process.env.FLATTENED_DIRECTORY = `./contracts/flattened/${artifact}/`
+process.env.FLATTENED_DIRECTORY = `./flattened/${artifact}/`
+
+if (!radons[pricefeed]) {
+  console.error("\n!!! Data feed example not found in 'migrations/radons.js'\n")
+  console.error("> To list available data feed examples, please use:\n")
+  console.error("  $ npm run avail:examples\n")
+  process.exit(0)
+}
+
+if (!settings.networks[realm][network]) {
+  console.error("\n!!! Network configuration not found in 'migrations/settings.js'\n")
+  console.error("> To list available networks, please use:\n")
+  console.error("  $ npm run avail:networks\n")
+  process.exit(0)
+}
 
 if (!fs.existsSync(`${process.env.FLATTENED_DIRECTORY}/Flattened${artifact}.sol`)) {
-  console.log("\n\
-    > Please, flatten the artifact first. E.g.:\n\
-      $ yarn flatten contracts${os.type() === \"Windows_NT\" ? \"\\\\\" : \"/\"}${artifact}.sol\n\n\
-  ")
+  console.log("\n> Please, flatten artifacts first:\n")
+  console.log("  $ npm run flatten\n")
   process.exit(0)
 }
 
 compileFlattened().then(() => {
   console.log()
-  composeMigrationScript(artifact)
+  composeMigrationScript(pricefeed)
   migrateFlattened(network).then(() => {
     deleteMigrationScript()
     console.log()
@@ -61,7 +81,7 @@ function cli_func () {
 
 async function migrateFlattened (network) {
   console.log(`> Migrating from ${process.env.FLATTENED_DIRECTORY} into network '${network}'...`)
-  await cli.exec(`truffle migrate --reset --config flattened-config.js --network ${network} --skip-dry-run`)
+  await cli.exec(`truffle migrate --reset --config truffle-config.flattened.js --network ${network}`)
     .catch(err => {
       console.error(err)
       process.exit(-2)
@@ -70,7 +90,7 @@ async function migrateFlattened (network) {
 
 async function compileFlattened () {
   console.log(`> Compiling from ${process.env.FLATTENED_DIRECTORY}...`)
-  await cli.exec("truffle compile --all --config flattened-config.js")
+  await cli.exec("truffle compile --all --config truffle-config.flattened.js")
     .catch(err => {
       console.error(err)
       process.exit(-1)
@@ -78,7 +98,7 @@ async function compileFlattened () {
 }
 
 function composeMigrationScript (artifact) {
-  let templateFile = "./scripts/templates/deploy.template.js"
+  let templateFile = "./scripts/templates/deploy.flattened.template.js"
   let migrationFile = `${process.env.FLATTENED_DIRECTORY}/1_deploy.js`
   if (os.type() === "Windows_NT") {
     templateFile = templateFile.replace(/\//g, "\\")
@@ -86,13 +106,15 @@ function composeMigrationScript (artifact) {
   }
   try {
     let script = fs.readFileSync(templateFile, "utf8")
-    script = script.split("#artifact").join(artifact)
+    script = script.split("#example").join(pricefeed)
+    console.log("Composed migration script:")
+    console.log("=========================")
     console.log(script)
     fs.writeFileSync(migrationFile, script, { encoding: "utf8" })
   } catch (e) {
     console.error(e)
     console.error("\n\
-      Fatal: unable to compose migration script into ${process.env.FLATTENED_DIRECTORY}\n\n\
+      Fatal: unable to compose migration script into " + process.env.FLATTENED_DIRECTORY + "\n\n\
     ")
     process.exit(-4)
   }
@@ -109,7 +131,7 @@ function deleteMigrationScript () {
     } catch (e) {
       console.error(e)
       console.error("\n\
-        Fatal: unable to delete ${migrationFile}\n\n\
+        Fatal: unable to delete " + migrationFile + "\n\n\
       ")
       process.exit(-1)
     }
