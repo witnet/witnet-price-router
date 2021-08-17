@@ -27,9 +27,11 @@
     "verify:flattened": "node ./scripts/flattened-verify.js 2>&1"
   },
   "dependencies": {
-    "ado-contracts": "adoracles/ado-contracts",
-    "witnet-ethereum-bridge": "witnet/witnet-ethereum-bridge",
-    "witnet-requests": "witnet/witnet-requests-js"
+    "@openzeppelin/contracts": "^4.1.0",
+    "ado-contracts": "^1.0.0",
+    "openzeppelin-solidity": "^2.4.0",
+    "witnet-ethereum-bridge": "^0.2.0",
+    "witnet-requests": "^0.4.0"
   },
   "devDependencies": {
     "dotenv": "8.2.0",
