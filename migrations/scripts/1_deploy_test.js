@@ -1,11 +1,11 @@
 const realm = process.env.WITNET_EVM_REALM ? process.env.WITNET_EVM_REALM.toLowerCase() : "default"
-const addresses = require("../addresses")[realm]
-const settings = require("../settings")
+const witnetAddresses = require("../witnet.addresses")[realm]
+const erc2362Settings = require("../settings")
 
-const ERC2362PriceFeed = artifacts.require(settings.artifacts[realm].ERC2362PriceFeed || settings.artifacts.default.ERC2362PriceFeed)
-const CBOR = artifacts.require("CBOR")
-const Witnet = artifacts.require("Witnet")
-const WitnetProxy = artifacts.require("WitnetProxy")
+const ERC2362PriceFeed = artifacts.require(
+  erc2362Settings.artifacts[realm].ERC2362PriceFeed
+    || erc2362Settings.artifacts.default.ERC2362PriceFeed
+)
 
 module.exports = async function (deployer, network) {
   network = network.split("-")[0]
@@ -13,35 +13,30 @@ module.exports = async function (deployer, network) {
     console.error(`
 Please, migrate examples by using the package manager:
 
-  $ npm run migrate-flattened <PriceFeedExample> <network>  
+  $ npm run migrate-flattened <network> <PriceFeedExample>
 
 To list available data feed examples:
 
   $ npm run avail:examples
 
-Harness the power of the Witnet Decentralized Oracle Network ;-)
+Enjoy the power of the Witnet Decentralized Oracle Network ;-)
     `)
     process.exit(1)
   }  
-  else if (!addresses) {
+  else if (!witnetAddresses) {
     console.error(`There are no Witnet addresses set for realm '${realm}'.\n`)
     process.exit(1)
   }
-  console.log(`\nSmoke testing migration of '${ERC2362PriceFeed.contractName}' contract...`)
-  await deployer.deploy(CBOR)
-  await deployer.link(CBOR, [Witnet])
-  await deployer.deploy(Witnet)
-  await deployer.link(Witnet, [ERC2362PriceFeed])
-  await deployer.deploy(WitnetProxy)
+  console.log(`\nDeployment smoke testing of '${ERC2362PriceFeed.contractName}' contract...`)
   let pf = await deployer.deploy(
       ERC2362PriceFeed,      
-      WitnetProxy.address,
+      witnetAddresses[realm].WitnetRequestBoard,
       "ERC2362ID",
       ...(
-        settings.constructorParams[realm].ERC2362PriceFeed
-          || settings.constructorParams.default.ERC2362PriceFeed
+        erc2362Settings.constructorParams[realm].ERC2362PriceFeed
+          || erc2362Settings.constructorParams.default.ERC2362PriceFeed
       )
     )
-  await pf.setWitnetScriptBytecode("0x80")
+  await pf.initialize("0x80")
   console.log("Done.\n")
 }

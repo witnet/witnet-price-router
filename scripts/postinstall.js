@@ -4,13 +4,13 @@ const fs = require("fs")
 
 switch (os.type()) {
   case "Windows_NT":
-    exec("copy node_modules\\witnet-ethereum-bridge\\migrations\\addresses.json migrations\\")
+    exec("copy node_modules\\witnet-ethereum-bridge\\migrations\\witnet.addresses.json migrations\\")
     if (!fs.existsSync("contracts/requests")) {
       exec("mkdir contracts\\requests")
     }
     break
   default:
-    exec("cp node_modules/witnet-ethereum-bridge/migrations/addresses.json migrations/")
+    exec("cp node_modules/witnet-ethereum-bridge/migrations/witnet.addresses.json migrations/")
     if (!fs.existsSync("contracts/requests")) {
       exec("mkdir contracts/requests")
     }

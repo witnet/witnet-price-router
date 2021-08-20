@@ -13,20 +13,20 @@ const cli = new cli_func()
 const realm = process.env.WITNET_EVM_REALM.toLowerCase() || "default"
 const settings = require("../migrations/settings")
 
-const radons = require("../migrations/radons")
+const radons = require("../migrations/witnet.requests")
 
 if (process.argv.length < 4) {
   console.log()
   console.log("\n\
-    Usage: yarn migrate:flattened <PriceFeedExample> <Network>\n\
-       or: npm run migrate:flattened <PriceFeedExample> <Network>\n\n\
+    Usage: yarn migrate:flattened <Network> <PriceFeedExample>\n\
+       or: npm run migrate:flattened <Network> <PriceFeedExample>\n\n\
   ")
   process.exit(0)
 }
 
 const artifact = settings.artifacts[realm].ERC2362PriceFeed || settings.artifacts.default.ERC2362PriceFeed
-const pricefeed = process.argv[2]
-const network = process.argv[3]
+const network = process.argv[2]
+const pricefeed = process.argv[3]
 process.env.FLATTENED_DIRECTORY = `./flattened/${artifact}/`
 
 if (!radons[pricefeed]) {

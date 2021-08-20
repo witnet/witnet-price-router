@@ -4,7 +4,7 @@ module.exports = {
       ERC2362PriceFeed: "ERC2362PriceFeed",
     },
     omgx: {
-      ERC2362PriceFeed: "ERC2362PriceFeedOVM",
+      ERC2362PriceFeed: "ERC2362PriceFeedOMGX",
     },
   },
   constructorParams: {
@@ -19,13 +19,30 @@ module.exports = {
   },
   compilers: {
     default: {
-      version: "0.8.6",
+      solc: {
+        version: "0.8.6",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+        },
+        outputSelection: {
+          "*": {
+            "*": ["evm.bytecode"],
+          },
+        },
+      },
     },
     conflux: {
-      evmVersion: "petersburg",
+      solc: {
+        evmVersion: "petersburg",
+      },
     },
     omgx: {
-      version: "./node_modules/@eth-optimism/solc",
+      solc: {
+        version: "./node_modules/@eth-optimism/solc",
+      },
     },
   },
   networks: {
@@ -39,16 +56,19 @@ module.exports = {
         network_id: 4,
         host: "localhost",
         port: 8544,
+        skipDryRun: true,
       },
       "ethereum.goerli": {
         network_id: 5,
         host: "localhost",
         port: 8545,
+        skipDryRun: true,
       },
       "ethereum.kovan": {
         network_id: 42,
         host: "localhost",
         port: 8542,
+        skipDryRun: true,
       },
       "ethereum.mainnet": {
         network_id: 1,
@@ -57,13 +77,6 @@ module.exports = {
       },
     },
     conflux: {
-      test: {
-        host: "localhost",
-        port: 8540,
-        network_id: 1,
-        gasPrice: 10,
-        skipDryRun: true,
-      },
       "conflux.testnet": {
         host: "localhost",
         port: 8540,
@@ -83,11 +96,10 @@ module.exports = {
       test: {
         network_id: 28,
         host: "localhost",
-        port: 8539,
-        gasPrice: 15000000,
-        gas: 150000000,
-        skipDryRun: true,
+        port: 7545,
         networkCheckTimeout: 1000,
+        gasPrice: 15000000,
+        gasLimit: 150000000,
       },
       "omgx.rinkeby": {
         network_id: 28,
@@ -96,7 +108,6 @@ module.exports = {
         gasPrice: 15000000,
         gas: 150000000,
         skipDryRun: true,
-        networkCheckTimeout: 1000,
       },
     },
   },
