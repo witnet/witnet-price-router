@@ -3,15 +3,15 @@ module.exports = {
     default: {
       ERC2362PriceFeed: "ERC2362PriceFeed",
     },
-    omgx: {
-      ERC2362PriceFeed: "ERC2362PriceFeedOMGX",
+    boba: {
+      ERC2362PriceFeed: "ERC2362PriceFeedBoba",
     },
   },
   constructorParams: {
     default: {
       ERC2362PriceFeed: [],
     },
-    omgx: {
+    boba: {
       ERC2362PriceFeed: [
         '0x4200000000000000000000000000000000000006'  // _oETH_ERC20
       ],
@@ -39,9 +39,10 @@ module.exports = {
         evmVersion: "petersburg",
       },
     },
-    omgx: {
+    boba: {
       solc: {
         version: "./node_modules/@eth-optimism/solc",
+        evmVersion: "petersburg"
       },
     },
   },
@@ -92,7 +93,7 @@ module.exports = {
         skipDryRun: true,
       },
     },
-    omgx: {
+    boba: {
       test: {
         network_id: 28,
         host: "localhost",
@@ -101,7 +102,7 @@ module.exports = {
         gasPrice: 15000000,
         gasLimit: 150000000,
       },
-      "omgx.rinkeby": {
+      "boba.rinkeby": {
         network_id: 28,
         host: "localhost",
         port: 8539,

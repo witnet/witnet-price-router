@@ -4,7 +4,7 @@ Witnet repository containing:
 - Automatic generation of data feed Solidity contracts, based on [`witnet-request-js`](https://github.com/witnet/witnet-requests-js).
 - Importing Witnet Bridge Smart Contracts official addresses, available in multiple testnets and mainnet.
 - Price feed smart contract examples, demonstrating how Witnet framework can be integrated.
-- Scripts for flattening, migrating and verifying a given price feed contract into selected network.
+- Scripts for flattening and migrating a given price feed contract into selected network.
 
 ## Usage
 

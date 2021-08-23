@@ -1,0 +1,16 @@
+{
+    "default": {
+        "ethereum.rinkeby": {
+            "BtcUsdPriceFeed": "0xA4fe7Bdb6C4Dc8B98150CC5289354C730aDd2aEb",
+            "CfxUsdPriceFeed": "0xF6bA053F865b7c5134E0eB642494aCdf034244aC",
+            "EthUsdPriceFeed": "0xb6095C754f75fcac41dd5881C2b25EED1281ACd4",
+            "XauEurPriceFeed": "0x43cFC7F60BD914320E8a09880635B7d0D549d4e0"
+        },
+        "ethereum.goerli": {
+            "BtcUsdPriceFeed": "0x46eb71baD0bdadab086f972C6Db28D6f6BaF6712",
+            "CfxUsdPriceFeed": "0xC069eFDCA0C7d366A406543B42BF1087B8111f46",
+            "EthUsdPriceFeed": "0x7aeD9C3C6a37102bf12ae555D20Da9153276Cef0",
+            "XauEurPriceFeed": "0x4261AE7c879E6ba50E2C89712F983406850834Bd"
+        }
+    }
+}

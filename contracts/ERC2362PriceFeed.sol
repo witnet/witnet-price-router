@@ -38,7 +38,7 @@ contract ERC2362PriceFeed
     uint64 public lastPrice;
 
     /// Stores the last Witnet-provided response data struct.
-    Witnet.Response lastResponse;
+    Witnet.Response public lastResponse;
 
     /// Notifies when a new Radon script is set.
     event DataRequestChanged(bytes32 erc2362ID, bytes32 codehash);

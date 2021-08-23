@@ -13,12 +13,13 @@ targets.forEach(target => {
   console.log(`Deleting ${target}...`)
   if (fs.existsSync(target)) {
     if (fs.lstatSync(target).isDirectory()) {
+      console.log("Is directory:", target)
       if (os.type() === "Windows_NT") {
         target = target.replace(/\//g, "\\")
-        exec(`del ${target}\\ /f /q /s`)
+        exec(`rmdir ${target}\\ /q /s`)
       } else {
         target = target.replace(/\\/g, "/")
-        exec(`rm -rf ${target}/*`)
+        exec(`rm -rf ${target}/`)
       }
     } else {
       if (os.type() === "Windows_NT") {

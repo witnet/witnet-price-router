@@ -11,35 +11,27 @@ const os = require("os")
 const cli = new cli_func()
 
 const realm = process.env.WITNET_EVM_REALM.toLowerCase() || "default"
-const settings = require("../migrations/settings")
+const settings = require("../migrations/erc2362.settings")
+const templateScript = "migrations.erc2362.template.js"
+const outputScript = "1_price_feed_examples.js"
 
-const radons = require("../migrations/witnet.requests")
-
-if (process.argv.length < 4) {
+if (process.argv.length < 3) {
   console.log()
   console.log("\n\
-    Usage: yarn migrate:flattened <Network> <PriceFeedExample>\n\
-       or: npm run migrate:flattened <Network> <PriceFeedExample>\n\n\
+    Usage: yarn migrate:flattened <Network>\n\
+       or: npm run migrate:flattened <Network>\n\n\
   ")
   process.exit(0)
 }
 
 const artifact = settings.artifacts[realm].ERC2362PriceFeed || settings.artifacts.default.ERC2362PriceFeed
 const network = process.argv[2]
-const pricefeed = process.argv[3]
 process.env.FLATTENED_DIRECTORY = `./flattened/${artifact}/`
 
-if (!radons[pricefeed]) {
-  console.error("\n!!! Data feed example not found in 'migrations/radons.js'\n")
-  console.error("> To list available data feed examples, please use:\n")
-  console.error("  $ npm run avail:examples\n")
-  process.exit(0)
-}
-
 if (!settings.networks[realm][network]) {
-  console.error("\n!!! Network configuration not found in 'migrations/settings.js'\n")
-  console.error("> To list available networks, please use:\n")
-  console.error("  $ npm run avail:networks\n")
+  console.error(`\n!!! Network "${realm}:${network}" not found.\n`)
+  console.error(`> Available networks in realm "${realm}":`)
+  console.error(settings.networks[realm])
   process.exit(0)
 }
 
@@ -51,7 +43,7 @@ if (!fs.existsSync(`${process.env.FLATTENED_DIRECTORY}/Flattened${artifact}.sol`
 
 compileFlattened().then(() => {
   console.log()
-  composeMigrationScript(pricefeed)
+  composeMigrationScript(artifact)
   migrateFlattened(network).then(() => {
     deleteMigrationScript()
     console.log()
@@ -63,7 +55,7 @@ compileFlattened().then(() => {
     process.exit(-1)
   })
 
-/// ////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 function cli_func () {
   this.exec = async function (cmd) {
@@ -89,7 +81,7 @@ async function migrateFlattened (network) {
 }
 
 async function compileFlattened () {
-  console.log(`> Compiling from ${process.env.FLATTENED_DIRECTORY}...`)
+  console.log(`\n> Compiling from ${process.env.FLATTENED_DIRECTORY}...`)
   await cli.exec("truffle compile --all --config truffle-config.flattened.js")
     .catch(err => {
       console.error(err)
@@ -98,19 +90,19 @@ async function compileFlattened () {
 }
 
 function composeMigrationScript (artifact) {
-  let templateFile = "./scripts/templates/deploy.flattened.template.js"
-  let migrationFile = `${process.env.FLATTENED_DIRECTORY}/1_deploy.js`
+  let templateFile = `./scripts/templates/${templateScript}`
+  let migrationFile = `${process.env.FLATTENED_DIRECTORY}/${outputScript}`
   if (os.type() === "Windows_NT") {
     templateFile = templateFile.replace(/\//g, "\\")
     migrationFile = migrationFile.replace(/\//g, "\\")
   }
   try {
     let script = fs.readFileSync(templateFile, "utf8")
-    script = script.split("#example").join(pricefeed)
+    script = script.split("#artifact").join(artifact)
     console.log("Composed migration script:")
     console.log("=========================")
     console.log(script)
-    fs.writeFileSync(migrationFile, script, { encoding: "utf8" })
+    fs.writeFileSync(migrationFile, script, { encoding: "utf8", flag: "w+" })
   } catch (e) {
     console.error(e)
     console.error("\n\
@@ -121,7 +113,7 @@ function composeMigrationScript (artifact) {
 }
 
 function deleteMigrationScript () {
-  let migrationFile = `${process.env.FLATTENED_DIRECTORY}/1_deploy.js`
+  let migrationFile = `${process.env.FLATTENED_DIRECTORY}/${outputScript}`
   if (os.type() === "Windows_NT") {
     migrationFile = migrationFile.replace(/\//g, "\\")
   }

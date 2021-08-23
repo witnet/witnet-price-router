@@ -6,7 +6,7 @@ import "./ERC2362PriceFeed.sol";
 import "witnet-ethereum-bridge/contracts/interfaces/IERC20.sol";
 
 // Your contract needs to inherit from UsingWitnet
-contract ERC2362PriceFeedOMGX is ERC2362PriceFeed {
+contract ERC2362PriceFeedBoba is ERC2362PriceFeed {
 
     IERC20 public immutable oETH;
     uint256 internal lastBalance;
@@ -28,7 +28,7 @@ contract ERC2362PriceFeedOMGX is ERC2362PriceFeed {
     }
 
     receive() external payable {
-        revert("ERC2362PriceFeedOMGX: no transfers accepted");
+        revert("ERC2362PriceFeedBoba: no transfers accepted");
     }
 
     modifier __payableOVM {

@@ -1,5 +1,5 @@
-const radons = require("../migrations/witnet.requests")
-const datafeeds = Object.keys(radons)
+const requests = require("../migrations/witnet.requests")
+const examples = Object.keys(requests)
 console.log("Available data feed examples ready for deployment:\n")
-datafeeds.forEach(datafeed => console.log(`  ${datafeed}`))
+examples.forEach(example => console.log(`  ${example}`))
 console.log()

@@ -1,7 +1,7 @@
 // In order to load environment variables (e.g. API keys)
 require("dotenv").config()
 const { merge } = require("lodash")
-const settings = require("./migrations/settings")
+const settings = require("./migrations/erc2362.settings")
 const realm = process.env.WITNET_EVM_REALM ? process.env.WITNET_EVM_REALM.toLowerCase() : "default"
 
 module.exports = {
