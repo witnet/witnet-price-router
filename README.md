@@ -58,30 +58,11 @@ You may want to verify some or all of the price feed contracts in some of the su
 
     | - | Ethereum | Conflux |
     | - | :------- | :------ | 
-    | 
-    | `BtcUsdPriceFeed` | 1,027,995
-    | `CBOR` | 1,940,538
-    | `EthUsdPriceFeed` | 1,039,394
-    | `GoldEurPriceFeed` | 1,072,717
-    | `Migrations` | 176,684
-    | `Witnet` | 2,580,858
-    | `WitnetProxy` | 357,748
-    | `WitnetRequestBoard` | 1,705,089
-    | | **9,901,023** (-5,8%)
-  
+    | License Type | MIT License (MIT) | MIT License (MIT)
+    | Compiler Version | v0.8.6+commit.11564f7e | v0.8.6+commit.11564f7e    
+    | Optimization | Yes | Yes
+    | Runs (Optimizer) | 200 | 200
+    | EVM Version | (compiler defaults) | Petersburg
 
+In both cases, the single-file source file can be found at `flattened/ERC2362PriceFeed/FlattenedERC2362PriceFeed.sol` (after running `npm run flatten`).
 
-
-- Some scripts are ready for you in case you wanted not only to deploy your data feed contracts, but also **verify** them into ***Etherscan***, or alike:    
-  - Create one-single flattened Solidity file containing all the imports required by the smart contract to be verified:
-    ```console
-    yarn flatten contracts/ERC2362PriceFeed.sol
-    ```
-  - Migrate flattened contracts into the preferred network:
-    ```console
-    yarn migrate-flattened BtcUsdPriceFeed rinkeby
-    ```
-  - Verify the desired price feed contract into the preferred network:
-    ```console
-    yarn verify-flattened BtcUsdPriceFeed rinkeby
-    ```
