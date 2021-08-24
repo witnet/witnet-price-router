@@ -66,7 +66,7 @@ module.exports = async function (deployer, network, _accounts) {
     } else {
       // Otherwise, just update the local artifact file corresponding to this price feed example:
       ERC2362PriceFeed.address = address
-      console.log(`\n   Skipped: Presumably, '${ERC2362PriceFeed.contractName}' deployed at '${address}'.`)
+      console.log(`\n   Skipped: '${ERC2362PriceFeed.contractName}' presumably deployed at '${address}'.`)
     }
   }
   console.log()

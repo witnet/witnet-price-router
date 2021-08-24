@@ -65,7 +65,7 @@ contract ERC2362PriceFeedBoba is ERC2362PriceFeed {
     function requestUpdate()
         public payable
         __payableOVM
-        override
+        override virtual
     {
         require(pending == false, "ERC2362PriceFeed: pending update");
 
@@ -73,7 +73,7 @@ contract ERC2362PriceFeedBoba is ERC2362PriceFeed {
         __safeTransferTo(payable(address(witnet)), __msgValue());
         requestId = _witnetPostRequest(this);
 
-        // Signal that there is already a pending request
+        // Signal that there is now a pending request
         pending = true;
     }
 }

@@ -17,17 +17,14 @@
     "clean:flattened": "node ./scripts/clean.js flattened/",
     "compile": "npm run clean && npm run compile:contracts",
     "compile:requests": "npx rad2sol --disable-requests-contracts --disable-witnet-migrations --disable-user-contracts-migrations",
-    "compile:contracts": "npm run compile:requests && npx truffle compile --all",
+    "compile:contracts": "npx truffle compile --all --config truffle-config.flattened.js",
     "coverage": "solidity-coverage",
     "flatten": "npm run compile && node ./scripts/flatten.js contracts/ 2>&1",    
     "fmt": "solhint --max-warnings 0 \"contracts/**/*.sol\" && eslint ./test && eslint ./scripts/*.js && solhint \"test/**/*.sol\"",
     "fmt!": "solhint --max-warnings 0 \"contracts/**/*.sol\" --fix && eslint ./test --fix && eslint ./scripts/*.js --fix && solhint \"test/**/*.sol\" --fix",
-    "migrate-flattened": "npm run clean:build && npm run compile:requests && node ./scripts/flattened-migrate.js 2>&1",    
+    "migrate": "npm run clean:build && npm run compile:requests && node ./scripts/flattened-migrate.js 2>&1",
     "postinstall": "node ./scripts/postinstall.js 2>&1",
-    "solium": "solium -d contracts",
-    "solium:fix": "solium -d contracts --fix",
-    "test": "npx truffle test",
-    "verify-flattened": "node ./scripts/flattened-verify.js 2>&1"
+    "test": "npx truffle test --config truffle-config.test.js"
   },
   "dependencies": {
     "@eth-optimism/solc": "^0.7.6-alpha.1",
@@ -35,8 +32,8 @@
     "adomedianizer": "https://github.com/adoracles/ado-contracts",
     "lodash": "^4.17.21",
     "openzeppelin-solidity": "^2.4.0",
-    "witnet-ethereum-bridge": "https://github.com/guidiaz/witnet-ethereum-bridge#0.4.x-multi-interface",
-    "witnet-requests": "https://github.com/aesedepece/witnet-requests-js#feat/realms"
+    "witnet-ethereum-bridge": "git+https://github.com/guidiaz/witnet-ethereum-bridge#0.4.x-multi-interface",
+    "witnet-requests": "^0.4.2"
   },
   "devDependencies": {
     "dotenv": "8.2.0",

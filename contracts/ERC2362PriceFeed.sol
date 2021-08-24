@@ -44,7 +44,7 @@ contract ERC2362PriceFeed
     event DataRequestChanged(bytes32 erc2362ID, bytes32 codehash);
     
     /// Notifies when the price is updated.
-    event PriceUpdated(uint64 price, uint8 decimals, uint256 epoch, bytes32 proof);
+    event PriceUpdated(uint64 price, uint8 decimals, uint256 timestamp, bytes32 drTxHash);
 
     /// Notifies when found an error decoding request result.
     event ResultError(string reason);
@@ -98,7 +98,7 @@ contract ERC2362PriceFeed
     /// @dev relayed into Witnet.
     function completeUpdate()
         public 
-        WitnetRequestSolved(requestId)
+        witnetRequestSolved(requestId)
     {
         require(pending == true, "ERC2362PriceFeed: no pending update");
 
@@ -112,7 +112,7 @@ contract ERC2362PriceFeed
         if (witnet.isOk(_result)) {
             lastPrice = witnet.asUint64(_result);
             lastResponse = _response;
-            emit PriceUpdated(lastPrice, decimals, _response.epoch, _response.proof);
+            emit PriceUpdated(lastPrice, decimals, _response.timestamp, _response.drTxHash);
         } else {
             string memory errorMessage;
             // Try to read the value as an error message, catch error bytes if read fails

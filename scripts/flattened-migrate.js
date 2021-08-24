@@ -24,7 +24,9 @@ if (process.argv.length < 3) {
   process.exit(0)
 }
 
-const artifact = settings.artifacts[realm].ERC2362PriceFeed || settings.artifacts.default.ERC2362PriceFeed
+const artifact = settings.artifacts[realm]
+  ? settings.artifacts[realm].ERC2362PriceFeed
+  : settings.artifacts.default.ERC2362PriceFeed
 const network = process.argv[2]
 process.env.FLATTENED_DIRECTORY = `./flattened/${artifact}/`
 
@@ -55,7 +57,7 @@ compileFlattened().then(() => {
     process.exit(-1)
   })
 
-////////////////////////////////////////////////////////////////////////////////
+/// /////////////////////////////////////////////////////////////////////////////
 
 function cli_func () {
   this.exec = async function (cmd) {
