@@ -7,8 +7,7 @@ const path = require("path")
 
 if (process.argv.length < 3) {
   console.log("\n\
-    Usage: yarn flatten </path/to/contracts/folder/ | /path/to/contract/file.sol>\n\
-       or: npm run flatten </path/to/contracts/folder/ | /path/to/contract/file.sol>\n\n\
+    Usage: npm run flatten </path/to/contracts/folder/ | /path/to/contract/file.sol>\n\n\
   ")
   process.exit(0)
 }

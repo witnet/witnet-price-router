@@ -8,18 +8,6 @@ Witnet repository containing:
 
 ## Usage
 
-### Create or modify your Witnet Data Requests
-
-- Feel free to modify/remove/add source files at `requests/*.js`, following instructions in [this tutorial](https://docs.witnet.io/tutorials/bitcoin-price-feed/sources/).
-
-- Convert your Request javascript source files into valid bytecode strings that will be used when deploying their respective Solidity contracts:
-  
-  ```console
-    npm run compile:requests
-  ```
-  
-  After compiling your source files, you will find the auto-generated list of bytecodes in `migrations/witnet.requests.json`. Within this file you may optionally add/modify the `decimals` and/or `ERC2362ID` fields for any of the auto-generated entries. If you do, their values will be kept even if you decide/need to recompile your Request source files. If you don't specify a value for the `ERC2362ID` for certain example, the migration script will try to compose it for you the first time that examples gets deployed. 
-
 ### Deploy an instance of ERC2362PriceFeed for each Witnet Request
 
 - First step is to flatten the deployable artifacts of this repository:
@@ -54,7 +42,7 @@ Witnet repository containing:
 
 ### Verify your ERC2362PriceFeed instances
 
-You may want to verify some or all of the price feed contracts in some of the supported realms. Currently, the price feed contracts can get verified in Ethereum (Etherscan) and Conflux (Conflux Explorer), but not in BOBA. Verification process can vary from one to realm to another, so follow the proper steps having into account the following data, depending on the targeted realm:
+You may want to verify some or all of the price feed contracts in some of the supported realms. Currently, the price feed contracts can get verified in Ethereum (via Etherscan) and Conflux (via Conflux Explorer), but not in BOBA. Verification process can vary from one to realm to another, so follow the proper steps having into account the following data, depending on the targeted realm:
 
     | - | Ethereum | Conflux |
     | - | :------- | :------ | 

@@ -93,7 +93,7 @@ contract ERC2362PriceFeed
     }
 
     /// @notice Reads the result, if ready, from the WitnetRequestBoard.
-    /// @dev The `witnetRequestAccepted` modifier comes with `UsingWitnet` and allows to
+    /// @dev The `witnetRequestSolved` modifier comes with `UsingWitnet` and allows to
     /// @dev protect your methods from being called before the request has been successfully
     /// @dev relayed into Witnet.
     function completeUpdate()

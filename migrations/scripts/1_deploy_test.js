@@ -14,7 +14,7 @@ module.exports = async function (deployer, network) {
     console.error(`
 Please, migrate examples by using the package manager:
 
-  $ npm run migrate-flattened <network>
+  $ npm run migrate <network>
 
 To list available data feed examples:
 

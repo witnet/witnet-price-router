@@ -3,7 +3,7 @@ const os = require("os")
 const fs = require("fs")
 
 if (process.argv.length < 3) {
-  console.log(`Usage: ${0} ${1} /path/or/file/to/be/cleaned`)
+  console.log("Usage: node ./scripts/clean.js /path/or/file/to/be/cleaned")
   process.exit(0)
 }
 

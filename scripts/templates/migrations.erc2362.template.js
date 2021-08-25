@@ -48,8 +48,9 @@ module.exports = async function (deployer, network, _accounts) {
         erc2362id,
         decimals,
         ...(
-          erc2362Settings.constructorParams[realm].ERC2362PriceFeed
-            || erc2362Settings.constructorParams.default.ERC2362PriceFeed
+          erc2362Settings.constructorParams[realm]
+            ? erc2362Settings.constructorParams[realm].ERC2362PriceFeed
+            : erc2362Settings.constructorParams.default.ERC2362PriceFeed
         )
       )
       let priceFeedContract = await ERC2362PriceFeed.at(ERC2362PriceFeed.address)
@@ -71,7 +72,7 @@ module.exports = async function (deployer, network, _accounts) {
   }
   console.log()
   // Write to file current status of ERC2362 Price Feed Contract addresses, and Witnet Request ERC2362IDs
-  // just in case a new one was deployed during this sprint:
+  // just in case a new one was deployed during this migration:
   fs.writeFileSync("./migrations/erc2362.addresses.json", JSON.stringify(erc2362Addresses, null, 4), { flag: 'w+'})
   fs.writeFileSync("./migrations/witnet.requests.json", JSON.stringify(witnetRequests, null, 4), { flag: 'w+'})
 }

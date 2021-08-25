@@ -32,7 +32,7 @@
     "adomedianizer": "https://github.com/adoracles/ado-contracts",
     "lodash": "^4.17.21",
     "openzeppelin-solidity": "^2.4.0",
-    "witnet-ethereum-bridge": "git+https://github.com/guidiaz/witnet-ethereum-bridge#0.4.x-multi-interface",
+    "witnet-ethereum-bridge": "^0.4.2",
     "witnet-requests": "^0.4.2"
   },
   "devDependencies": {

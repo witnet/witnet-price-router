@@ -18,8 +18,7 @@ const outputScript = "1_price_feed_examples.js"
 if (process.argv.length < 3) {
   console.log()
   console.log("\n\
-    Usage: yarn migrate:flattened <Network>\n\
-       or: npm run migrate:flattened <Network>\n\n\
+    Usage: npm run migrate <Network>\n\n\
   ")
   process.exit(0)
 }
