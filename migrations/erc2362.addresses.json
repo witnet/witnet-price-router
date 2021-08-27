@@ -31,5 +31,13 @@
             "XauEurPriceFeed": "0xAcD9889153d581a04464ffFb70E243163fec72ec"
         },
         "boba.mainnet": {}
+    },
+    "celo": {
+        "celo.alfajores": {
+            "BtcUsdPriceFeed": "0xC9EF681EB5c620F750849806482d03983DDb76c2",
+            "CfxUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
+            "EthUsdPriceFeed": "0xfa9CaFbeB1e846C9A470c749f288591FEa6B0295",
+            "XauEurPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff"
+        }
     }
 }

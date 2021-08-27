@@ -26,7 +26,7 @@ module.exports = async function (deployer, network, _accounts) {
     ERC2362PriceFeed.contractName = exampleName + "Feed"
     let address = erc2362Addresses[realm][network][ERC2362PriceFeed.contractName]
     if (isNullAddress(address)) {
-      // Deploy this price feed example if it has no entry in the 'migrations/addresses.json' file:
+      // Deploy this price feed example if it has no entry in the 'migrations/erc2362.addresses.json' file:
       let decimals = example.decimals || 3
       let erc2362id = example.ERC2362ID
       if (!example.ERC2362ID) {
