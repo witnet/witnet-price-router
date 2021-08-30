@@ -1,14 +1,8 @@
+const prompt = require("prompt-sync")({ sigint: true })
 const realm = process.env.WITNET_EVM_REALM ? process.env.WITNET_EVM_REALM.toLowerCase() : "default"
-const erc2362Addresses = require("../erc2362.addresses")[realm]
-const erc2362Settings = require("../erc2362.settings")
+const settings = require("../erc2362.settings")
 
-const ERC2362PriceFeed = artifacts.require(
-  erc2362Settings.artifacts[realm]
-    ? erc2362Settings.artifacts[realm].ERC2362PriceFeed
-    : erc2362Settings.artifacts.default.ERC2362PriceFeed
-)
-
-module.exports = async function (deployer, network) {
+module.exports = async function (_deployer, network) {
   network = network.split("-")[0]
   if (network !== "test") {
     console.error(`
@@ -25,6 +19,23 @@ Enjoy the power of the Witnet Decentralized Oracle Network ;-)
     process.exit(1)
   }
   else {
-    console.log("Info: no migrations needed at this point.\n")
+    if (realm !== "default") {
+      if (
+        !settings.networks[realm] ||
+        !settings.networks[realm].test ||
+        !settings.networks[realm].test.network_id ||
+        settings.networks[realm].test.network_id == 4447 
+      ) {
+        console.error(`\nFatal: no "test" configuration found for ${realm.toUpperCase()} realm! Please, review 'migrations/erc2362.settings.js'.`)
+        process.exit(1)
+      }
+      let answer = prompt(`> Do you really want to run tests against ${realm.toUpperCase()} realm? [y/N] `).toLowerCase().trim()
+      if (!["y", "yes"].includes(answer)) {
+        console.log("\nInfo: cancelled by user.")
+        process.exit(0)
+      } else {
+        console.log("> As you wish. Please, be patient...")
+      }
+    }
   }
 }

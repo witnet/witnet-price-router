@@ -10,4 +10,15 @@ module.exports = {
   migrations_directory: "./migrations/scripts/",
   networks: settings.networks[realm],
   compilers: merge(settings.compilers.default, settings.compilers[realm]),
+  mocha: {
+    reporter: "eth-gas-reporter",
+    reporterOptions: {
+      coinmarketcap: process.env.COINMARKETCAP_API_KEY,
+      currency: "USD",
+      gasPrice: 100,
+      src: "contracts",
+    },
+    timeout: 100000,
+    useColors: true,
+  },
 }

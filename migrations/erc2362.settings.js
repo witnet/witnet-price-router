@@ -108,6 +108,12 @@ module.exports = {
       },
     },
     celo: {
+      "test": {
+        network_id: 44787,
+        host: "localhost",
+        port: 8538,
+        skipDryRun: true,
+      },
       "celo.alfajores": {
         network_id: 44787,
         host: "localhost",
