@@ -13,6 +13,7 @@ module.exports = {
     },
     boba: {
       ERC2362PriceFeed: [
+        15000000, // _oGAS_PRICE
         '0x4200000000000000000000000000000000000006'  // _oETH_ERC20
       ],
     },

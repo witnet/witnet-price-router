@@ -5,12 +5,14 @@ pragma experimental ABIEncoderV2;
 // Implements:
 import "ado-contracts/contracts/interfaces/IERC2362.sol";
 import "witnet-ethereum-bridge/contracts/UsingWitnet.sol";
+import "witnet-ethereum-bridge/contracts/patterns/Payable.sol";
 import "witnet-ethereum-bridge/contracts/requests/WitnetRequestInitializableBase.sol";
 
 // Your contract needs to inherit from UsingWitnet
 contract ERC2362PriceFeed
     is
         IERC2362,
+        Payable,
         UsingWitnet,
         WitnetRequestInitializableBase
 {
@@ -58,6 +60,7 @@ contract ERC2362PriceFeed
             string memory _erc2362str,
             uint8 _decimals
         )
+        Payable(address(0))
         UsingWitnet(_wrb)
     {
         creator = msg.sender;
@@ -78,7 +81,7 @@ contract ERC2362PriceFeed
     }
 
     /// @notice Sends `request` to the WitnetRequestBoard.
-    /// @dev This method will only succeed if `pending` is 0.  
+    /// @dev This method will only succeed if `pending` is `false`.
     function requestUpdate()
         public payable
         virtual
@@ -86,10 +89,32 @@ contract ERC2362PriceFeed
         require(pending == false, "ERC2362PriceFeed: pending update");
 
         // Send the request to Witnet and store the ID for later retrieval of the result:
-        requestId = _witnetPostRequest(this);
+        uint256 _msgValue = _getMsgValue();
+        uint256 _reward;
+        (requestId, _reward) = _witnetPostRequest(this);
 
         // Signal that there is already a pending request
         pending = true;
+
+        // Transfers back unused funds:
+        if (_msgValue > _reward) {
+            _safeTransferTo(payable(msg.sender), _msgValue - _reward);
+        }
+    }
+
+    /// @notice Upgrade escrowed reward in the WRB, for currently pending request.
+    /// @dev This method will only succeed if `pending` is `false`.
+    function upgradeRequest()
+        public payable
+        virtual
+    {
+        require(pending == true, "ERC2362PriceFeed: no pending update");
+        uint256 _msgValue = _getMsgValue();
+        uint256 _added = _witnetUpgradeReward(requestId);
+        // Transfers back unused funds:
+        if (_msgValue > _added) {
+            _safeTransferTo(payable(msg.sender), _msgValue - _added);
+        }
     }
 
     /// @notice Reads the result, if ready, from the WitnetRequestBoard.
@@ -100,7 +125,7 @@ contract ERC2362PriceFeed
         public 
         witnetRequestSolved(requestId)
     {
-        require(pending == true, "ERC2362PriceFeed: no pending update");
+        require(pending == true, "ERC2362PriceFeed: request not solved");
 
         // Retrieves copy of all response data related to the last request, removing it from the WRB.
         Witnet.Response memory _response = witnet.deleteQuery(requestId);
@@ -129,6 +154,19 @@ contract ERC2362PriceFeed
     }
 
     // ================================================================================================================
+    // --- Overrides 'UsingWitnet' ------------------------------------------------------------------------------------
+
+    /// Estimate the reward amount.
+    /// @return The reward to be included for the given gas price.
+    function _witnetEstimateReward()
+        internal view
+        virtual override
+        returns (uint256)
+    {
+        return witnet.estimateReward(_getGasPrice());
+    }
+
+    // ================================================================================================================
     // --- Implements 'IERC2362` --------------------------------------------------------------------------------------
 
     /// @notice Exposes the public data point in an ERC2362 compliant way.
@@ -149,5 +187,34 @@ contract ERC2362PriceFeed
             _timestamp,
             _timestamp == 0 ? 404 : 200
         );
+    }
+
+    // ================================================================================================================
+    // --- Overrides 'Payable' ----------------------------------------------------------------------------------------
+
+    /// Gets current transaction's gas price.
+    function _getGasPrice()
+        internal view
+        virtual override
+        returns (uint256)
+    {
+        return tx.gasprice;
+    }
+
+    /// Gets current payment value.
+    function _getMsgValue()
+        internal view
+        virtual override
+        returns (uint256)
+    {
+        return msg.value;
+    }
+
+    /// Perform safe transfer or whatever token is used for paying rewards.
+    function _safeTransferTo(address payable _to, uint256 _amount)
+        internal
+        virtual override
+    {
+        _to.transfer(_amount);
     }
 }

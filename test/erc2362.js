@@ -1,7 +1,14 @@
 require("dotenv").config()
 const truffleAssert = require("truffle-assertions")
 
-const ERC2362PriceFeed = artifacts.require("ERC2362PriceFeed")
+const realm = process.env.WITNET_EVM_REALM.toLowerCase() || "default"
+const settings = require("../migrations/erc2362.settings")
+
+const ERC2362PriceFeed = artifacts.require(
+  settings.artifacts[realm]
+    ? settings.artifacts[realm].ERC2362PriceFeed
+    : settings.artifacts.default.ERC2362PriceFeed
+)
 const WitnetRequestBoard = artifacts.require("WitnetRequestBoard")
 const WitnetRequestBoardTestHelper = artifacts.require("WitnetRequestBoardTestHelper")
 
@@ -12,7 +19,7 @@ const bytecode = "0x0abf0108b9d8cf8806123b122468747470733a2f2f7777772e6269747374
 
 contract(ERC2362PriceFeed.contractName, accounts => {
   describe("WRB test suite", () => {
-    let feed, reward
+    let feed, maxReward
     let wrbInstance
 
     before(async () => {
@@ -21,17 +28,22 @@ contract(ERC2362PriceFeed.contractName, accounts => {
     })
 
     beforeEach(async () => {
-      reward = await wrbInstance.estimateReward.call(web3.utils.toWei("1", "gwei"))
+      maxReward = web3.utils.toWei("0.1", "ether")
       feed = await ERC2362PriceFeed.new(
         wrbInstance.address,
         ERC2362ID,
-        decimals
+        decimals,
+        ...(
+          settings.constructorParams[realm]
+            ? settings.constructorParams[realm].ERC2362PriceFeed
+            : settings.constructorParams.default.ERC2362PriceFeed
+        )
       )
       await feed.initialize(bytecode)
     })
 
     it("completes the flow with a correct result", async () => {
-      await feed.requestUpdate({ value: reward })
+      await feed.requestUpdate({ value: maxReward })
       const id = await feed.requestId()
       await wrbInstance.reportResult(id, "0xAA", "0x1b0020000000000000")
       await feed.completeUpdate()
@@ -45,7 +57,7 @@ contract(ERC2362PriceFeed.contractName, accounts => {
     })
 
     it("log an event if errored CBOR decoding", async () => {
-      await feed.requestUpdate({ value: reward })
+      await feed.requestUpdate({ value: maxReward })
       const id = await feed.requestId()
       const expectedError = "mock error"
 
@@ -63,7 +75,7 @@ contract(ERC2362PriceFeed.contractName, accounts => {
     })
 
     it("reverts when result not ready", async () => {
-      await feed.requestUpdate({ value: reward })
+      await feed.requestUpdate({ value: maxReward })
       const expectedError = "request not solved"
       // should fail to fetch the result
       await truffleAssert.reverts(
@@ -74,11 +86,11 @@ contract(ERC2362PriceFeed.contractName, accounts => {
     })
 
     it("reverts when a DR is already pending", async () => {
-      await feed.requestUpdate({ value: reward })
+      await feed.requestUpdate({ value: maxReward })
       const expectedError = "pending update"
       // should fail to insert another DR
       await truffleAssert.reverts(
-        feed.requestUpdate({ value: reward }),
+        feed.requestUpdate({ value: maxReward }),
         expectedError
       )
       assert.equal(await feed.pending(), true)
