@@ -29,12 +29,12 @@
   "dependencies": {
     "@eth-optimism/solc": "^0.7.6-alpha.1",
     "@openzeppelin/contracts": "^4.1.0",
-    "adomedianizer": "https://github.com/adoracles/ado-contracts",
+    "ado-contracts": "^1.0.0",
     "lodash": "^4.17.21",
     "openzeppelin-solidity": "^2.4.0",
     "prompt-sync": "^4.2.0",
-    "witnet-ethereum-bridge": "^0.4.3",
-    "witnet-requests": "^0.4.2"
+    "witnet-ethereum-bridge": "~0.4.3",
+    "witnet-requests": "~0.4.2"
   },
   "devDependencies": {
     "dotenv": "8.2.0",
@@ -52,7 +52,7 @@
     "solidity-coverage": "0.7.16",
     "truffle": "5.3.1",
     "truffle-assertions": "0.9.2",
-    "truffle-flattener": "https://github.com/witnet/truffle-flattener.git#single-experimental",
+    "truffle-flattener": "witnet/truffle-flattener.git#single-experimental",
     "truffle-plugin-verify": "0.5.7",
     "truffle-verify": "1.0.8"
   }

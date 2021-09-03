@@ -3,7 +3,7 @@ pragma solidity >=0.7.0 <0.9.0;
 pragma experimental ABIEncoderV2;
 
 // Implements:
-import "adomedianizer/contracts/interfaces/IERC2362.sol";
+import "ado-contracts/contracts/interfaces/IERC2362.sol";
 import "witnet-ethereum-bridge/contracts/UsingWitnet.sol";
 import "witnet-ethereum-bridge/contracts/requests/WitnetRequestInitializableBase.sol";
 
