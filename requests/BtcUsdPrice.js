@@ -1,20 +1,42 @@
 import * as Witnet from "witnet-requests"
 
-// Retrieves USD price of a bitcoin from the BitStamp API
-const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/ticker/")
-  .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getFloat("last") // Get the `Float` value associated to the `last` key
-  .multiply(10 ** 3)
+// Retrieve BTCUSD price from Binance
+const binance = new Witnet.Source("https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT")
+  .parseJSONMap()
+  .getFloat("price")
+  .multiply(10 ** 6)
   .round()
 
-// Retrieves USD price of a bitcoin from CoinDesk's "bitcoin price index" API
-// The JSON here is a bit more complex, thus more operators are needed
-const coindesk = new Witnet.Source("https://api.coindesk.com/v1/bpi/currentprice.json")
-  .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getMap("bpi") // Get the `Map` value associated to the `bpi` key
-  .getMap("USD") // Get the `Map` value associated to the `USD` key
-  .getFloat("rate_float") // Get the `Float` value associated to the `rate_float` key
-  .multiply(10 ** 3)
+// Retrieve BTCUSD price from Bitfinex
+const bitfinex = new Witnet.Source("https://api.bitfinex.com/v1/pubticker/btcusd")
+  .parseJSONMap()
+  .getFloat("last_price")
+  .multiply(10 ** 6)
+  .round()
+
+// Retrieve BTCUSD price from Coinbase
+const kraken = new Witnet.Source("https://api.kraken.com/0/public/Ticker?pair=BTCUSD")
+  .parseJSONMap()
+  .getMap("result")
+  .getMap("XXBTZUSD")
+  .getArray("a")
+  .getFloat(0)
+  .multiply(10 ** 6)
+  .round()
+
+// Retrieve BTCUSD price from BitStamp
+const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/btcusd")
+  .parseJSONMap()
+  .getFloat("last")
+  .multiply(10 ** 6)
+  .round()
+
+// Retrieve BTCUSD price from Bittrex
+const bittrex = new Witnet.Source("https://api.bittrex.com/api/v1.1/public/getticker?market=USD-BTC")
+  .parseJSONMap()
+  .getMap("result")
+  .getFloat("Last")
+  .multiply(10 ** 6)
   .round()
 
 // Filters out any value that is more than 1.5 times the standard
@@ -22,7 +44,7 @@ const coindesk = new Witnet.Source("https://api.coindesk.com/v1/bpi/currentprice
 // values that pass the filter.
 const aggregator = new Witnet.Aggregator({
   filters: [
-    [ Witnet.Types.FILTERS.deviationStandard, 1.5 ],
+    [Witnet.Types.FILTERS.deviationStandard, 1.5],
   ],
   reducer: Witnet.Types.REDUCERS.averageMean,
 })
@@ -32,20 +54,23 @@ const aggregator = new Witnet.Aggregator({
 // values that pass the filter.
 const tally = new Witnet.Tally({
   filters: [
-    [ Witnet.Types.FILTERS.deviationStandard, 1.5 ],
+    [Witnet.Types.FILTERS.deviationStandard, 1.5],
   ],
   reducer: Witnet.Types.REDUCERS.averageMean,
 })
 
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
-  .addSource(bitstamp) // Use source 1
-  .addSource(coindesk) // Use source 2
+  .addSource(binance)
+  .addSource(bitfinex)
+  .addSource(kraken)
+  .addSource(bitstamp)
+  .addSource(bittrex)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
-  .setQuorum(100, 70) // Set witness count
-  .setFees(10, 1) // Set economic incentives
-  .schedule(0) // Make this request immediately solvable
+  .setQuorum(10, 70) // Set witness count and minimum consensus percentage
+  .setFees(10 ** 6, 10 ** 6) // Set economic incentives
+  .setCollateral(5 * 10 ** 9) // Require 5 wits as collateral
 
 // Do not forget to export the request object
 export { request as default }
