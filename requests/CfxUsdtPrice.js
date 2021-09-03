@@ -70,8 +70,9 @@ const request = new Witnet.Request()
   .addSource(bkex)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
-  .setQuorum(100, 70) // Set witness count
-  .setFees(10, 1) // Set economic incentives
+  .setQuorum(10, 70) // Set witness count and minimum consensus percentage
+  .setFees(10 ** 6, 10 ** 6) // Set economic incentives
+  .setCollateral(5 * 10 ** 9) // Require 5 wits as collateral
 
 // Do not forget to export the request object
 export { request as default }
