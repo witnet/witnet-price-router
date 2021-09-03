@@ -7,7 +7,6 @@
             "OmgBtcPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
             "OmgEthPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
             "OmgUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
-            "XauEurPriceFeed": "0x407f149da8eC06215E5c483F5461B2Cb6E8fF7Fe"
         },
         "ethereum.goerli": {
             "BtcUsdPriceFeed": "0x43Fe8778389f4EB98e82B750DCCAfF0D7d57778c",
@@ -16,7 +15,6 @@
             "OmgBtcPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
             "OmgEthPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
             "OmgUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
-            "XauEurPriceFeed": "0x2fE6398803B30d3A3a29e733487Eb6Ef4Ccc4a3E"
         },
         "ethereum.mainnet": {}
     },
@@ -28,7 +26,6 @@
             "OmgBtcPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
             "OmgEthPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
             "OmgUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
-            "XauEurPriceFeed": "0x8487201D265e2ab9d866AB24d9698DACC4c0af1A"
         },
         "conflux.tethys": {}
     },
@@ -40,7 +37,6 @@
             "OmgBtcPriceFeed": "",
             "OmgEthPriceFeed": "",
             "OmgUsdtPriceFeed": "",
-            "XauEurPriceFeed": "0xAcD9889153d581a04464ffFb70E243163fec72ec"
         },
         "boba.mainnet": {}
     },
@@ -52,7 +48,6 @@
             "OmgBtcPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
             "OmgEthPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
             "OmgUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
-            "XauEurPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff"
         }
     }
 }
