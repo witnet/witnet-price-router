@@ -17,15 +17,15 @@ const gateio = new Witnet.Source("https://data.gateapi.io/api2/1/ticker/omg_eth"
 // Retrieves ETH price of OMG from the coinyep API
 const coinyep = new Witnet.Source("https://coinyep.com/api/v1/?from=OMG&to=ETH&lang=es&format=json")
   .parseJSONMap() // Parse a Map from the retrieved String
-  .getFloat("price") // Get the Map value associated to the price key
+  .getFloat("price") // Get the `Map` value associated to the price key
   .multiply(1000000000) // Use 9 digit precision
   .round()
 
 const messari = new Witnet.Source("https://data.messari.io/api/v1/assets/omg/metrics")
-.parseJSONMap()
-.getMap("data")
-.getMap("market_data")
-.getFloat("price_eth")
+.parseJSONMap() // Parse a Map from the retrieved String
+.getMap("data") // Access to the `Map` object at `data` key
+.getMap("market_data") // Access to the `Map` object at `market_data` key
+.getFloat("price_eth") // Get the `Float` value associated to the `price_eth` key
 .multiply(1000000000) // Use 9 digit precision
 .round() // Cast to integer
 
