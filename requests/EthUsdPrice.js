@@ -4,7 +4,7 @@ import * as Witnet from "witnet-requests"
 const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/ethusd/")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
   .getFloat("last") // Get the `Float` value associated to the `last` key
-  .multiply(1000)
+  .multiply(10 ** 3)
   .round()
 
 // Retrieves USD price of eth from the coincap API
@@ -13,7 +13,7 @@ const coincap = new Witnet.Source("https://api.coincap.io/v2/assets")
   .getArray("data")
   .getMap(1)
   .getFloat("priceUsd")
-  .multiply(1000)
+  .multiply(10 ** 3)
   .round()
 
 // Retrieves USD price of eth from the coinpaprika API
@@ -22,7 +22,7 @@ const coinpaprika = new Witnet.Source("https://api.coinpaprika.com/v1/tickers/et
   .getMap("quotes")
   .getMap("USD")
   .getFloat("price")
-  .multiply(1000)
+  .multiply(10 ** 3)
   .round()
 
 // Filters out any value that is more than 1.5 times the standard

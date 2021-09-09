@@ -4,7 +4,7 @@ import * as Witnet from "witnet-requests"
 const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/ticker/")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
   .getFloat("last") // Get the `Float` value associated to the `last` key
-  .multiply(1000)
+  .multiply(10 ** 3)
   .round()
 
 // Retrieves USD price of a bitcoin from CoinDesk's "bitcoin price index" API
@@ -14,7 +14,7 @@ const coindesk = new Witnet.Source("https://api.coindesk.com/v1/bpi/currentprice
   .getMap("bpi") // Get the `Map` value associated to the `bpi` key
   .getMap("USD") // Get the `Map` value associated to the `USD` key
   .getFloat("rate_float") // Get the `Float` value associated to the `rate_float` key
-  .multiply(1000)
+  .multiply(10 ** 3)
   .round()
 
 // Filters out any value that is more than 1.5 times the standard

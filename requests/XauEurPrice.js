@@ -4,7 +4,7 @@ import * as Witnet from "witnet-requests"
 const coinyep = new Witnet.Source("https://coinyep.com/api/v1/?from=XAU&to=EUR&lang=es&format=json")
   .parseJSONMap() // Parse a Map from the retrieved String
   .getFloat("price") // Get the Map value associated to the price key
-  .multiply(1000)
+  .multiply(10 ** 3)
   .round()
 
 // Retrieves USD gold price from the dataasg API
@@ -13,7 +13,7 @@ const dataasg = new Witnet.Source("https://data-asg.goldprice.org/dbXRates/EUR")
   .getArray("items")
   .getMap(0)
   .getFloat("xauPrice")
-  .multiply(1000)
+  .multiply(10 ** 3)
   .round()
 
 // Retrieves USD gold price from the mycurrencytransfer API
@@ -21,7 +21,7 @@ const mycurrencytransfer = new Witnet.Source("https://www.mycurrencytransfer.com
   .parseJSONMap()
   .getMap("data")
   .getFloat("rate")
-  .multiply(1000)
+  .multiply(10 ** 3)
   .round()
 
 // Retrieves USD gold price from the inversoro API
@@ -29,7 +29,7 @@ const inversoro = new Witnet.Source("https://www.inversoro.es/datos/?period=3yea
   .parseJSONMap()
   .getMap("table_data")
   .getFloat("metal_price_current")
-  .multiply(1000)
+  .multiply(10 ** 3)
   .round()
 
 // Filters out any value that is more than 1.5 times the standard
