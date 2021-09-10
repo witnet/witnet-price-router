@@ -6,7 +6,7 @@
             "EthUsdPriceFeed": "0x1320C130Fc5361ced969Ca737d692a30e1142a13",
             "OmgBtcPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
             "OmgEthPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
-            "OmgUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
+            "OmgUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff"
         },
         "ethereum.goerli": {
             "BtcUsdPriceFeed": "0x43Fe8778389f4EB98e82B750DCCAfF0D7d57778c",
@@ -14,7 +14,7 @@
             "EthUsdPriceFeed": "0x031699240f710B47e92Df7766C06ee6C22A75df1",
             "OmgBtcPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
             "OmgEthPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
-            "OmgUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
+            "OmgUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff"
         },
         "ethereum.mainnet": {}
     },
@@ -25,18 +25,18 @@
             "EthUsdPriceFeed": "0x8fe2d6e0984fc65Ad68726A74d822881282A30A0",
             "OmgBtcPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
             "OmgEthPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
-            "OmgUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
+            "OmgUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff"
         },
         "conflux.tethys": {}
     },
     "boba": {
         "boba.rinkeby": {
-            "BtcUsdPriceFeed": "0xa6ADEB16Cc5aB0d6A79957D9cf6234F508c33A74",
+            "BtcUsdPriceFeed": "0x81A79Ac4f8732cA065Dd0E24661E57Be9179B8F1",
             "CfxUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
-            "EthUsdPriceFeed": "0x542e8aD2e1AA508CC254E536DA98291776A15c65",
-            "OmgBtcPriceFeed": "",
-            "OmgEthPriceFeed": "",
-            "OmgUsdtPriceFeed": "",
+            "EthUsdPriceFeed": "0xFF11a2282097f83A3eA8C94Cd6e90043E2c68727",
+            "OmgBtcPriceFeed": "0x78C2dEb1A416508fB4B20A000cfD9d9673371e00",
+            "OmgEthPriceFeed": "0x6be8bb17C07453d217cd1BADBa3E55A627DcdD2A",
+            "OmgUsdtPriceFeed": "0x758C5adBFC25E260C07535933874e98583A14d41"
         },
         "boba.mainnet": {}
     },
@@ -47,7 +47,7 @@
             "EthUsdPriceFeed": "0xfa9CaFbeB1e846C9A470c749f288591FEa6B0295",
             "OmgBtcPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
             "OmgEthPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
-            "OmgUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff",
+            "OmgUsdtPriceFeed": "0xffffffffffffffffffffffffffffffffffffffff"
         }
     }
 }
