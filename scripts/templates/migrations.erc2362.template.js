@@ -24,50 +24,52 @@ module.exports = async function (deployer, network, _accounts) {
     let exampleName = examples[i]
     let example = witnetRequests[exampleName]
     ERC2362PriceFeed.contractName = exampleName + "Feed"
-    let address = erc2362Addresses[realm][network][ERC2362PriceFeed.contractName]
-    if (isNullAddress(address)) {
-      // Deploy this price feed example if it has no entry in the 'migrations/erc2362.addresses.json' file:
-      let decimals = example.decimals || 3
-      let erc2362id = example.ERC2362ID
-      if (!example.ERC2362ID) {
-        erc2362id = exampleName.endsWith("Price")
-          ? `Price-${
-              exampleName
-                .replace("Price", "")
-                .split(/(?=[A-Z])/)
-                .map(s => s.toUpperCase())
-                .join("/")
-            }-${decimals}`
-          : exampleName
-        witnetRequests[exampleName].ERC2362ID = erc2362id
-      }
+    if (erc2362Addresses[realm][network][ERC2362PriceFeed.contractName] !== undefined) {
+      let address = erc2362Addresses[realm][network][ERC2362PriceFeed.contractName]
+      if (isNullAddress(address)) {
+        // Deploy this price feed example if it has no entry in the 'migrations/erc2362.addresses.json' file:
+        let decimals = example.decimals || 3
+        let erc2362id = example.ERC2362ID
+        if (!example.ERC2362ID) {
+          erc2362id = exampleName.endsWith("Price")
+            ? `Price-${
+                exampleName
+                  .replace("Price", "")
+                  .split(/(?=[A-Z])/)
+                  .map(s => s.toUpperCase())
+                  .join("/")
+              }-${decimals}`
+            : exampleName
+          witnetRequests[exampleName].ERC2362ID = erc2362id
+        }
 
-      await deployer.deploy(
-        ERC2362PriceFeed,
-        witnetAddresses.WitnetRequestBoard,
-        erc2362id,
-        decimals,
-        ...(
-          erc2362Settings.constructorParams[realm]
-            ? erc2362Settings.constructorParams[realm].ERC2362PriceFeed
-            : erc2362Settings.constructorParams.default.ERC2362PriceFeed
+        await deployer.deploy(
+          ERC2362PriceFeed,
+          witnetAddresses.WitnetRequestBoard,
+          erc2362id,
+          decimals,
+          ...(
+            erc2362Settings.constructorParams[realm]
+              ? erc2362Settings.constructorParams[realm].ERC2362PriceFeed
+              : erc2362Settings.constructorParams.default.ERC2362PriceFeed
+          )
         )
-      )
-      let priceFeedContract = await ERC2362PriceFeed.at(ERC2362PriceFeed.address)
-      await priceFeedContract.initialize(example.bytecode)
+        let priceFeedContract = await ERC2362PriceFeed.at(ERC2362PriceFeed.address)
+        await priceFeedContract.initialize(example.bytecode)
 
-      console.log("   > Artifact name:\t  \"#artifact\"")
-      console.log("   > Contract name:\t  \"" + ERC2362PriceFeed.contractName + "\"")
-      console.log("   > ERC2362 ID:\t  \"" + await priceFeedContract.erc2362ID.call() + "\"")
-      console.log("   > ERC2362 literal:\t  \"" + await priceFeedContract.literal.call() + "\"")
-      console.log("   > WRB address:\t ", await priceFeedContract.witnet.call())
-      console.log("   > Bytecode:\t\t ", await priceFeedContract.bytecode.call())  
+        console.log("   > Artifact name:\t  \"#artifact\"")
+        console.log("   > Contract name:\t  \"" + ERC2362PriceFeed.contractName + "\"")
+        console.log("   > ERC2362 ID:\t  \"" + await priceFeedContract.erc2362ID.call() + "\"")
+        console.log("   > ERC2362 literal:\t  \"" + await priceFeedContract.literal.call() + "\"")
+        console.log("   > WRB address:\t ", await priceFeedContract.witnet.call())
+        console.log("   > Bytecode:\t\t ", await priceFeedContract.bytecode.call())  
 
-      erc2362Addresses[realm][network][ERC2362PriceFeed.contractName] = ERC2362PriceFeed.address
-    } else {
-      // Otherwise, just update the local artifact file corresponding to this price feed example:
-      ERC2362PriceFeed.address = address
-      console.log(`\n   Skipped: '${ERC2362PriceFeed.contractName}' presumably deployed at '${address}'.`)
+        erc2362Addresses[realm][network][ERC2362PriceFeed.contractName] = ERC2362PriceFeed.address
+      } else {
+        // Otherwise, just update the local artifact file corresponding to this price feed example:
+        ERC2362PriceFeed.address = address
+        console.log(`\n   Skipped: '${ERC2362PriceFeed.contractName}' presumably deployed at '${address}'.`)
+      }
     }
   }
   console.log()
