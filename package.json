@@ -12,7 +12,7 @@
     "avail:examples": "npm run compile:requests && node ./scripts/avail-examples.js 2>&1",
     "avail:networks": "node ./scripts/avail-networks.js 2>&1",
     "console": "npx truffle console",
-    "clean": "npm run clean:build && npm rum clean:flattened && npm run postinstall",
+    "clean": "npm run clean:build && npm rum clean:flattened",
     "clean:build": "node ./scripts/clean.js build/",
     "clean:flattened": "node ./scripts/clean.js flattened/",
     "compile": "npm run clean && npm run compile:contracts",
@@ -23,7 +23,6 @@
     "fmt": "solhint --max-warnings 0 \"contracts/**/*.sol\" && eslint ./test && eslint ./scripts/*.js && solhint \"test/**/*.sol\"",
     "fmt!": "solhint --max-warnings 0 \"contracts/**/*.sol\" --fix && eslint ./test --fix && eslint ./scripts/*.js --fix && solhint \"test/**/*.sol\" --fix",
     "migrate": "npm run clean:build && npm run compile:requests && node ./scripts/flattened-migrate.js 2>&1",
-    "postinstall": "node ./scripts/postinstall.js 2>&1",
     "test": "npx truffle test"
   },
   "dependencies": {

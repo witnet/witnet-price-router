@@ -9,5 +9,4 @@ package-lock.json
 Flattened*.sol
 flattened/**
 contracts/requests/**
-migrations/witnet.addresses.json
 
