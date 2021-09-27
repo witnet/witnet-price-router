@@ -1,9 +1,24 @@
 require("dotenv").config()
 
-const realm = process.env.WITNET_EVM_REALM.toLowerCase() || "default"
-const settings = require("../migrations/erc2362.settings")
-
-const networks = Object.keys(settings.networks[realm])
-console.log(`\nAvailable networks within realm ${realm.toUpperCase()}:\n`)
-networks.forEach(network => console.log(`  ${network}`))
-console.log()
+let networks = require("../migrations/erc2362.settings").networks
+let realm, network
+if (process.argv.length >= 3) {
+  network = process.argv[2].toLowerCase()
+  realm = network.split(".")[0].toLowerCase()
+  if (realm === "ethereum") realm = "default"
+  if (!networks[realm]) {
+    console.log("Unknown realm:", realm)
+    process.exit(1)
+  }
+  if (network.split(".")[1]) {
+    if (!networks[realm][network]) {
+      console.log("Realm:", realm)
+      console.log("Unknown network:", network)
+      process.exit(1)
+    }
+    networks = networks[realm][network]
+  } else {
+    networks = networks[realm]
+  }
+}
+console.log(networks)

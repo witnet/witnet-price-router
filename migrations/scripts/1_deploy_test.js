@@ -1,14 +1,15 @@
 const prompt = require("prompt-sync")({ sigint: true })
-const realm = process.env.WITNET_EVM_REALM ? process.env.WITNET_EVM_REALM.toLowerCase() : "default"
 const settings = require("../erc2362.settings")
 
 module.exports = async function (_deployer, network) {
   network = network.split("-")[0]
-  if (network !== "test") {
+  const rn = require("../../scripts/utils").getRealmNetworkFromNetwork(network)
+  const realm = rn[0]; network = rn[1]
+  if (network.split(".")[1] !== "test") {
     console.error(`
 Please, migrate examples by using the package manager:
 
-  $ npm run migrate <network>
+  $ npm run migrate <Realm.Network>
 
 To list available data feed examples:
 

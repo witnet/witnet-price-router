@@ -19,7 +19,7 @@
     "compile:requests": "npx rad2sol --disable-requests-contracts --disable-witnet-migrations --disable-user-contracts-migrations",
     "compile:contracts": "npx truffle compile --all --config truffle-config.flattened.js",
     "coverage": "solidity-coverage",
-    "flatten": "npm run compile && node ./scripts/flatten.js contracts/ 2>&1",
+    "flatten": "node ./scripts/flatten.js contracts/ 2>&1",
     "fmt": "solhint --max-warnings 0 \"contracts/**/*.sol\" && eslint ./test && eslint ./scripts/*.js && solhint \"test/**/*.sol\"",
     "fmt!": "solhint --max-warnings 0 \"contracts/**/*.sol\" --fix && eslint ./test --fix && eslint ./scripts/*.js --fix && solhint \"test/**/*.sol\" --fix",
     "migrate": "npm run clean:build && npm run compile:requests && node ./scripts/flattened-migrate.js 2>&1",

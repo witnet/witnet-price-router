@@ -6,8 +6,8 @@ const witnetRequests = require("../../migrations/witnet.requests")
 const ERC2362PriceFeed = artifacts.require("#artifact")
 
 module.exports = async function (deployer, network, _accounts) {
-  const realm = process.env.WITNET_EVM_REALM.toLowerCase() || "default"
   network = network.split("-")[0]
+  const realm = require("../../scripts/utils").getRealmNetworkFromNetwork(network)[0]  
   let witnetAddresses
   try {    
     witnetAddresses = require("witnet-ethereum-bridge/migrations/witnet.addresses")[realm][network]

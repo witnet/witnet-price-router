@@ -10,7 +10,6 @@ const fs = require("fs")
 const os = require("os")
 const cli = new cli_func()
 
-const realm = process.env.WITNET_EVM_REALM.toLowerCase() || "default"
 const settings = require("../migrations/erc2362.settings")
 const templateScript = "migrations.erc2362.template.js"
 const outputScript = "1_price_feed_examples.js"
@@ -18,23 +17,31 @@ const outputScript = "1_price_feed_examples.js"
 if (process.argv.length < 3) {
   console.log()
   console.log("\n\
-    Usage: npm run migrate <Network>\n\n\
+    Usage: npm run migrate <Realm.Network>\n\n\
   ")
   process.exit(0)
+}
+
+const rn = require("./utils").getRealmNetworkFromNetwork(process.argv[2])
+const realm = rn[0]; const network = rn[1]
+
+if (!settings.networks[realm] || !settings.networks[realm][network]) {
+  console.error(`\n!!! Network "${network}" not found.\n`)
+  if (settings.networks[realm]) {
+    console.error(`> Available networks in realm "${realm}":`)
+    console.error(settings.networks[realm])
+  } else {
+    console.error("> Available networks:")
+    console.error(settings.networks)
+  }
+  process.exit(1)
 }
 
 const artifact = settings.artifacts[realm]
   ? settings.artifacts[realm].ERC2362PriceFeed
   : settings.artifacts.default.ERC2362PriceFeed
-const network = process.argv[2]
-process.env.FLATTENED_DIRECTORY = `./flattened/${artifact}/`
 
-if (!settings.networks[realm][network]) {
-  console.error(`\n!!! Network "${realm}:${network}" not found.\n`)
-  console.error(`> Available networks in realm "${realm}":`)
-  console.error(settings.networks[realm])
-  process.exit(0)
-}
+process.env.FLATTENED_DIRECTORY = `./flattened/${artifact}/`
 
 if (!fs.existsSync(`${process.env.FLATTENED_DIRECTORY}/Flattened${artifact}.sol`)) {
   console.log("\n> Please, flatten artifacts first:\n")
@@ -82,12 +89,12 @@ async function migrateFlattened (network) {
 }
 
 async function compileFlattened () {
-  console.log(`\n> Compiling from ${process.env.FLATTENED_DIRECTORY}...`)
-  await cli.exec("truffle compile --all --config truffle-config.flattened.js")
-    .catch(err => {
-      console.error(err)
-      process.exit(-1)
-    })
+  // console.log(`\n> Compiling from ${process.env.FLATTENED_DIRECTORY}...`)
+  // await cli.exec("truffle compile --all --config truffle-config.flattened.js")
+  //   .catch(err => {
+  //     console.error(err)
+  //     process.exit(-1)
+  //   })
 }
 
 function composeMigrationScript (artifact) {
