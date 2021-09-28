@@ -1,45 +1,45 @@
 {
     "default": {
         "ethereum.goerli": {
-            "BtcUsdPriceFeed": "0x43Fe8778389f4EB98e82B750DCCAfF0D7d57778c",
-            "EthUsdPriceFeed": "0x031699240f710B47e92Df7766C06ee6C22A75df1"
+            "BtcUsdPriceFeed": "0xf54E30633969794F268326a52f48dcf3C6C13Ba1",
+            "EthUsdPriceFeed": "0xfA7C593a0c7A94F888ca843d38EE25CF33b115cB"
         },
         "ethereum.mainnet": {
             "BtcUsdPriceFeed": "",
             "EthUsdPriceFeed": ""
         },
         "ethereum.rinkeby": {
-            "BtcUsdPriceFeed": "0xa7C971149AdfdFB237A0F78D7d317B916FFCE093",
-            "EthUsdPriceFeed": "0x1320C130Fc5361ced969Ca737d692a30e1142a13"
+            "BtcUsdPriceFeed": "0x285A3Fabb1E96aD80Bc3767AF08ACfcA71Bd14D2",
+            "EthUsdPriceFeed": "0x8724Aec329cC08bC173e0F2e0C6cc8669a753639"
         }
     },
     "boba": {
         "boba.rinkeby": {
-            "BtcUsdPriceFeed": "0x81A79Ac4f8732cA065Dd0E24661E57Be9179B8F1",
-            "EthUsdPriceFeed": "0xFF11a2282097f83A3eA8C94Cd6e90043E2c68727",
-            "OmgBtcPriceFeed": "0x78C2dEb1A416508fB4B20A000cfD9d9673371e00",
-            "OmgEthPriceFeed": "0x6be8bb17C07453d217cd1BADBa3E55A627DcdD2A",
-            "OmgUsdtPriceFeed": "0x758C5adBFC25E260C07535933874e98583A14d41"
+            "BtcUsdPriceFeed": "0x30240c05D8fCD5c900582fD03CBd43680bB3eaA6",
+            "EthUsdPriceFeed": "0x928D5946c461bf66d493c5B551678B2c39655f17",
+            "OmgBtcPriceFeed": "0x174B260F0553528C87A7019118f94d961b1d86Bd",
+            "OmgEthPriceFeed": "0x1d71815435e8de6471e1a7acF4af398A1e703934",
+            "OmgUsdtPriceFeed": "0xB7CAa5104047F6280f3E138a65b5c23BBc122D91"
         },
         "boba.mainnet": {
-            "BtcUsdPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87",
-            "EthUsdPriceFeed": "0xF849C1ddd19f524c12A043556fAa5602a6B81F98",
-            "OmgBtcPriceFeed": "0xBaaF31F4AAc5ab5334b6E239a83bf4E855C55ea7",
-            "OmgEthPriceFeed": "0x8555fF5b5A370FEF73Ce723b3fFfC57c161a1945",
-            "OmgUsdtPriceFeed": "0xD7f7933992c25A504e9Ddf7e76a3c1D6c432b25D"
+            "BtcUsdPriceFeed": "",
+            "EthUsdPriceFeed": "",
+            "OmgBtcPriceFeed": "",
+            "OmgEthPriceFeed": "",
+            "OmgUsdtPriceFeed": ""
         }
     },
     "celo": {
         "celo.alfajores": {
-            "BtcUsdPriceFeed": "0xC9EF681EB5c620F750849806482d03983DDb76c2",
-            "EthUsdPriceFeed": "0xfa9CaFbeB1e846C9A470c749f288591FEa6B0295"
+            "BtcUsdPriceFeed": "0x4A9fE9AcC7E5657A569c63CEbA37374DF0d9C965",
+            "EthUsdPriceFeed": "0x4d9A4684d64AB722dc444eAE46e7f60132BbD92f"
         }
     },
     "conflux": {
         "conflux.testnet": {
-            "BtcUsdPriceFeed": "0x8D8f26d4632A8d985618Ae60569C93f3a57009Da",
-            "CfxUsdtPriceFeed": "0x89e0b86eEC97Bc24F44e3eB206b22b235Db58C1E",
-            "EthUsdPriceFeed": "0x8fe2d6e0984fc65Ad68726A74d822881282A30A0"
+            "BtcUsdPriceFeed": "0x856FD9307bb6337b42c9859d28175e1D11531d11",
+            "CfxUsdtPriceFeed": "0x8dA085FF7274165BBd0EC611DF2fe4C60F9Cc8cb",
+            "EthUsdPriceFeed": "0x88d5d04664C40dC5C645E8476F7c4653ace22C1b"
         },
         "conflux.tethys": {
             "BtcUsdPriceFeed": "",
