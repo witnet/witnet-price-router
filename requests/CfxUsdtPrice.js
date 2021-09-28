@@ -32,31 +32,22 @@ const mexc = new Witnet.Source("https://www.mxc.com/open/api/v2/market/ticker?sy
   .multiply(10 ** 6) // Use 6 digit precision
   .round() // Cast to integer
 
-// Retrieves USDT price of CFX from the BKEX API
-const bkex = new Witnet.Source("https://api.bkex.cc/v2/q/ticker/price?symbol=CFX_USDT")
-  .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getArray("data") // Access to the `Array` object at `data` key
-  .getMap(0) // Access to the `Map` object at index 0
-  .getFloat("price") // Get the `String` value associated to the `price` key
-  .multiply(10 ** 6) // Use 6 digit precision
-  .round() // Cast to integer
-
-// Filters out any value that is more than 1.5 times the standard
+// Filters out any value that is more than 2.5 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
 const aggregator = new Witnet.Aggregator({
   filters: [
-    [Witnet.Types.FILTERS.deviationStandard, 1.5],
+    [Witnet.Types.FILTERS.deviationStandard, 2.5],
   ],
   reducer: Witnet.Types.REDUCERS.averageMean,
 })
 
-// Filters out any value that is more than 1.5 times the standard
+// Filters out any value that is more than 2.5 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
 const tally = new Witnet.Tally({
   filters: [
-    [Witnet.Types.FILTERS.deviationStandard, 1.5],
+    [Witnet.Types.FILTERS.deviationStandard, 2.5],
   ],
   reducer: Witnet.Types.REDUCERS.averageMean,
 })
@@ -67,7 +58,6 @@ const request = new Witnet.Request()
   .addSource(okex)
   .addSource(gateio)
   .addSource(mexc)
-  .addSource(bkex)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(10, 70) // Set witness count and minimum consensus percentage
