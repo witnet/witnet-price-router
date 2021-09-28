@@ -17,12 +17,12 @@ const outputScript = "1_price_feed_examples.js"
 if (process.argv.length < 3) {
   console.log()
   console.log("\n\
-    Usage: npm run migrate <Realm.Network>\n\n\
+    Usage: npm run migrate <[Realm.]Network>\n\n\
   ")
   process.exit(0)
 }
 
-const rn = require("./utils").getRealmNetworkFromNetwork(process.argv[2])
+const rn = require("./utils").getRealmNetworkFromString(process.argv[2])
 const realm = rn[0]; const network = rn[1]
 
 if (!settings.networks[realm] || !settings.networks[realm][network]) {
