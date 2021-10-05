@@ -3,7 +3,7 @@ pragma solidity >=0.7.0 <0.9.0;
 pragma experimental ABIEncoderV2;
 
 import "./ERC2362PriceFeed.sol";
-import "witnet-ethereum-bridge/contracts/interfaces/IERC20.sol";
+import "witnet-solidity-bridge/contracts/interfaces/IERC20.sol";
 
 // Your contract needs to inherit from UsingWitnet
 contract ERC2362PriceFeedBoba is ERC2362PriceFeed {

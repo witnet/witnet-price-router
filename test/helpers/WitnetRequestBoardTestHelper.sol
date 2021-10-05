@@ -3,7 +3,7 @@
 pragma solidity >=0.7.0 <0.9.0;
 pragma experimental ABIEncoderV2;
 
-import "witnet-ethereum-bridge/contracts/libs/Witnet.sol";
+import "witnet-solidity-bridge/contracts/libs/Witnet.sol";
 
 contract WitnetRequestBoardTestHelper {
   uint256 public requestId;

@@ -10,7 +10,7 @@ module.exports = async function (deployer, network, _accounts) {
   const realm = require("../../scripts/utils").getRealmNetworkFromString(network)[0]  
   let witnetAddresses
   try {    
-    witnetAddresses = require("witnet-ethereum-bridge/migrations/witnet.addresses")[realm][network]
+    witnetAddresses = require("witnet-solidity-bridge/migrations/witnet.addresses")[realm][network]
   } catch {
     console.error("Fatal: Witnet addresses were not provided!")
     process.exit(1)

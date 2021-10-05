@@ -18,6 +18,6 @@ module.exports = {
       ],
     },
   },
-  compilers: require("witnet-ethereum-bridge/migrations/witnet.settings").compilers,
-  networks: require("witnet-ethereum-bridge/migrations/witnet.settings").networks
+  compilers: require("witnet-solidity-bridge/migrations/witnet.settings").compilers,
+  networks: require("witnet-solidity-bridge/migrations/witnet.settings").networks
 }

@@ -4,9 +4,9 @@ pragma experimental ABIEncoderV2;
 
 // Implements:
 import "ado-contracts/contracts/interfaces/IERC2362.sol";
-import "witnet-ethereum-bridge/contracts/UsingWitnet.sol";
-import "witnet-ethereum-bridge/contracts/patterns/Payable.sol";
-import "witnet-ethereum-bridge/contracts/requests/WitnetRequestInitializableBase.sol";
+import "witnet-solidity-bridge/contracts/UsingWitnet.sol";
+import "witnet-solidity-bridge/contracts/patterns/Payable.sol";
+import "witnet-solidity-bridge/contracts/requests/WitnetRequestInitializableBase.sol";
 
 // Your contract needs to inherit from UsingWitnet
 contract ERC2362PriceFeed
