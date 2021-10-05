@@ -1,7 +1,7 @@
 require("dotenv").config()
 const truffleAssert = require("truffle-assertions")
 
-const realm = process.env.WITNET_EVM_REALM.toLowerCase() || "default"
+const realm = require("../scripts/utils").getRealmNetworkFromArgs()[0]
 const settings = require("../migrations/erc2362.settings")
 
 const ERC2362PriceFeed = artifacts.require(
