@@ -1,25 +1,25 @@
 {
     "default": {
         "ethereum.goerli": {
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": ""
+            "BtcUsdPriceFeed": "0xcd445329A50EB30e82F349A89D583B2Cb516F18f",
+            "EthUsdPriceFeed": "0x7D72Bd8F6c9D06Ae6D3Fd4B1aE0CAdab732959a7"
         },
         "ethereum.mainnet": {
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": ""
+            "BtcUsdPriceFeed": "0x4250a9d579E42588A8fFEd02e1a078A3BF767e8d",
+            "EthUsdPriceFeed": "0x11C073F17f018Bc1B372c7283fDe0608003823D5"
         },
         "ethereum.rinkeby": {
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": ""
+            "BtcUsdPriceFeed": "0xccAe308C9b91a3e3De8E0Dd4136Ce0Bb608e6ea4",
+            "EthUsdPriceFeed": "0x4566CaD4e76575f85fA423EF46080Afe353f7A05"
         }
     },
     "boba": {
         "boba.rinkeby": {
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": "",
-            "OmgBtcPriceFeed": "",
-            "OmgEthPriceFeed": "",
-            "OmgUsdtPriceFeed": ""
+            "BtcUsdPriceFeed": "0xeD074DA2A76FD2Ca90C1508930b4FB4420e413B0",
+            "EthUsdPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530",
+            "OmgBtcPriceFeed": "0x56834Ff8D4b27db647Da97CA3bd8540f7fA0e89D",
+            "OmgEthPriceFeed": "0x225BAd150B9D5202DC805B34A0DF64B1a77459dF",
+            "OmgUsdtPriceFeed": "0xE2Efa3fe66352e63F118bB9165435C5BEDB777d0"
         },
         "boba.mainnet": {
             "BtcUsdPriceFeed": "",
@@ -45,14 +45,14 @@
     },
     "conflux": {
         "conflux.testnet": {
-            "BtcUsdPriceFeed": "",
-            "CfxUsdtPriceFeed": "",
-            "EthUsdPriceFeed": ""
+            "BtcUsdPriceFeed": "0x8594B74645644b6a5fdE15597D3ADc15C77284A1",
+            "CfxUsdtPriceFeed": "0x81cc73426944cC15BE22a3d7c812282E66F2c689",
+            "EthUsdPriceFeed": "0x80DfFcbD9Fa48553fbC98aa7c21D50Ae47753C89"
         },
         "conflux.tethys": {
-            "BtcUsdPriceFeed": "",
-            "CfxUsdtPriceFeed": "",
-            "EthUsdPriceFeed": ""
+            "BtcUsdPriceFeed": "0x84E250b43337512B04aa5449e3A15FB715b78E88",
+            "CfxUsdtPriceFeed": "0x86e9A67C92455afa725CC01b2036e47cd4dd9929",
+            "EthUsdPriceFeed": "0x8Fd10Ad4913DC1F0049B46BfeD9F061e100B7ED9"
         }
     }
 }
