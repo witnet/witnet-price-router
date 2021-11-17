@@ -32,7 +32,8 @@
     "celo": {
         "celo.alfajores": {
             "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": ""
+            "EthUsdPriceFeed": "",
+            "CeloUsdPriceFeed": ""
         }
     },
     "conflux": {
