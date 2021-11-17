@@ -14,7 +14,7 @@ const bitfinex = new Witnet.Source("https://api.bitfinex.com/v1/pubticker/btcusd
   .multiply(10 ** 6)
   .round()
 
-// Retrieve BTCUSD price from Coinbase
+// Retrieve BTCUSD price from Kraken
 const kraken = new Witnet.Source("https://api.kraken.com/0/public/Ticker?pair=BTCUSD")
   .parseJSONMap()
   .getMap("result")

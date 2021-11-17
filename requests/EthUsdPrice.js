@@ -14,7 +14,7 @@ const bitfinex = new Witnet.Source("https://api.bitfinex.com/v1/pubticker/ETHUSD
   .multiply(10 ** 6)
   .round()
 
-// Retrieve ETHUSD price from Coinbase
+// Retrieve ETHUSD price from Kraken
 const kraken = new Witnet.Source("https://api.kraken.com/0/public/Ticker?pair=ETHUSD")
   .parseJSONMap()
   .getMap("result")
