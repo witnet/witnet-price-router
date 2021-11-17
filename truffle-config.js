@@ -15,8 +15,8 @@ if (!settings.networks[realm] || !settings.networks[realm][network]) {
   }
 }
 console.info(`
-> Targetting "${realm.toUpperCase()}" realm
-=====================${"=".repeat(realm.length)}`
+Targetting "${realm.toUpperCase()}" realm
+===================${"=".repeat(realm.length)}`
 )
 
 module.exports = {

@@ -89,12 +89,12 @@ async function migrateFlattened (network) {
 }
 
 async function compileFlattened () {
-  // console.log(`\n> Compiling from ${process.env.FLATTENED_DIRECTORY}...`)
-  // await cli.exec("truffle compile --all --config truffle-config.flattened.js")
-  //   .catch(err => {
-  //     console.error(err)
-  //     process.exit(-1)
-  //   })
+  console.log(`\n> Compiling from ${process.env.FLATTENED_DIRECTORY}...`)
+  await cli.exec("truffle compile --all --config truffle-config.flattened.js")
+    .catch(err => {
+      console.error(err)
+      process.exit(-1)
+    })
 }
 
 function composeMigrationScript (artifact) {
