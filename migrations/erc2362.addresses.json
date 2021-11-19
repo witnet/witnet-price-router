@@ -31,9 +31,16 @@
     },
     "celo": {
         "celo.alfajores": {
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": "",
-            "CeloUsdPriceFeed": ""
+            "BtcUsdPriceFeed": "0x4F8Ac2D45475A1894Cb85E3A21173d5e83041083",
+            "EthUsdPriceFeed": "0xD182e334e3c7140F8a520d326E333CA5f1FB7dDa",
+            "CeloEurPriceFeed": "0x9627CB0314368BC70587912119a4F03Ba0b179B5",
+            "CeloUsdPriceFeed": "0xA4dBe748BA8E3220eAC07cB4c951909fc089c3dD"
+        },
+        "celo.mainnet": {
+            "BtcUsdPriceFeed": "0xa1A950054d1F778B0758EBe89914410d01A37248",
+            "EthUsdPriceFeed": "0x3ebE9D7BF6cc4A4132c7fC75225f0D1c476d6ACb",
+            "CeloEurPriceFeed": "0xdDBf8eBC2C5435bf2251611466b45bf625a6E1DB",
+            "CeloUsdPriceFeed": "0x45EE6664E3be238C3ebC0462e0750e103ff6F24E"
         }
     },
     "conflux": {
