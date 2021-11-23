@@ -42,15 +42,4 @@ Witnet repository containing:
 
 ### Verify your ERC2362PriceFeed instances
 
-You may want to verify some or all of the price feed contracts in some of the supported realms. Currently, the price feed contracts can get verified in Ethereum (via Etherscan) and Conflux (via Conflux Explorer), but not in BOBA. Verification process can vary from one to realm to another, so follow the proper steps having into account the following data, depending on the targeted realm:
-
-    | - | Ethereum | Conflux |
-    | - | :------- | :------ | 
-    | License Type | MIT License (MIT) | MIT License (MIT)
-    | Compiler Version | v0.8.6+commit.11564f7e | v0.8.6+commit.11564f7e    
-    | Optimization | Yes | Yes
-    | Runs (Optimizer) | 200 | 200
-    | EVM Version | (compiler defaults) | Petersburg
-
-In both cases, the single-file source file can be found at `flattened/ERC2362PriceFeed/FlattenedERC2362PriceFeed.sol` (after running `npm run flatten`).
-
+You may want to verify some or all of the price feed contracts in some of the supported realms. The flattened single-file source files can be found in `flattened/` subfolder, after running `npm run flatten`.
