@@ -1,6 +1,6 @@
 {
   "name": "witnet-price-feed-examples",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "ERC2362 Pricefeed examples using the Witnet decentralized oracle network",
   "main": "",
   "repository": "https://github.com/witnet/witnet-price-feed-examples",
