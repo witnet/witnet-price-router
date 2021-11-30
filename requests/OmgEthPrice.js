@@ -74,7 +74,7 @@ const tally = new Witnet.Tally({
 const request = new Witnet.Request()
   .addSource(binance) // Use source 1
   .addSource(gateio) // Use source 2
-  .addSource(coinyep) // Use source 3
+  // .addSource(coinyep) // Use source 3
   .addSource(messari) // use source 4
   .addSource(bitfinex) // use source 5
   .addSource(kraken) // use source 6

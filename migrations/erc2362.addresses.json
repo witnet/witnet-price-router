@@ -14,15 +14,18 @@
         }
     },
     "boba": {
-        "boba.rinkeby": {
-            "BobaUsdtPriceFeed": "",
-            "BtcUsdPriceFeed": "0xeD074DA2A76FD2Ca90C1508930b4FB4420e413B0",
-            "EthUsdPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530",
+        "boba.mainnet": {
+            "BtcUsdPriceFeed": "",
+            "EthUsdPriceFeed": "",
             "OmgBtcPriceFeed": "",
             "OmgUsdtPriceFeed": ""
         },
-        "boba.mainnet": {
-            "BobaUsdtPriceFeed": "0x7BC25b36DfeB5102ACAE8f4E7600Dd963D2Eb95C"
+        "boba.rinkeby": {
+            "BtcUsdPriceFeed": "0xeD074DA2A76FD2Ca90C1508930b4FB4420e413B0",
+            "EthUsdPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530",
+            "OmgBtcPriceFeed": "",
+            "OmgEthPriceFeed": "0x8Ad8F2F41aC1A3b7EE87FB36be46f2689404562F",
+            "OmgUsdtPriceFeed": ""
         }
     },
     "celo": {
@@ -42,12 +45,12 @@
     "conflux": {
         "conflux.testnet": {
             "BtcUsdPriceFeed": "0x8594B74645644b6a5fdE15597D3ADc15C77284A1",
-            "CfxUsdtPriceFeed": "0x81cc73426944cC15BE22a3d7c812282E66F2c689",
+            "CfxUsdtPriceFeed": "0x8D7933112524bE9c143252456ac85F2a89d73f9D",
             "EthUsdPriceFeed": "0x80DfFcbD9Fa48553fbC98aa7c21D50Ae47753C89"
         },
         "conflux.tethys": {
             "BtcUsdPriceFeed": "0x84E250b43337512B04aa5449e3A15FB715b78E88",
-            "CfxUsdtPriceFeed": "0x86e9A67C92455afa725CC01b2036e47cd4dd9929",
+            "CfxUsdtPriceFeed": "0x82E6b8E6e98132a39ec96398e68Ee7bfBa0245C2",
             "EthUsdPriceFeed": "0x8Fd10Ad4913DC1F0049B46BfeD9F061e100B7ED9"
         }
     }
