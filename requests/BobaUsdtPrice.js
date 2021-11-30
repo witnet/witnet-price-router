@@ -17,12 +17,11 @@ const gateio = new Witnet.Source("https://data.gateapi.io/api2/1/ticker/boba_usd
   .round() // Cast to integer
 
 // Retrieves USDT price of BOBA from the MEXC API
-const mexc = new Witnet.Source("https://www.mxc.com/open/api/v2/market/ticker?symbol=BOBA_USDT")
+const mexc = new Witnet.Source("https://www.mexc.com/open/api/v2/market/ticker?symbol=BOBA_USDT")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
   .getArray("data") // Access to the `Array` object at `data` key
   .getMap(0) // Access to the `Map` object at index 0
-  .getString("last") // Get the `String` value associated to the `last` key
-  .asFloat() // Parse `String` as `Float`
+  .getFloat("last") // Get the `String` value associated to the `last` key
   .multiply(10 ** 6) // Use 6 digit precision
   .round() // Cast to integer
 

@@ -22,7 +22,7 @@ const gateio = new Witnet.Source("https://data.gateapi.io/api2/1/ticker/omg_btc"
   .round() // Cast to integer
 
 // Retrieves BTC price of OMG from the MEXC API
-const mexc = new Witnet.Source("https://www.mxc.com/open/api/v2/market/ticker?symbol=OMG_BTC")
+const mexc = new Witnet.Source("https://www.mexc.com/open/api/v2/market/ticker?symbol=OMG_BTC")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
   .getArray("data") // Access to the `Array` object at `data` key
   .getMap(0) // Access to the `Map` object at index 0
