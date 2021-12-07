@@ -1,5 +1,5 @@
-const prompt = require("prompt-sync")({ sigint: true })
-const settings = require("../erc2362.settings")
+const utils = require("../../scripts/utils")
+const settings = require("../settings")
 
 module.exports = async function (_deployer, network) {
   network = network.split("-")[0]
@@ -30,7 +30,7 @@ Enjoy the power of the Witnet Decentralized Oracle Network ;-)
         console.error(`\nFatal: no "test" configuration found for ${realm.toUpperCase()} realm! Please, review network settings.`)
         process.exit(1)
       }
-      let answer = prompt(`> Do you really want to run tests against ${realm.toUpperCase()} realm? [y/N] `).toLowerCase().trim()
+      let answer = (await utils.prompt(`> Do you really want to run tests against ${realm.toUpperCase()} realm? [y/N] `)).toLowerCase().trim()
       if (!["y", "yes"].includes(answer)) {
         console.log("\nInfo: cancelled by user.")
         process.exit(0)

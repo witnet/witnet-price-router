@@ -10,9 +10,9 @@ const fs = require("fs")
 const os = require("os")
 const cli = new cli_func()
 
-const settings = require("../migrations/erc2362.settings")
-const templateScript = "migrations.erc2362.template.js"
-const outputScript = "1_price_feed_examples.js"
+const settings = require("../migrations/settings")
+const templateScript = "migrations.template.js"
+const outputScript = "1_deploy_poller.js"
 
 if (process.argv.length < 3) {
   console.log()
@@ -38,8 +38,8 @@ if (!settings.networks[realm] || !settings.networks[realm][network]) {
 }
 
 const artifact = settings.artifacts[realm]
-  ? settings.artifacts[realm].ERC2362PriceFeed
-  : settings.artifacts.default.ERC2362PriceFeed
+  ? settings.artifacts[realm].WitnetPricePoller
+  : settings.artifacts.default.WitnetPricePoller
 
 process.env.FLATTENED_DIRECTORY = `./flattened/${artifact}/`
 
@@ -49,19 +49,16 @@ if (!fs.existsSync(`${process.env.FLATTENED_DIRECTORY}/Flattened${artifact}.sol`
   process.exit(0)
 }
 
-compileFlattened().then(() => {
+composeMigrationScript(artifact)
+migrateFlattened(network).then(() => {
+  deleteMigrationScript()
   console.log()
-  composeMigrationScript(artifact)
-  migrateFlattened(network).then(() => {
-    deleteMigrationScript()
-    console.log()
-  })
 })
-  .catch(err => {
-    console.error("Fatal:", err)
-    console.error()
-    process.exit(-1)
-  })
+.catch(err => {
+  console.error("Fatal:", err)
+  console.error()
+  process.exit(-1)
+})
 
 /// /////////////////////////////////////////////////////////////////////////////
 
@@ -81,21 +78,48 @@ function cli_func () {
 
 async function migrateFlattened (network) {
   console.log(`> Migrating from ${process.env.FLATTENED_DIRECTORY} into network '${network}'...`)
-  await cli.exec(`truffle migrate --reset --config truffle-config.flattened.js --network ${network}`)
-    .catch(err => {
-      console.error(err)
-      process.exit(-2)
+  // await cli.exec(`truffle migrate --reset --config truffle-config.flattened.js --network ${network}`)
+  //   .catch(err => {
+  //     console.error(err)
+  //     process.exit(-2)
+  //   })
+
+  await new Promise((resolve) => {
+    const subprocess = require("child_process").spawn(
+      "truffle",
+      [
+        "migrate",
+        "--reset",
+        "--config",
+        "truffle-config.flattened.js",        
+        "--network",
+        network,
+      ],
+      {
+        shell: true,
+        stdin: "inherit",
+      }
+    )
+    process.stdin.pipe(subprocess.stdin)
+    subprocess.stdout.pipe(process.stdout)
+    subprocess.stderr.pipe(process.stderr)
+    subprocess.on("close", (code) => {
+      if (code !== 0) {
+        process.exit(code)
+      }
+      resolve(subprocess.stdout)
     })
+  })
 }
 
-async function compileFlattened () {
-  console.log(`\n> Compiling from ${process.env.FLATTENED_DIRECTORY}...`)
-  await cli.exec("truffle compile --all --config truffle-config.flattened.js")
-    .catch(err => {
-      console.error(err)
-      process.exit(-1)
-    })
-}
+// async function compileFlattened () {
+//   console.log(`\n> Compiling from ${process.env.FLATTENED_DIRECTORY}...`)
+//   await cli.exec("truffle compile --all --config truffle-config.flattened.js")
+//     .catch(err => {
+//       console.error(err)
+//       process.exit(-1)
+//     })
+// }
 
 function composeMigrationScript (artifact) {
   let templateFile = `./scripts/templates/${templateScript}`
