@@ -20,11 +20,11 @@ module.exports = async function (deployer, network, _accounts) {
   }
 
   let registry
-  let updateRegistry = !utils.isNullAddress(witnetAddresses.WitnetPriceRegistry)
+  let updateRegistry = !utils.isNullAddress(witnetAddresses.WitnetPriceRouter)
   if (updateRegistry) {
     let artifactNames = merge(settings.artifacts.default, settings.artifacts[realm])
-    let WitnetPriceRegistry = artifacts.require(artifactNames.WitnetPriceRegistry)
-    registry = await WitnetPriceRegistry.at(witnetAddresses.WitnetPriceRegistry);
+    let WitnetPriceRouter = artifacts.require(artifactNames.WitnetPriceRouter)
+    registry = await WitnetPriceRouter.at(witnetAddresses.WitnetPriceRouter);
   }
 
   if (!addresses[realm]) addresses[realm] = {}
