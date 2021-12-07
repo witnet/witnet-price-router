@@ -1,9 +1,9 @@
 {
-  "name": "witnet-price-feed-examples",
+  "name": "witnet-maintained-prices",
   "version": "1.0.0",
-  "description": "ERC2362 Pricefeed examples using the Witnet decentralized oracle network",
+  "description": "Price pairs maintained by the Witnet's ERC2362 Price Router and the Witnet oracle",
   "main": "",
-  "repository": "https://github.com/witnet/witnet-price-feed-examples",
+  "repository": "https://github.com/witnet/witnet-maintained-prices",
   "author": "Witnet Devs <devs@witnet.io>",
   "license": "MIT",
   "private": false,
