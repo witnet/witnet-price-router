@@ -1,0 +1,58 @@
+{
+    "default": {
+        "ethereum.goerli": {
+            "BtcUsdPricePoller": "0xD7c1A890CFCf469fCab7dc4ec927fe7d778aA1b8",
+            "EthUsdPricePoller": "0x9fc29B93508EA749C14DC4305CcB67068dc85388"
+        },
+        "ethereum.mainnet": {
+            "BtcUsdPricePoller": "",
+            "EthUsdPricePoller": ""
+        },
+        "ethereum.rinkeby": {
+            "BtcUsdPricePoller": "",
+            "EthUsdPricePoller": ""
+        }
+    },
+    "boba": {
+        "boba.rinkeby": {
+            "BtcUsdPricePoller": "",
+            "EthUsdPricePoller": "",
+            "OmgBtcPricePoller": "",
+            "OmgEthPricePoller": "",
+            "OmgUsdtPricePoller": ""
+        },
+        "boba.mainnet": {
+            "BtcUsdPricePoller": "",
+            "EthUsdPricePoller": "",
+            "OmgBtcPricePoller": "",
+            "OmgEthPricePoller": "",
+            "OmgUsdtPricePoller": ""
+        }
+    },
+    "celo": {
+        "celo.alfajores": {
+            "BtcUsdPricePoller": "",
+            "EthUsdPricePoller": "",
+            "CeloEurPricePoller": "",
+            "CeloUsdPricePoller": ""
+        },
+        "celo.mainnet": {
+            "BtcUsdPricePoller": "",
+            "EthUsdPricePoller": "",
+            "CeloEurPricePoller": "",
+            "CeloUsdPricePoller": ""
+        }
+    },
+    "conflux": {
+        "conflux.testnet": {
+            "BtcUsdPricePoller": "",
+            "CfxUsdtPricePoller": "",
+            "EthUsdPricePoller": ""
+        },
+        "conflux.tethys": {
+            "BtcUsdPricePoller": "",
+            "CfxUsdtPricePoller": "",
+            "EthUsdPricePoller": ""
+        }
+    }
+}

@@ -1,0 +1,176 @@
+[
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "erc2362ID",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "contract IERC165",
+          "name": "pricePoller",
+          "type": "address"
+        }
+      ],
+      "name": "PricePairSet",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_erc2362id",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getPricePoller",
+      "outputs": [
+        {
+          "internalType": "contract IERC165",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC165",
+          "name": "_pricePoller",
+          "type": "address"
+        }
+      ],
+      "name": "getPricePollerCaption",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_priceCaption",
+          "type": "string"
+        }
+      ],
+      "name": "hashPriceCaption",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_erc2362id",
+          "type": "bytes32"
+        }
+      ],
+      "name": "lookupERC2362ID",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC165",
+          "name": "_pricePoller",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_priceDecimals",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_priceBase",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_priceQuote",
+          "type": "string"
+        }
+      ],
+      "name": "setPricePoller",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "supportedPricePairs",
+      "outputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "",
+          "type": "bytes32[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_erc2362id",
+          "type": "bytes32"
+        }
+      ],
+      "name": "supportsPricePair",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC165",
+          "name": "_pricePoller",
+          "type": "address"
+        }
+      ],
+      "name": "supportsPricePoller",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+]
