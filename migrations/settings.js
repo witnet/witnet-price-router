@@ -3,7 +3,7 @@ const { merge } = require("lodash")
 module.exports = {
   artifacts: merge({
       default: {
-        WitnetPricePoller: "WitnetPricePoller",
+        WitnetPriceFeed: "WitnetPriceFeed",
       }
     }, require("witnet-solidity-bridge/migrations/witnet.settings").artifacts
   ),

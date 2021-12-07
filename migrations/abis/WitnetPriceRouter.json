@@ -4,6 +4,25 @@
       "inputs": [
         {
           "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
           "internalType": "bytes32",
           "name": "erc2362ID",
           "type": "bytes32"
@@ -11,12 +30,46 @@
         {
           "indexed": false,
           "internalType": "contract IERC165",
-          "name": "pricePoller",
+          "name": "pricefeed",
           "type": "address"
         }
       ],
       "name": "PricePairSet",
       "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
       "inputs": [
@@ -26,7 +79,7 @@
           "type": "bytes32"
         }
       ],
-      "name": "getPricePoller",
+      "name": "getPriceFeed",
       "outputs": [
         {
           "internalType": "contract IERC165",
@@ -35,17 +88,18 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
         {
           "internalType": "contract IERC165",
-          "name": "_pricePoller",
+          "name": "_feed",
           "type": "address"
         }
       ],
-      "name": "getPricePollerCaption",
+      "name": "getPriceFeedCaption",
       "outputs": [
         {
           "internalType": "string",
@@ -54,13 +108,14 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
         {
           "internalType": "string",
-          "name": "_priceCaption",
+          "name": "_caption",
           "type": "string"
         }
       ],
@@ -73,7 +128,8 @@
         }
       ],
       "stateMutability": "pure",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -87,37 +143,38 @@
       "outputs": [
         {
           "internalType": "string",
-          "name": "",
+          "name": "_caption",
           "type": "string"
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
         {
           "internalType": "contract IERC165",
-          "name": "_pricePoller",
+          "name": "_feed",
           "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "_priceDecimals",
+          "name": "_decimals",
           "type": "uint256"
         },
         {
           "internalType": "string",
-          "name": "_priceBase",
+          "name": "_base",
           "type": "string"
         },
         {
           "internalType": "string",
-          "name": "_priceQuote",
+          "name": "_quote",
           "type": "string"
         }
       ],
-      "name": "setPricePoller",
+      "name": "setPriceFeed",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -133,7 +190,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -152,17 +210,18 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
         {
           "internalType": "contract IERC165",
-          "name": "_pricePoller",
+          "name": "_feed",
           "type": "address"
         }
       ],
-      "name": "supportsPricePoller",
+      "name": "supportsPriceFeed",
       "outputs": [
         {
           "internalType": "bool",
@@ -171,6 +230,37 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_erc2362id",
+          "type": "bytes32"
+        }
+      ],
+      "name": "valueFor",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "_value",
+          "type": "int256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_timestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_status",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
     }
 ]

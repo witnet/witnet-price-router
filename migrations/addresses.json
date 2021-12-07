@@ -1,58 +1,58 @@
 {
     "default": {
         "ethereum.goerli": {
-            "BtcUsdPricePoller": "0xD7c1A890CFCf469fCab7dc4ec927fe7d778aA1b8",
-            "EthUsdPricePoller": "0x9fc29B93508EA749C14DC4305CcB67068dc85388"
+            "BtcUsdPriceFeed": "0xcCDd40a8c305198F5643A565e294cC2B4dBbaAD8",
+            "EthUsdPriceFeed": "0x6d1c59c263D37610f8676B0e30a55c4009470155"
         },
         "ethereum.mainnet": {
-            "BtcUsdPricePoller": "",
-            "EthUsdPricePoller": ""
+            "BtcUsdPriceFeed": "",
+            "EthUsdPriceFeed": ""
         },
         "ethereum.rinkeby": {
-            "BtcUsdPricePoller": "",
-            "EthUsdPricePoller": ""
+            "BtcUsdPriceFeed": "",
+            "EthUsdPriceFeed": ""
         }
     },
     "boba": {
         "boba.rinkeby": {
-            "BtcUsdPricePoller": "",
-            "EthUsdPricePoller": "",
-            "OmgBtcPricePoller": "",
-            "OmgEthPricePoller": "",
-            "OmgUsdtPricePoller": ""
+            "BtcUsdPriceFeed": "",
+            "EthUsdPriceFeed": "",
+            "OmgBtcPriceFeed": "",
+            "OmgEthPriceFeed": "",
+            "OmgUsdtPriceFeed": ""
         },
         "boba.mainnet": {
-            "BtcUsdPricePoller": "",
-            "EthUsdPricePoller": "",
-            "OmgBtcPricePoller": "",
-            "OmgEthPricePoller": "",
-            "OmgUsdtPricePoller": ""
+            "BtcUsdPriceFeed": "",
+            "EthUsdPriceFeed": "",
+            "OmgBtcPriceFeed": "",
+            "OmgEthPriceFeed": "",
+            "OmgUsdtPriceFeed": ""
         }
     },
     "celo": {
         "celo.alfajores": {
-            "BtcUsdPricePoller": "",
-            "EthUsdPricePoller": "",
-            "CeloEurPricePoller": "",
-            "CeloUsdPricePoller": ""
+            "BtcUsdPriceFeed": "",
+            "EthUsdPriceFeed": "",
+            "CeloEurPriceFeed": "",
+            "CeloUsdPriceFeed": ""
         },
         "celo.mainnet": {
-            "BtcUsdPricePoller": "",
-            "EthUsdPricePoller": "",
-            "CeloEurPricePoller": "",
-            "CeloUsdPricePoller": ""
+            "BtcUsdPriceFeed": "",
+            "EthUsdPriceFeed": "",
+            "CeloEurPriceFeed": "",
+            "CeloUsdPriceFeed": ""
         }
     },
     "conflux": {
         "conflux.testnet": {
-            "BtcUsdPricePoller": "",
-            "CfxUsdtPricePoller": "",
-            "EthUsdPricePoller": ""
+            "BtcUsdPriceFeed": "",
+            "CfxUsdtPriceFeed": "",
+            "EthUsdPriceFeed": ""
         },
         "conflux.tethys": {
-            "BtcUsdPricePoller": "",
-            "CfxUsdtPricePoller": "",
-            "EthUsdPricePoller": ""
+            "BtcUsdPriceFeed": "",
+            "CfxUsdtPriceFeed": "",
+            "EthUsdPriceFeed": ""
         }
     }
 }

@@ -1,5 +1,21 @@
 [
     {
+      "inputs": [
+        {
+          "internalType": "contract WitnetRequestBoard",
+          "name": "_witnetRequestBoard",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_witnetRequestBytecode",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
       "anonymous": false,
       "inputs": [
         {
@@ -21,23 +37,17 @@
           "type": "uint256"
         }
       ],
-      "name": "PricePolling",
+      "name": "PriceFeeding",
       "type": "event"
     },
     {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "estimateUpdateFee",
+      "inputs": [],
+      "name": "bytecode",
       "outputs": [
         {
-          "internalType": "uint256",
+          "internalType": "bytes",
           "name": "",
-          "type": "uint256"
+          "type": "bytes"
         }
       ],
       "stateMutability": "view",
@@ -45,44 +55,8 @@
     },
     {
       "inputs": [],
-      "name": "lastPrice",
+      "name": "hash",
       "outputs": [
-        {
-          "internalType": "int256",
-          "name": "",
-          "type": "int256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "lastTimestamp",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "lastValue",
-      "outputs": [
-        {
-          "internalType": "int256",
-          "name": "",
-          "type": "int256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        },
         {
           "internalType": "bytes32",
           "name": "",
@@ -107,6 +81,106 @@
     },
     {
       "inputs": [],
+      "name": "witnet",
+      "outputs": [
+        {
+          "internalType": "contract WitnetRequestBoard",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_gasPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "estimateUpdateFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "_interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastPrice",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "_lastPrice",
+          "type": "int256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "_lastTimestamp",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastValue",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "_lastPrice",
+          "type": "int256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_lastTimestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_lastDrTxHash",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "latestUpdateDrTxHash",
       "outputs": [
         {
@@ -124,7 +198,7 @@
       "outputs": [
         {
           "internalType": "string",
-          "name": "",
+          "name": "_errorMessage",
           "type": "string"
         }
       ],
@@ -162,25 +236,6 @@
       "name": "requestUpdate",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes4",
-          "name": "",
-          "type": "bytes4"
-        }
-      ],
-      "name": "supportsInterface",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
       "type": "function"
     }
 ]

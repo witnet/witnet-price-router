@@ -12,7 +12,7 @@ const cli = new cli_func()
 
 const settings = require("../migrations/settings")
 const templateScript = "migrations.template.js"
-const outputScript = "1_deploy_poller.js"
+const outputScript = "1_deploy.js"
 
 if (process.argv.length < 3) {
   console.log()
@@ -38,8 +38,8 @@ if (!settings.networks[realm] || !settings.networks[realm][network]) {
 }
 
 const artifact = settings.artifacts[realm]
-  ? settings.artifacts[realm].WitnetPricePoller
-  : settings.artifacts.default.WitnetPricePoller
+  ? settings.artifacts[realm].WitnetPriceFeed
+  : settings.artifacts.default.WitnetPriceFeed
 
 process.env.FLATTENED_DIRECTORY = `./flattened/${artifact}/`
 
@@ -78,12 +78,6 @@ function cli_func () {
 
 async function migrateFlattened (network) {
   console.log(`> Migrating from ${process.env.FLATTENED_DIRECTORY} into network '${network}'...`)
-  // await cli.exec(`truffle migrate --reset --config truffle-config.flattened.js --network ${network}`)
-  //   .catch(err => {
-  //     console.error(err)
-  //     process.exit(-2)
-  //   })
-
   await new Promise((resolve) => {
     const subprocess = require("child_process").spawn(
       "truffle",
@@ -111,15 +105,6 @@ async function migrateFlattened (network) {
     })
   })
 }
-
-// async function compileFlattened () {
-//   console.log(`\n> Compiling from ${process.env.FLATTENED_DIRECTORY}...`)
-//   await cli.exec("truffle compile --all --config truffle-config.flattened.js")
-//     .catch(err => {
-//       console.error(err)
-//       process.exit(-1)
-//     })
-// }
 
 function composeMigrationScript (artifact) {
   let templateFile = `./scripts/templates/${templateScript}`

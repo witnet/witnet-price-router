@@ -3,13 +3,14 @@ pragma solidity >=0.7.0 <0.9.0;
 pragma experimental ABIEncoderV2;
 
 import "witnet-solidity-bridge/contracts/UsingWitnet.sol";
-import "witnet-solidity-bridge/contracts/examples/WitnetPriceRouter.sol";
 import "witnet-solidity-bridge/contracts/requests/WitnetRequest.sol";
 
+import "witnet-solidity-bridge/contracts/examples/WitnetPriceRouter.sol";
+
 // Your contract needs to inherit from UsingWitnet
-contract WitnetPricePoller
+contract WitnetPriceFeed
     is
-        IWitnetPricePoller,
+        IWitnetPriceFeed,
         UsingWitnet,
         WitnetRequest
 {
@@ -47,7 +48,7 @@ contract WitnetPricePoller
     {
         return (
             _interfaceId == type(IERC165).interfaceId
-                || _interfaceId == type(IWitnetPricePoller).interfaceId
+                || _interfaceId == type(IWitnetPriceFeed).interfaceId
         );
     }
 
@@ -231,7 +232,7 @@ contract WitnetPricePoller
         // Transfer back unused funds:
         payable(msg.sender).transfer(msg.value - _usedFunds);
         if (_usedFunds > 0) {
-            emit PricePolling(msg.sender, _latestQueryId, _usedFunds);
+            emit PriceFeeding(msg.sender, _latestQueryId, _usedFunds);
         }
     }
 }
