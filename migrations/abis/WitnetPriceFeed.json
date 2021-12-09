@@ -112,25 +112,6 @@
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "bytes4",
-          "name": "_interfaceId",
-          "type": "bytes4"
-        }
-      ],
-      "name": "supportsInterface",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "inputs": [],
       "name": "lastPrice",
       "outputs": [
@@ -171,9 +152,9 @@
           "type": "uint256"
         },
         {
-          "internalType": "bytes32",
-          "name": "_lastDrTxHash",
-          "type": "bytes32"
+          "internalType": "uint256",
+          "name": "_latestUpdateStatus",
+          "type": "uint256"
         }
       ],
       "stateMutability": "view",
@@ -236,6 +217,25 @@
       "name": "requestUpdate",
       "outputs": [],
       "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "_interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     }
 ]

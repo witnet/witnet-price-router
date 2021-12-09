@@ -1,8 +1,8 @@
 {
     "default": {
         "ethereum.goerli": {
-            "BtcUsdPriceFeed": "0xcCDd40a8c305198F5643A565e294cC2B4dBbaAD8",
-            "EthUsdPriceFeed": "0x6d1c59c263D37610f8676B0e30a55c4009470155"
+            "BtcUsdPriceFeed": "0x0d5f4EC2F7AB4099746c450BB357878878f82223",
+            "EthUsdPriceFeed": "0xeba2c8a653c338Ba226133aAe22A257C92cd0D95"
         },
         "ethereum.mainnet": {
             "BtcUsdPriceFeed": "",
