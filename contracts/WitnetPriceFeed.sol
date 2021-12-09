@@ -33,6 +33,10 @@ contract WitnetPriceFeed
         WitnetRequest(_witnetRequestBytecode)
     {}
 
+    /// Estimates minimum fee amount in native currency to be paid when 
+    /// requesting a new price update.
+    /// @dev Actual fee depends on the gas price of the `requestUpdate()` transaction.
+    /// @param _gasPrice Gas price expected to be paid when calling `requestUpdate()`
     function estimateUpdateFee(uint256 _gasPrice)
         external view
         virtual override
@@ -41,18 +45,7 @@ contract WitnetPriceFeed
         return witnet.estimateReward(_gasPrice);
     }
 
-    function supportsInterface(bytes4 _interfaceId)
-        public view 
-        virtual override
-        returns (bool)
-    {
-        return (
-            _interfaceId == type(IERC165).interfaceId
-                || _interfaceId == type(IWitnetPriceFeed).interfaceId
-        );
-    }
-
-    /// Returns last valid Witnet response.
+    /// Returns result of the last valid price update request successfully solved by the Witnet oracle.
     function lastPrice()
         public view
         virtual override
@@ -75,6 +68,7 @@ contract WitnetPriceFeed
         }
     }
 
+    /// Returns the EVM-timestamp when last valid price was reported back from the Witnet oracle.
     function lastTimestamp()
         public view
         virtual override
@@ -99,6 +93,10 @@ contract WitnetPriceFeed
         }
     }
 
+    /// Returns tuple containing last valid price, timestamp, and hash of the Witnet Data Request that solved the price update.
+    /// @return _lastPrice Last valid price reported back from the Witnet oracle.
+    /// @return _lastTimestamp EVM-timestamp of the last valid price.
+    /// @return _lastDrTxHash Hash of the Witnet Data Request that solved the last valid price.
     function lastValue()
         external view
         virtual override
@@ -132,6 +130,8 @@ contract WitnetPriceFeed
         }
     }
 
+    /// Returns hash of the Witnet Data Request that solved the latest update request.
+    /// @dev Returning 0 while the latest update request remains unsolved.
     function latestUpdateDrTxHash()
         external view
         virtual override
@@ -146,6 +146,9 @@ contract WitnetPriceFeed
         return bytes32(0);
     }
 
+    /// Returns error message of latest update request posted to the Witnet Request Board.
+    /// @dev Returning empty string if the latest update request remains unsolved, or
+    /// @dev if it was succesfully solved with no errors.
     function latestUpdateErrorMessage()
         external view
         virtual override
@@ -168,6 +171,11 @@ contract WitnetPriceFeed
         }
     }
 
+    /// Returns status code of latest update request posted to the Witnet Request Board:
+    /// @dev Status codes:
+    /// @dev   - 200: update request was succesfully solved with no errors
+    /// @dev   - 400: update request solved with no errors
+    /// @dev   - 404: update request was not yet solved
     function latestUpdateStatus()
         public view
         virtual override
@@ -189,7 +197,8 @@ contract WitnetPriceFeed
         return 200;
     }
 
-    /// Tells if an update has been requested but was not yet completed.
+    /// Returns `true` if latest update request posted to the Witnet Request Board 
+    /// was not yet solved by the Witnet oracle.
     function pendingUpdate()
         public view
         virtual override
@@ -201,9 +210,12 @@ contract WitnetPriceFeed
         );
     }
 
-    /// Requests a new price update to the WitnetRequestBoard.
-    /// @dev If previous request was not yet solved, this method enables upgrading
-    /// @dev Witnet reward of that request, accordingly to current tx gasprice.
+    /// Posts a new price update request to the Witnet Request Board. Requires payment of a fee
+    /// that depends on the value of `tx.gasprice`. See `estimateUpdateFee(uint256)`.
+    /// Moreover, it will transfer back unused funds if payed a higher fee than the one strictly 
+    /// required by the Witnet Request Board.
+    /// @dev If previous update request was not yet solved, calling this method again enables
+    /// @dev upgrading the update fee if called with a higher `tx.gasprice` value.
     function requestUpdate()
         public payable
         virtual override
@@ -234,5 +246,19 @@ contract WitnetPriceFeed
         if (_usedFunds > 0) {
             emit PriceFeeding(msg.sender, _latestQueryId, _usedFunds);
         }
+    }
+
+    /// Returns true if this contract implements the interface defined by `interfaceId`. 
+    /// @dev See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section]
+    /// @dev to learn more about how these ids are created.
+    function supportsInterface(bytes4 _interfaceId)
+        public view 
+        virtual override
+        returns (bool)
+    {
+        return (
+            _interfaceId == type(IERC165).interfaceId
+                || _interfaceId == type(IWitnetPriceFeed).interfaceId
+        );
     }
 }
