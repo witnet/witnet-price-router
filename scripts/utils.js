@@ -6,7 +6,7 @@ module.exports = {
   getRealmNetworkFromArgs,
   getRealmNetworkFromString,
   isNullAddress,
-  prompt
+  prompt,
 }
 
 function getRealmNetworkFromArgs () {
@@ -64,7 +64,7 @@ function isNullAddress (addr) {
       !web3.utils.isAddress(addr)
 }
 
-async function prompt(text) {
+async function prompt (text) {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,

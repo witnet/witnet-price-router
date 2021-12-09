@@ -5,10 +5,8 @@
 
 require("dotenv").config()
 
-const exec = require("child_process").exec
 const fs = require("fs")
 const os = require("os")
-const cli = new cli_func()
 
 const settings = require("../migrations/settings")
 const templateScript = "migrations.template.js"
@@ -54,27 +52,13 @@ migrateFlattened(network).then(() => {
   deleteMigrationScript()
   console.log()
 })
-.catch(err => {
-  console.error("Fatal:", err)
-  console.error()
-  process.exit(-1)
-})
+  .catch(err => {
+    console.error("Fatal:", err)
+    console.error()
+    process.exit(-1)
+  })
 
 /// /////////////////////////////////////////////////////////////////////////////
-
-function cli_func () {
-  this.exec = async function (cmd) {
-    return new Promise((resolve, reject) => {
-      exec(cmd, (error, stdout, stderr) => {
-        if (error) {
-          reject(error)
-          return
-        }
-        resolve(stdout)
-      }).stdout.pipe(process.stdout)
-    })
-  }
-}
 
 async function migrateFlattened (network) {
   console.log(`> Migrating from ${process.env.FLATTENED_DIRECTORY} into network '${network}'...`)
@@ -85,7 +69,7 @@ async function migrateFlattened (network) {
         "migrate",
         "--reset",
         "--config",
-        "truffle-config.flattened.js",        
+        "truffle-config.flattened.js",
         "--network",
         network,
       ],
