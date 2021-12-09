@@ -1,9 +1,9 @@
 {
-  "name": "witnet-maintained-prices",
+  "name": "witnet-price-feeds",
   "version": "1.0.0",
-  "description": "Price pairs maintained by the Witnet's ERC2362 Price Router and the Witnet oracle",
+  "description": "Price pairs maintained by the Witnet Foundation's ERC2362 Price Router instance and the Witnet oracle",
   "main": "",
-  "repository": "https://github.com/witnet/witnet-maintained-prices",
+  "repository": "https://github.com/witnet/witnet-price-feeds",
   "author": "Witnet Devs <devs@witnet.io>",
   "license": "MIT",
   "private": false,
