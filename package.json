@@ -8,8 +8,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "avail": "npm run avail:examples && npm run avail:networks",
-    "avail:examples": "npm run compile:requests && node ./scripts/avail-examples.js 2>&1",
+    "avail": "npm run avail:networks && npm run avail:feeds",
+    "avail:feeds": "node ./scripts/avail-feeds.js 2>&1",
     "avail:networks": "node ./scripts/avail-networks.js 2>&1",
     "console": "npx truffle console",
     "clean": "npm run clean:build && npm rum clean:flattened",

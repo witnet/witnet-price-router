@@ -1,6 +1,6 @@
 require("dotenv").config()
 
-let networks = require("../migrations/erc2362.settings").networks
+let networks = require("../migrations/settings").networks
 let realm, network
 if (process.argv.length >= 3) {
   network = process.argv[2].toLowerCase()
@@ -9,6 +9,8 @@ if (process.argv.length >= 3) {
   if (!networks[realm]) {
     console.log("Unknown realm:", realm)
     process.exit(1)
+  } else {
+    console.log("Witnet-supported networks within", realm.toUpperCase(), "chain:")
   }
   if (network.split(".")[1]) {
     if (!networks[realm][network]) {
@@ -20,5 +22,7 @@ if (process.argv.length >= 3) {
   } else {
     networks = networks[realm]
   }
+} else {
+  console.log("Witnet-supported networks:")
 }
 console.log(networks)
