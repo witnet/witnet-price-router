@@ -1,7 +1,7 @@
 {
   "name": "witnet-price-feeds",
   "version": "1.0.0",
-  "description": "Price pairs maintained by the Witnet Foundation's ERC2362 Price Router instance and the Witnet oracle",
+  "description": "This repository contains the price feeds currently mantained by the Witnet Foundation within all the EVM-compatible networks supported by the Witnet oracle",
   "main": "",
   "repository": "https://github.com/witnet/witnet-price-feeds",
   "author": "Witnet Devs <devs@witnet.io>",

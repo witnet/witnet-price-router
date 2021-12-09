@@ -174,7 +174,7 @@ contract WitnetPriceFeed
     /// Returns status code of latest update request posted to the Witnet Request Board:
     /// @dev Status codes:
     /// @dev   - 200: update request was succesfully solved with no errors
-    /// @dev   - 400: update request solved with no errors
+    /// @dev   - 400: update request solved with errors
     /// @dev   - 404: update request was not yet solved
     function latestUpdateStatus()
         public view

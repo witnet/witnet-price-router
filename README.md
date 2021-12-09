@@ -1,45 +1,54 @@
-# witnet-price-feed-examples
+# witnet-price-feeds
 
-Witnet repository containing:
-- Automatic generation of data feed Solidity contracts, based on [`witnet-request-js`](https://github.com/witnet/witnet-requests-js).
-- Importing Witnet Bridge Smart Contracts official addresses, available in multiple testnets and mainnet.
-- Price feed smart contract examples, demonstrating how Witnet framework can be integrated.
-- Scripts for flattening and migrating a given price feed contract into selected network.
+This repository contains the price feeds currently mantained by the Witnet Foundation within all the EVM-compatible networks supported by the Witnet oracle. 
 
 ## Usage
 
-### Deploy an instance of ERC2362PriceFeed for each Witnet Request
+### Install repo
+- `npm install`
+- `npx witnet-toolkit update`
+- `npm run flatten`
 
-- First step is to flatten the deployable artifacts of this repository:
+### List Witnet-supported networks
+- `npm run avail:networks`
 
-  ```console
-    npm run flatten
+### List available price feeds
+- `npm run avail:feeds`
+
+### List deployed addresses
+- See contents of `migrations/addresses.json`
+
+### Create new Witnet price update request:
+
+- Add new `.js` file into `requests/` folder.
+- Follow examples available in same folder, or [this tutorial](https://docs.witnet.io/tutorials/bitcoin-price-feed/sources/).
+- Compile requests into CBOR-encoded bytecodes:
+  `npm run compile:requests`
+  A new entry will be added to `migrations/witnet.requests.json` file, named after the new `.js`
+
+### Try out Witnet price update requests:
+- Copy the `<bytecode>` from the corresponding entry in `migrations/witnet.requests.json`, removing the `0x` prefix.
+- Run this command:
+  `npx witnet-toolkit try-data-request --hex <bytecode>`
+
+### Deploy new WitnetPriceFeed instance:
+- Specify fields `base`, `quote` and `decimals` within the corresponding entry in `migrations/witnet.request.json`, if not yet done so.
+- Add empty string into the appropiate network section within `migrations/addresses.json` file, named after the Witnet price update request you want to deploy. E.g.:
   ```
+  {
+    ...    
+    "boba": {
+      ...
+      "boba.mainnet": {
+        ...
+        "OmgBtcPriceFeed": """
+      },  
+    }
+  }
+- `npm run migrate <network.name>´
+- Type "y" + [ENTER] when asked for permission to update the `WitnetPriceRouter` contract.
 
-- Secondly, rename the `.env_example` file to `.env`, and set a proper value to the `WITNET_EVM_REALM` environment variable, depending on the EVM-compatible blockchain (i.e. "realm") where you want to deploy to. Currently, the possible values are: `default`, `conflux` or `boba`. 
-
-- Checkout configured networks to the realm specified in the `.env` file:
-
-  ```console
-     npm run avail 
-  ```
-
-  If you need to modify or add new network configurations, please properly edit the `networks` section within the `migrations/erc2362.settings.js` file.
-
-- For deploying newly created examples:
-
-  ```console
-    npm run migrate <Network>
-  ```
-
-  This script will deploy an instance of the `ERC2362PriceFeed` implementation adapted to the active "realm", for every bytecode string found in the `migrations/witnet.requests.js` whose corresponding price feed contract address in `migrations/erc2362.addresses.json` is found to be empty. After deploying a new price feed contract, the script will automatically update the corresponding entry in the `migrations/erc2362.addresses.json` file.
-
-- If you need to redeploy certain price feed contract (e.g. after making some modification in any of the files in `requests/`), make sure to delete the corresponding address in `migrations/erc2362.addresses.json` before running migrations again:
-
-  ```console
-    npm run migrate <Network>
-  ```
-
-### Verify your ERC2362PriceFeed instances
-
-You may want to verify some or all of the price feed contracts in some of the supported realms. The flattened single-file source files can be found in `flattened/` subfolder, after running `npm run flatten`.
+### Update an already deployed WitnetPriceFeed instance:
+- Remove address from the corresponding entry within `migrations/addresses.json`
+- `npm run migrate <network.name>`
+- Type "y" + [ENTER] when asked for permission to update the `WitnetPriceRouter` contract.
