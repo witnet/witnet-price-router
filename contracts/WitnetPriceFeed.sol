@@ -107,40 +107,31 @@ contract WitnetPriceFeed
             uint _latestUpdateStatus
         )
     {
-        Witnet.Response memory _response;
-        Witnet.Result memory _result;
         uint _latestQueryId = latestQueryId;
-        if (
-            _latestQueryId > 0
-                && _witnetCheckResultAvailability(_latestQueryId)
-        ) {
-            _response = witnet.readResponse(_latestQueryId);
-            _result = witnet.resultFromCborBytes(_response.cborBytes);
-            if (_result.success) {
+        if (_latestQueryId > 0) {
+            bool _pendingRequest = _witnetCheckResultAvailability(_latestQueryId);
+            if (_pendingRequest) {
+                Witnet.Response memory _latestResponse = witnet.readResponse(_latestQueryId);
+                Witnet.Result memory _latestResult = witnet.resultFromCborBytes(_latestResponse.cborBytes);
+                if (_latestResult.success) {
+                    return (
+                        int256(int64(witnet.asUint64(_latestResult))),
+                        _latestResponse.timestamp,
+                        200
+                    );
+                }
+            }
+            if (__lastValidQueryId > 0) {
+                Witnet.Response memory _lastValidResponse = witnet.readResponse(__lastValidQueryId);
+                Witnet.Result memory _lastValidResult = witnet.resultFromCborBytes(_lastValidResponse.cborBytes);
                 return (
-                    int256(int64(witnet.asUint64(_result))),
-                    _response.timestamp,
-                    200
-                );
-            } else {
-                return (
-                    int256(int64(witnet.asUint64(_result))),
-                    _response.timestamp,
-                    400
+                    int256(int64(witnet.asUint64(_lastValidResult))),
+                    _lastValidResponse.timestamp,
+                    404
                 );
             }
         }
-        if (__lastValidQueryId > 0) {
-            _response = witnet.readResponse(__lastValidQueryId);
-            _result = witnet.resultFromCborBytes(_response.cborBytes);
-            return (
-                int256(int64(witnet.asUint64(_result))),
-                _response.timestamp,
-                404
-            );
-        } else {
-            return (0, 0, 0);
-        }
+        return (0, 0, 404);
     }
 
     /// Returns hash of the Witnet Data Request that solved the latest update request.
