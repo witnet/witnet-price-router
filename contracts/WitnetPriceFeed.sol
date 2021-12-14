@@ -161,15 +161,9 @@ contract WitnetPriceFeed
         uint256 _latestQueryId = latestQueryId;
         if (_latestQueryId > 0) {
             if (_witnetCheckResultAvailability(_latestQueryId)) {
-                Witnet.Result memory _result = witnet.readResponseResult(_latestQueryId);
-                if (_result.success == false) {
-                    // Try to read the value as an error message, catch error bytes if read fails
-                    try witnet.asErrorMessage(_result) returns (Witnet.ErrorCodes, string memory e) {
-                        _errorMessage = e;
-                    }
-                    catch (bytes memory errorBytes) {
-                        _errorMessage = string(errorBytes);
-                    }
+                Witnet.Result memory _latestResult = witnet.readResponseResult(_latestQueryId);
+                if (_latestResult.success == false) {
+                    (, _errorMessage) = witnet.asErrorMessage(_latestResult);
                 }
             }
         }

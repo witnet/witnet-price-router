@@ -1,8 +1,8 @@
 {
     "default": {
         "ethereum.goerli": {
-            "BtcUsdPriceFeed": "0x0d5f4EC2F7AB4099746c450BB357878878f82223",
-            "EthUsdPriceFeed": "0xeba2c8a653c338Ba226133aAe22A257C92cd0D95"
+            "BtcUsdPriceFeed": "",
+            "EthUsdPriceFeed": ""
         },
         "ethereum.mainnet": {
             "BtcUsdPriceFeed": "",
@@ -53,6 +53,12 @@
             "BtcUsdPriceFeed": "",
             "CfxUsdtPriceFeed": "",
             "EthUsdPriceFeed": ""
+        }
+    },
+    "kcc": {
+        "kcc.testnet": {
+            "BtcUsdPriceFeed": "0x2Ea0d13A5A56011D355E7959B91883fe85491a97",
+            "EthUsdPriceFeed": "0xB4760e3E9AcFC9Fe9b34A1cbD3c622aA9F1957e2"
         }
     }
 }
