@@ -4,6 +4,25 @@
       "inputs": [
         {
           "indexed": true,
+          "internalType": "bytes32",
+          "name": "erc2362ID",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "contract IERC165",
+          "name": "pricefeed",
+          "type": "address"
+        }
+      ],
+      "name": "CurrencyPairSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
           "internalType": "address",
           "name": "previousOwner",
           "type": "address"
@@ -16,25 +35,6 @@
         }
       ],
       "name": "OwnershipTransferred",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "bytes32",
-          "name": "erc2362ID",
-          "type": "bytes32"
-        },
-        {
-          "indexed": false,
-          "internalType": "contract IERC165",
-          "name": "pricefeed",
-          "type": "address"
-        }
-      ],
-      "name": "PricePairSet",
       "type": "event"
     },
     {
@@ -104,6 +104,26 @@
     {
       "inputs": [
         {
+          "internalType": "string",
+          "name": "_caption",
+          "type": "string"
+        }
+      ],
+      "name": "currencyPairId",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
           "internalType": "bytes32",
           "name": "_erc2362id",
           "type": "bytes32"
@@ -125,7 +145,7 @@
       "inputs": [
         {
           "internalType": "contract IERC165",
-          "name": "_feed",
+          "name": "_pricefeed",
           "type": "address"
         }
       ],
@@ -138,26 +158,6 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_caption",
-          "type": "string"
-        }
-      ],
-      "name": "hashPriceCaption",
-      "outputs": [
-        {
-          "internalType": "bytes32",
-          "name": "",
-          "type": "bytes32"
-        }
-      ],
-      "stateMutability": "pure",
       "type": "function",
       "constant": true
     },
@@ -185,7 +185,7 @@
       "inputs": [
         {
           "internalType": "contract IERC165",
-          "name": "_feed",
+          "name": "_pricefeed",
           "type": "address"
         },
         {
@@ -211,7 +211,7 @@
     },
     {
       "inputs": [],
-      "name": "supportedPricePairs",
+      "name": "supportedCurrencyPairs",
       "outputs": [
         {
           "internalType": "bytes32[]",
@@ -231,7 +231,7 @@
           "type": "bytes32"
         }
       ],
-      "name": "supportsPricePair",
+      "name": "supportsCurrencyPair",
       "outputs": [
         {
           "internalType": "bool",
@@ -247,7 +247,7 @@
       "inputs": [
         {
           "internalType": "contract IERC165",
-          "name": "_feed",
+          "name": "_pricefeed",
           "type": "address"
         }
       ],
