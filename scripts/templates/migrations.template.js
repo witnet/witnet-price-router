@@ -12,10 +12,10 @@ module.exports = async function (deployer, network, _accounts) {
   network = network.split("-")[0]
   const realm = utils.getRealmNetworkFromString(network)[0]  
   let witnetAddresses
-  try {    
+  try {
     witnetAddresses = require("witnet-solidity-bridge/migrations/witnet.addresses")[realm][network]
-  } catch {
-    console.error("Fatal: Witnet addresses were not provided!")
+  } catch (e) {
+    console.error("Fatal: Witnet addresses were not provided!", e)
     process.exit(1)
   }
 

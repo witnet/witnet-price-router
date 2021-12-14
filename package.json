@@ -23,7 +23,8 @@
     "fmt": "solhint --max-warnings 0 \"contracts/**/*.sol\" && eslint ./test && eslint ./scripts/*.js && solhint \"test/**/*.sol\"",
     "fmt!": "solhint --max-warnings 0 \"contracts/**/*.sol\" --fix && eslint ./test --fix && eslint ./scripts/*.js --fix && solhint \"test/**/*.sol\" --fix",
     "migrate": "npm run clean:build && npm run compile:requests && node ./scripts/flattened-migrate.js 2>&1",
-    "test": "npx truffle test"
+    "test": "npx truffle test",
+    "try-data-request": "npx witnet-toolkit try-data-request --hex"
   },
   "dependencies": {
     "@eth-optimism/solc": "^0.7.6-alpha.1",
@@ -32,7 +33,7 @@
     "lodash": "^4.17.21",
     "openzeppelin-solidity": "^2.4.0",
     "witnet-solidity-bridge": "git+https://github.com/witnet/witnet-solidity-bridge#feat/witnet-price-registry",
-    "witnet-requests": "~0.7.0"
+    "witnet-requests": "~0.7.3"
   },
   "devDependencies": {
     "dotenv": "8.2.0",
