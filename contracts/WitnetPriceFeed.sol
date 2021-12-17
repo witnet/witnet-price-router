@@ -127,7 +127,7 @@ contract WitnetPriceFeed
                 return (
                     int256(int64(witnet.asUint64(_lastValidResult))),
                     _lastValidResponse.timestamp,
-                    404
+                    _pendingRequest ? 404 : 400
                 );
             }
         }
