@@ -57,8 +57,10 @@
     },
     "kcc": {
         "kcc.testnet": {
-            "BtcUsdPriceFeed": "0xD3B6E74ebC13905A2637286F9074C0e911cf7a1e",
-            "EthUsdPriceFeed": "0xaF1be0A8A1903654F9b1e0ff67A5A7e5fa03692c"
+            "BtcUsdPriceFeed": "0xEa7ac8f56bCe3E2c45be97287865D2c8027BD17b",
+            "EthUsdPriceFeed": "0x3a5D7dd14249D7307F2aCf2E7c18df27da094843"
+        }
+    },
         }
     }
 }

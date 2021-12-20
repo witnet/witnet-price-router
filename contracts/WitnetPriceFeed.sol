@@ -109,8 +109,8 @@ contract WitnetPriceFeed
     {
         uint _latestQueryId = latestQueryId;
         if (_latestQueryId > 0) {
-            bool _pendingRequest = _witnetCheckResultAvailability(_latestQueryId);
-            if (_pendingRequest) {
+            bool _completed = _witnetCheckResultAvailability(_latestQueryId);
+            if (_completed) {
                 Witnet.Response memory _latestResponse = witnet.readResponse(_latestQueryId);
                 Witnet.Result memory _latestResult = witnet.resultFromCborBytes(_latestResponse.cborBytes);
                 if (_latestResult.success) {
@@ -127,7 +127,7 @@ contract WitnetPriceFeed
                 return (
                     int256(int64(witnet.asUint64(_lastValidResult))),
                     _lastValidResponse.timestamp,
-                    _pendingRequest ? 404 : 400
+                    _completed ? 400 : 404
                 );
             }
         }
