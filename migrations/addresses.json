@@ -66,5 +66,11 @@
             "BtcUsdPriceFeed": "0x10C3A7Ab3b7C7eD7dCE623F41e495330288B0EcA",
             "EthUsdPriceFeed": "0x56Cf0B4b803E4892352EB74a82cd11Ea61e78835"
         }
+    },
+    "polygon": {
+        "polygon.mumbai": {
+            "BtcUsdPriceFeed": "0xB4B2E2e00e9d6E5490d55623E4F403EC84c6D33f",
+            "EthUsdPriceFeed": "0x9E943Ab1FD0D35B3BaDe31AA78D60C485EA1a604"
+        }
     }
 }
