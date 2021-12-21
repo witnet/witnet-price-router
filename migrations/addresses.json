@@ -61,6 +61,10 @@
             "EthUsdPriceFeed": "0x3a5D7dd14249D7307F2aCf2E7c18df27da094843"
         }
     },
+    "metis": {
+        "metis.rinkeby": {
+            "BtcUsdPriceFeed": "0x10C3A7Ab3b7C7eD7dCE623F41e495330288B0EcA",
+            "EthUsdPriceFeed": "0x56Cf0B4b803E4892352EB74a82cd11Ea61e78835"
         }
     }
 }
