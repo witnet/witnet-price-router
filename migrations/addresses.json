@@ -55,6 +55,12 @@
             "EthUsdPriceFeed": ""
         }
     },
+    "harmony": {
+        "harmony.testnet#0": {
+            "BtcUsdPriceFeed": "0xB4B2E2e00e9d6E5490d55623E4F403EC84c6D33f",
+            "EthUsdPriceFeed": "0x4E8304eC83B78a0D681B81B332EB546C25A4e728"
+        }
+    },
     "kcc": {
         "kcc.testnet": {
             "BtcUsdPriceFeed": "0xEa7ac8f56bCe3E2c45be97287865D2c8027BD17b",
