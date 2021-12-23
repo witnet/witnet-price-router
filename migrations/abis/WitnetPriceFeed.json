@@ -152,6 +152,11 @@
           "type": "uint256"
         },
         {
+          "internalType": "bytes32",
+          "name": "_lastDrTxHash",
+          "type": "bytes32"
+        },
+        {
           "internalType": "uint256",
           "name": "_latestUpdateStatus",
           "type": "uint256"
