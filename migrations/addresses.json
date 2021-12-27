@@ -1,25 +1,25 @@
 {
     "default": {
         "ethereum.goerli": {
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": ""
+            "BtcUsdPriceFeed": "0x712CaAf22471495d9678b0B831569D6ff61D767f",
+            "EthUsdPriceFeed": "0x508e54981c2Ee61a4aFeC2756a5fD30D8a58E98b"
         },
         "ethereum.mainnet": {
             "BtcUsdPriceFeed": "",
             "EthUsdPriceFeed": ""
         },
         "ethereum.rinkeby": {
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": ""
+            "BtcUsdPriceFeed": "0x0C92EB58A9B3bA37751ebaf4449c97992A121d17",
+            "EthUsdPriceFeed": "0x389b45716F4791B06C8Af19A6F7e1Cb3b759E425"
         }
     },
     "boba": {
         "boba.rinkeby": {
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": "",
-            "OmgBtcPriceFeed": "",
-            "OmgEthPriceFeed": "",
-            "OmgUsdtPriceFeed": ""
+            "BtcUsdPriceFeed": "0xa4C8be9d7307a468F0e80e02bCb7Aab9e9e6A553",
+            "EthUsdPriceFeed": "0x18EC7BeF1df4523a1548c855Bde5B882173055eF",
+            "OmgBtcPriceFeed": "0xe835f9C49a37A4eB692D00e9978C566b71C771d0",
+            "OmgEthPriceFeed": "0x49ba484914ae6B16c7ec5A439E75C0F5a9fD9131",
+            "OmgUsdtPriceFeed": "0xeA5F4A5F35fE721361fd666ac4a270a18Aca5007"
         },
         "boba.mainnet": {
             "BtcUsdPriceFeed": "",
@@ -31,23 +31,23 @@
     },
     "celo": {
         "celo.alfajores": {
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": "",
-            "CeloEurPriceFeed": "",
-            "CeloUsdPriceFeed": ""
+            "BtcUsdPriceFeed": "0x3Ebe2Cd022d5f3a1Caf63F1d42Ae0a05597742eB",
+            "CeloEurPriceFeed": "0x489Fe4C6563aB075D65D7b69ebc34Ea039d5E4B8",
+            "CeloUsdPriceFeed": "0xF331E7cdE5a5cE3a2B360844c5CcA3c7804552Ee",
+            "EthUsdPriceFeed": "0x6D5109a98874789533DC836857Dda95955981802"
         },
         "celo.mainnet": {
             "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": "",
             "CeloEurPriceFeed": "",
-            "CeloUsdPriceFeed": ""
+            "CeloUsdPriceFeed": "",
+            "EthUsdPriceFeed": ""
         }
     },
     "conflux": {
         "conflux.testnet": {
-            "BtcUsdPriceFeed": "",
-            "CfxUsdtPriceFeed": "",
-            "EthUsdPriceFeed": ""
+            "BtcUsdPriceFeed": "0x87D6026b1C098427f085C781c79E6A04C96Fb492",
+            "CfxUsdtPriceFeed": "0x8a55eD57ED5e309f175Eb1C9B950e51Cc41AAADd",
+            "EthUsdPriceFeed": "0x830A8c437C33D6BE61a3008DBF7B6895b66461cA"
         },
         "conflux.tethys": {
             "BtcUsdPriceFeed": "",
@@ -57,26 +57,26 @@
     },
     "harmony": {
         "harmony.testnet#0": {
-            "BtcUsdPriceFeed": "0xB4B2E2e00e9d6E5490d55623E4F403EC84c6D33f",
-            "EthUsdPriceFeed": "0x4E8304eC83B78a0D681B81B332EB546C25A4e728"
+            "BtcUsdPriceFeed": "0xFCC23cA1db2eFBda8a79077CbB056850fA4Bdf29",
+            "EthUsdPriceFeed": "0xB8716e732c0C93Cfc3169A31529b78452554C4C2"
         }
     },
     "kcc": {
         "kcc.testnet": {
-            "BtcUsdPriceFeed": "0xEa7ac8f56bCe3E2c45be97287865D2c8027BD17b",
-            "EthUsdPriceFeed": "0x3a5D7dd14249D7307F2aCf2E7c18df27da094843"
+            "BtcUsdPriceFeed": "0x7bedADcb912F7A0b8E5C4269C670C55D961B4654",
+            "EthUsdPriceFeed": "0xc2C7609090e14F8a69dF6081e385b205D4a9cd9a"
         }
     },
     "metis": {
         "metis.rinkeby": {
-            "BtcUsdPriceFeed": "0x10C3A7Ab3b7C7eD7dCE623F41e495330288B0EcA",
-            "EthUsdPriceFeed": "0x56Cf0B4b803E4892352EB74a82cd11Ea61e78835"
+            "BtcUsdPriceFeed": "0x6035D1704E0498452E16672b8Ed604a7f22F2647",
+            "EthUsdPriceFeed": "0x1942Ed0f51C190672ac72B2A32807A67ca4F8B82"
         }
     },
     "polygon": {
         "polygon.mumbai": {
-            "BtcUsdPriceFeed": "0xB4B2E2e00e9d6E5490d55623E4F403EC84c6D33f",
-            "EthUsdPriceFeed": "0x9E943Ab1FD0D35B3BaDe31AA78D60C485EA1a604"
+            "BtcUsdPriceFeed": "0x090b5bA4fDBd0E4ab17b81b599210526BbD0E2e5",
+            "EthUsdPriceFeed": "0x974d7d76eb54521E7819D90cDf650686752961C6"
         }
     }
 }
