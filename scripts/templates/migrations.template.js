@@ -74,13 +74,13 @@ module.exports = async function (deployer, network, _accounts) {
         console.log("   > contract address:\t", address)
       }
       
-      // Update Price Registry if necessary:
+      // Update Price Router if necessary:
       if (updateRegistry) {      
         const caption = "Price-" + example.base + "/" + example.quote + "-" + example.decimals
         const erc2362id = await router.currencyPairId.call(caption)
         console.log("\n   > ERC2362 caption:\t ", caption)
         console.log("   > ERC2362 id:     \t ", erc2362id)
-        console.log("   > Registry address:\t ", router.address)
+        console.log("   > Router address:\t ", router.address)
         let currentPoller = await router.getPriceFeed(erc2362id)
         if (utils.isNullAddress(currentPoller) || currentPoller !== WitnetPriceFeed.address) {
           let answer = (await utils.prompt(`     ? Substitute current pricefeed at ${currentPoller}? [y/N] `)).toLowerCase().trim()
