@@ -69,8 +69,9 @@
     },
     "metis": {
         "metis.rinkeby": {
-            "BtcUsdPriceFeed": "0x6035D1704E0498452E16672b8Ed604a7f22F2647",
-            "EthUsdPriceFeed": "0x1942Ed0f51C190672ac72B2A32807A67ca4F8B82"
+            "BtcUsdPriceFeed": "0x8bc20C776ba467dd78a6a1A3993B3Bb6603c5862",
+            "EthUsdPriceFeed": "0x7707B773cddD220d155a17C8Be799ed188327B1e",
+            "MetisUsdtPriceFeed": "0xf7C916C446A82812339D8dd5aF9739828D465906"
         }
     },
     "polygon": {
