@@ -64,7 +64,8 @@
     "kcc": {
         "kcc.testnet": {
             "BtcUsdPriceFeed": "0x7bedADcb912F7A0b8E5C4269C670C55D961B4654",
-            "EthUsdPriceFeed": "0xc2C7609090e14F8a69dF6081e385b205D4a9cd9a"
+            "EthUsdPriceFeed": "0xc2C7609090e14F8a69dF6081e385b205D4a9cd9a",
+            "KcsUsdtPriceFeed": "0xcbB02D4FB8e3E7Be2CaE4e51a0BaD3a0A5CC3452"
         }
     },
     "metis": {
