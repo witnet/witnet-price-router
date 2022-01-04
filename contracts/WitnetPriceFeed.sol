@@ -4,7 +4,6 @@ pragma experimental ABIEncoderV2;
 
 import "witnet-solidity-bridge/contracts/UsingWitnet.sol";
 import "witnet-solidity-bridge/contracts/requests/WitnetRequest.sol";
-
 import "witnet-solidity-bridge/contracts/examples/WitnetPriceRouter.sol";
 
 // Your contract needs to inherit from UsingWitnet

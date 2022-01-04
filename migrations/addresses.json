@@ -1,8 +1,8 @@
 {
     "default": {
         "ethereum.goerli": {
-            "BtcUsdPriceFeed": "0x712CaAf22471495d9678b0B831569D6ff61D767f",
-            "EthUsdPriceFeed": "0x508e54981c2Ee61a4aFeC2756a5fD30D8a58E98b"
+            "BtcUsdPriceFeed": "0xd904C3C1E2934DDE104F20Bae2503e7A392dE747",
+            "EthUsdPriceFeed": "0x67dBDB2901713e245CcD08E430870AEA01b682cE"
         },
         "ethereum.mainnet": {
             "BtcUsdPriceFeed": "",
@@ -15,7 +15,8 @@
     },
     "boba": {
         "boba.rinkeby": {
-            "BobaUsdtPriceFeed": "",
+            "BobaUsdtPriceFeed": "0xFf85528Ce46B52930c8c07c75f8776536C59d83B",
+
             "BtcUsdPriceFeed": "0xa4C8be9d7307a468F0e80e02bCb7Aab9e9e6A553",
             "EthUsdPriceFeed": "0x18EC7BeF1df4523a1548c855Bde5B882173055eF",
             "FxsUsdtPriceFeed": "",
@@ -31,10 +32,10 @@
     },
     "celo": {
         "celo.alfajores": {
-            "BtcUsdPriceFeed": "0x3Ebe2Cd022d5f3a1Caf63F1d42Ae0a05597742eB",
-            "CeloEurPriceFeed": "0x489Fe4C6563aB075D65D7b69ebc34Ea039d5E4B8",
-            "CeloUsdPriceFeed": "0xF331E7cdE5a5cE3a2B360844c5CcA3c7804552Ee",
-            "EthUsdPriceFeed": "0x6D5109a98874789533DC836857Dda95955981802"
+            "BtcUsdPriceFeed": "0x2AD5b53E5222B2Bf61d91B815C3A100D7cA204e3",
+            "CeloEurPriceFeed": "0x3A816313D4B557F24c49b31574ddf64cC0E7D3F6",
+            "CeloUsdPriceFeed": "0x751906D7d41b71968d1B0b97fB6caE07e3e65CcF",
+            "EthUsdPriceFeed": "0x296Eb7b64197F5e2C6D28C0444f8a424FD4546F2"
         },
         "celo.mainnet": {
             "BtcUsdPriceFeed": "",
@@ -76,7 +77,7 @@
         }
     },
     "polygon": {
-        "polygon.mumbai": {
+        "polygon.goerli": {
             "BtcUsdPriceFeed": "0x090b5bA4fDBd0E4ab17b81b599210526BbD0E2e5",
             "EthUsdPriceFeed": "0x974d7d76eb54521E7819D90cDf650686752961C6"
         }
