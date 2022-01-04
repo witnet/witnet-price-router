@@ -62,9 +62,9 @@
     },
     "kcc": {
         "kcc.mainnet": {
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": "",
-            "KcsUsdtPriceFeed": ""
+            "BtcUsdPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87",
+            "EthUsdPriceFeed": "0xF849C1ddd19f524c12A043556fAa5602a6B81F98",
+            "KcsUsdtPriceFeed": "0xBaaF31F4AAc5ab5334b6E239a83bf4E855C55ea7"
         },
         "kcc.testnet": {
             "BtcUsdPriceFeed": "0x7bedADcb912F7A0b8E5C4269C670C55D961B4654",
