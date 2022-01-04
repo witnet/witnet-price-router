@@ -16,7 +16,6 @@
     "boba": {
         "boba.rinkeby": {
             "BobaUsdtPriceFeed": "0xFf85528Ce46B52930c8c07c75f8776536C59d83B",
-
             "BtcUsdPriceFeed": "0xa4C8be9d7307a468F0e80e02bCb7Aab9e9e6A553",
             "EthUsdPriceFeed": "0x18EC7BeF1df4523a1548c855Bde5B882173055eF",
             "FxsUsdtPriceFeed": "",
