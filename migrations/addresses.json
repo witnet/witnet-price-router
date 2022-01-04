@@ -25,9 +25,7 @@
             "OmgUsdtPriceFeed": "0xeA5F4A5F35fE721361fd666ac4a270a18Aca5007"
         },
         "boba.mainnet": {
-            "BobaUsdtPriceFeed": "",
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": ""
+            "BobaUsdtPriceFeed": "0xa2ACa472fdE4E83Fc9558f4476aE2c451dd5288C"
         }
     },
     "celo": {
@@ -63,6 +61,11 @@
         }
     },
     "kcc": {
+        "kcc.mainnet": {
+            "BtcUsdPriceFeed": "",
+            "EthUsdPriceFeed": "",
+            "KcsUsdtPriceFeed": ""
+        },
         "kcc.testnet": {
             "BtcUsdPriceFeed": "0x7bedADcb912F7A0b8E5C4269C670C55D961B4654",
             "EthUsdPriceFeed": "0xc2C7609090e14F8a69dF6081e385b205D4a9cd9a",
