@@ -73,6 +73,11 @@
         }
     },
     "metis": {
+        "metis.mainnet": {
+            "BtcUsdPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87",
+            "EthUsdPriceFeed": "0x3806311c7138ddF2bAF2C2093ff3633E5A73AbD4",
+            "MetisUsdtPriceFeed": "0xF849C1ddd19f524c12A043556fAa5602a6B81F98"
+        },
         "metis.rinkeby": {
             "BtcUsdPriceFeed": "0x8bc20C776ba467dd78a6a1A3993B3Bb6603c5862",
             "EthUsdPriceFeed": "0x7707B773cddD220d155a17C8Be799ed188327B1e",
