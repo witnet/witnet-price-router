@@ -235,6 +235,10 @@ contract WitnetPriceFeed
                     _witnetDeleteQuery(__lastValidQueryId);
                 }
                 __lastValidQueryId = _latestQueryId;
+            } else {
+                // Otherwise, delete latest query, as it was faulty
+                // and we are about to post a new update request:
+                _witnetDeleteQuery(_latestQueryId);
             }
             // Post update request to the WRB:
             (_latestQueryId, _usedFunds) = _witnetPostRequest(this);
