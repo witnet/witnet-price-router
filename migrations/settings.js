@@ -8,5 +8,18 @@ module.exports = {
     }, require("witnet-solidity-bridge/migrations/witnet.settings").artifacts
   ),
   compilers: require("witnet-solidity-bridge/migrations/witnet.settings").compilers,
-  networks: require("witnet-solidity-bridge/migrations/witnet.settings").networks
+  networks: merge(require("witnet-solidity-bridge/migrations/witnet.settings").networks, {
+    default: {
+      "ethereum.mainnet": {
+        gas: 3000000,
+        gasPrice: 100 * 10 ** 9,
+        skipDryRun: true
+      }
+    },
+    conflux: {
+      "conflux.mainnet": {
+        gasPrice: 30 * 10 ** 9
+      }
+    }
+  })
 }

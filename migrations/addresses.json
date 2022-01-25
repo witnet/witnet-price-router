@@ -45,14 +45,14 @@
     },
     "conflux": {
         "conflux.testnet": {
-            "BtcUsdPriceFeed": "0x87D6026b1C098427f085C781c79E6A04C96Fb492",
-            "CfxUsdtPriceFeed": "0x8a55eD57ED5e309f175Eb1C9B950e51Cc41AAADd",
-            "EthUsdPriceFeed": "0x830A8c437C33D6BE61a3008DBF7B6895b66461cA"
+            "BtcUsdPriceFeed": "0x8a14b97ea58d66881caF58ef9271b6AE458B9B4e",
+            "CfxUsdtPriceFeed": "0x8f76030B23B51e07E65015f3461054dEf0f95AE7",
+            "EthUsdPriceFeed": "0x8b1fa5E58B96D005180C812911e18eA0D5bB7D3D"
         },
-        "conflux.tethys": {
-            "BtcUsdPriceFeed": "",
-            "CfxUsdtPriceFeed": "",
-            "EthUsdPriceFeed": ""
+        "conflux.mainnet": {
+            "BtcUsdPriceFeed": "0x854cA346C45D797C6Bf6cdEb36D5f921551aF676",
+            "CfxUsdtPriceFeed": "0x8C78058048Fa431f3ed27F25F9724B8B36E8039f",
+            "EthUsdPriceFeed": "0x8a4ECB0E40181e03EB7D41198d860C00abcb4b81"
         }
     },
     "harmony": {
