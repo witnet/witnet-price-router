@@ -7,12 +7,12 @@ module.exports = {
       }
     }, require("witnet-solidity-bridge/migrations/witnet.settings").artifacts
   ),
-  compilers: require("witnet-solidity-bridge/migrations/witnet.settings").compilers,
+  compilers: require("witnet-solidity-bridge/migrations/witnet.settings").compilers, 
   networks: merge(require("witnet-solidity-bridge/migrations/witnet.settings").networks, {
     default: {
       "ethereum.mainnet": {
         gas: 3000000,
-        gasPrice: 100 * 10 ** 9,
+        gasPrice: 80 * 10 ** 9,
         skipDryRun: true
       }
     },

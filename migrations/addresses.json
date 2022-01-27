@@ -5,8 +5,8 @@
             "EthUsdPriceFeed": "0x67dBDB2901713e245CcD08E430870AEA01b682cE"
         },
         "ethereum.mainnet": {
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": ""
+            "BtcUsdPriceFeed": "0xf42Dd635ED6bfD7b490Ea97284bB61D9aC56b737",
+            "EthUsdPriceFeed": "0x2ba9160b6F2cCCccF2DF0FCb5840f54CEDd8a64c"
         },
         "ethereum.rinkeby": {
             "BtcUsdPriceFeed": "0x0C92EB58A9B3bA37751ebaf4449c97992A121d17",
