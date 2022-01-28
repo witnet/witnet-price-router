@@ -96,6 +96,10 @@
         "polygon.goerli": {
             "BtcUsdPriceFeed": "0x090b5bA4fDBd0E4ab17b81b599210526BbD0E2e5",
             "EthUsdPriceFeed": "0x974d7d76eb54521E7819D90cDf650686752961C6"
+        },
+        "polygon.mainnet": {
+            "BtcUsdPriceFeed": "0xF262d3F1d403042dFB7998Bff860b924B84A2Df6",
+            "EthUsdPriceFeed": "0xBaaF31F4AAc5ab5334b6E239a83bf4E855C55ea7"
         }
     }
 }
