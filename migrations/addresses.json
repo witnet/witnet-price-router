@@ -13,6 +13,11 @@
             "EthUsdPriceFeed": "0x389b45716F4791B06C8Af19A6F7e1Cb3b759E425"
         }
     },
+    "avalanche": {
+        "avalanche.mainnet": {},
+        "avalanche.testnet": {
+        }
+    },
     "boba": {
         "boba.rinkeby": {
             "BobaUsdtPriceFeed": "0xFf85528Ce46B52930c8c07c75f8776536C59d83B",
