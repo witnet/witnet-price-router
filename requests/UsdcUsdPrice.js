@@ -9,10 +9,10 @@ const binance = new Witnet.Source("https://api.binance.us/api/v3/ticker/price?sy
 
 // Retrieve USDC/USD-6 price from Bitstamp
 const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/usdcusd")
-.parseJSONMap()
-.getFloat("last")
-.multiply(10 ** 6)
-.round()
+  .parseJSONMap()
+  .getFloat("last")
+  .multiply(10 ** 6)
+  .round()
 
 // Retrieve USDC/USD-6 price from Bittrex
 const bittrex = new Witnet.Source("https://api.bittrex.com/v3/markets/USDC-USD/ticker")
