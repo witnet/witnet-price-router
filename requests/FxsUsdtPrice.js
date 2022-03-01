@@ -7,14 +7,6 @@ const binance = new Witnet.Source("https://api.binance.com/api/v3/ticker/price?s
   .multiply(10 ** 6)
   .round()
 
-// Retrieve FXS/USDT-6 price from the Bitmax HTTP-GET API
-const bitmax = new Witnet.Source("https://ascendex.com/api/pro/v1/spot/ticker?symbol=FXS/USDT")
-  .parseJSONMap()
-  .getMap("data")
-  .getFloat("close")
-  .multiply(10 ** 6)
-  .round()
-
 // Retrieve FXS/USDT-6 price from the Gate.io HTTP-GET API
 const gateio = new Witnet.Source("https://data.gateapi.io/api2/1/ticker/fxs_usdt")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
@@ -47,6 +39,15 @@ const kucoin = new Witnet.Source("https://api.kucoin.com/api/v1/market/orderbook
   .multiply(10 ** 6)
   .round()
 
+// Retrieves USDT price of BOBA from the MEXC API
+const mexc = new Witnet.Source("https://www.mexc.com/open/api/v2/market/ticker?symbol=FXS_USDT")
+  .parseJSONMap() // Parse a `Map` from the retrieved `String`
+  .getArray("data") // Access to the `Array` object at `data` key
+  .getMap(0) // Access to the `Map` object at index 0
+  .getFloat("last") // Get the `String` value associated to the `last` key
+  .multiply(10 ** 6) // Use 6 digit precision
+  .round() // Cast to integer
+
 // Filters out any value that is more than 2.5 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
@@ -70,10 +71,10 @@ const tally = new Witnet.Tally({
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
   .addSource(binance)
-  .addSource(bitmax)
   .addSource(gateio)
   .addSource(hoo)
   .addSource(kucoin)
+  .addSource(mexc)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(10, 51) // Set witness count and minimum consensus percentage
