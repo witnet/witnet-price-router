@@ -16,6 +16,9 @@
     "avalanche": {
         "avalanche.mainnet": {},
         "avalanche.testnet": {
+            "AvaxUsdPriceFeed": "0x0C4be6AA667df48de54BA174bE7948875fdf152B",
+            "BtcUsdPriceFeed": "0xe1330491bdC37fc4E8801843Bb3015815822F8A8",
+            "EthUsdPriceFeed": "0xd63844c34Ec560627c1d793Ac685aD8Ce43C4DdC"
         }
     },
     "boba": {
