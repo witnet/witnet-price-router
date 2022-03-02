@@ -27,7 +27,7 @@
             "BtcUsdPriceFeed": "0xa4C8be9d7307a468F0e80e02bCb7Aab9e9e6A553",
             "DaiUsdPriceFeed": "0x74DCE62952469534845F802ca3A641E03dB1B6C4",
             "EthUsdPriceFeed": "0x18EC7BeF1df4523a1548c855Bde5B882173055eF",
-            "FxsUsdtPriceFeed": "",
+            "FxsUsdtPriceFeed": "0x22AB5273DBadA93dAc8f0953657C364A5d2f0403",
             "FraxUsdtPriceFeed": "0xC83D342e2d20aE5601A1b6F1F1F7596ce23131C4",
             "OmgBtcPriceFeed": "0xe835f9C49a37A4eB692D00e9978C566b71C771d0",
             "OmgEthPriceFeed": "0x49ba484914ae6B16c7ec5A439E75C0F5a9fD9131",
