@@ -19,21 +19,12 @@ const bittrex = new Witnet.Source("https://api.bittrex.com/api/v1.1/public/getti
   .multiply(10 ** 6)
   .round()
 
-// Retrieves CELO/EUR last price form LCX
-const lcx = new Witnet.Source("https://exchange-api.lcx.com/market/tickers")
-  .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getMap("data") // Access to the `Map` object at `data` key
-  .getMap("CELO/EUR")
-  .getFloat("lastPrice") // Get the `Float` value associated to the `last` key
-  .multiply(10 ** 6) // Use 6 digit precision
-  .round() // Cast to integer
-
 // Filters out any value that is more than 2.5 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
 const aggregator = new Witnet.Aggregator({
   filters: [
-    [Witnet.Types.FILTERS.deviationStandard, 2.5],
+    [Witnet.Types.FILTERS.deviationStandard, 1.5],
   ],
   reducer: Witnet.Types.REDUCERS.averageMean,
 })
@@ -52,7 +43,6 @@ const tally = new Witnet.Tally({
 const request = new Witnet.Request()
   .addSource(coinbase)
   .addSource(bittrex)
-  .addSource(lcx)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(10, 70) // Set witness count and minimum consensus percentage

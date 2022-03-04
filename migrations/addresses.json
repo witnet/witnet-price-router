@@ -50,13 +50,13 @@
     "celo": {
         "celo.alfajores": {
             "BtcUsdPriceFeed": "0x2AD5b53E5222B2Bf61d91B815C3A100D7cA204e3",
-            "CeloEurPriceFeed": "0x3A816313D4B557F24c49b31574ddf64cC0E7D3F6",
+            "CeloEurPriceFeed": "0x1ea548Bc7DDe8BD1ccbD6Adde062b434C660c33C",
             "CeloUsdPriceFeed": "0x751906D7d41b71968d1B0b97fB6caE07e3e65CcF",
             "EthUsdPriceFeed": "0x296Eb7b64197F5e2C6D28C0444f8a424FD4546F2"
         },
         "celo.mainnet": {
             "BtcUsdPriceFeed": "0x96E2278d67CB9Df8820Bb46b79d3dcf7Ea38c1e9",
-            "CeloEurPriceFeed": "0x78FE087aac54D3b43e622CBABb708Fe85326F803",
+            "CeloEurPriceFeed": "0x29e1B4DFeC72E1F6ED6E9bb57Ca7c5Ad30810962",
             "CeloUsdPriceFeed": "0xe079921f25F4994004df8751C5788127b81d2F6E",
             "EthUsdPriceFeed": "0xC34Cd2c2372Bab4e3129eb045D1af1bAF53384D9"
         }
