@@ -37,7 +37,8 @@
             "UsdtUsdPriceFeed": "0x429883b4BD37726Def97645D1CD80F49F57180e8"
         },
         "boba.mainnet": {
-            "BobaUsdtPriceFeed": "0xa2ACa472fdE4E83Fc9558f4476aE2c451dd5288C"
+            "BobaUsdtPriceFeed": "0xa2ACa472fdE4E83Fc9558f4476aE2c451dd5288C",
+            "OloUsdcPriceFeed": "0x684a4C7BBdCFf1F31f4441A4A12d76d1B8C2833c"
         }
     },
     "celo": {
