@@ -39,6 +39,7 @@
         "boba.mainnet": {
             "BobaUsdtPriceFeed": "0xa2ACa472fdE4E83Fc9558f4476aE2c451dd5288C",
             "BtcUsdPriceFeed": "0xf738d41d1dbf01feb7a464283ce33ec44852edd1",
+            "DaiUsdPriceFeed": "0xEAD9f7Def832501EE2a4981261A86BF91Af2A270",
             "EthUsdPriceFeed": "0xfadb451b711190663789074c47ff396465c62f37",
             "FraxUsdtPriceFeed": "0x8bc94733799ed22b664778f28630b99c11f68f5f",
             "OloUsdcPriceFeed": "0xb8296121c2a42E84A5a1bAA44BF7d133f94BBC89",
