@@ -30,15 +30,6 @@ const mojito = new Witnet.Source("https://graph.witnet.io/?endpoint=https://theg
   .multiply(10 ** 6)
   .round()
 
-// Retrieves USDT price of KCS from PROBIT API
-const probit = new Witnet.Source("https://api.probit.com/api/exchange/v1/ticker?market_ids=KCS-USDT")
-  .parseJSONMap()
-  .getArray("data")
-  .getMap(0)
-  .getFloat("last")
-  .multiply(10 ** 6)
-  .round()
-
 // Filters out any value that is more than 1.5 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
@@ -65,7 +56,6 @@ const request = new Witnet.Request()
   .addSource(kucoin)
   .addSource(inch)
   .addSource(mojito)
-  .addSource(probit)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(10, 51) // Set witness count and minimum consensus percentage
