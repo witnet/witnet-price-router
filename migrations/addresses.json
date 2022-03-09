@@ -85,7 +85,7 @@
         "kcc.mainnet": {
             "BtcUsdPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87",
             "EthUsdPriceFeed": "0xF849C1ddd19f524c12A043556fAa5602a6B81F98",
-            "KcsUsdtPriceFeed": "0xBaaF31F4AAc5ab5334b6E239a83bf4E855C55ea7"
+            "KcsUsdtPriceFeed": "0xCf31ed72D870A92eAA2d89482c724FD991Cfa0e4"
         },
         "kcc.testnet": {
             "BtcUsdPriceFeed": "0x7bedADcb912F7A0b8E5C4269C670C55D961B4654",
@@ -103,6 +103,14 @@
             "BtcUsdPriceFeed": "0x8bc20C776ba467dd78a6a1A3993B3Bb6603c5862",
             "EthUsdPriceFeed": "0x7707B773cddD220d155a17C8Be799ed188327B1e",
             "MetisUsdtPriceFeed": "0xf7C916C446A82812339D8dd5aF9739828D465906"
+        }
+    },
+    "moonbeam": {
+        "moonbeam.moonbase": {
+            "BtcUsdPriceFeed": "0xE2Efa3fe66352e63F118bB9165435C5BEDB777d0",
+            "EthUsdPriceFeed": "0xf26E8557667803ac3F12fFb26e92D707799Af472",
+            "GlmrUsdtPriceFeed": "0x716C5Ee176c5E327De687744052f43f0292fE140",
+            "UsdtUsdPriceFeed": "0x99Af0CF37d1C6b9Bdfe33cc0A89C00D97D3c42F4"
         }
     },
     "polygon": {
