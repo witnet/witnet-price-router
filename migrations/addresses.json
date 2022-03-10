@@ -52,7 +52,8 @@
             "BtcUsdPriceFeed": "0x2AD5b53E5222B2Bf61d91B815C3A100D7cA204e3",
             "CeloEurPriceFeed": "0x1ea548Bc7DDe8BD1ccbD6Adde062b434C660c33C",
             "CeloUsdPriceFeed": "0x751906D7d41b71968d1B0b97fB6caE07e3e65CcF",
-            "EthUsdPriceFeed": "0x296Eb7b64197F5e2C6D28C0444f8a424FD4546F2"
+            "EthUsdPriceFeed": "0x296Eb7b64197F5e2C6D28C0444f8a424FD4546F2",
+            "ImmoMcusdPriceFeed": "0xb27cEf41e43d89Aac207Bf004b971252F8830316"
         },
         "celo.mainnet": {
             "BtcUsdPriceFeed": "0x96E2278d67CB9Df8820Bb46b79d3dcf7Ea38c1e9",
