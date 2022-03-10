@@ -85,12 +85,12 @@
         "kcc.mainnet": {
             "BtcUsdPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87",
             "EthUsdPriceFeed": "0xF849C1ddd19f524c12A043556fAa5602a6B81F98",
-            "KcsUsdtPriceFeed": "0xCf31ed72D870A92eAA2d89482c724FD991Cfa0e4"
+            "KcsUsdtPriceFeed": "0x76d5Addc0C5F174b74C9B7f3a71c38eD6366750c"
         },
         "kcc.testnet": {
             "BtcUsdPriceFeed": "0x7bedADcb912F7A0b8E5C4269C670C55D961B4654",
             "EthUsdPriceFeed": "0xc2C7609090e14F8a69dF6081e385b205D4a9cd9a",
-            "KcsUsdtPriceFeed": "0x77f5083E6D969b2D66244FBe467b0658E517621E"
+            "KcsUsdtPriceFeed": "0xD1B976c7d61c616f18D657297394680026367619"
         }
     },
     "metis": {
