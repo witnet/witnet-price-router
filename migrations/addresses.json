@@ -14,7 +14,11 @@
         }
     },
     "avalanche": {
-        "avalanche.mainnet": {},
+        "avalanche.mainnet": {
+            "AvaxUsdPriceFeed": "0x8555fF5b5A370FEF73Ce723b3fFfC57c161a1945",
+            "BtcUsdPriceFeed": "0xD7f7933992c25A504e9Ddf7e76a3c1D6c432b25D",
+            "EthUsdPriceFeed": "0xCb3E765362E91f45a369c65fAACf15e59aA3595c"
+        },
         "avalanche.testnet": {
             "AvaxUsdPriceFeed": "0x0C4be6AA667df48de54BA174bE7948875fdf152B",
             "BtcUsdPriceFeed": "0xe1330491bdC37fc4E8801843Bb3015815822F8A8",
