@@ -59,7 +59,8 @@
             "BtcUsdPriceFeed": "0x96E2278d67CB9Df8820Bb46b79d3dcf7Ea38c1e9",
             "CeloEurPriceFeed": "0x29e1B4DFeC72E1F6ED6E9bb57Ca7c5Ad30810962",
             "CeloUsdPriceFeed": "0xe079921f25F4994004df8751C5788127b81d2F6E",
-            "EthUsdPriceFeed": "0xC34Cd2c2372Bab4e3129eb045D1af1bAF53384D9"
+            "EthUsdPriceFeed": "0xC34Cd2c2372Bab4e3129eb045D1af1bAF53384D9",
+            "ImmoMcusdPriceFeed": "0x4DCDD7e5e3F4749ae3b655d29818fbA14723fB78"
         }
     },
     "conflux": {
