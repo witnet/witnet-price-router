@@ -79,6 +79,14 @@
             "EthUsdPriceFeed": "0x8a4ECB0E40181e03EB7D41198d860C00abcb4b81"
         }
     },
+    "cronos": {
+        "cronos.testnet": {
+            "BtcUsdPriceFeed": "0x9E943Ab1FD0D35B3BaDe31AA78D60C485EA1a604",
+            "CroUsdtPriceFeed": "0x70639D6D08a18aa200de08E08970B53036B0B3d9",
+            "EthUsdPriceFeed": "0x4092CC222B1bD1176D8a8cBE4070ccea66E9d1D6",
+            "UsdtUsdPriceFeed": "0xdD35D2F17B510348fA37D91CB51f8FB0388f2f55"
+        }
+    },
     "harmony": {
         "harmony.testnet#0": {
             "BtcUsdPriceFeed": "0xFCC23cA1db2eFBda8a79077CbB056850fA4Bdf29",
