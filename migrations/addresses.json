@@ -41,14 +41,14 @@
             "UsdtUsdPriceFeed": "0x429883b4BD37726Def97645D1CD80F49F57180e8"
         },
         "boba.mainnet": {
-            "BobaUsdtPriceFeed": "",
+            "BobaUsdtPriceFeed": "0x8fae2b29C03eBb060a04a78706511d411D5CF934",
             "BtcUsdPriceFeed": "0xf738d41d1dbf01feb7a464283ce33ec44852edd1",
             "DaiUsdPriceFeed": "0xEAD9f7Def832501EE2a4981261A86BF91Af2A270",
             "EthUsdPriceFeed": "0xfadb451b711190663789074c47ff396465c62f37",
             "FraxUsdtPriceFeed": "0x8bc94733799ed22b664778f28630b99c11f68f5f",
             "OloUsdcPriceFeed": "0xb8296121c2a42E84A5a1bAA44BF7d133f94BBC89",
-            "UsdcUsdPriceFeed": "0x4d9693fa931c76bac27c4b24e44d4b4a0648e088",
-            "UsdtUsdPriceFeed": "0x84329ec361d32b663f745ff33b19bf8e7e71b5d7"
+            "UsdcUsdPriceFeed": "0x4d9693Fa931C76BaC27c4b24e44D4b4a0648E088",
+            "UsdtUsdPriceFeed": "0x84329ec361d32b663F745Ff33b19bF8e7e71b5D7"
         }
     },
     "celo": {
