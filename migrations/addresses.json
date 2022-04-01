@@ -85,6 +85,12 @@
             "CroUsdtPriceFeed": "0x70639D6D08a18aa200de08E08970B53036B0B3d9",
             "EthUsdPriceFeed": "0x4092CC222B1bD1176D8a8cBE4070ccea66E9d1D6",
             "UsdtUsdPriceFeed": "0xdD35D2F17B510348fA37D91CB51f8FB0388f2f55"
+        },
+        "cronos.mainnet": {
+            "BtcUsdPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87",
+            "CroUsdtPriceFeed": "0xF849C1ddd19f524c12A043556fAa5602a6B81F98",
+            "EthUsdPriceFeed": "0xBaaF31F4AAc5ab5334b6E239a83bf4E855C55ea7",
+            "UsdtUsdPriceFeed": "0x8555fF5b5A370FEF73Ce723b3fFfC57c161a1945"
         }
     },
     "harmony": {
