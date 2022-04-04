@@ -68,12 +68,12 @@
         }
     },
     "conflux": {
-        "conflux.testnet": {
+        "conflux.core.testnet": {
             "BtcUsdPriceFeed": "0x8a14b97ea58d66881caF58ef9271b6AE458B9B4e",
             "CfxUsdtPriceFeed": "0x8f76030B23B51e07E65015f3461054dEf0f95AE7",
             "EthUsdPriceFeed": "0x8b1fa5E58B96D005180C812911e18eA0D5bB7D3D"
         },
-        "conflux.mainnet": {
+        "conflux.core.mainnet": {
             "BtcUsdPriceFeed": "0x854cA346C45D797C6Bf6cdEb36D5f921551aF676",
             "CfxUsdtPriceFeed": "0x8C78058048Fa431f3ed27F25F9724B8B36E8039f",
             "EthUsdPriceFeed": "0x8a4ECB0E40181e03EB7D41198d860C00abcb4b81"
