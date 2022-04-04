@@ -148,7 +148,7 @@
             "BtcUsdPriceFeed": "0xF262d3F1d403042dFB7998Bff860b924B84A2Df6",
             "DaiUsdPriceFeed": "0x6490791Af2Bf2f2eaC7D6A3d3F6E2FD57399623a",
             "EthUsdPriceFeed": "0xBaaF31F4AAc5ab5334b6E239a83bf4E855C55ea7",
-            "VsqDaiPriceFeed": ""
+            "VsqDaiPriceFeed": "0x93A11f01D14c0f08d5DDa632DD84821482d148E5"
         }
     }
 }
