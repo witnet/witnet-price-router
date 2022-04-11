@@ -149,6 +149,12 @@
             "UsdtUsdPriceFeed": "0x99Af0CF37d1C6b9Bdfe33cc0A89C00D97D3c42F4"
         }
     },
+    "okxchain": {
+        "okxchain.testnet": {
+            "OktUsdtPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530",
+            "UsdtUsdPriceFeed": "0x56834Ff8D4b27db647Da97CA3bd8540f7fA0e89D"
+        }
+    },
     "polygon": {
         "polygon.goerli": {
             "BtcUsdPriceFeed": "0x090b5bA4fDBd0E4ab17b81b599210526BbD0E2e5",
