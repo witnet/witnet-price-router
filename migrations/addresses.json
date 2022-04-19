@@ -145,9 +145,11 @@
         "moonbeam.moonbase": {
             "BtcUsdPriceFeed": "0xE2Efa3fe66352e63F118bB9165435C5BEDB777d0",
             "EthUsdPriceFeed": "0xf26E8557667803ac3F12fFb26e92D707799Af472",
+            "GlintUsdcPriceFeed": "0xADd78D1A786510fAA74AC5ca06244d187411Cc81",
             "GlintUsdtPriceFeed": "0xd99068f33b73f37F7424930E57BC6283293ba7d0",
             "GlmrUsdtPriceFeed": "0x716C5Ee176c5E327De687744052f43f0292fE140",
-            "StellaUsdtPriceFeed": "0x9256850c6C32bE9D1726a93ec2F12EEBBDFf3270",
+            "StellaUsdtPriceFeed": "0xeCC144D6e69F89139EF1dd3DF86F318dFEfc97aA",
+            "UsdcUsdPriceFeed": "0x5c2f6805Fd8F3bc130A419385276cC829d1a9eEA",
             "UsdtUsdPriceFeed": "0x99Af0CF37d1C6b9Bdfe33cc0A89C00D97D3c42F4"
         },
         "moonbeam.mainnet": {
