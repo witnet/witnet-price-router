@@ -1,7 +1,7 @@
 import * as Witnet from "witnet-requests"
 
 // Retrieves STELLA/USDT-6 price from the HOTBIT HTTP-GET API
-const hotbit = new Witnet.Source("https://api.hotbit.io/api/v1/market.last?market=GLMRUSDT")
+const hotbit = new Witnet.Source("https://api.hotbit.io/api/v1/market.last?market=STELLAUSDT")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
   .getFloat("result") // Get the `Float` value associated to the `result` key
   .multiply(10 ** 6) // Use 6 digit precision
