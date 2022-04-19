@@ -1,19 +1,10 @@
 import * as Witnet from "witnet-requests"
 
-// Retrieves GLINT/USDT-6 from the Hoo HTTP-GET API
-const hoo = new Witnet.Source("https://api.hoolgd.com/open/innovate/v1/tickers/market")
-  .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getArray("data") // Access to the `Map` object at `data` key
-  .filter( 
-    // From all elements in the map,
-    // select the one which "symbol" field
-    // matches "FXS-USDT":
-    new Witnet.Script([ Witnet.TYPES.MAP ])
-      .getString("symbol")
-      .match({ "GLINT-USDT": true }, false)
-  )
-  .getMap(0) // Get first (and only) element from the resulting Map
-  .getFloat("price") // Get the `Float` value associated to the `price` key
+// Retrieve GLINT/USDC-6 price from BeamSwap DEX at Moonbeam
+const beamswap = new Witnet.Source("https://graph.witnet.io/?endpoint=https://api.thegraph.com/subgraphs/name/beamswap/beamswap-dex&data=%7B%22query%22%3A%22%7Bpair%28id%3A%5C%220x61b4cec9925b1397b64dece8f898047eed0f7a07%5C%22%29%7Btoken0Price%7D%7D%22%7D")
+  .parseJSONMap()
+  .getMap("pair")
+  .getFloat("token0Price") // Get the `Float` value associated to the `price` key
   .multiply(10 ** 6) // Use 6 digit precision
   .round() // Cast to integer
 
@@ -39,7 +30,7 @@ const tally = new Witnet.Tally({
 
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
-  .addSource(hoo)
+  .addSource(beamswap)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(10, 51) // Set witness count and minimum consensus percentage
