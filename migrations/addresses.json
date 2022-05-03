@@ -156,6 +156,11 @@
             "UsdcUsdPriceFeed": "0x5c2f6805Fd8F3bc130A419385276cC829d1a9eEA",
             "UsdtUsdPriceFeed": "0x99Af0CF37d1C6b9Bdfe33cc0A89C00D97D3c42F4"
         },
+        "moonbeam.moonriver": {
+            "MovrUsdtPriceFeed": "0x8555fF5b5A370FEF73Ce723b3fFfC57c161a1945",
+            "UsdcUsdPriceFeed": "0x3806311c7138ddF2bAF2C2093ff3633E5A73AbD4",
+            "UsdtUsdPriceFeed": "0xe9Bf601869A8c391CecbF5C979D06b0b4640499c"
+        },
         "moonbeam.mainnet": {
             "BtcUsdPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87",
             "EthUsdPriceFeed": "0xF849C1ddd19f524c12A043556fAa5602a6B81F98",
