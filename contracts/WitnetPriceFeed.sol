@@ -4,6 +4,8 @@ pragma experimental ABIEncoderV2;
 
 import "witnet-solidity-bridge/contracts/UsingWitnet.sol";
 import "witnet-solidity-bridge/contracts/requests/WitnetRequest.sol";
+
+// force WitnetPriceRouter artifact generation on deployment
 import "witnet-solidity-bridge/contracts/examples/WitnetPriceRouter.sol";
 
 // Your contract needs to inherit from UsingWitnet
@@ -229,7 +231,7 @@ contract WitnetPriceFeed
         } else {
             // Check if latest update ended successfully:
             if (_latestUpdateStatus == 200) {
-                // If so, remove previous last valid valid query from the WRB:
+                // If so, remove previous last valid query from the WRB:
                 if (__lastValidQueryId > 0) {
                     _witnetDeleteQuery(__lastValidQueryId);
                 }
