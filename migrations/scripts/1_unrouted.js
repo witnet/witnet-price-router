@@ -6,11 +6,11 @@ const addresses = require("../addresses")
 const requests = require("../witnet.requests")
 const settings = require("../settings")
 
-module.exports = async function (_deployer, network) {
+module.exports = async function (deployer, network) {
   const rn = require("../../scripts/utils").getRealmNetworkFromString(network.split("-")[0])
   const realm = rn[0]; const chain = rn[1]
   if (chain !== "test" && chain.split(".")[1] !== "test") {
-    await revisitPriceFeeds(realm, chain, network.split("-")[1] === "fork")
+    await revisitPriceFeeds(deployer, realm, chain, network.split("-")[1] === "fork")
   }
   else {
     if (realm !== "default") {
@@ -34,7 +34,7 @@ module.exports = async function (_deployer, network) {
   }
 }
 
-async function revisitPriceFeeds (realm, chain, isDryRun) {
+async function revisitPriceFeeds (deployer, realm, chain, isDryRun) {
 
   let witnetAddresses
   try {
@@ -87,7 +87,8 @@ async function revisitPriceFeeds (realm, chain, isDryRun) {
           return
         }
         // Continue only if this is an unrouted price feed
-        const contract = await WitnetPriceFeed.new(
+        const contract = await deployer.deploy(
+          WitnetPriceFeed,
           witnetAddresses.WitnetRequestBoard,
           pf.bytecode
         )
