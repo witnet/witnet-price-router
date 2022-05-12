@@ -118,6 +118,7 @@
             "DaiUsdPriceFeed": "0x9652f6f64Bf7E7a5938DcF767b80277877047E58",
             "EthUsdPriceFeed": "0xc2C7609090e14F8a69dF6081e385b205D4a9cd9a",
             "KcsUsdtPriceFeed": "0xD1B976c7d61c616f18D657297394680026367619",
+            "KswUsdPriceFeed": "0x32F36caA28147136a21C8007821481c1b4c94150",
             "MjtKcsPriceFeed": "0x4FdCC2Fd6808aEf8187DAcd9104E250EbD2bf1AC",
             "SaxUsdtPriceFeed": "0x7dF385321321CB0ccb738597eddf92D1041d3b6a",
             "UsdcUsdPriceFeed": "0x4eF17f49758B4C130f9b6DA45Ba30A8566d37F9a",
