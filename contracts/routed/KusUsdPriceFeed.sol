@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.7.0 <0.9.0;
+
 import "../WitnetPriceFeedRouted.sol";
 
 contract KusUsdPriceFeed
@@ -37,6 +40,6 @@ contract KusUsdPriceFeed
             /* KUS/KCS-6  */ _price_[0]
             /* KCS/USDT-6 */   * _price_[1]
             /* USDT/USD-6 */   * _price_[2]
-        ) / 10 ** 6;
+        ) / 10 ** 12;
     }
 }
