@@ -113,6 +113,7 @@
     },
     "kcc": {
         "kcc.testnet": {
+            "BoringUsdtPriceFeed": "0x9fb072470556576b40950d62AA76b9f5C54Cbcc6",
             "BtcUsdPriceFeed": "0x7bedADcb912F7A0b8E5C4269C670C55D961B4654",
             "DaiUsdPriceFeed": "0x9652f6f64Bf7E7a5938DcF767b80277877047E58",
             "EthUsdPriceFeed": "0xc2C7609090e14F8a69dF6081e385b205D4a9cd9a",
