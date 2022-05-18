@@ -93,9 +93,12 @@
     },
     "cronos": {
         "cronos.testnet": {
+            "AvaxUsdPriceFeed": "",
             "BtcUsdPriceFeed": "0x9E943Ab1FD0D35B3BaDe31AA78D60C485EA1a604",
             "CroUsdtPriceFeed": "0x70639D6D08a18aa200de08E08970B53036B0B3d9",
+            "DaiUsdPriceFeed": "",
             "EthUsdPriceFeed": "0x4092CC222B1bD1176D8a8cBE4070ccea66E9d1D6",
+            "UsdcUsdPriceFeed": "",
             "UsdtUsdPriceFeed": "0xdD35D2F17B510348fA37D91CB51f8FB0388f2f55"
         },
         "cronos.mainnet": {
