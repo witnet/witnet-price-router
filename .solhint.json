@@ -16,6 +16,7 @@
     "modifier-name-mixedcase": "warn",
     "no-empty-blocks": "off",
     "no-inline-assembly": "off",
+    "not-rely-on-time": "off",
     "reason-string": [
       "warn",
       {

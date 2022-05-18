@@ -5,12 +5,7 @@
 
 require("dotenv").config()
 
-const fs = require("fs")
-const os = require("os")
-
 const settings = require("../migrations/settings")
-const templateScript = "migrations.template.js"
-const outputScript = "1_deploy.js"
 
 if (process.argv.length < 3) {
   console.log()
