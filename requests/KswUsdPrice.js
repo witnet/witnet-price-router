@@ -1,11 +1,17 @@
 import * as Witnet from "witnet-requests"
 
-// Retrieve OLO-USDC-6 price from Oolongswap DEX at Boba mainnet
-const oolongswap = new Witnet.Source("https://graph.witnet.io/?endpoint=https://api.thegraph.com/subgraphs/name/oolongswap/oolongswap-mainnet&data=%7B%22query%22%3A%22%7Bpairs(where%3A%20%7Btoken0%3A%20%5C%220x5008f837883ea9a07271a1b5eb0658404f5a9610%5C%22%2C%20token1%3A%20%5C%220x66a2a913e447d6b4bf33efbec43aaef87890fbbc%5C%22%7D)%20%7Btoken1Price%7D%7D%20%22%7D")
+// Retrieves KSW/USD-6 price from Killswitch.finance
+const killswitch = new Witnet.Source("https://api.killswitch.finance/ksw2/prices?chain=56")
   .parseJSONMap()
-  .getArray("pairs")
-  .getMap(0)
-  .getFloat("token1Price")
+  .getFloat("0x270178366a592ba598c2e9d2971da65f7baa7c86")
+  .multiply(10 ** 6)
+  .round()
+
+// Retrieves KSW/USD-6 price from Pancake API v2
+const pancake = new Witnet.Source("https://api.pancakeswap.info/api/v2/tokens/0x270178366a592ba598c2e9d2971da65f7baa7c86")
+  .parseJSONMap()
+  .getMap("data")
+  .getFloat("price")
   .multiply(10 ** 6)
   .round()
 
@@ -19,7 +25,7 @@ const aggregator = new Witnet.Aggregator({
   reducer: Witnet.Types.REDUCERS.averageMean,
 })
 
-// Filters out any value that is more than 1.5 times the standard
+// Filters out any value that is more than 2.5 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
 const tally = new Witnet.Tally({
@@ -31,14 +37,11 @@ const tally = new Witnet.Tally({
 
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
-  .addSource(oolongswap)
+  .addSource(killswitch)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(10, 51) // Set witness count and minimum consensus percentage
-  .setFees(
-    10 ** 6,
-    10 ** 6
-  ) // Set economic incentives
+  .setFees(10 ** 6, 10 ** 6) // Set economic incentives
   .setCollateral(5 * 10 ** 9) // Require 5 wits as collateral
 
 // Do not forget to export the request object

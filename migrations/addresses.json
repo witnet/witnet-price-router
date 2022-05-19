@@ -33,7 +33,7 @@
             "EthUsdPriceFeed": "0x18EC7BeF1df4523a1548c855Bde5B882173055eF",
             "FxsUsdtPriceFeed": "0x22AB5273DBadA93dAc8f0953657C364A5d2f0403",
             "FraxUsdtPriceFeed": "0xC83D342e2d20aE5601A1b6F1F1F7596ce23131C4",
-            "OloUsdcPriceFeed": "0x18be39E9436f11f926C399989B8d20641B0ab2C7",
+            "OloUsdcPriceFeed": "0xa25C12d3839a3c934b533ad3FB6766926609A055",
             "OmgBtcPriceFeed": "0xe835f9C49a37A4eB692D00e9978C566b71C771d0",
             "OmgEthPriceFeed": "0x49ba484914ae6B16c7ec5A439E75C0F5a9fD9131",
             "OmgUsdtPriceFeed": "0xeA5F4A5F35fE721361fd666ac4a270a18Aca5007",
@@ -46,7 +46,7 @@
             "DaiUsdPriceFeed": "0xEAD9f7Def832501EE2a4981261A86BF91Af2A270",
             "EthUsdPriceFeed": "0xfadb451b711190663789074c47ff396465c62f37",
             "FraxUsdtPriceFeed": "0x8bc94733799ed22b664778f28630b99c11f68f5f",
-            "OloUsdcPriceFeed": "0xb8296121c2a42E84A5a1bAA44BF7d133f94BBC89",
+            "OloUsdcPriceFeed": "0x8A5ED5D896873882e8E7Eed00D519A5bA57E5CdD",
             "UsdcUsdPriceFeed": "0x4d9693Fa931C76BaC27c4b24e44D4b4a0648E088",
             "UsdtUsdPriceFeed": "0x84329ec361d32b663F745Ff33b19bF8e7e71b5D7"
         }
@@ -116,10 +116,12 @@
     },
     "kcc": {
         "kcc.testnet": {
+            "BoringUsdtPriceFeed": "0x9fb072470556576b40950d62AA76b9f5C54Cbcc6",
             "BtcUsdPriceFeed": "0x7bedADcb912F7A0b8E5C4269C670C55D961B4654",
             "DaiUsdPriceFeed": "0x9652f6f64Bf7E7a5938DcF767b80277877047E58",
             "EthUsdPriceFeed": "0xc2C7609090e14F8a69dF6081e385b205D4a9cd9a",
             "KcsUsdtPriceFeed": "0xD1B976c7d61c616f18D657297394680026367619",
+            "KswUsdPriceFeed": "0x32F36caA28147136a21C8007821481c1b4c94150",
             "MjtKcsPriceFeed": "0x4FdCC2Fd6808aEf8187DAcd9104E250EbD2bf1AC",
             "SaxUsdtPriceFeed": "0x7dF385321321CB0ccb738597eddf92D1041d3b6a",
             "UsdcUsdPriceFeed": "0x4eF17f49758B4C130f9b6DA45Ba30A8566d37F9a",
