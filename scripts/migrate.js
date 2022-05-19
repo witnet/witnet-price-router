@@ -15,10 +15,9 @@ if (process.argv.length < 3) {
   process.exit(0)
 }
 
-const rn = require("./utils").getRealmNetworkFromString(process.argv[2])
-const realm = rn[0]; const network = rn[1]
+const [realm, network] = require("./utils").getRealmNetworkFromString(process.argv[2])
 
-if (!settings.networks[realm] || !settings.networks[realm][network]) {
+if (!settings.networks[realm]?.[network]) {
   console.error(`\n!!! Network "${network}" not found.\n`)
   if (settings.networks[realm]) {
     console.error(`> Available networks in realm "${realm}":`)
@@ -36,7 +35,7 @@ migrate(network)
 
 async function migrate (network) {
   console.log(`> Migrating from ${process.env.FLATTENED_DIRECTORY} into network '${network}'...`)
-  await new Promise((resolve) => {
+  return new Promise((resolve) => {
     const subprocess = require("child_process").spawn(
       "truffle",
       [

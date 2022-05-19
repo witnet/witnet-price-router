@@ -6,9 +6,8 @@ const addresses = require("../addresses")
 const requests = require("../witnet.requests")
 const settings = require("../settings")
 
-module.exports = async function (deployer, network) {
-  const rn = require("../../scripts/utils").getRealmNetworkFromString(network.split("-")[0])
-  const realm = rn[0]; const chain = rn[1]
+module.exports = async function (deployer, network) {  
+  const [realm, chain] = utils.getRealmNetworkFromString(network.split("-")[0])
   const isDryRun = network.split("-")[1] === "fork"
   if (chain !== "test" && chain.split(".")[1] !== "test") {
     let witnetAddresses

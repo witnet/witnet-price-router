@@ -7,8 +7,7 @@ const requests = require("../witnet.requests")
 const settings = require("../settings")
 
 module.exports = async function (deployer, network) {
-  const rn = require("../../scripts/utils").getRealmNetworkFromString(network.split("-")[0])
-  const realm = rn[0]; const chain = rn[1]
+  const [realm, chain] = utils.getRealmNetworkFromString(network.split("-")[0])
   if (chain !== "test" && chain.split(".")[1] !== "test") {
     await revisitPriceFeeds(deployer, realm, chain, network.split("-")[1] === "fork")
   }

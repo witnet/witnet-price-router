@@ -23,8 +23,7 @@ abstract contract WitnetPriceFeedRouted
         router = _witnetPriceRouter;
     }
 
-    /// Estimates total fee amount in native currency to be paid in order to
-    /// update all currency pairs from which this price feed is calculated.
+    /// @dev Routed price feeds require no fee.
     function estimateUpdateFee(uint256)
         external pure
         virtual override
@@ -41,7 +40,7 @@ abstract contract WitnetPriceFeedRouted
         return pairs.length;
     }
 
-    /// Returns result of the last valid price update request successfully solved by the Witnet oracle.
+    /// Returns on-the-fly calculated price, based on last valid values of referred currency pairs.
     function lastPrice()
         external view
         virtual override
@@ -54,7 +53,7 @@ abstract contract WitnetPriceFeedRouted
         return _calculate(_prices);
     }
 
-    /// Returns the EVM-timestamp when last valid price was reported back from the Witnet oracle.
+    /// Returns timestamp of the latest valid update on any of the referred currency pairs.
     function lastTimestamp()
         external view
         virtual override
@@ -69,7 +68,7 @@ abstract contract WitnetPriceFeedRouted
     }
 
     /// Returns tuple containing last valid price and timestamp, as well as status code of latest update
-    /// request that got posted to the Witnet Request Board.
+    /// request that got posted to the Witnet Request Board from any of the referred currency pairs.
     /// @return _lastPrice Last valid price reported back from the Witnet oracle.
     /// @return _lastTimestamp EVM-timestamp of the last valid price.
     /// @return _lastDrTxHash Hash of the Witnet Data Request that solved the last valid price.
@@ -101,7 +100,8 @@ abstract contract WitnetPriceFeedRouted
         _lastPrice = _calculate(_prices);
     }
 
-    /// Returns the ID of the last price update posted to the Witnet Request Board.
+    /// Returns the ID of the last price update posted to the Witnet Request Board,
+    /// from any of the referred currency pairs.
     function latestQueryId()
         external view
         virtual override
@@ -115,7 +115,8 @@ abstract contract WitnetPriceFeedRouted
         }
     }
 
-    /// Returns identifier of the latest update request posted to the Witnet Request Board.
+    /// Returns identifier of the latest update request posted to the Witnet Request Board,
+    /// from any of the referred currency pairs.
     /// @dev Returning 0 while the latest update request remains unsolved.
     function latestUpdateDrTxHash()
         external view
@@ -126,7 +127,8 @@ abstract contract WitnetPriceFeedRouted
         return _getPriceFeed(_index).latestUpdateDrTxHash();
     }
 
-    /// Returns error message of latest update request posted to the Witnet Request Board.
+    /// Returns error message of latest update request posted to the Witnet Request Board,
+    /// from any of the referred currency pairs.
     /// @dev Returning empty string if the latest update request remains unsolved, or
     /// @dev if it was succesfully solved with no errors.
     function latestUpdateErrorMessage()
@@ -138,7 +140,8 @@ abstract contract WitnetPriceFeedRouted
         return _getPriceFeed(_index).latestUpdateErrorMessage();
     }
 
-    /// Returns status code of latest update request posted to the Witnet Request Board:
+    /// Returns status code of latest update request posted to the Witnet Request Board,
+    /// from any of the referred currency pairs.
     /// @dev Status codes:
     /// @dev   - 200: update request was succesfully solved with no errors
     /// @dev   - 400: update request was solved with errors
@@ -151,8 +154,7 @@ abstract contract WitnetPriceFeedRouted
         (, _latestUpdateStatus) = _latestUpdateStatusIndex();
     }
 
-    /// Returns `true` if latest update request posted to the Witnet Request Board 
-    /// has not been solved yet by the Witnet oracle.
+    /// Returns `true` if any of the referred currency pairs awaits for an update.
     function pendingUpdate()
         public view
         virtual override
@@ -166,10 +168,7 @@ abstract contract WitnetPriceFeedRouted
         return false;
     }
 
-    /// Posts a new price update request to the Witnet Request Board. Requires payment of a fee
-    /// that depends on the value of `tx.gasprice`. See `estimateUpdateFee(uint256)`.
-    /// @dev If previous update request was not solved yet, calling this method again allows
-    /// @dev upgrading the update fee if called with a higher `tx.gasprice` value.
+    /// @dev This method will always revert on a WitnetPriceFeedRouted instance.
     function requestUpdate()
         external payable
         virtual override

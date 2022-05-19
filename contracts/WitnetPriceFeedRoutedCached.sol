@@ -19,7 +19,9 @@ abstract contract WitnetPriceFeedRoutedCached
         WitnetPriceFeedRouted(_witnetPriceRouter)
     {}
 
-    /// Returns the ID of the last price update posted to the Witnet Request Board.
+    /// Returns the ID of the last update posted to the Witnet Request Board.
+    /// @dev A WitnetPriceFeedRoutedCached instance will always return 0, as price updates will be 
+    /// @dev synchronously calculated every time `requestUpdate()` is called.
     function latestQueryId()
         external pure
         override
@@ -28,7 +30,7 @@ abstract contract WitnetPriceFeedRoutedCached
         return 0;
     }
 
-    /// Returns result of the last valid price update request successfully solved by the Witnet oracle.
+    /// Returns result of the price value that got calculated the last time `requestUpdate()` was called.
     function lastPrice()
         external view
         virtual override
@@ -37,7 +39,7 @@ abstract contract WitnetPriceFeedRoutedCached
         return __lastPrice;
     }
 
-    /// Returns the EVM-timestamp when last valid price was reported back from the Witnet oracle.
+    /// Returns the EVM-timestamp when `lastPrice()` got updated.
     function lastTimestamp()
         external view
         virtual override
@@ -46,12 +48,12 @@ abstract contract WitnetPriceFeedRoutedCached
         return __lastTimestamp;
     }
 
-    /// Returns tuple containing last valid price and timestamp, as well as status code of latest update
-    /// request that got posted to the Witnet Request Board.
-    /// @return _lastPrice Last valid price reported back from the Witnet oracle.
+    /// Returns tuple containing last valid price and timestamp, as well as status code of the latest update
+    /// request that got posted to the Witnet Request Board from any of the referred currency pairs.
+    /// @return _lastPrice Price value calculated the last time `requestUpdate()` was called.
     /// @return _lastTimestamp EVM-timestamp of the last valid price.
-    /// @return _lastDrTxHash Hash of the Witnet Data Request that solved the last valid price.
-    /// @return _latestUpdateStatus Status code of the latest update request.
+    /// @return _lastDrTxHash Hash of the latest Witnet Data Request that modified the last price.
+    /// @return _latestUpdateStatus Status code of the latest update request from any of the referred currency pairs.
     function lastValue()
         external view
         virtual override
@@ -68,8 +70,7 @@ abstract contract WitnetPriceFeedRoutedCached
         _latestUpdateStatus = pendingUpdate() ? 404 : 200;
     }
 
-    /// Returns identifier of the latest update request posted to the Witnet Request Board.
-    /// @dev Returning 0 while the latest update request remains unsolved.
+    /// Returns hash of the latest Witnet Data Request that modified the last price.
     function latestUpdateDrTxHash()
         external view
         virtual override
@@ -79,8 +80,9 @@ abstract contract WitnetPriceFeedRoutedCached
     }
 
     /// Returns error message of latest update request posted to the Witnet Request Board.
-    /// @dev Returning empty string if the latest update request remains unsolved, or
-    /// @dev if it was succesfully solved with no errors.
+    /// @dev A WitnetPriceFeedRoutedCached will always return empty string, as `latestUpdateDrTxHash()` 
+    /// @dev always returns hashes of succesfully solved update requests from any of the routed
+    /// @dev currency pairs.
     function latestUpdateErrorMessage()
         external pure
         virtual override
@@ -89,10 +91,9 @@ abstract contract WitnetPriceFeedRoutedCached
         return "";
     }
 
-    /// Returns status code of latest update request posted to the Witnet Request Board:
+    /// Returns whether there's a pending update on any of the referred currency pairs.
     /// @dev Status codes:
     /// @dev   - 200: update request was succesfully solved with no errors
-    /// @dev   - 400: update request was solved with errors
     /// @dev   - 404: update request was not solved yet 
     function latestUpdateStatus()
         public view
@@ -102,7 +103,7 @@ abstract contract WitnetPriceFeedRoutedCached
         return pendingUpdate() ? 404 : 400;
     }
 
-    /// Returns `true` if a change in any of routed pairs is detected, while not being fetched and stored yet.
+    /// Returns `true` if a change in any of referred pairs is detected since the last time `requestUpdate()` was called.
     function pendingUpdate()
         public view
         virtual override
@@ -113,27 +114,28 @@ abstract contract WitnetPriceFeedRoutedCached
         );
     }
 
-    /// Retrieves from router latest prices of routed prices. If Posts a new price update request to the Witnet Request Board. Requires payment of a fee
-    /// that depends on the value of `tx.gasprice`. See `estimateUpdateFee(uint256)`.
-    /// @dev If previous update request was not solved yet, calling this method again allows
-    /// @dev upgrading the update fee if called with a higher `tx.gasprice` value.
+    /// Re-calculate price based on current last values of referred currency pairs, and saves it in storage.
+    /// @dev This method requires no fee, so any value received will be transfered back.
     function requestUpdate()
         external payable
         virtual override
     {
         int256[] memory _prices = new int256[](pairs.length);
-        bytes32 _lastDrTxHash; uint _latestTimestamp;        
+        bytes32 _lastDrTxHash; uint _latestTimestamp;
         for (uint _i = 0; _i < _prices.length; _i ++) {
             uint _ts; bytes32 _hash;
             (_prices[_i], _ts, _hash, ) = _getPriceFeed(_i).lastValue();
             if (_ts > _latestTimestamp) {
                 _lastDrTxHash = _hash;
-                _latestTimestamp = _ts;                
+                _latestTimestamp = _ts;
             }
         }
         __lastDrTxHash = _lastDrTxHash;
         __lastPrice = _calculate(_prices);
-        __lastTimestamp = block.timestamp;        
+        __lastTimestamp = block.timestamp;
+        if (msg.value > 0) {
+            payable(msg.sender).transfer(msg.value);
+        }
         emit PriceFeeding(msg.sender, 0, 0);
     }
 
@@ -155,7 +157,7 @@ abstract contract WitnetPriceFeedRoutedCached
     // ========================================================================
     // --- INTERNAL METHODS ---------------------------------------------------
 
-    /// @dev Returns timestamp of latest valid update of any of routed currency pairs.
+    /// @dev Returns timestamp of latest valid update of any of referred currency pairs.
     function _getLatestTimestamp()
         internal view
         returns (uint _lastTimestamp)
