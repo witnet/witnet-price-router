@@ -70,23 +70,23 @@
     "conflux": {
         "conflux.core.testnet": {
             "BtcUsdPriceFeed": "0x8a14b97ea58d66881caF58ef9271b6AE458B9B4e",
-            "CfxUsdtPriceFeed": "0x8f76030B23B51e07E65015f3461054dEf0f95AE7",
+            "CfxUsdtPriceFeed": "0",
             "EthUsdPriceFeed": "0x8b1fa5E58B96D005180C812911e18eA0D5bB7D3D"
         },
         "conflux.core.mainnet": {
             "BtcUsdPriceFeed": "0x854cA346C45D797C6Bf6cdEb36D5f921551aF676",
-            "CfxUsdtPriceFeed": "0x8C78058048Fa431f3ed27F25F9724B8B36E8039f",
+            "CfxUsdtPriceFeed": "",
             "EthUsdPriceFeed": "0x8a4ECB0E40181e03EB7D41198d860C00abcb4b81"
         },
         "conflux.espace.testnet": {
             "BtcUsdPriceFeed": "0x22873c5031621eBD19D8F171e12C8E90F113cd16",
-            "CfxUsdtPriceFeed": "0x3F867E34ac6a7f6021E58b640ab8D7a46eC6F324",
+            "CfxUsdtPriceFeed": "",
             "EthUsdPriceFeed": "0xE4cFf55F193b3493F1Aa6811738309b2ACf6C963",
             "UsdtUsdPriceFeed": "0xd29F67a0d6b1499b99AD40fe35934f664a7C0817"
         },
         "conflux.espace.mainnet": {
             "BtcUsdPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87",
-            "CfxUsdtPriceFeed": "0xF849C1ddd19f524c12A043556fAa5602a6B81F98",
+            "CfxUsdtPriceFeed": "",
             "EthUsdPriceFeed": "0xBaaF31F4AAc5ab5334b6E239a83bf4E855C55ea7",
             "UsdtUsdPriceFeed": "0x8555fF5b5A370FEF73Ce723b3fFfC57c161a1945"
         }
