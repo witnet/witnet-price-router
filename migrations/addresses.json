@@ -126,6 +126,11 @@
             "EthUsdPriceFeed": "0xB8716e732c0C93Cfc3169A31529b78452554C4C2"
         }
     },
+    "kava": {
+        "kava.testnet": {
+            "KavaUsdtPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530"
+        }
+    },
     "kcc": {
         "kcc.testnet": {
             "BoringUsdtPriceFeed": "0x9fb072470556576b40950d62AA76b9f5C54Cbcc6",
