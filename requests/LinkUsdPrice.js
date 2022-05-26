@@ -27,7 +27,7 @@ const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/linku
   .multiply(10 ** 6)
   .round()
 
-// Filters out any value that is more than 2.5 times the standard
+// Filters out any value that is more than 1.5 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
 const aggregator = new Witnet.Aggregator({

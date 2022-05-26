@@ -15,7 +15,7 @@ const bitfinex = new Witnet.Source("https://api-pub.bitfinex.com/v2/ticker/tTSDU
   .round()
 
 
-// Filters out any value that is more than 2.5 times the standard
+// Filters out any value that is more than 1.5 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
 const aggregator = new Witnet.Aggregator({

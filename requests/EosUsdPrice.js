@@ -27,7 +27,7 @@ const bittrex = new Witnet.Source("https://api.bittrex.com/v3/markets/EOS-USD/ti
   .multiply(10 ** 6)
   .round()
 
-// Filters out any value that is more than 2.5 times the standard
+// Filters out any value that is more than 1.5 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
 const aggregator = new Witnet.Aggregator({

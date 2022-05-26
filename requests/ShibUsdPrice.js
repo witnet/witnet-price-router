@@ -27,7 +27,7 @@ const gateio = new Witnet.Source("https://data.gateapi.io/api2/1/ticker/shib_usd
   .multiply(10 ** 9) // Use 6 digit precision
   .round() // Cast to integer
 
-// Filters out any value that is more than 2.5 times the standard
+// Filters out any value that is more than 1.5 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
 const aggregator = new Witnet.Aggregator({
