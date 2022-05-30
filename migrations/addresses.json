@@ -229,5 +229,10 @@
             "EthUsdPriceFeed": "0xBaaF31F4AAc5ab5334b6E239a83bf4E855C55ea7",
             "VsqDaiPriceFeed": "0x93A11f01D14c0f08d5DDa632DD84821482d148E5"
         }
+    },
+    "smartbch": {
+        "smartbch.amber": {
+            "BchUsdPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530"
+        }
     }
 }
