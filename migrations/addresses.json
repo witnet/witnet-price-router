@@ -148,10 +148,12 @@
             "UsdtUsdPriceFeed": "0xbAc8068Bd402d256505FA1b0281d669e026627EB"
         },
         "kcc.mainnet": {
+            "BoringUsdtPriceFeed": "0xB5287C3aA2112dD4947493980a8aeBE111a89869",
             "BtcUsdPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87",
             "DaiUsdPriceFeed": "0xaB9964d03f14154eBfC0892067a557712ac1445c",
             "EthUsdPriceFeed": "0xF849C1ddd19f524c12A043556fAa5602a6B81F98",
             "KcsUsdtPriceFeed": "0x76d5Addc0C5F174b74C9B7f3a71c38eD6366750c",
+            "KswUsdPriceFeed": "0x4fFe899D4059BED130fb91474d23F920Db5D3269",
             "MjtKcsPriceFeed": "0x8222E4C6abe9AE05CD5FEDeb15530B23E7C9BA59",
             "SaxUsdtPriceFeed": "0x0C2BD039f1bC3829AA39d3b2b679BeEf7fc39523",
             "UsdcUsdPriceFeed": "0xffa9c435D9A19072d44265cceBEf8760fC03B446",
