@@ -8,6 +8,7 @@ const bittrex = new Witnet.Source("https://api.bittrex.com/v3/markets/CELO-USD/t
   .multiply(10 ** 6)
   .round()
 
+// Retrieve CGLD/USD-6 exchange rate from Coinbase
 const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?currency=USD")
   .parseJSONMap()
   .getMap("data")
@@ -17,13 +18,12 @@ const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?c
   .multiply(10 ** 6)
   .round()
 
-// Retrieve CELO/USD price from Bittrex
-const bittrex = new Witnet.Source("https://api.bittrex.com/api/v1.1/public/getticker?market=USD-CELO")
+// Retrieve CELO/USD-6 price from OKcoin
+const okcoin = new Witnet.Source("https://www.okcoin.com/api/spot/v3/instruments/CELO-USD/ticker")
   .parseJSONMap()
-  .getMap("result")
-  .getFloat("Last")
+  .getFloat("last")
   .multiply(10 ** 6)
-  .round()
+  .round()  
 
 // Retrieves CELO/USD-6 from the OkEx API (derived from USDT/USD exchange rate)
 const okex = new Witnet.Source("https://www.okex.com/api/v5/market/ticker?instId=CELO-USDT")
@@ -56,8 +56,9 @@ const tally = new Witnet.Tally({
 
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
-  .addSource(coinbase)
-  .addSource(bittrex)
+  .addSource(bittrex)  
+  .addSource(coinbase)  
+  .addSource(okcoin)
   .addSource(okex)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
