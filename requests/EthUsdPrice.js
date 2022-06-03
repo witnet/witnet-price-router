@@ -24,10 +24,12 @@ const kraken = new Witnet.Source("https://api.kraken.com/0/public/Ticker?pair=ET
   .multiply(10 ** 6)
   .round()
 
-// Retrieve ETHUSD price from BitStamp
-const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/ethusd")
+// Retrieve ETHUSD price from Bittrex
+const bittrex = new Witnet.Source("https://api.bittrex.com/v3/markets/ETH-USD/ticker")
   .parseJSONMap()
-  .getFloat("last")
+  .getFloat("lastTradeRate")
+  .multiply(10 ** 6)
+  .round()
   .multiply(10 ** 6)
   .round()
 

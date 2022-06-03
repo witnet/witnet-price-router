@@ -1,5 +1,11 @@
 import * as Witnet from "witnet-requests"
-import { REDUCERS } from "witnet-requests/dist/radon/types"
+
+// Retrieve CELO/EUR last price from Bittrex
+const bittrex = new Witnet.Source("https://api.bittrex.com/v3/markets/CELO-EUR/ticker")
+  .parseJSONMap()
+  .getFloat("lastTradeRate")
+  .multiply(10 ** 6)
+  .round()
 
 // Retrieve CGLD/EUR exchange rate from Coinbase
 const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?currency=EUR")
@@ -11,15 +17,7 @@ const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?c
   .multiply(10 ** 6)
   .round()
 
-// Retrieve CELO/EUR last price from Bittrex
-const bittrex = new Witnet.Source("https://api.bittrex.com/api/v1.1/public/getticker?market=EUR-CELO")
-  .parseJSONMap()
-  .getMap("result")
-  .getFloat("Last")
-  .multiply(10 ** 6)
-  .round()
-
-// Filters out any value that is more than 2.5 times the standard
+// Filters out any value that is more than 1.5 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
 const aggregator = new Witnet.Aggregator({

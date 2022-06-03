@@ -1,7 +1,13 @@
 import * as Witnet from "witnet-requests"
 import { REDUCERS } from "witnet-requests/dist/radon/types"
 
-// Retrieve CGLD/USD exchange rate from Coinbase
+// Retrieve CELO/USD price from Bittrex
+const bittrex = new Witnet.Source("https://api.bittrex.com/v3/markets/CELO-USD/ticker")
+  .parseJSONMap()
+  .getFloat("lastTradeRate")
+  .multiply(10 ** 6)
+  .round()
+
 const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?currency=USD")
   .parseJSONMap()
   .getMap("data")
