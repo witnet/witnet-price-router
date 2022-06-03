@@ -8,9 +8,10 @@ const binance = new Witnet.Source("https://api.binance.com/api/v3/ticker/price?s
   .round() // Cast to integer
 
 // Retrieves USDT price of OMG from the OkEx API
-const okex = new Witnet.Source("https://www.okex.com/api/index/v3/OMG-USDT/constituents")
+const okex = new Witnet.Source("https://www.okex.com/api/v5/market/ticker?instId=OMG-USDT")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getMap("data") // Access to the `Map` object at `data` key
+  .getArray("data") // Access to the `Map` object at `data` key
+  .getMap(0)
   .getFloat("last") // Get the `Float` value associated to the `last` key
   .multiply(10 ** 6) // Use 6 digit precision
   .round() // Cast to integer

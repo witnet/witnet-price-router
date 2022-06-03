@@ -8,9 +8,10 @@ const gateio = new Witnet.Source("https://data.gateapi.io/api2/1/ticker/okt_usdt
   .round() // Cast to integer
 
 // Retrieves OKT/USDT-6 price from the OKEx API
-const okex = new Witnet.Source("https://www.okex.com/api/index/v3/OKT-USDT/constituents")
+const okex = new Witnet.Source("https://www.okex.com/api/v5/market/ticker?instId=OKT-USDT")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getMap("data") // Access to the `Map` object at `data` key
+  .getArray("data") // Access to the `Map` object at `data` key
+  .getMap(0)
   .getFloat("last") // Get the `Float` value associated to the `last` key
   .multiply(10 ** 6) // Use 6 digit precision
   .round() // Cast to integer

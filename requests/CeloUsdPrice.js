@@ -19,10 +19,11 @@ const bittrex = new Witnet.Source("https://api.bittrex.com/api/v1.1/public/getti
   .multiply(10 ** 6)
   .round()
 
-// Retrieves USD price of CELO from the OkEx API (derived from USDT/USD exchange rate)
-const okex = new Witnet.Source("https://www.okex.com/api/index/v3/CELO-USD/constituents")
+// Retrieves CELO/USD-6 from the OkEx API (derived from USDT/USD exchange rate)
+const okex = new Witnet.Source("https://www.okex.com/api/v5/market/ticker?instId=CELO-USDT")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getMap("data") // Access to the `Map` object at `data` key
+  .getArray("data") // Access to the `Map` object at `data` key
+  .getMap(0)
   .getFloat("last") // Get the `Float` value associated to the `last` key
   .multiply(10 ** 6) // Use 6 digit precision
   .round() // Cast to integer

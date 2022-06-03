@@ -39,9 +39,10 @@ const mexc = new Witnet.Source("https://www.mexc.com/open/api/v2/market/ticker?s
   .round() // Cast to integer
 
 // Retrieves USD price of CELO from the OkEx API (derived from USDT/USD exchange rate)
-const okex = new Witnet.Source("https://www.okex.com/api/index/v3/GLMR-USDT/constituents")
+const okex = new Witnet.Source("https://www.okex.com/api/v5/market/ticker?instId=GLMR-USDT")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getMap("data") // Access to the `Map` object at `data` key
+  .getArray("data") // Access to the `Map` object at `data` key
+  .getMap(0)
   .getFloat("last") // Get the `Float` value associated to the `last` key
   .multiply(10 ** 6) // Use 6 digit precision
   .round() // Cast to integer
