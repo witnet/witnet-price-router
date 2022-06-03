@@ -40,7 +40,7 @@ const hoo = new Witnet.Source("https://api.hoolgd.com/open/v1/tickers/market")
   .multiply(10 ** 6) // Use 6 digit precision
   .round() // Cast to integer
 
-// Retrieves OKT/USDT-6 price from the OKEx API
+// Retrieves KLAY/USDT-6 price from the OKEx API
 const okex = new Witnet.Source("https://www.okex.com/api/v5/market/ticker?instId=KLAY-USDT")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
   .getArray("data") // Access to the `Map` object at `data` key

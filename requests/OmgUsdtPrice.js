@@ -33,12 +33,12 @@ const mexc = new Witnet.Source("https://www.mexc.com/open/api/v2/market/ticker?s
   .multiply(10 ** 6) // Use 6 digit precision
   .round() // Cast to integer
 
-// Filters out any value that is more than 2.5 times the standard
+// Filters out any value that is more than 1.5 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
 const aggregator = new Witnet.Aggregator({
   filters: [
-    [Witnet.Types.FILTERS.deviationStandard, 2.5],
+    [Witnet.Types.FILTERS.deviationStandard, 1.5],
   ],
   reducer: Witnet.Types.REDUCERS.averageMean,
 })
@@ -61,7 +61,7 @@ const request = new Witnet.Request()
   .addSource(mexc)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
-  .setQuorum(10, 70) // Set witness count and minimum consensus percentage
+  .setQuorum(10, 51) // Set witness count and minimum consensus percentage
   .setFees(10 ** 6, 10 ** 6) // Set economic incentives
   .setCollateral(5 * 10 ** 9) // Require 5 wits as collateral
 
