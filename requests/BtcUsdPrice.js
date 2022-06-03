@@ -1,26 +1,23 @@
 import * as Witnet from "witnet-requests"
 
-// Retrieve BTCUSD price from Binance
-const binance = new Witnet.Source("https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT")
+// Retrieve BTC/USD-6 price from Binance.US
+const binance = new Witnet.Source("https://api.binance.US/api/v3/trades?symbol=BTCUSD")
   .parseJSONMap()
   .getFloat("price")
   .multiply(10 ** 6)
   .round()
 
-// Retrieve BTCUSD price from Bitfinex
+// Retrieve BTC/USD-6 price from Bitfinex
 const bitfinex = new Witnet.Source("https://api.bitfinex.com/v1/pubticker/btcusd")
   .parseJSONMap()
   .getFloat("last_price")
   .multiply(10 ** 6)
   .round()
 
-// Retrieve BTCUSD price from Kraken
-const kraken = new Witnet.Source("https://api.kraken.com/0/public/Ticker?pair=BTCUSD")
+// Retrieve BTC/USD-6 price from BitStamp
+const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/btcusd")
   .parseJSONMap()
-  .getMap("result")
-  .getMap("XXBTZUSD")
-  .getArray("a")
-  .getFloat(0)
+  .getFloat("last")
   .multiply(10 ** 6)
   .round()
 
@@ -30,14 +27,23 @@ const bittrex = new Witnet.Source("https://api.bittrex.com/v3/markets/BTC-USD/ti
   .getFloat("lastTradeRate")
   .multiply(10 ** 6)
   .round()
+
+// Retrieve BTC/USD-6 price from Coinbase
+const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?currency=BTC")
+  .parseJSONMap()
+  .getMap("data")
+  .getMap("rates")
+  .getFloat("USD")
   .multiply(10 ** 6)
   .round()
 
-// Retrieve BTCUSD price from Bittrex
-const bittrex = new Witnet.Source("https://api.bittrex.com/api/v1.1/public/getticker?market=USD-BTC")
+// Retrieve BTC/USD-6 price from Kraken
+const kraken = new Witnet.Source("https://api.kraken.com/0/public/Ticker?pair=BTCUSD")
   .parseJSONMap()
   .getMap("result")
-  .getFloat("Last")
+  .getMap("XXBTZUSD")
+  .getArray("a")
+  .getFloat(0)
   .multiply(10 ** 6)
   .round()
 
@@ -68,6 +74,7 @@ const request = new Witnet.Request()
   .addSource(kraken)
   .addSource(bitstamp)
   .addSource(bittrex)
+  .addSource(coinbase)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(10, 51) // Set witness count and minimum consensus percentage
