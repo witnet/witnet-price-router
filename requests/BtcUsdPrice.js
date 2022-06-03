@@ -37,6 +37,23 @@ const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?c
   .multiply(10 ** 6)
   .round()
 
+// Retrieve BTC/USD-6 price from FTX
+const ftx = new Witnet.Source("https://ftx.com/api/markets")
+  .parseJSONMap() // Parse a `Map` from the retrieved `String`
+  .getArray("result") // Access to the `Map` object at `data` key
+  .filter( 
+    // From all elements in the map,
+    // select the one which "name" field
+    // matches "BTC/USD":
+    new Witnet.Script([ Witnet.TYPES.MAP ])
+      .getString("name")
+      .match({ "BTC/USD": true }, false)
+  )
+  .getMap(0) // Get first (and only) element from the resulting Map
+  .getFloat("price") // Get the `Float` value associated to the `price` key
+  .multiply(10 ** 6) // Use 6 digit precision
+  .round() // Cast to integer
+
 // Retrieve BTC/USD-6 price from Kraken
 const kraken = new Witnet.Source("https://api.kraken.com/0/public/Ticker?pair=BTCUSD")
   .parseJSONMap()
@@ -71,10 +88,11 @@ const tally = new Witnet.Tally({
 const request = new Witnet.Request()
   .addSource(binance)
   .addSource(bitfinex)
-  .addSource(kraken)
   .addSource(bitstamp)
   .addSource(bittrex)
   .addSource(coinbase)
+  .addSource(ftx)
+  .addSource(kraken)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(10, 51) // Set witness count and minimum consensus percentage
