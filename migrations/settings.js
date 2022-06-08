@@ -13,14 +13,18 @@ module.exports = {
     require("witnet-solidity-bridge/migrations/witnet.settings").networks, {
       default: {
         "ethereum.mainnet": {
-          gas: 3000000,
-          gasPrice: 80 * 10 ** 9,
-          skipDryRun: true
+          skipDryRun: true,
+          confirmations: 2
         }
       },
       conflux: {
         "conflux.mainnet": {
           gasPrice: 30 * 10 ** 9
+        }
+      },
+      polygon: {
+        "polygon.mainnet": {
+          gasPrice: 50 * 10 ** 9
         }
       }
     }
