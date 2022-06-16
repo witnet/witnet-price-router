@@ -93,6 +93,8 @@
     "cronos": {
         "cronos.testnet": {
             "AdaUsdPriceFeed": "0x10FEd283906a49d31e2b6E1c36d01f6873fa1075",
+            "AlgoUsdPriceFeed": "",
+            "ApeUsdPriceFeed": "",
             "AtomUsdPriceFeed": "0x13c10BCd39a7F6C827465A98518B26113AB14D94",
             "AvaxUsdPriceFeed": "0xCbddA04f0aA08a35e030B7695300C1f5652A6808",
             "BtcUsdPriceFeed": "0x12Cc3385924Db1DD17E167Ec560742825a467feC",
@@ -104,6 +106,7 @@
             "EosUsdPriceFeed": "0x6c504A1B7cFed13Ca2d32A37bD97a1F402C03f58",
             "EthUsdPriceFeed": "0x58F8C1981b500BBBc5B0f4a156D9AD0aE656B2CE",
             "LinkUsdPriceFeed": "0xb9B843464d9c314Fd4ACa8900f36B3F19ECEB65b",
+            "MaticUsdPriceFeed": "",
             "ShibUsdPriceFeed": "0x84Af522241a4a2b6D21e126b24cD3bF6D8DE2E53",
             "SolUsdPriceFeed": "0xEfd5332d4A005e740cF5a8dB77C497B28AEb097a",
             "TusdUsdPriceFeed": "0xAbFb0873D7CD9044D15b0a66EfeC765894bF755A",
