@@ -1,6 +1,6 @@
 import * as Witnet from "witnet-requests"
 
-// Retrieve {token_0.upper()}/{token_1.lower()} price from BitStamp
+// Retrieve MATIC/USD price from BitStamp
 const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/maticusd/")
   .parseJSONMap()
   .getFloat("last")

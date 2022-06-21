@@ -10,20 +10,30 @@ const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?c
   .multiply(10 ** 6)
   .round()
 
-// Retrieves ALGO/USD-6 price from the Bitmax API
-const ascendex = new Witnet.Source("https://ascendex.com/api/pro/v1/spot/ticker?symbol=ALGO/USDT")
+// Retrieve ALGO/USD-6 price from the FTX HTTP-GET API
+const ftx = new Witnet.Source("https://ftx.us/api/markets/algo/usd")
   .parseJSONMap()
-  .getMap("data")
-  .getFloat("close")
+  .getMap("result")
+  .getFloat("last")
   .multiply(10 ** 6)
   .round()
 
-// Retrieves USD price of ALGO from the HOTBIT API
-const hotbit = new Witnet.Source("https://api.hotbit.io/api/v1/market.last?market=ALGOUSD")
-  .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getFloat("result") // Get the `Float` value associated to the `result` key
-  .multiply(10 ** 6) // Use 6 digit precision
-  .round() // Cast to integer
+// Retrieve ALGO/USD-6 price from Kraken
+const kraken = new Witnet.Source("https://api.kraken.com/0/public/Ticker?pair=ALGOUSD")
+  .parseJSONMap()
+  .getMap("result")
+  .getMap("ALGOUSD")
+  .getArray("a")
+  .getFloat(0)
+  .multiply(10 ** 6)
+  .round()
+
+// Retrieve ALGO/usd price from BitStamp
+const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/algousd")
+  .parseJSONMap()
+  .getFloat("last")
+  .multiply(10 ** 6)
+  .round()
 
 // Filters out any value that is more than 1.5 times the standard
 // deviation away from the average, then computes the average mean of the
@@ -48,8 +58,9 @@ const tally = new Witnet.Tally({
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
   .addSource(coinbase)
-  .addSource(ascendex)
-  .addSource(hotbit)
+  .addSource(ftx)
+  .addSource(kraken)
+  .addSource(bitstamp)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(10, 51) // Set witness count and minimum consensus percentage
