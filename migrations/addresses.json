@@ -172,6 +172,7 @@
             "KlayUsdtPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530",
             "KrwUsdPriceFeed": "",
             "KspKrwPriceFeed": "",
+            "KspUsdPriceFeed": "",
             "UsdtUsdPriceFeed": ""
         },
         "klaytn.mainnet": {
@@ -179,6 +180,7 @@
             "KlayUsdtPriceFeed": "0x3806311c7138ddF2bAF2C2093ff3633E5A73AbD4",
             "KrwUsdPriceFeed": "",
             "KspKrwPriceFeed": "",
+            "KspUsdPriceFeed": "",
             "UsdtUsdPriceFeed": ""
         }
     },
