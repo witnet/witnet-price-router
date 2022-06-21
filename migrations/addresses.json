@@ -168,20 +168,20 @@
     },
     "klaytn": {
         "klaytn.testnet": {
-            "KlayUsdPriceFeed":  "",
+            "KlayUsdPriceFeed": "0x9C9c45162e8aa238c3d6B05BFc085D99f6B73CE8",
             "KlayUsdtPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530",
             "KrwUsdPriceFeed": "",
             "KspKrwPriceFeed": "",
             "KspUsdPriceFeed": "",
-            "UsdtUsdPriceFeed": ""
+            "UsdtUsdPriceFeed": "0xEebE96492594F193BeC851d33bDFDf6154540B53"
         },
         "klaytn.mainnet": {
-            "KlayUsdPriceFeed":  "",
+            "KlayUsdPriceFeed": "0xC32238702E364A93d07d5b3334d3FCdd65371b56",
             "KlayUsdtPriceFeed": "0x3806311c7138ddF2bAF2C2093ff3633E5A73AbD4",
             "KrwUsdPriceFeed": "",
             "KspKrwPriceFeed": "",
             "KspUsdPriceFeed": "",
-            "UsdtUsdPriceFeed": ""
+            "UsdtUsdPriceFeed": "0x560a2d8273A023b8bC9Bd351Dc20fEBba37A43CF"
         }
     },
     "metis": {
