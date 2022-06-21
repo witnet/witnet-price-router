@@ -130,10 +130,14 @@
     },
     "kava": {
         "kava.testnet": {
-            "KavaUsdtPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530"
+            "KavaUsdPriceFeed": "",
+            "KavaUsdtPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530",
+            "UsdtUsdPriceFeed": ""
         },
         "kava.mainnet": {
-            "KavaUsdtPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87"
+            "KavaUsdPriceFeed": "",
+            "KavaUsdtPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87",
+            "UsdtUsdPriceFeed": ""
         }
     },
     "kcc": {
@@ -164,10 +168,14 @@
     },
     "klaytn": {
         "klaytn.testnet": {
-            "KlayUsdtPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530"
+            "KlayUsdPriceFeed":  "",
+            "KlayUsdtPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530",
+            "UsdtUsdPriceFeed": ""
         },
         "klaytn.mainnet": {
-            "KlayUsdtPriceFeed": "0x3806311c7138ddF2bAF2C2093ff3633E5A73AbD4"
+            "KlayUsdPriceFeed":  "",
+            "KlayUsdtPriceFeed": "0x3806311c7138ddF2bAF2C2093ff3633E5A73AbD4",
+            "UsdtUsdPriceFeed": ""
         }
     },
     "metis": {
