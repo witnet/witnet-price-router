@@ -3,7 +3,7 @@ pragma solidity >=0.7.0 <0.9.0;
 
 import "../WitnetPriceFeedRouted.sol";
 
-contract GlmrUsdPriceFeed
+contract KavaUsdPriceFeed
     is
         WitnetPriceFeedRouted
 {
