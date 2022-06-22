@@ -135,9 +135,9 @@
             "UsdtUsdPriceFeed": ""
         },
         "kava.mainnet": {
-            "KavaUsdPriceFeed": "",
+            "KavaUsdPriceFeed": "0x4F861288D48dBB8d71B4e03f6748263b13294420",
             "KavaUsdtPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87",
-            "UsdtUsdPriceFeed": ""
+            "UsdtUsdPriceFeed": "0x4C71f7a4ea4C629B27cfcDF19029BC558A3bFDDF"
         }
     },
     "kcc": {
