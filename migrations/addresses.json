@@ -128,6 +128,14 @@
             "EthUsdPriceFeed": "0xb3162e6fDeF602b47783905b6F9BE78d4DA75568"
         }
     },
+    "hsc": {
+        "hsc.testnet": {
+            "BtcUsdPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530",
+            "EthUsdPriceFeed": "0x56834Ff8D4b27db647Da97CA3bd8540f7fA0e89D",
+            "UsdcUsdPriceFeed": "0xE2Efa3fe66352e63F118bB9165435C5BEDB777d0",
+            "UsdtUsdPriceFeed": "0x225BAd150B9D5202DC805B34A0DF64B1a77459dF"
+        }
+    },
     "kava": {
         "kava.testnet": {
             "KavaUsdPriceFeed": "",
