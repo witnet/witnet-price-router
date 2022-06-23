@@ -132,6 +132,8 @@
         "hsc.testnet": {
             "BtcUsdPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530",
             "EthUsdPriceFeed": "0x56834Ff8D4b27db647Da97CA3bd8540f7fA0e89D",
+            "FtmUsdPriceFeed": "0xa3AFD68122a21c7D21Ddd95E5c077f958dA46662",
+            "FtmUsdtPriceFeed": "0x9905821089928e5A26841225510cea8B2984F6D8",
             "UsdcUsdPriceFeed": "0xE2Efa3fe66352e63F118bB9165435C5BEDB777d0",
             "UsdtUsdPriceFeed": "0x225BAd150B9D5202DC805B34A0DF64B1a77459dF"
         }
