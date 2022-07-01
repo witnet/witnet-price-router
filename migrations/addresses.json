@@ -194,6 +194,16 @@
             "UsdtUsdPriceFeed": "0x560a2d8273A023b8bC9Bd351Dc20fEBba37A43CF"
         }
     },
+    "meter": {
+        "meter.testnet": {
+            "MtrgUsdtPriceFeed": "0x3218E21240968c650C03A4657C22275951Dd9232",
+            "MtrUsdtPriceFeed": "0xF346eEbbA5280f509BcCEa8Df9298660d99BD5D1"
+        },
+        "meter.mainnet": {
+            "MtrgUsdtPriceFeed": "",
+            "MtrUsdtPriceFeed": ""
+        }
+    },
     "metis": {
         "metis.mainnet": {
             "BtcUsdPriceFeed": "0xc4cFa889Ff3D673680524fE30992368462c219B6",
