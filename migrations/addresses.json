@@ -144,13 +144,19 @@
     },
     "kava": {
         "kava.testnet": {
+            "BtcUsdPriceFeed": "",
+            "EthUsdPriceFeed": "",
             "KavaUsdPriceFeed": "",
             "KavaUsdtPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530",
+            "UsdcUsdPriceFeed": "",
             "UsdtUsdPriceFeed": ""
         },
         "kava.mainnet": {
+            "BtcUsdPriceFeed": "0x5DdA85CF870f471F942F5a4F9B663AB0ee70FDc3",
+            "EthUsdPriceFeed": "0x19424CaF6443dD79DF328b4591B9FFdAa5285220",
             "KavaUsdPriceFeed": "0x4F861288D48dBB8d71B4e03f6748263b13294420",
             "KavaUsdtPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87",
+            "UsdcUsdPriceFeed": "0x80923aED167364398D33b7AD684313814789f893",
             "UsdtUsdPriceFeed": "0x4C71f7a4ea4C629B27cfcDF19029BC558A3bFDDF"
         }
     },
