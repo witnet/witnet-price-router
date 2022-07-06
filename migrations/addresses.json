@@ -81,12 +81,14 @@
             "BtcUsdPriceFeed": "0xDefe6794935AE2365F162731367B122Efc2e3F46",
             "CfxUsdtPriceFeed": "0x60899E926479D19C76593b4d5a9592215AdA8a51",
             "EthUsdPriceFeed": "0xeaa8eeE033a5133CBB7D019289BfC269AB9068E0",
+            "UsdcUsdPriceFeed": "0xa536E2b2301fD13e69ef41F83b9BAb83dB1Cc59c",
             "UsdtUsdPriceFeed": "0xd29F67a0d6b1499b99AD40fe35934f664a7C0817"
         },
         "conflux.espace.mainnet": {
             "BtcUsdPriceFeed": "0xF5e9c6c350c88096B3474C8550E68BBeF4Db21e7",
             "CfxUsdtPriceFeed": "0x870D837339fdd132B41DeB8a1a8dea96Fdb66A79",
             "EthUsdPriceFeed": "0xd705Df72A57A3D76a085D269c1c3Af5E793Eb7d1",
+            "UsdcUsdPriceFeed": "0xaDC5c17400Fef4A11B4c050c16128c6aC819BF96",
             "UsdtUsdPriceFeed": "0x8555fF5b5A370FEF73Ce723b3fFfC57c161a1945"
         }
     },
