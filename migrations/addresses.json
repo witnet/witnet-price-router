@@ -286,14 +286,14 @@
             "DaiUsdPriceFeed": "0x476534595f5BFD3C9fe720FAD07937EEEe8C5C76",
             "EthUsdPriceFeed": "0x50E020fed41c64cEf3162540ddD5805544F20713",
             "MaticUsdPriceFeed": "0xD21D920DEA43dEeDD319AE65e4bCAeeD5Ed95A90",
-            "VsqDaiPriceFeed": "0xdE2101A2862719e99e52489B4356E6da70d3926e"
+            "VsqDaiPriceFeed": ""
         },
         "polygon.mainnet": {
             "BtcUsdPriceFeed": "0x968d73A8BAE8C96Aa26D5fDf930581AEA8742004",
             "DaiUsdPriceFeed": "0x6490791Af2Bf2f2eaC7D6A3d3F6E2FD57399623a",
             "EthUsdPriceFeed": "0xBE6D7A351E33E81c080f480F91bFcAdB9e1Ba6af",
             "MaticUsdPriceFeed": "0xAc71AB6E64753173f9EEab006dabe8dfc3E1Ff71",
-            "VsqDaiPriceFeed": "0x93A11f01D14c0f08d5DDa632DD84821482d148E5"
+            "VsqDaiPriceFeed": ""
         }
     },
     "smartbch": {

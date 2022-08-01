@@ -1,10 +1,10 @@
 import * as Witnet from "witnet-requests"
 
 // Retrieve VSQ/DAI-6 price from the SushiSwap DEX API:
-const sushiswap = new Witnet.Source("https://data.witnet.io/?endpoint=https://api.thegraph.com/subgraphs/name/sushiswap/matic-exchange&data=%7B%22query%22%3A%22%7B%5Cn%20%20pair(id%3A%20%5C%220x102d39bc293472dc9ac3e6a0a9261a838b3bc6d7%5C%22)%20%7B%5Cn%20%20%20%20token0Price%5Cn%20%20%7D%5Cn%7D%22%2C%22variables%22%3A%7B%7D%7D")
+const sushiswap = new Witnet.Source("https://data.witnet.io/?endpoint=https://api.thegraph.com/subgraphs/name/sushiswap/matic-exchange&data=%7B%22query%22%3A%22%7B%5Cn%20%20pair(id%3A%20%5C%220x5cf66ceaf7f6395642cd11b5929499229edef531%5C%22)%20%7B%5Cn%20%20%20%20token1Price%5Cn%20%20%7D%5Cn%7D%22%2C%22variables%22%3A%7B%7D%7D")
   .parseJSONMap()
   .getMap("pair")
-  .getFloat("token0Price") // Get the `Float` value associated to the `price` key
+  .getFloat("token1Price") // Get the `Float` value associated to the `price` key
   .multiply(10 ** 6) // Use 6 digit precision
   .round() // Cast to integer
 
