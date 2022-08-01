@@ -1,22 +1,5 @@
 import * as Witnet from "witnet-requests"
 
-// Retrieves USDT price of METIS from HOO API
-const hoo = new Witnet.Source("https://api.hoolgd.com/open/innovate/v1/tickers/market")
-  .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getArray("data") // Access to the `Map` object at `data` key
-  .filter( 
-    // From all elements in the map,
-    // select the one which "symbol" field
-    // matches "METIS-USDT":
-    new Witnet.Script([ Witnet.TYPES.MAP ])
-      .getString("symbol")
-      .match({ "METIS-USDT": true }, false)
-  )
-  .getMap(0) // Get first (and only) element from the resulting Map
-  .getFloat("price") // Get the `Float` value associated to the `price` key
-  .multiply(10 ** 6) // Use 6 digit precision
-  .round() // Cast to integer
-
 // Retrieves USDT price of METIS from the Gate.io API
 const gateio = new Witnet.Source("https://data.gateapi.io/api2/1/ticker/metis_usdt")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
@@ -63,7 +46,6 @@ const tally = new Witnet.Tally({
 
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
-  .addSource(hoo)
   .addSource(gateio)
   .addSource(mexc)
   .addSource(hotbit)
