@@ -221,8 +221,8 @@
             "MtrUsdtPriceFeed": "0xF346eEbbA5280f509BcCEa8Df9298660d99BD5D1"
         },
         "meter.mainnet": {
-            "MtrgUsdtPriceFeed": "",
-            "MtrUsdtPriceFeed": ""
+            "MtrgUsdtPriceFeed": "0xD779AA17177f20d969dca31B981dfc98Be5Ad19F",
+            "MtrUsdtPriceFeed": "0x6C2A1bf496f0adeE16CCD629Cfe47B245363E37A"
         }
     },
     "metis": {
