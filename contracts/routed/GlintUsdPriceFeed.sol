@@ -12,13 +12,9 @@ contract GlintUsdPriceFeed
     {
         require(router.supportsCurrencyPair(bytes4(0x38b57cfe)), "GlintUsdPriceFeed: router supports no GLINT/USDC-6");
         require(router.supportsCurrencyPair(bytes4(0x4c80cf2e)), "GlintUsdPriceFeed: router supports no USDC/USD-6");
-        require(router.supportsCurrencyPair(bytes4(0x6d85fc1a)), "GlintUsdPriceFeed: router supports no GLINT/USDT-6");
-        require(router.supportsCurrencyPair(bytes4(0x538f5a25)), "GlintUsdPriceFeed: router supports no USDT/USD-6");
-        pairs = new bytes32[](4);
+        pairs = new bytes32[](2);
         pairs[0] = bytes4(0x38b57cfe);
         pairs[1] = bytes4(0x4c80cf2e);
-        pairs[2] = bytes4(0x6d85fc1a);
-        pairs[3] = bytes4(0x538f5a25);
     }
 
     /// @dev Derive price from given sources.
@@ -29,6 +25,6 @@ contract GlintUsdPriceFeed
         override
         returns (int256)
     {
-        return (_prices[0] * _prices[1] + _prices[2] * _prices[3]) / 2 / 10 ** 6;
+        return (_prices[0] * _prices[1]) / 2 / 10 ** 6;
     }
 }
