@@ -1,8 +1,15 @@
 import * as Witnet from "witnet-requests"
 
 // Retrieve IMMO/mCUSD-6 price from Ubeswap DEX at Celo mainnet
-const oolongswap = new Witnet.Source("https://graph.witnet.io/?endpoint=https://api.thegraph.com/subgraphs/name/ubeswap/ubeswap&data=%7B%22operationName%22%3A%22PairsCurrent%22%2C%22variables%22%3A%7B%7D%2C%22query%22%3A%22query%20PairsCurrent%20%7B%20pairs(first%3A%20100%2C%20orderBy%3A%20reserveUSD%2C%20orderDirection%3A%20desc%2C%20subgraphError%3A%20allow)%20%7B%20id%20token0Price%20%7D%20%7D%22%7D")
+const oolongswap = new Witnet.GraphQLSource(
+    "https://api.thegraph.com/subgraphs/name/ubeswap/ubeswap",
+    `query PairsCurrent { 
+      pairs(first: 100, orderBy: reserveUSD, orderDirection: desc, subgraphError: allow)
+      { id token0Price } 
+    }`,
+  )
   .parseJSONMap()
+  .getMap("data")
   .getArray("pairs")
   .filter( 
     // From all elements in the array,

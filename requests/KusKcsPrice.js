@@ -1,8 +1,16 @@
 import * as Witnet from "witnet-requests"
 
 // Retrieve KUS/KCS-6 from KUSWAP
-const kuswap = new Witnet.Source("https://graph.witnet.io/?endpoint=https://info.kuswap.finance/subgraphs/name/kuswap/swap&data=%7B%22query%22%3A%22%7Bpair(id%3A%5C%220x1ee6b0f7302b3c48c5fa89cd0a066309d9ac3584%5C%22)%7Btoken0Price%7D%7D%22%7D")
+const kuswap = new Witnet.GraphQLSource(
+    "https://info.kuswap.finance/subgraphs/name/kuswap/swap",
+    `{
+      pair (id:"0x1ee6b0f7302b3c48c5fa89cd0a066309d9ac3584") {
+        token0Price
+      }
+    }`,
+  )
   .parseJSONMap()
+  .getMap("data")
   .getMap("pair")
   .getFloat("token0Price")
   .multiply(10 ** 6)

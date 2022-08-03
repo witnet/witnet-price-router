@@ -1,8 +1,21 @@
 import * as Witnet from "witnet-requests"
 
 // Retrieve OLO-USDC-6 price from Oolongswap DEX at Boba mainnet
-const oolongswap = new Witnet.Source("https://graph.witnet.io/?endpoint=https://api.thegraph.com/subgraphs/name/oolongswap/oolongswap-mainnet&data=%7B%22query%22%3A%22%7Bpairs(where%3A%20%7Btoken0%3A%20%5C%220x5008f837883ea9a07271a1b5eb0658404f5a9610%5C%22%2C%20token1%3A%20%5C%220x66a2a913e447d6b4bf33efbec43aaef87890fbbc%5C%22%7D)%20%7Btoken1Price%7D%7D%20%22%7D")
+const oolongswap = new Witnet.GraphQLSource(
+    "https://api.thegraph.com/subgraphs/name/oolongswap/oolongswap-mainnet",
+    `{
+      pairs (
+        where: {
+          token0: "0x5008f837883ea9a07271a1b5eb0658404f5a9610",
+          token1: "0x66a2a913e447d6b4bf33efbec43aaef87890fbbc"
+        }
+      ) {
+        token1Price
+      }
+    }`,
+  )
   .parseJSONMap()
+  .getMap("data")
   .getArray("pairs")
   .getMap(0)
   .getFloat("token1Price")

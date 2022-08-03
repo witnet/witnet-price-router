@@ -26,8 +26,16 @@ const mexc = new Witnet.Source("https://www.mexc.com/open/api/v2/market/ticker?s
   .round() // Cast to integer
 
 // Retrieve USDT price of KCS from MOJITO SWAP
-const mojito = new Witnet.Source("https://graph.witnet.io/?endpoint=https://thegraph.kcc.network/subgraphs/name/mojito/swap&data=%7B%22query%22%3A%22%7B%5Cn%20%20pair%20%28id%3A%20%5C%220xb3b92d6b2656f9ceb4a381718361a21bf9b82bd9%5C%22%29%20%7B%5Cn%20%20%20%20token0Price%5Cn%20%20%7D%5Cn%7D%22%2C%22variables%22%3Anull%2C%22operationName%22%3Anull%7D")
+const mojito = new Witnet.GraphQLSource(
+    "https://thegraph.kcc.network/subgraphs/name/mojito/swap",
+    `{
+      pair (id: "0xb3b92d6b2656f9ceb4a381718361a21bf9b82bd9") {
+        token0Price 
+      }
+    }`,
+  )
   .parseJSONMap()
+  .getMap("data")
   .getMap("pair")
   .getFloat("token0Price")
   .multiply(10 ** 6)

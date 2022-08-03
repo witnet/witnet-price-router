@@ -9,8 +9,16 @@ const kucoin = new Witnet.Source("https://api.kucoin.com/api/v1/market/orderbook
   .round()
 
 // Retrieve MJT/KCS-9 from MOJITO SWAP
-const mojito = new Witnet.Source("https://graph.witnet.io/?endpoint=https://thegraph.kcc.network/subgraphs/name/mojito/swap&data=%7B%22query%22%3A%22%7Bpair%28id%3A%5C%220xa0d7c8aa789362cdf4faae24b9d1528ed5a3777f%5C%22%29%7Btoken1Price%7D%7D%22%7D")
+const mojito = new Witnet.GraphQLSource(
+    "https://thegraph.kcc.network/subgraphs/name/mojito/swap",
+    `{
+      pair (id:"0xa0d7c8aa789362cdf4faae24b9d1528ed5a3777f") {
+        token1Price
+      }
+    }`,
+  )
   .parseJSONMap()
+  .getMap("data")
   .getMap("pair")
   .getFloat("token1Price")
   .multiply(10 ** 9)

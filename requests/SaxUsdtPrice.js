@@ -1,8 +1,16 @@
 import * as Witnet from "witnet-requests"
 
 // Retrieve SAX/USDT-6 from MOJITO SWAP
-const mojito = new Witnet.Source("https://graph.witnet.io/?endpoint=https://thegraph.kcc.network/subgraphs/name/mojito/swap&data=%7B%22query%22%3A%22%7Bpair%28id%3A%5C%220x1162131b63d95210acf5b3419d38c68492f998cc%5C%22%29%7Btoken0Price%7D%7D%22%7D")
+const mojito = new Witnet.GraphQLSource(
+    "https://thegraph.kcc.network/subgraphs/name/mojito/swap",
+    `{
+      pair (id: "0x1162131b63d95210acf5b3419d38c68492f998cc") {
+        token0Price
+      }
+    }`,
+  )
   .parseJSONMap()
+  .getMap("data")
   .getMap("pair")
   .getFloat("token0Price")
   .multiply(10 ** 6)

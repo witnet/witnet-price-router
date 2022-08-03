@@ -1,8 +1,17 @@
 import * as Witnet from "witnet-requests"
 
 // Retrieve GLINT/USDC-6 price from BeamSwap DEX at Moonbeam
-const beamswap = new Witnet.Source("https://graph.witnet.io/?endpoint=https://api.thegraph.com/subgraphs/name/beamswap/beamswap-dex&data=%7B%22query%22%3A%22%7Bpair%28id%3A%5C%220x61b4cec9925b1397b64dece8f898047eed0f7a07%5C%22%29%7Btoken0Price%7D%7D%22%7D")
+const beamswap = new Witnet.GraphQLSource(
+    "https://api.thegraph.com/subgraphs/name/beamswap/beamswap-dex",
+    `{
+      pair(id:\"0x61b4cec9925b1397b64dece8f898047eed0f7a07\")
+      { 
+        token0Price 
+      } 
+    }`,
+  )
   .parseJSONMap()
+  .getMap("data")
   .getMap("pair")
   .getFloat("token0Price") // Get the `Float` value associated to the `price` key
   .multiply(10 ** 6) // Use 6 digit precision

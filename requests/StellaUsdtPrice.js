@@ -8,8 +8,16 @@ const hotbit = new Witnet.Source("https://api.hotbit.io/api/v1/market.last?marke
   .round() // Cast to integer
 
 // Retrieve STELLA/USDT-6 price from StellaSwap DEX at Moonbeam
-const stellaswap = new Witnet.Source("https://graph.witnet.io/?endpoint=https://api.thegraph.com/subgraphs/name/stellaswap/stella-swap&data=%7B%22query%22%3A%22%7Bpair%28id%3A%5C%220x81e11a9374033d11cc7e7485a7192ae37d0795d6%5C%22%29%7Btoken1Price%7D%7D%22%7D")
+const stellaswap = new Witnet.GraphQLSource(
+    "https://api.thegraph.com/subgraphs/name/stellaswap/stella-swap",
+    `{
+      pair (id: "0x81e11a9374033d11cc7e7485a7192ae37d0795d6") {
+        token1Price
+      }
+    }`,
+  )
   .parseJSONMap()
+  .getMap("data")
   .getMap("pair")
   .getFloat("token1Price") // Get the `Float` value associated to the `price` key
   .multiply(10 ** 6) // Use 6 digit precision
