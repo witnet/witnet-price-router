@@ -14,23 +14,6 @@ const gateio = new Witnet.Source("https://data.gateapi.io/api2/1/ticker/fxs_usdt
   .multiply(10 ** 6) // Use 6 digit precision
   .round() // Cast to integer
 
-// Retrieves METIS/USDT-6 from the Hoo HTTP-GET API
-const hoo = new Witnet.Source("https://api.hoolgd.com/open/v1/tickers/market")
-  .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getArray("data") // Access to the `Map` object at `data` key
-  .filter( 
-    // From all elements in the map,
-    // select the one which "symbol" field
-    // matches "FXS-USDT":
-    new Witnet.Script([ Witnet.TYPES.MAP ])
-      .getString("symbol")
-      .match({ "FXS-USDT": true }, false)
-  )
-  .getMap(0) // Get first (and only) element from the resulting Map
-  .getFloat("price") // Get the `Float` value associated to the `price` key
-  .multiply(10 ** 6) // Use 6 digit precision
-  .round() // Cast to integer
-
 // Retrieves FXS/USDT-6 from the HTTP-GET KuCoin API
 const kucoin = new Witnet.Source("https://api.kucoin.com/api/v1/market/orderbook/level1?symbol=FXS-USDT")
   .parseJSONMap() 
@@ -72,7 +55,6 @@ const tally = new Witnet.Tally({
 const request = new Witnet.Request()
   .addSource(binance)
   .addSource(gateio)
-  .addSource(hoo)
   .addSource(kucoin)
   .addSource(mexc)
   .setAggregator(aggregator) // Set the aggregator function
