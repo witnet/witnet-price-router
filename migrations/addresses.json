@@ -255,7 +255,7 @@
             "UsdtUsdPriceFeed": "0x99Af0CF37d1C6b9Bdfe33cc0A89C00D97D3c42F4"
         },
         "moonbeam.moonriver": {
-            "MovrUsdtPriceFeed": "",
+            "MovrUsdtPriceFeed": "0x3Dd1a6482196917dCC4fc24c3C43A0159EF67C21",
             "UsdcUsdPriceFeed": "0x3806311c7138ddF2bAF2C2093ff3633E5A73AbD4",
             "UsdtUsdPriceFeed": "0xe9Bf601869A8c391CecbF5C979D06b0b4640499c"
         },
