@@ -123,8 +123,8 @@
         "cronos.mainnet": {
             "BtcUsdPriceFeed": "0x861852917D6009F23C91e4176971d149ea48a255",
             "CroUsdtPriceFeed": "0xF849C1ddd19f524c12A043556fAa5602a6B81F98",
-            "ElonUsdPriceFeed": "",
-            "ElonUsdtPriceFeed": "",
+            "ElonUsdPriceFeed": "0xB6d35ddeD0d3930a21883b972e229B7009BbcAAA",
+            "ElonUsdtPriceFeed": "0xc9217208568bAc4fF7a717b9CB13331179E856DC",
             "EthUsdPriceFeed": "0xE206988764b374FA88c26d32F1a0Be6C03742E04",
             "UsdtUsdPriceFeed": "0x8555fF5b5A370FEF73Ce723b3fFfC57c161a1945"
         }
