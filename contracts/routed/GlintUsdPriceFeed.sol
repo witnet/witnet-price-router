@@ -25,6 +25,6 @@ contract GlintUsdPriceFeed
         override
         returns (int256)
     {
-        return (_prices[0] * _prices[1]) / 2 / 10 ** 6;
+        return (_prices[0] * _prices[1]) / 10 ** 6;
     }
 }

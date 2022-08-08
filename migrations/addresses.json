@@ -245,7 +245,7 @@
         "moonbeam.moonbase": {
             "BtcUsdPriceFeed": "0xbef6E98D0cC0c8537076101C6c5762FA88F85D7E",
             "EthUsdPriceFeed": "0xBEb3A321B3c6002c239D8C316b0B3D2d0e504102",
-            "GlintUsdPriceFeed": "0x6A4F86E647D7A08b94f0034e1d002Cfb87276443",
+            "GlintUsdPriceFeed": "0xd7A01fE10EB7f15e3062A03fe95c6601653c6c7d",
             "GlintUsdcPriceFeed": "0x65b45c011F748A2714ff8869339d853C621C6071",
             "GlmrUsdPriceFeed": "0xCcE59de684a44F2684BC3C9763316201C4cA0A3D",
             "GlmrUsdtPriceFeed": "0x7ef2DE54Bc59b568ac0F561B6fA98e75a974d258",
@@ -262,7 +262,7 @@
         "moonbeam.mainnet": {
             "BtcUsdPriceFeed": "0x9847FFaDA97F5C595B86258de71e62ca5c52a17C",
             "EthUsdPriceFeed": "0x7B2d50cd8328C53c9279571F5F860883030Dc804",
-            "GlintUsdPriceFeed": "0x2f195B20738423a068301D56fc0BFA79a4feB93b",
+            "GlintUsdPriceFeed": "0xD030E91557a16AFbe1eF7EBD8Df13857525AE6c2",
             "GlintUsdcPriceFeed": "0x34543a6e46cBf7c5a76Ef01f818a065571429b06",
             "GlmrUsdPriceFeed": "0x611BfEeB6e68194F050Fd894419410b51292faAB",
             "GlmrUsdtPriceFeed": "0x810beF601c8A1e7e75f68dd57FA5f32837b8d96b",
