@@ -3,7 +3,7 @@ const { merge } = require("lodash")
 const utils = require("../../scripts/utils")
 
 const addresses = require("../addresses")
-const requests = require("../witnet.requests")
+const queries = require("../witnet-queries")
 const settings = require("../settings")
 
 module.exports = async function (deployer, network) {
@@ -17,7 +17,7 @@ module.exports = async function (deployer, network) {
         !settings.networks[realm] ||
         !settings.networks[realm][chain] ||
         !settings.networks[realm][chain] ||
-        settings.networks[realm][chain].network_id == 4447 
+        settings.networks[realm][chain].network_id == 4447
       ) {
         console.error(`\nFatal: no "test" configuration found for ${realm.toUpperCase()} realm! Please, review network settings.`)
         process.exit(1)
@@ -49,20 +49,20 @@ async function revisitPriceFeeds (deployer, realm, chain, isDryRun) {
   const artifactNames = merge(
     settings.artifacts.default,
     settings.artifacts[realm]
-  )  
+  )
 
   let router
   let updateRegistry = !utils.isNullAddress(witnetAddresses.WitnetPriceRouter)
-  if (updateRegistry) {    
+  if (updateRegistry) {
     router = await artifacts.require(artifactNames.WitnetPriceRouter).at(witnetAddresses.WitnetPriceRouter);
   }
-  
+
   let WitnetPriceFeed = artifacts.require(artifactNames.WitnetPriceFeed)
 
-  const pfs = Object.keys(requests)
+  const pfs = Object.keys(queries)
   for (let i = 0; i < pfs.length; i++) {
     const pf_name = pfs[i]
-    const pf = requests[pf_name]
+    const pf = queries[pf_name]
     WitnetPriceFeed.contractName = pf_name + "Feed"
     if (addresses[realm][chain][WitnetPriceFeed.contractName] !== undefined) {
       const address = addresses[realm][chain][WitnetPriceFeed.contractName]
@@ -70,15 +70,15 @@ async function revisitPriceFeeds (deployer, realm, chain, isDryRun) {
       if (!pf.bytecode) {
         continue
       }
-      
+
       // Deploy new contract if it still has no corresponding entry in the 'migrations/addresses.json' file:
       if (utils.isNullAddress(address)) {
         if (!pf.decimals) {
-          console.error(`Error: no decimals specified for '${pf_name}' in 'migrations/witnet.requests.json'`)
+          console.error(`Error: no decimals specified for '${pf_name}' in 'migrations/witnet-queries.json'`)
           return
         }
         if (!pf.base) {
-          console.error(`Error: no base specified for '${pf_name}' in 'migrations/witnet.requests.json'`)
+          console.error(`Error: no base specified for '${pf_name}' in 'migrations/witnet-queries.json'`)
           return
         }
         if (!pf.quote) {
@@ -93,7 +93,7 @@ async function revisitPriceFeeds (deployer, realm, chain, isDryRun) {
         )
         console.log("   > Artifact name:\t  \"" + artifactNames.WitnetPriceFeed + "\"")
         console.log("   > Contract name:\t  \"" + WitnetPriceFeed.contractName + "\"")
-      
+
         // Write new contract address into 'migrations/addresses.json'
         addresses[realm][chain][WitnetPriceFeed.contractName] = contract.address
         if (!isDryRun) {
@@ -103,19 +103,19 @@ async function revisitPriceFeeds (deployer, realm, chain, isDryRun) {
             { flag: 'w+'}
           )
         }
-      } 
+      }
 
       // Otherwise, just update the local artifact file:
-      else {        
+      else {
         WitnetPriceFeed.address = address
         const header = `Skipped '${WitnetPriceFeed.contractName}'`
         console.log("\n  ", header)
         console.log("  ", "-".repeat(header.length))
         console.log("   > contract address:\t", address)
       }
-      
+
       // Update Price Router if necessary:
-      if (updateRegistry) {      
+      if (updateRegistry) {
         const caption = "Price-" + pf.base + "/" + pf.quote + "-" + pf.decimals
         const erc2362id = await router.currencyPairId.call(caption)
         console.log("\n   > ERC2362 caption:\t ", caption)
@@ -137,7 +137,7 @@ async function revisitPriceFeeds (deployer, realm, chain, isDryRun) {
       }
 
       // Try to get Witnet general info, if any (contract may not actually be a WitnetPriceFeed implementation)
-      let contract = await WitnetPriceFeed.at(WitnetPriceFeed.address)      
+      let contract = await WitnetPriceFeed.at(WitnetPriceFeed.address)
       try {
         console.log("\n   > Witnet address:\t ", await contract.witnet.call())
         console.log("   > Witnet Request hash:", await contract.hash.call())

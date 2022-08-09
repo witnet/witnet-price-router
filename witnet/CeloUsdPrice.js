@@ -1,5 +1,4 @@
 import * as Witnet from "witnet-requests"
-import { REDUCERS } from "witnet-requests/dist/radon/types"
 
 // Retrieve CELO/USD price from Bittrex
 const bittrex = new Witnet.Source("https://api.bittrex.com/v3/markets/CELO-USD/ticker")
@@ -23,7 +22,7 @@ const okcoin = new Witnet.Source("https://www.okcoin.com/api/spot/v3/instruments
   .parseJSONMap()
   .getFloat("last")
   .multiply(10 ** 6)
-  .round()  
+  .round()
 
 // Retrieves CELO/USD-6 from the OkEx API (derived from USDT/USD exchange rate)
 const okex = new Witnet.Source("https://www.okex.com/api/v5/market/ticker?instId=CELO-USDT")
@@ -56,8 +55,8 @@ const tally = new Witnet.Tally({
 
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
-  .addSource(bittrex)  
-  .addSource(coinbase)  
+  .addSource(bittrex)
+  .addSource(coinbase)
   .addSource(okcoin)
   .addSource(okex)
   .setAggregator(aggregator) // Set the aggregator function

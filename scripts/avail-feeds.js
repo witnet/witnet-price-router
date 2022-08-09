@@ -1,5 +1,5 @@
-const requests = require("../migrations/witnet.requests")
-const examples = Object.keys(requests)
+const queries = require("../migrations/witnet-queries")
+const examples = Object.keys(queries)
 console.log("Available Witnet price feeds ready for deployment:\n")
 examples.forEach(example => console.log(`  ${example}`))
 console.log()

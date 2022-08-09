@@ -3,10 +3,10 @@ const { merge } = require("lodash")
 const utils = require("../../scripts/utils")
 
 const addresses = require("../addresses")
-const requests = require("../witnet.requests")
+const queries = require("../witnet-queries")
 const settings = require("../settings")
 
-module.exports = async function (deployer, network) {  
+module.exports = async function (deployer, network) {
   const [realm, chain] = utils.getRealmNetworkFromString(network.split("-")[0])
   const isDryRun = network.split("-")[1] === "fork"
   if (chain !== "test" && chain.split(".")[1] !== "test") {
@@ -24,19 +24,19 @@ module.exports = async function (deployer, network) {
     const artifactNames = merge(
       settings.artifacts.default,
       settings.artifacts[realm]
-    )  
+    )
 
     let router
     let updateRegistry = !utils.isNullAddress(witnetAddresses.WitnetPriceRouter)
-    if (updateRegistry) {    
+    if (updateRegistry) {
       router = await artifacts.require(artifactNames.WitnetPriceRouter).at(witnetAddresses.WitnetPriceRouter);
-    }  
+    }
 
-    const pfs = Object.keys(requests)
+    const pfs = Object.keys(queries)
     for (let i = 0; i < pfs.length; i++) {
       const pf_name = pfs[i]
-      const pf = requests[pf_name]
-      const contract_name = pf_name + "Feed"      
+      const pf = queries[pf_name]
+      const contract_name = pf_name + "Feed"
       if (addresses[realm][chain][contract_name] !== undefined) {
         let contract_address = addresses[realm][chain][contract_name]
         // Ignore unrotued price feeds:
@@ -45,16 +45,16 @@ module.exports = async function (deployer, network) {
         }
         // Deploy new contract if it still has no corresponding entry in the 'migrations/addresses.json' file:
         if (utils.isNullAddress(contract_address) && !pf.bytecode) {
-          // If no bytecode is found, there should be a compiled artifact named as `exampleName + "Feed"` 
+          // If no bytecode is found, there should be a compiled artifact named as `exampleName + "Feed"`
           // and inherited from "WitnetPriceFeedRouted", that will be deployed instead of a regular WitnetPriceFeed:
           const WitnetPriceFeedRouted = artifacts.require(contract_name)
           const contract = await deployer.deploy(WitnetPriceFeedRouted, router.address)
           contract_address = contract.address
-          
+
           console.log("   > Artifact name:\t  \"" + contract_name + "\"")
           console.log("   > Contract name:\t  \"" + contract_name + "\"")
-          
-          // Write new contract address into 'migrations/addresses.json'        
+
+          // Write new contract address into 'migrations/addresses.json'
           addresses[realm][chain][contract_name] = contract_address
           if (!isDryRun) {
             fs.writeFileSync(

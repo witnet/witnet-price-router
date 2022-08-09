@@ -16,7 +16,8 @@
     "clean:build": "node ./scripts/clean.js build/",
     "clean:flattened": "node ./scripts/clean.js flattened/",
     "compile": "npm run clean && npm run compile:contracts",
-    "compile:requests": "npx rad2sol --disable-requests-contracts --disable-witnet-migrations --disable-user-contracts-migrations",
+    "compile:queries": "npx rad2sol --write-json",
+    "compile:requests": "npm run compile:queries",
     "compile:contracts": "npx truffle compile --all",
     "coverage": "solidity-coverage",
     "flatten": "npm run clean:flattened && node ./scripts/flatten.js contracts/ 2>&1 && node ./scripts/flatten.js contracts/routed/ 2>&1",
@@ -24,7 +25,9 @@
     "fmt!": "solhint --max-warnings 0 \"contracts/**/*.sol\" --fix && eslint ./test --fix && eslint ./scripts/*.js --fix && solhint \"test/**/*.sol\" --fix",
     "migrate": "npm run clean:build && node ./scripts/migrate.js 2>&1",
     "test": "npx truffle test",
-    "try-data-request": "npx witnet-toolkit try-data-request --hex"
+    "try-query:hex": "npx witnet-toolkit try-query --hex",
+    "try-query:js": "npx witnet-toolkit try-query --from-javascript",
+    "try-data-request": "npm run try-query:hex"
   },
   "dependencies": {
     "@eth-optimism/solc": "^0.7.6-alpha.1",
@@ -32,8 +35,7 @@
     "ado-contracts": "^1.0.0",
     "lodash": "^4.17.21",
     "openzeppelin-solidity": "^2.4.0",
-    "witnet-requests": "~0.8.3",
-    "witnet-solidity-bridge": "~0.5.4"
+    "witnet-solidity-bridge": "~0.5.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -57,6 +59,7 @@
     "truffle": "5.5.12",
     "truffle-assertions": "0.9.2",
     "truffle-plugin-verify": "0.5.7",
-    "truffle-verify": "1.0.8"
+    "truffle-verify": "1.0.8",
+    "witnet-requests": "~0.9.3"
   }
 }

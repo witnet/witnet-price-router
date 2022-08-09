@@ -6,7 +6,6 @@ This repository contains the price feeds currently mantained by the Witnet Found
 
 ### Install repo
 - `npm install`
-- `npx witnet-toolkit update`
 - `npm run flatten`
 
 ### List Witnet-supported networks
@@ -18,20 +17,19 @@ This repository contains the price feeds currently mantained by the Witnet Found
 ### List deployed addresses
 - See contents of `migrations/addresses.json`
 
-### Create new Witnet price update request:
+### Create new Witnet price update query
 
-- Add new `.js` file into `requests/` folder.
-- Follow examples available in same folder, or [this tutorial](https://docs.witnet.io/tutorials/bitcoin-price-feed/sources/).
-- Compile requests into CBOR-encoded bytecodes:
-  `npm run compile:requests`
-  A new entry will be added to `migrations/witnet.requests.json` file, named after the new `.js`
+- Add new `.js` file into `queries/` folder.
+- Follow examples available in same folder, or [this tutorial](https://docs.witnet.io/smart-contracts/witnet-web-oracle/make-a-get-request).
+- Compile JS queries into CBOR-encoded bytecodes:
+  `npm run compile:queries`
+  A new entry will be added to `migrations/witnet-queries.json` file, named after the new `.js`
 
-### Try out Witnet price update requests:
-- Copy the `<bytecode>` from the corresponding entry in `migrations/witnet.requests.json`, removing the `0x` prefix.
+### Try out Witnet price update queries
 - Run this command:
-  `npx witnet-toolkit try-data-request --hex <bytecode>`
+  `npm run try-query:js <path_to_js_file>`
 
-### Deploy new WitnetPriceFeed instance:
+### Deploy new WitnetPriceFeed instance
 - Specify fields `base`, `quote` and `decimals` within the corresponding entry in `migrations/witnet.request.json`, if not yet done so.
 - Add empty string into the appropiate network section within `migrations/addresses.json` file, named after the Witnet price update request you want to deploy. E.g.:
   ```
