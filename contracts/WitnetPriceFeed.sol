@@ -6,7 +6,7 @@ import "witnet-solidity-bridge/contracts/UsingWitnet.sol";
 import "witnet-solidity-bridge/contracts/requests/WitnetRequest.sol";
 
 // force WitnetPriceRouter artifact generation on deployment
-import "witnet-solidity-bridge/contracts/examples/WitnetPriceRouter.sol";
+import "witnet-solidity-bridge/contracts/apps/WitnetPriceRouter.sol";
 
 // Your contract needs to inherit from UsingWitnet
 contract WitnetPriceFeed
@@ -22,7 +22,7 @@ contract WitnetPriceFeed
 
     /// Stores the ID of the last price update succesfully solved by the WRB.
     uint256 internal __lastValidQueryId;
-    
+
     /// Constructor.
     /// @param _witnetRequestBoard WitnetRequestBoard entrypoint address.
     /// @param _witnetRequestBytecode Raw bytecode of Witnet Data Request to be used on every update request.
@@ -34,7 +34,7 @@ contract WitnetPriceFeed
         WitnetRequest(_witnetRequestBytecode)
     {}
 
-    /// Estimates minimum fee amount in native currency to be paid when 
+    /// Estimates minimum fee amount in native currency to be paid when
     /// requesting a new price update.
     /// @dev Actual fee depends on the gas price of the `requestUpdate()` transaction.
     /// @param _gasPrice Gas price expected to be paid when calling `requestUpdate()`
@@ -65,7 +65,7 @@ contract WitnetPriceFeed
         }
         if (__lastValidQueryId > 0) {
             _result = witnet.readResponseResult(__lastValidQueryId);
-            return int256(int64(witnet.asUint64(_result)));    
+            return int256(int64(witnet.asUint64(_result)));
         }
     }
 
@@ -178,7 +178,7 @@ contract WitnetPriceFeed
     /// @dev Status codes:
     /// @dev   - 200: update request was succesfully solved with no errors
     /// @dev   - 400: update request was solved with errors
-    /// @dev   - 404: update request was not solved yet 
+    /// @dev   - 404: update request was not solved yet
     function latestUpdateStatus()
         public view
         virtual override
@@ -200,7 +200,7 @@ contract WitnetPriceFeed
         return 200;
     }
 
-    /// Returns `true` if latest update request posted to the Witnet Request Board 
+    /// Returns `true` if latest update request posted to the Witnet Request Board
     /// has not been solved yet by the Witnet oracle.
     function pendingUpdate()
         public view
@@ -225,7 +225,7 @@ contract WitnetPriceFeed
         uint _latestQueryId = latestQueryId;
         uint _latestUpdateStatus = latestUpdateStatus();
         if (_latestUpdateStatus == 404) {
-            // latest update is still pending, so just raise upgrade reward, 
+            // latest update is still pending, so just raise upgrade reward,
             // accordingly to current tx gasprice:
             _usedFunds = _witnetUpgradeReward(_latestQueryId);
         } else {
@@ -253,11 +253,11 @@ contract WitnetPriceFeed
         }
     }
 
-    /// Tells whether this contract implements the interface defined by `interfaceId`. 
+    /// Tells whether this contract implements the interface defined by `interfaceId`.
     /// @dev See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section]
     /// @dev to learn more about how these ids are created.
     function supportsInterface(bytes4 _interfaceId)
-        public view 
+        public view
         virtual override
         returns (bool)
     {
