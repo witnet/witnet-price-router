@@ -32,7 +32,7 @@
             "DaiUsdPriceFeed": "0x74DCE62952469534845F802ca3A641E03dB1B6C4",
             "EthUsdPriceFeed": "0xCA050c17BF939195Fb2C21623F6cA9E77ff61227",
             "FxsUsdtPriceFeed": "0x1ec243bfBb9a8e341A1d31BA0B683c2D17502bf1",
-            "FraxUsdtPriceFeed": "",
+            "FraxUsdtPriceFeed": "0x98EeC140bE8A92eC3fD3C3f38f873A4c3A06489f",
             "OloUsdcPriceFeed": "0x917040996F3083a9C7F3b794bb4793836f2445eA",
             "OmgBtcPriceFeed": "0xe835f9C49a37A4eB692D00e9978C566b71C771d0",
             "OmgEthPriceFeed": "0x49ba484914ae6B16c7ec5A439E75C0F5a9fD9131",
