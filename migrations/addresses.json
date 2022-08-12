@@ -32,7 +32,7 @@
             "DaiUsdPriceFeed": "0x74DCE62952469534845F802ca3A641E03dB1B6C4",
             "EthUsdPriceFeed": "0xCA050c17BF939195Fb2C21623F6cA9E77ff61227",
             "FxsUsdtPriceFeed": "0x1ec243bfBb9a8e341A1d31BA0B683c2D17502bf1",
-            "FraxUsdtPriceFeed": "0xC83D342e2d20aE5601A1b6F1F1F7596ce23131C4",
+            "FraxUsdtPriceFeed": "",
             "OloUsdcPriceFeed": "0x917040996F3083a9C7F3b794bb4793836f2445eA",
             "OmgBtcPriceFeed": "0xe835f9C49a37A4eB692D00e9978C566b71C771d0",
             "OmgEthPriceFeed": "0x49ba484914ae6B16c7ec5A439E75C0F5a9fD9131",
@@ -45,7 +45,7 @@
             "BtcUsdPriceFeed": "0x8f2279498f21A25a62F987ADa53E8919f6468f79",
             "DaiUsdPriceFeed": "0xEAD9f7Def832501EE2a4981261A86BF91Af2A270",
             "EthUsdPriceFeed": "0x98c5a4De13912E8F7c3eEa62412367cffbCDB4ca",
-            "FraxUsdtPriceFeed": "0x8bc94733799ed22B664778F28630B99C11f68f5f",
+            "FraxUsdtPriceFeed": "",
             "OloUsdcPriceFeed": "0xd3ec9A90a94354767CaF3123bE355611B3F459fc",
             "UsdcUsdPriceFeed": "0x4d9693Fa931C76BaC27c4b24e44D4b4a0648E088",
             "UsdtUsdPriceFeed": "0x84329ec361d32b663F745Ff33b19bF8e7e71b5D7"
