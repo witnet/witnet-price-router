@@ -233,12 +233,12 @@
         "metis.rinkeby": {
             "BtcUsdPriceFeed": "0x374223CcAff47c5F9a9D53a1AC3D3fEc3680A91E",
             "EthUsdPriceFeed": "0x1bB80a9Eac98af608F4138eD0db74b79EF7900c8",
-            "MetisUsdtPriceFeed": "0xC803C42B658E40410AFc46B605F568848711a6db"
+            "MetisUsdtPriceFeed": ""
         },
         "metis.mainnet": {
             "BtcUsdPriceFeed": "0xc4cFa889Ff3D673680524fE30992368462c219B6",
             "EthUsdPriceFeed": "0xE71a9048FeEd7B2bd85d694DAbB4f571cF188DbF",
-            "MetisUsdtPriceFeed": "0xe5187D0EC889c3430C4Ced4055f3a6ddd12de445"
+            "MetisUsdtPriceFeed": ""
         }
     },
     "moonbeam": {
@@ -248,7 +248,7 @@
             "GlintUsdPriceFeed": "0xd7A01fE10EB7f15e3062A03fe95c6601653c6c7d",
             "GlintUsdcPriceFeed": "0x65b45c011F748A2714ff8869339d853C621C6071",
             "GlmrUsdPriceFeed": "0xCcE59de684a44F2684BC3C9763316201C4cA0A3D",
-            "GlmrUsdtPriceFeed": "0x7ef2DE54Bc59b568ac0F561B6fA98e75a974d258",
+            "GlmrUsdtPriceFeed": "",
             "StellaUsdPriceFeed": "0xE6e4E1125B0280DdaD79A6b66f2E248888b4491F",
             "StellaUsdtPriceFeed": "0x55f928BB31e97aba55FC3437A3fF7b28c5B35F6B",
             "UsdcUsdPriceFeed": "0x5c2f6805Fd8F3bc130A419385276cC829d1a9eEA",
@@ -265,7 +265,7 @@
             "GlintUsdPriceFeed": "0xD030E91557a16AFbe1eF7EBD8Df13857525AE6c2",
             "GlintUsdcPriceFeed": "0x34543a6e46cBf7c5a76Ef01f818a065571429b06",
             "GlmrUsdPriceFeed": "0x611BfEeB6e68194F050Fd894419410b51292faAB",
-            "GlmrUsdtPriceFeed": "0x810beF601c8A1e7e75f68dd57FA5f32837b8d96b",
+            "GlmrUsdtPriceFeed": "",
             "StellaUsdPriceFeed": "0x7Ec23663Ec3F7a10F2C478D399e15460d51c6EAd",
             "StellaUsdtPriceFeed": "",
             "UsdcUsdPriceFeed": "0xFA645ec57263E102B049F670e23996683dAABA26",

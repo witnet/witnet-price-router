@@ -29,7 +29,7 @@ const hotbit = new Witnet.Source("https://api.hotbit.io/api/v1/market.last?marke
 // values that pass the filter.
 const aggregator = new Witnet.Aggregator({
   filters: [
-    [Witnet.Types.FILTERS.deviationStandard, 2.5],
+    [Witnet.Types.FILTERS.deviationStandard, 1.5],
   ],
   reducer: Witnet.Types.REDUCERS.averageMean,
 })
@@ -48,7 +48,7 @@ const tally = new Witnet.Tally({
 const request = new Witnet.Request()
   .addSource(gateio)
   .addSource(mexc)
-  .addSource(hotbit)
+//.addSource(hotbit)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(10, 51) // Set witness count and minimum consensus percentage

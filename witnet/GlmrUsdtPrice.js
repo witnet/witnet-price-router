@@ -71,7 +71,7 @@ const tally = new Witnet.Tally({
 const request = new Witnet.Request()
   .addSource(binance)
   .addSource(gateio)
-  .addSource(hotbit)
+//.addSource(hotbit)
   .addSource(kucoin)
   .addSource(mexc)
   .addSource(okex)
