@@ -250,7 +250,7 @@
             "GlmrUsdPriceFeed": "0xCcE59de684a44F2684BC3C9763316201C4cA0A3D",
             "GlmrUsdtPriceFeed": "0x7ef2DE54Bc59b568ac0F561B6fA98e75a974d258",
             "StellaUsdPriceFeed": "0xE6e4E1125B0280DdaD79A6b66f2E248888b4491F",
-            "StellaUsdtPriceFeed": "0xE9DD4fCc0B9CAD40e350288f055eB956a0D0eBb8",
+            "StellaUsdtPriceFeed": "0x55f928BB31e97aba55FC3437A3fF7b28c5B35F6B",
             "UsdcUsdPriceFeed": "0x5c2f6805Fd8F3bc130A419385276cC829d1a9eEA",
             "UsdtUsdPriceFeed": "0x99Af0CF37d1C6b9Bdfe33cc0A89C00D97D3c42F4"
         },
@@ -267,7 +267,7 @@
             "GlmrUsdPriceFeed": "0x611BfEeB6e68194F050Fd894419410b51292faAB",
             "GlmrUsdtPriceFeed": "0x810beF601c8A1e7e75f68dd57FA5f32837b8d96b",
             "StellaUsdPriceFeed": "0x7Ec23663Ec3F7a10F2C478D399e15460d51c6EAd",
-            "StellaUsdtPriceFeed": "0x4db537BadB56d3560f718d7Dd540Df59aa5Fb373",
+            "StellaUsdtPriceFeed": "",
             "UsdcUsdPriceFeed": "0xFA645ec57263E102B049F670e23996683dAABA26",
             "UsdtUsdPriceFeed": "0x8555fF5b5A370FEF73Ce723b3fFfC57c161a1945"
         }
