@@ -233,7 +233,7 @@
         "metis.rinkeby": {
             "BtcUsdPriceFeed": "0x374223CcAff47c5F9a9D53a1AC3D3fEc3680A91E",
             "EthUsdPriceFeed": "0x1bB80a9Eac98af608F4138eD0db74b79EF7900c8",
-            "MetisUsdtPriceFeed": ""
+            "MetisUsdtPriceFeed": "0x18d9eaE49A948172caA3EA2C79b957a32d1683C2"
         },
         "metis.mainnet": {
             "BtcUsdPriceFeed": "0xc4cFa889Ff3D673680524fE30992368462c219B6",
