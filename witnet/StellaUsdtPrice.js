@@ -1,12 +1,5 @@
 import * as Witnet from "witnet-requests"
 
-// Retrieves STELLA/USDT-6 price from the HOTBIT HTTP-GET API
-const hotbit = new Witnet.Source("https://api.hotbit.io/api/v1/market.last?market=STELLAUSDT")
-  .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getFloat("result") // Get the `Float` value associated to the `result` key
-  .multiply(10 ** 6) // Use 6 digit precision
-  .round() // Cast to integer
-
 // Retrieve STELLA/USDT-6 price from StellaSwap DEX at Moonbeam
 const stellaswap = new Witnet.GraphQLSource(
     "https://api.thegraph.com/subgraphs/name/stellaswap/stella-swap",
@@ -45,7 +38,6 @@ const tally = new Witnet.Tally({
 
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
-  .addSource(hotbit)
   .addSource(stellaswap)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
