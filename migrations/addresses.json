@@ -248,7 +248,7 @@
             "GlintUsdPriceFeed": "0xd7A01fE10EB7f15e3062A03fe95c6601653c6c7d",
             "GlintUsdcPriceFeed": "0x65b45c011F748A2714ff8869339d853C621C6071",
             "GlmrUsdPriceFeed": "0xCcE59de684a44F2684BC3C9763316201C4cA0A3D",
-            "GlmrUsdtPriceFeed": "",
+            "GlmrUsdtPriceFeed": "0x915D7cF1895ad876E49f4e2196a140a23476076F",
             "StellaUsdPriceFeed": "0xE6e4E1125B0280DdaD79A6b66f2E248888b4491F",
             "StellaUsdtPriceFeed": "0x55f928BB31e97aba55FC3437A3fF7b28c5B35F6B",
             "UsdcUsdPriceFeed": "0x5c2f6805Fd8F3bc130A419385276cC829d1a9eEA",
