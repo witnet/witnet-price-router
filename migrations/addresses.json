@@ -13,7 +13,7 @@
         "ethereum.rinkeby": {
             "BtcUsdPriceFeed": "0xf0D5CeD4593eE7Cb32DF445688a4E9F5f7aa6CA7",
             "EthUsdPriceFeed": "0xB227e7ed2fC7Cf3E47191bbC21c56121A9b0d9A5",
-            "NationUsdtPriceFeed": ""
+            "NationUsdtPriceFeed": "0x4b00509677D1b83795572E305b80A0b0772B596b"
         }
     },
     "avalanche": {
