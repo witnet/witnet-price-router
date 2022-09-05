@@ -2,15 +2,18 @@
     "default": {
         "ethereum.goerli": {
             "BtcUsdPriceFeed": "0x97C6693234b0D44E810fe1eBA6e54C20C60d30EA",
-            "EthUsdPriceFeed": "0x38a0C6eE687Cc0aBFA2c4Fa658dE913A8B8e9F83"
+            "EthUsdPriceFeed": "0x38a0C6eE687Cc0aBFA2c4Fa658dE913A8B8e9F83",
+            "NationUsdtPriceFeed": ""
         },
         "ethereum.mainnet": {
             "BtcUsdPriceFeed": "0x83E6FE490c70b4a487037a18b3A9C4869bc824C1",
-            "EthUsdPriceFeed": "0x5734981F3EfFC7672757424D32Dc23E4b8235783"
+            "EthUsdPriceFeed": "0x5734981F3EfFC7672757424D32Dc23E4b8235783",
+            "NationUsdtPriceFeed": ""
         },
         "ethereum.rinkeby": {
             "BtcUsdPriceFeed": "0xf0D5CeD4593eE7Cb32DF445688a4E9F5f7aa6CA7",
-            "EthUsdPriceFeed": "0xB227e7ed2fC7Cf3E47191bbC21c56121A9b0d9A5"
+            "EthUsdPriceFeed": "0xB227e7ed2fC7Cf3E47191bbC21c56121A9b0d9A5",
+            "NationUsdtPriceFeed": ""
         }
     },
     "avalanche": {
