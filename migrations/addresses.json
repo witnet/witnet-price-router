@@ -40,7 +40,7 @@
             "OmgBtcPriceFeed": "0xe835f9C49a37A4eB692D00e9978C566b71C771d0",
             "OmgEthPriceFeed": "0x49ba484914ae6B16c7ec5A439E75C0F5a9fD9131",
             "OmgUsdtPriceFeed": "0xF17BbEAe5E753CEF38e1e685d0f586F147fE9ea1",
-            "UsdcUsdPriceFeed": "",
+            "UsdcUsdPriceFeed": "0xA0801b3b3909114276eC3b03553Ab92F341fC4Fe",
             "UsdtUsdPriceFeed": "0x429883b4BD37726Def97645D1CD80F49F57180e8"
         },
         "boba.mainnet": {
