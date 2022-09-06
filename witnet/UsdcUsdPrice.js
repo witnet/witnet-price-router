@@ -1,11 +1,11 @@
 import * as Witnet from "witnet-requests"
 
-// Retrieve USDC/USD-6 price from the Binance HTTP-GET API
-const binance = new Witnet.Source("https://api.binance.us/api/v3/ticker/price?symbol=USDCUSD")
-  .parseJSONMap()
-  .getFloat("price")
-  .multiply(10 ** 6)
-  .round()
+// // Retrieve USDC/USD-6 price from the Binance HTTP-GET API
+// const binance = new Witnet.Source("https://api.binance.us/api/v3/ticker/price?symbol=USDCUSD")
+//   .parseJSONMap()
+//   .getFloat("price")
+//   .multiply(10 ** 6)
+//   .round()
 
 // Retrieve USDC/USD-6 price from Bitstamp
 const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/usdcusd")
@@ -53,7 +53,7 @@ const tally = new Witnet.Tally({
 
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
-  .addSource(binance)
+  // .addSource(binance)
   .addSource(bitstamp)
   .addSource(bittrex)
   .addSource(kraken)
