@@ -48,12 +48,12 @@ const aggregator = new Witnet.Aggregator({
   reducer: Witnet.Types.REDUCERS.averageMean,
 })
 
-// Filters out any value that is more than 1.5 times the standard
+// Filters out any value that is more than 2.5 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
 const tally = new Witnet.Tally({
   filters: [
-    [Witnet.Types.FILTERS.deviationStandard, 1.5],
+    [Witnet.Types.FILTERS.deviationStandard, 2.5],
   ],
   reducer: Witnet.Types.REDUCERS.averageMean,
 })
