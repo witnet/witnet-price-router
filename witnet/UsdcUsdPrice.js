@@ -21,6 +21,13 @@ const bittrex = new Witnet.Source("https://api.bittrex.com/v3/markets/USDC-USD/t
   .multiply(10 ** 6)
   .round()
 
+// Retrieve USDC/USD-6 price from Gemini
+const gemini = new Witnet.Source("https://api.gemini.com/v1/pubticker/usdcusd")
+  .parseJSONMap()
+  .getFloat("last")
+  .multiply(10 ** 6)
+  .round()
+
 // Retrieve USDC/USD-6 price from Kraken
 const kraken = new Witnet.Source("https://api.kraken.com/0/public/Ticker?pair=USDCUSD")
   .parseJSONMap()
@@ -56,6 +63,7 @@ const request = new Witnet.Request()
   // .addSource(binance)
   .addSource(bitstamp)
   .addSource(bittrex)
+  .addSource(gemini)
   .addSource(kraken)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
