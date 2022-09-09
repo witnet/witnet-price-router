@@ -317,5 +317,10 @@
         "smartbch.mainnet": {
             "BchUsdPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87"
         }
+    },
+    "syscoin": {
+        "syscoin.testnet": {
+            "SysUsdtPriceFeed": "0x4092CC222B1bD1176D8a8cBE4070ccea66E9d1D6"
+        }
     }
 }
