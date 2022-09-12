@@ -310,6 +310,11 @@
             "VsqDaiPriceFeed": "0xE379f7b7df15c89a89A05D78d92e1faAB9A3dAa5"
         }
     },
+    "reef": {
+        "reef.testnet": {
+            "ReefUsdtPriceFeed": "0xb5461b0aF523442beBFE476E8a7227Bd27e6B68D"
+        }
+    },
     "smartbch": {
         "smartbch.amber": {
             "BchUsdPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530"
