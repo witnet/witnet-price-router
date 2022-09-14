@@ -294,6 +294,11 @@
             "UsdtUsdPriceFeed": "0x3806311c7138ddF2bAF2C2093ff3633E5A73AbD4"
         }
     },
+    "optimism": {
+        "optimism.goerli": {
+            "OpUsdtPriceFeed": "0x56834Ff8D4b27db647Da97CA3bd8540f7fA0e89D"
+        }
+    },
     "polygon": {
         "polygon.goerli": {
             "BtcUsdPriceFeed": "0x8574F7d4D13cD96D25515c34321CbBDdD0a8cd0c",
