@@ -17,21 +17,21 @@ const bitget = new Witnet.Source("https://api.bitget.com/api/spot/v1/market/tick
 
 // Retrieve SYS/USDT-6 price from the BKEX API:
 const bkex = new Witnet.Source("https://api.bkex.com/v2/q/ticker/price?symbol=SYS_USDT")
-.parseJSONMap()
-.getArray("data")
-.getMap(0)
-.getFloat("price")
-.multiply(10 ** 6)
-.round()
+  .parseJSONMap()
+  .getArray("data")
+  .getMap(0)
+  .getFloat("price")
+  .multiply(10 ** 6)
+  .round()
 
 // Retrieve SYS/USDT-6 price from the DIGIFINEX API:
 const digifinex = new Witnet.Source("https://openapi.digifinex.com/v3/ticker?symbol=sys_usdt")
-.parseJSONMap() // Parse a `Map` from the retrieved `String`
-.getArray("ticker") // Access to the `Array` object at `data` key
-.getMap(0) // Access to the `Map` object at index 0
-.getFloat("last") // Get the `String` value associated to the `last` key
-.multiply(10 ** 6) // Use 6 digit precision
-.round() // Cast to integer
+  .parseJSONMap() // Parse a `Map` from the retrieved `String`
+  .getArray("ticker") // Access to the `Array` object at `data` key
+  .getMap(0) // Access to the `Map` object at index 0
+  .getFloat("last") // Get the `String` value associated to the `last` key
+  .multiply(10 ** 6) // Use 6 digit precision
+  .round() // Cast to integer
 
 // Retrieve SYS/USDT-6 price from the Gate.io API:
 const gateio = new Witnet.Source("https://data.gateapi.io/api2/1/ticker/sys_usdt")
