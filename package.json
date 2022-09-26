@@ -16,7 +16,7 @@
     "clean:build": "node ./scripts/clean.js build/",
     "clean:flattened": "node ./scripts/clean.js flattened/",
     "compile": "npm run clean && npm run compile:contracts",
-    "compile:queries": "npx rad2sol --write-json",
+    "compile:queries": "npx rad2sol witnet/**/**.js --write-json",
     "compile:requests": "npm run compile:queries",
     "compile:contracts": "npx truffle compile --all",
     "coverage": "solidity-coverage",
@@ -60,6 +60,6 @@
     "truffle-assertions": "0.9.2",
     "truffle-plugin-verify": "0.5.7",
     "truffle-verify": "1.0.8",
-    "witnet-requests": "~0.9.4"
+    "witnet-requests": "~0.9.6"
   }
 }
