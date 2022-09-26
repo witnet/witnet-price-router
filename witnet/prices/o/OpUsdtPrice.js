@@ -76,6 +76,7 @@ const request = new Witnet.Request()
   .addSource(digifinex)
   .addSource(gateio)
   .addSource(kucoin)  
+  .addSource(okex)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(10, 51) // Set witness count and minimum consensus percentage
