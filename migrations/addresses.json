@@ -297,6 +297,9 @@
     "optimism": {
         "optimism.goerli": {
             "OpUsdtPriceFeed": "0x4F8d256Fc87aC88219E89bc16F65BC4f9Af693D6"
+        },
+        "optimism.mainnet": {
+            "OpUsdtPriceFeed": "0xE22f48DDdcb34BD34489fE224d7fFC1b0a361D87"
         }
     },
     "polygon": {
