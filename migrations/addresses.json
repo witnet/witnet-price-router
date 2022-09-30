@@ -296,7 +296,7 @@
     },
     "optimism": {
         "optimism.goerli": {
-            "OpUsdtPriceFeed": "0x56834Ff8D4b27db647Da97CA3bd8540f7fA0e89D"
+            "OpUsdtPriceFeed": "0x4F8d256Fc87aC88219E89bc16F65BC4f9Af693D6"
         }
     },
     "polygon": {
