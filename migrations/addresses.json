@@ -334,6 +334,9 @@
     "syscoin": {
         "syscoin.testnet": {
             "SysUsdtPriceFeed": "0x4092CC222B1bD1176D8a8cBE4070ccea66E9d1D6"
+        },
+        "syscoin.mainnet": {
+            "SysUsdtPriceFeed": "0x3806311c7138ddF2bAF2C2093ff3633E5A73AbD4"
         }
     }
 }
