@@ -39,6 +39,8 @@ const tally = new Witnet.Tally({
 const request = new Witnet.Request()
   .addSource(korbit)
   .addSource(coinone)
+  // double weight coinone, as it use to cope with higher trade volume
+  .addSource(coinone) 
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(10, 51) // Set witness count and minimum consensus percentage
