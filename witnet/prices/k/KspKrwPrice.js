@@ -3,7 +3,7 @@ import * as Witnet from "witnet-requests"
 // Retrieve KSP/KRW-6 price from the Korbit HTTP-GET API
 const korbit = new Witnet.Source("https://api.korbit.co.kr/v1/ticker/detailed?currency_pair=ksp_krw")
   .parseJSONMap()
-  .getInteger("last")
+  .getFloat("last")
   .multiply(10 ** 3)
 
 // Retrieve KSP/KRW-6 price from the Coinone HTTP-GET API
