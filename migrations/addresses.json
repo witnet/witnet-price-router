@@ -226,7 +226,7 @@
             "KlayUsdPriceFeed": "0xC32238702E364A93d07d5b3334d3FCdd65371b56",
             "KlayUsdtPriceFeed": "0xB4E3c636436e0ca60C9850D0dFa03917f35E456D",
             "KrwUsdPriceFeed": "0xBF24D9f8DF5c82c93ba8B9e9d616543164c1071a",
-            "KspKrwPriceFeed": "0x72e077dae5dfea0827f9a85220a300a61c6c9c94",
+            "KspKrwPriceFeed": "0x72e077daE5dFea0827F9A85220a300A61c6C9C94",
             "KspUsdPriceFeed": "0x3a68d074Be7cAcf48642AafB3D07400711fE2509",
             "UsdtUsdPriceFeed": "0x560a2d8273A023b8bC9Bd351Dc20fEBba37A43CF"
         }
