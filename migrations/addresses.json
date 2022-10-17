@@ -60,7 +60,9 @@
             "CeloEurPriceFeed": "0x4737B21701E5763EF59fb6F7Fa1DAdecF8176EB7",
             "CeloUsdPriceFeed": "0x47E7c9830Ca5A97d054A7f8B13Aa0a9667b8AF0A",
             "EthUsdPriceFeed": "0x89e3f2AE6dE825cb9C9eb3296736Ee7810FD4d4E",
-            "ImmoMcusdPriceFeed": "0x5ea208E90dE2101F54E9D36a185bB45BF06aB1C5"
+            "ImmoMcusdPriceFeed": "0x5ea208E90dE2101F54E9D36a185bB45BF06aB1C5",
+            "NctCeloPriceFeed": "0x4d9f46ebC9f061EFa0b3F9E7AE8dCa7e89d4a58e",
+            "NctUsdPriceFeed": "0x8bEeCd03080fAA65b46B0bfCDdd7F599Fd4B3c63"
         },
         "celo.mainnet": {
             "BtcUsdPriceFeed": "0x73cEa1E8535fC289b700D3EEfdD6e933A32af704",
