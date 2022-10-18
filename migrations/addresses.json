@@ -155,6 +155,11 @@
             "UsdtUsdPriceFeed": "0x7FdB9CDe98967140a5627dA5221DBC03Bd8e8ad5"
         }
     },
+    "dogechain": {
+        "dogechain.testnet": {
+            "DogeUsdPriceFeed": "0x56834Ff8D4b27db647Da97CA3bd8540f7fA0e89D"
+        }
+    },
     "harmony": {
         "harmony.testnet#0": {
             "BtcUsdPriceFeed": "0x8567F0db6c9bf639540ED93A4A52EE11F9Ba104a",
