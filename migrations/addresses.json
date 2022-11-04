@@ -75,7 +75,8 @@
             "CeloEurPriceFeed": "0xF436C7cB12c664A8A89fF3D065C3D910a75d41d2",
             "CeloUsdPriceFeed": "0xDaB4A2670b25dEeE76eAb085bd06cb0A3e0c172F",
             "EthUsdPriceFeed": "",
-            "ImmoMcusdPriceFeed": "0xf4FB62CaDC46Df00Ae81BDF4f5b2560F712dace2"
+            "NctCeloPriceFeed": "0xB154af956E59a67838f084FBaB3F8E17a8C1437A",
+            "NctUsdPriceFeed": "0x8b789377FC4e98911dF419DBBe9d46D23adbF451"
         }
     },
     "conflux": {
