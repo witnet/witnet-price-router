@@ -5,6 +5,7 @@ yarn.lock
 package-lock.json
 
 .env
+.out*
 
 Flattened*.sol
 flattened/**
