@@ -55,7 +55,7 @@ module.exports = async function (deployer, network) {
   if (batch.length > 0) {
     let answer = (await utils.prompt(`\nForcely update pending feeds (${batch.length})? [y/N] `)).toLowerCase().trim()
     if (["y", "yes"].includes(answer)) {
-      const tx = await wrb.reportResultBatch(batch, true, { gas: 2000000 })
+      const tx = await wrb.reportResultBatch(batch, true, { gas: 4000000 })
       console.log()
       tx.logs.map(log => console.log(`  => ${log.event}(${log.args[0].toString()}, ${log.args[1]})`))
     }
