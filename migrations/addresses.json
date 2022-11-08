@@ -29,7 +29,7 @@
         }
     },
     "boba": {
-        "boba.rinkeby": {
+        "boba.ethereum.rinkeby": {
             "BobaUsdtPriceFeed": "0xC7Db45424a3d0aD88E2ee586FcEDaD6f6eCf2D01",
             "BtcUsdPriceFeed": "0x78aC41c7797BEe54282C16C912DD4ccDe1D44Cfa",
             "DaiUsdPriceFeed": "0x74DCE62952469534845F802ca3A641E03dB1B6C4",
@@ -43,7 +43,7 @@
             "UsdcUsdPriceFeed": "0xA0801b3b3909114276eC3b03553Ab92F341fC4Fe",
             "UsdtUsdPriceFeed": "0x429883b4BD37726Def97645D1CD80F49F57180e8"
         },
-        "boba.mainnet": {
+        "boba.ethereum.mainnet": {
             "BobaUsdtPriceFeed": "0x8fae2b29C03eBb060a04a78706511d411D5CF934",
             "BtcUsdPriceFeed": "0x8f2279498f21A25a62F987ADa53E8919f6468f79",
             "DaiUsdPriceFeed": "0xEAD9f7Def832501EE2a4981261A86BF91Af2A270",
