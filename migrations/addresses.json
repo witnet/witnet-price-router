@@ -29,6 +29,10 @@
         }
     },
     "boba": {
+        "boba.moonbeam.bobabase": {
+            "BobaUsdtPriceFeed": "0x56834Ff8D4b27db647Da97CA3bd8540f7fA0e89D",
+            "GlmrUsdtPriceFeed": "0x225BAd150B9D5202DC805B34A0DF64B1a77459dF"
+        },
         "boba.ethereum.rinkeby": {
             "BobaUsdtPriceFeed": "0xC7Db45424a3d0aD88E2ee586FcEDaD6f6eCf2D01",
             "BtcUsdPriceFeed": "0x78aC41c7797BEe54282C16C912DD4ccDe1D44Cfa",
