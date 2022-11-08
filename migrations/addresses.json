@@ -158,6 +158,9 @@
     "dogechain": {
         "dogechain.testnet": {
             "DogeUsdPriceFeed": "0x56834Ff8D4b27db647Da97CA3bd8540f7fA0e89D"
+        },
+        "dogechain.mainnet": {
+            "DogeUsdPriceFeed": "0xb794a7D2c650659ed5F1ea447078bCE24F4137af"
         }
     },
     "harmony": {
