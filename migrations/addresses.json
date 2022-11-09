@@ -16,6 +16,11 @@
             "NationUsdtPriceFeed": "0x4b00509677D1b83795572E305b80A0b0772B596b"
         }
     },
+    "arbitrum": {
+        "arbitrum.goerli": {
+            "EthUsdPriceFeed": "0xA349fE7Ac24EEF338D14E3d3A32AdB2bAda16A11"
+        }
+    },
     "avalanche": {
         "avalanche.testnet": {
             "AvaxUsdPriceFeed": "0x0C4be6AA667df48de54BA174bE7948875fdf152B",
