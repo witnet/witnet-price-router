@@ -10,11 +10,10 @@ const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?c
   .multiply(10 ** 6)
   .round()
 
-// Retrieve ALGO/USD-6 price from the FTX HTTP-GET API
-const ftx = new Witnet.Source("https://ftx.us/api/markets/algo/usd")
+// Retrieve ALGO/USD-6 price from the Bitfinex HTTP-GET API
+const bitfinex = new Witnet.Source("https://api.bitfinex.com/v1/pubticker/algusd")
   .parseJSONMap()
-  .getMap("result")
-  .getFloat("last")
+  .getFloat("last_price")
   .multiply(10 ** 6)
   .round()
 
@@ -58,7 +57,7 @@ const tally = new Witnet.Tally({
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
   .addSource(coinbase)
-  .addSource(ftx)
+  .addSource(bitfinex)
   .addSource(kraken)
   .addSource(bitstamp)
   .setAggregator(aggregator) // Set the aggregator function

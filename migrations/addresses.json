@@ -110,7 +110,7 @@
     "cronos": {
         "cronos.testnet": {
             "AdaUsdPriceFeed": "0x10FEd283906a49d31e2b6E1c36d01f6873fa1075",
-            "AlgoUsdPriceFeed": "0x052C6c57aB3B6749D0BB5553d31bf98c9ab4Be48",
+            "AlgoUsdPriceFeed": "",
             "ApeUsdPriceFeed": "0x5280cD7e63f86dA58eD30a12d497c4D7ad8249Cd",
             "AtomUsdPriceFeed": "0x13c10BCd39a7F6C827465A98518B26113AB14D94",
             "AvaxUsdPriceFeed": "0xCbddA04f0aA08a35e030B7695300C1f5652A6808",
