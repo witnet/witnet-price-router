@@ -1,9 +1,9 @@
 import * as Witnet from "witnet-requests"
 
 // Retrieve ETH/USD-6 price from Binance.US
-const binance = new Witnet.Source("https://api.binance.US/api/v3/trades?symbol=ETHUSD")
+const binance = new Witnet.Source("https://api.binance.US/api/v3/ticker?symbol=ETHUSD")
   .parseJSONMap()
-  .getFloat("price")
+  .getFloat("lastPrice")
   .multiply(10 ** 6)
   .round()
 
