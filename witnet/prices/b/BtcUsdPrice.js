@@ -2,7 +2,8 @@ import * as Witnet from "witnet-requests"
 
 // Retrieve BTC/USD-6 price from Binance.US
 const binance = new Witnet.Source("https://api.binance.US/api/v3/trades?symbol=BTCUSD")
-  .parseJSONMap()
+  .parseJSONArray()
+  .getMap(0)
   .getFloat("price")
   .multiply(10 ** 6)
   .round()
