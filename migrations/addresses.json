@@ -51,9 +51,9 @@
         },
         "boba.ethereum.mainnet": {
             "BobaUsdtPriceFeed": "0x8fae2b29C03eBb060a04a78706511d411D5CF934",
-            "BtcUsdPriceFeed": "",
+            "BtcUsdPriceFeed": "0x9d32E9Dc548b80BC8535C7afBe61227F184b9160",
             "DaiUsdPriceFeed": "0xEAD9f7Def832501EE2a4981261A86BF91Af2A270",
-            "EthUsdPriceFeed": "",
+            "EthUsdPriceFeed": "0x1355676462e3B228fC42a773765Bf53Ff5939bB8",
             "FraxUsdtPriceFeed": "0x96D017F938B5425713ab4d8ce460e1dD04b962CA",
             "OloUsdcPriceFeed": "0xd3ec9A90a94354767CaF3123bE355611B3F459fc",
             "UsdcUsdPriceFeed": "0xa01473Dfc58F18a4D06ddB0450A41D6b7Ff6AD2F",
@@ -153,11 +153,11 @@
             "UsdtUsdPriceFeed": "0xa0a6c0Ef4Fa60E380Ce28A5e3Ce74508E884a537"
         },
         "cube.mainnet": {
-            "BtcUsdPriceFeed": "",
+            "BtcUsdPriceFeed": "0xeBeafb332b30A26FEF1fE8A6664eAc93bD6b1A96",
             "CubeUsdPriceFeed": "0xd56EB61fD21537Ef570400130343e8060d8C3B17",
             "CubeUsdtPriceFeed": "0xBaaF31F4AAc5ab5334b6E239a83bf4E855C55ea7",
             "DaiUsdPriceFeed": "0x8555fF5b5A370FEF73Ce723b3fFfC57c161a1945",
-            "EthUsdPriceFeed": "",
+            "EthUsdPriceFeed": "0x1e6D438bfa28d31BF3DA2E0A48B748A8E5FB6BD9",
             "UsdcUsdPriceFeed": "0xF9C4c1114e23C101F05B1C5b39C60087AB715bD1",
             "UsdtUsdPriceFeed": "0x7FdB9CDe98967140a5627dA5221DBC03Bd8e8ad5"
         }
