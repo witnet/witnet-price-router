@@ -116,7 +116,7 @@
             "CroUsdPriceFeed": "0x370a4bC3b509911D706FD8C5a4d8Dba634579CBD",
             "CroUsdtPriceFeed": "0x70639D6D08a18aa200de08E08970B53036B0B3d9",
             "DaiUsdPriceFeed": "0xEC9119a7a37EE172F6A2Cb58Dada3436cA884d6B",
-            "DogeUsdPriceFeed": "0x3bd805b317455483E195FDc8ED2b93abDa94d758",
+            "DogeUsdPriceFeed": "",
             "DotUsdPriceFeed": "0x7b5642e3D8a64711C88eF1F9AEE2450b00CFFf9c",
             "ElonUsdPriceFeed": "0x77A87f3A0f71A69D32E59A8ebBa34aBD90EB8cd9",
             "ElonUsdtPriceFeed": "",
@@ -164,10 +164,10 @@
     },
     "dogechain": {
         "dogechain.testnet": {
-            "DogeUsdPriceFeed": "0x56834Ff8D4b27db647Da97CA3bd8540f7fA0e89D"
+            "DogeUsdPriceFeed": ""
         },
         "dogechain.mainnet": {
-            "DogeUsdPriceFeed": "0xb794a7D2c650659ed5F1ea447078bCE24F4137af"
+            "DogeUsdPriceFeed": ""
         }
     },
     "harmony": {
