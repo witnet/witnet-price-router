@@ -25,7 +25,7 @@ const okcoin = new Witnet.Source("https://www.okcoin.com/api/spot/v3/instruments
   .round()
 
 // Retrieves CELO/USD-6 from the OkEx API (derived from USDT/USD exchange rate)
-const okex = new Witnet.Source("https://www.okex.com/api/v5/market/ticker?instId=CELO-USDT")
+const okex = new Witnet.Source("https://www.okx.com/api/v5/market/ticker?instId=CELO-USDT")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
   .getArray("data") // Access to the `Map` object at `data` key
   .getMap(0)

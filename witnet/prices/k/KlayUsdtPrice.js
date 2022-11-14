@@ -24,7 +24,7 @@ const gateio = new Witnet.Source("https://data.gateapi.io/api2/1/ticker/klay_usd
   .round() // Cast to integer
 
 // Retrieves KLAY/USDT-6 price from the OKEx API
-const okex = new Witnet.Source("https://www.okex.com/api/v5/market/ticker?instId=KLAY-USDT")
+const okex = new Witnet.Source("https://www.okx.com/api/v5/market/ticker?instId=KLAY-USDT")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
   .getArray("data") // Access to the `Map` object at `data` key
   .getMap(0)

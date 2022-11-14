@@ -33,7 +33,7 @@ const mexc = new Witnet.Source("https://www.mexc.com/open/api/v2/market/ticker?s
   .round() // Cast to integer
 
 // Retrieves ELON/USDT-6 price from the OkEx API 
-const okex = new Witnet.Source("https://www.okex.com/api/v5/market/ticker?instId=ELON-USDT")
+const okex = new Witnet.Source("https://www.okx.com/api/v5/market/ticker?instId=ELON-USDT")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
   .getArray("data") // Access to the `Map` object at `data` key
   .getMap(0)

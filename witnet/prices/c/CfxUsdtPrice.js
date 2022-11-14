@@ -23,7 +23,7 @@ const kucoin = new Witnet.Source("https://api.kucoin.com/api/v1/market/orderbook
   .round()
 
 // Retrieves USDT price of CFX from the OkEx API
-const okex = new Witnet.Source("https://www.okex.com/api/v5/market/ticker?instId=CFX-USDT")
+const okex = new Witnet.Source("https://www.okx.com/api/v5/market/ticker?instId=CFX-USDT")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
   .getArray("data") // Access to the `Map` object at `data` key
   .getMap(0)
