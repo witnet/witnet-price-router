@@ -219,9 +219,9 @@
         },
         "kcc.mainnet": {
             "BoringUsdtPriceFeed": "",
-            "BtcUsdPriceFeed": "",
+            "BtcUsdPriceFeed": "0x6A3718D3b88C0dACb5af05106C151bD733ed0C8d",
             "DaiUsdPriceFeed": "0xaB9964d03f14154eBfC0892067a557712ac1445c",
-            "EthUsdPriceFeed": "",
+            "EthUsdPriceFeed": "0xf3Aad0c53A633F12ae4d8b368d4B03E85F11471e",
             "KcsUsdtPriceFeed": "0x67577447f6e84551880A85857fC376Ff5A741f1C",
             "KswUsdPriceFeed": "0x4fFe899D4059BED130fb91474d23F920Db5D3269",
             "MjtKcsPriceFeed": "0xB6708413B499AcCcE8bF26972B32F37385f34F1d",
@@ -289,8 +289,8 @@
             "UsdtUsdPriceFeed": "0xe9Bf601869A8c391CecbF5C979D06b0b4640499c"
         },
         "moonbeam.mainnet": {
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": "",
+            "BtcUsdPriceFeed": "0x53c8195406F8Fcc2CDAA6d5aF81Fff9A5f822593",
+            "EthUsdPriceFeed": "0xC9cE02b27A9AB5e1F934a9f6Ea9eB3217607054D",
             "GlintUsdPriceFeed": "0xD030E91557a16AFbe1eF7EBD8Df13857525AE6c2",
             "GlintUsdcPriceFeed": "0x34543a6e46cBf7c5a76Ef01f818a065571429b06",
             "GlmrUsdPriceFeed": "0x611BfEeB6e68194F050Fd894419410b51292faAB",
