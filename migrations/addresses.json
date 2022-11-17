@@ -137,7 +137,7 @@
         "cube.testnet": {
             "BtcUsdPriceFeed": "0x6d3495D7930C407DF8Bc235252660096D67EA802",
             "CubeUsdPriceFeed": "0x0C4be6AA667df48de54BA174bE7948875fdf152B",
-            "CubeUsdtPriceFeed": "0xAf89a59876145202a027E73340592F05B28A6D99",
+            "CubeUsdtPriceFeed": "0x76B47Dcf620ea71724c4864D239a1CbE7a66C85F",
             "DaiUsdPriceFeed": "0x4092CC222B1bD1176D8a8cBE4070ccea66E9d1D6",
             "EthUsdPriceFeed": "0x624f995CF29e8560Be3ccE79E33dD2c591f57e29",
             "UsdcUsdPriceFeed": "0x7e4C2E06790737019EB862914Fe5009a58F46553",
@@ -146,7 +146,7 @@
         "cube.mainnet": {
             "BtcUsdPriceFeed": "0xeBeafb332b30A26FEF1fE8A6664eAc93bD6b1A96",
             "CubeUsdPriceFeed": "0xd56EB61fD21537Ef570400130343e8060d8C3B17",
-            "CubeUsdtPriceFeed": "0xBaaF31F4AAc5ab5334b6E239a83bf4E855C55ea7",
+            "CubeUsdtPriceFeed": "0x608b9B1a176Df449fC5B31c823da3913e3843672",
             "DaiUsdPriceFeed": "0x8555fF5b5A370FEF73Ce723b3fFfC57c161a1945",
             "EthUsdPriceFeed": "0x1e6D438bfa28d31BF3DA2E0A48B748A8E5FB6BD9",
             "UsdcUsdPriceFeed": "0xF9C4c1114e23C101F05B1C5b39C60087AB715bD1",
