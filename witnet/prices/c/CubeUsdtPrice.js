@@ -60,13 +60,13 @@ const tally = new Witnet.Tally({
   ],
   reducer: Witnet.Types.REDUCERS.averageMean,
 })
-
+0
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
-  .addSource(bitget)
+  // .addSource(bitget)
   .addSource(bitmart)
   .addSource(gateio)
-  .addSource(huobi)
+  // .addSource(huobi)
   // .addSource(xt)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
