@@ -1,0 +1,35 @@
+name: CI
+description: Tests dependencies, compilation, flattening and Solidity business logic
+
+outputs:
+  results:
+    description: "The result of running the CI pipeline"
+    value: ${{ steps.test.outputs.results }}
+
+runs:
+  using: composite
+  steps:
+    - name: Install dependencies
+      shell: bash
+      run: |
+        npm install
+    - name: Check format
+      shell: bash
+      run: |
+        npm run fmt
+    - name: Compile solidity contracts
+      shell: bash
+      run: |
+        npm run compile:contracts
+    - name: Flatten solidity contracts
+      shell: bash
+      run: |
+        npm run flatten
+    - name: Run tests
+      id: test
+      shell: bash
+      run: |
+        npm run test | tee results.log
+        echo 'results<<EOF' >> $GITHUB_OUTPUT
+        cat results.log >> $GITHUB_OUTPUT
+        echo 'EOF' >> $GITHUB_OUTPUT
