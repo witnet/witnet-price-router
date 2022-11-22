@@ -37,9 +37,10 @@ jobs:
           message: |
             ❌ CI **FAILED** with the following output:
 
-            ```
-            ${{ needs.ci.outputs.results }}
-            ```
+            <details>
+            <summary>Unsuccessful test results</summary>
+            <pre>${{ needs.ci.outputs.results }}</pre>
+            </details>
 
   post_success_onto_pr:
     name: Post success message onto PR
@@ -54,6 +55,7 @@ jobs:
           message: |
             ✅ CI **PASSED** with the following output:
 
-            ```
-            ${{ needs.ci.outputs.results }}
-            ```
+            <details>
+            <summary>Successful test results</summary>
+            <pre>${{ needs.ci.outputs.results }}</pre>
+            </details>
