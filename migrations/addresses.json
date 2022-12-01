@@ -137,7 +137,7 @@
         "cube.testnet": {
             "BtcUsdPriceFeed": "0x6d3495D7930C407DF8Bc235252660096D67EA802",
             "CubeUsdPriceFeed": "0x0C4be6AA667df48de54BA174bE7948875fdf152B",
-            "CubeUsdtPriceFeed": "0x76B47Dcf620ea71724c4864D239a1CbE7a66C85F",
+            "CubeUsdtPriceFeed": "0x80B5D90F89f195c069D7a7E7150dA67b8e1B00Fd",
             "DaiUsdPriceFeed": "0x4092CC222B1bD1176D8a8cBE4070ccea66E9d1D6",
             "EthUsdPriceFeed": "0x624f995CF29e8560Be3ccE79E33dD2c591f57e29",
             "UsdcUsdPriceFeed": "0x7e4C2E06790737019EB862914Fe5009a58F46553",
