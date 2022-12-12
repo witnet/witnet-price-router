@@ -55,7 +55,7 @@
         "celo.alfajores": {
             "BtcUsdPriceFeed": "0x9Fa7410f271C617d8f741c2bA0DF3F8Ab502b54E",
             "CeloEurPriceFeed": "0x4737B21701E5763EF59fb6F7Fa1DAdecF8176EB7",
-            "CeloUsdPriceFeed": "0x9fc1Ce69256d2002F829CE008E79da43Bd513165",
+            "CeloUsdPriceFeed": "0x4f89BE0a3af17BfcD28ED3abdb01D257f308630F",
             "EthUsdPriceFeed": "0x551b471d0d4e4D47b73B55D46b1a5246692f6006",
             "ImmoMcusdPriceFeed": "0x5ea208E90dE2101F54E9D36a185bB45BF06aB1C5",
             "NctCeloPriceFeed": "0x4d9f46ebC9f061EFa0b3F9E7AE8dCa7e89d4a58e",
