@@ -329,6 +329,9 @@
     "reef": {
         "reef.testnet": {
             "ReefUsdtPriceFeed": "0xb5461b0aF523442beBFE476E8a7227Bd27e6B68D"
+        },
+        "reef.mainnet": {
+            "ReefUsdtPriceFeed": "0x31b3ed19Ac9Fb7EEDd9e1fBd08a262C874069210"
         }
     },
     "smartbch": {
