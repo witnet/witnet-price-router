@@ -64,7 +64,7 @@
         "celo.mainnet": {
             "BtcUsdPriceFeed": "0xe43916D76f25992992626EE9A5C8D9893A77733d",
             "CeloEurPriceFeed": "0xF436C7cB12c664A8A89fF3D065C3D910a75d41d2",
-            "CeloUsdPriceFeed": "0xA35D81F72c14fbaB970e8eDbC366aDf38BE9e173",
+            "CeloUsdPriceFeed": "0x4AFF4e64F3DE4DD65c9b441546251dB7D847e79b",
             "EthUsdPriceFeed": "0x73Ade66A31c5BeDd66c8136C408fCfa0cda6D0ED",
             "NctCeloPriceFeed": "0xB154af956E59a67838f084FBaB3F8E17a8C1437A",
             "NctUsdPriceFeed": "0x8b789377FC4e98911dF419DBBe9d46D23adbF451"
