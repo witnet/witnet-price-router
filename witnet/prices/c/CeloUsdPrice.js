@@ -17,13 +17,6 @@ const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?c
   .multiply(10 ** 6)
   .round()
 
-// Retrieve CELO/USD-6 price from OKcoin
-const okcoin = new Witnet.Source("https://www.okcoin.com/api/spot/v3/instruments/CELO-USD/ticker")
-  .parseJSONMap()
-  .getFloat("last")
-  .multiply(10 ** 6)
-  .round()
-
 // Retrieves CELO/USD-6 from the OkEx API (derived from USDT/USD exchange rate)
 const okex = new Witnet.Source("https://www.okx.com/api/v5/market/ticker?instId=CELO-USDT")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`
@@ -57,7 +50,7 @@ const tally = new Witnet.Tally({
 const request = new Witnet.Request()
   .addSource(bittrex)
   .addSource(coinbase)
-  .addSource(okcoin)
+  .addSource(coinbase)  
   .addSource(okex)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
