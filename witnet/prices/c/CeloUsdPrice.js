@@ -7,6 +7,13 @@ const bittrex = new Witnet.Source("https://api.bittrex.com/v3/markets/CELO-USD/t
   .multiply(10 ** 6)
   .round()
 
+// Retrieve CELO/USD-6 price from the Binance HTTP-GET API
+const binance = new Witnet.Source("https://api.binance.us/api/v3/ticker/price?symbol=CELOUSD")
+  .parseJSONMap()
+  .getFloat("price")
+  .multiply(10 ** 6)
+  .round()
+
 // Retrieve CGLD/USD-6 exchange rate from Coinbase
 const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?currency=USD")
   .parseJSONMap()
@@ -49,7 +56,7 @@ const tally = new Witnet.Tally({
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
   .addSource(bittrex)
-  .addSource(coinbase)
+  .addSource(binance)
   .addSource(coinbase)  
   .addSource(okex)
   .setAggregator(aggregator) // Set the aggregator function
