@@ -358,7 +358,9 @@
     },
     "ultron": {
         "ultron.testnet": {
-            "UlxUsdtPriceFeed": "0x4092CC222B1bD1176D8a8cBE4070ccea66E9d1D6"
+            "UlxUsdtPriceFeed": "0x4092CC222B1bD1176D8a8cBE4070ccea66E9d1D6",
+            "WbtcWulxPriceFeed": "0x502792a6dc858925e9Fb0c3E730411AEb5bB2c4A",
+            "WethWulxPriceFeed": "0xa0a6c0Ef4Fa60E380Ce28A5e3Ce74508E884a537"
         }
     }
 }
