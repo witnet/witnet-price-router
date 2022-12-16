@@ -358,6 +358,11 @@
     },
     "ultron": {
         "ultron.testnet": {
+            "AvaxUsdPriceFeed": "0x5259aCEfF613b37aF35999798A6da60bEF326038",
+            "BtcUsdPriceFeed": "0x49C0BCce51a8B28f92d008394F06d5B259657F33",
+            "EthUsdPriceFeed": "0x6D7AC08d92f2428ce05B3725B4087810f625d059",
+            "FtmUsdtPriceFeed": "0x75fC826f7660f4e79823aA02337C77c975cBFa50",
+            "MaticUsdPriceFeed": "0xE6A69195F9Ebb3f9Ef5596cfafA1A375c477f540",
             "UlxUsdtPriceFeed": "0x4092CC222B1bD1176D8a8cBE4070ccea66E9d1D6",
             "WbtcWulxPriceFeed": "0x502792a6dc858925e9Fb0c3E730411AEb5bB2c4A",
             "WethWulxPriceFeed": "0xa0a6c0Ef4Fa60E380Ce28A5e3Ce74508E884a537"
