@@ -340,6 +340,14 @@
             "ReefUsdtPriceFeed": "0x31b3ed19Ac9Fb7EEDd9e1fBd08a262C874069210"
         }
     },
+    "scroll": {
+        "scroll.alpha": {
+            "BtcUsdPriceFeed": "0xa0a6c0Ef4Fa60E380Ce28A5e3Ce74508E884a537",
+            "EthUsdPriceFeed": "0xAf89a59876145202a027E73340592F05B28A6D99",
+            "UniUsdPriceFeed": "0x0C4be6AA667df48de54BA174bE7948875fdf152B",
+            "UsdcUsdPriceFeed": "0xd63844c34Ec560627c1d793Ac685aD8Ce43C4DdC"
+        }
+    },
     "smartbch": {
         "smartbch.amber": {
             "BchUsdPriceFeed": "0xD9465D38f50f364b3263Cb219e58d4dB2D584530"
