@@ -65,7 +65,7 @@ const tally = new Witnet.Tally({
 
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
-  .addSource(bitmart)
+  // .addSource(bitmart)
   .addSource(gateio)
   .addSource(huobi)
   .addSource(mexc)
