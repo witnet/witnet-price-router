@@ -31,9 +31,9 @@ jobs:
     needs: ci
     steps:
       - name: Comment on PR
-        uses: thollander/actions-comment-pull-request@v1.5.0
+        uses: mshick/add-pr-comment@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          proxy-url: https://add-pr-comment-proxy-j5iblm55gq-uc.a.run.app/
           message: |
             ❌ CI **FAILED** with the following output:
 
@@ -49,9 +49,9 @@ jobs:
     needs: ci
     steps:
       - name: Comment on PR
-        uses: thollander/actions-comment-pull-request@v1.5.0
+        uses: mshick/add-pr-comment@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          proxy-url: https://add-pr-comment-proxy-j5iblm55gq-uc.a.run.app/
           message: |
             ✅ CI **PASSED** with the following output:
 
