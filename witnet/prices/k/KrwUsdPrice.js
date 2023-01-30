@@ -71,10 +71,10 @@ const tally = new Witnet.Tally({
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
   .addSource(exchangeratehost)
-  .addSource(freeforexapi)
+  // .addSource(freeforexapi)
   .addSource(fastforex)
   .addSource(currencyapi)
-  .addSource(liverates)
+  // .addSource(liverates)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(10, 51) // Set witness count and minimum consensus percentage
