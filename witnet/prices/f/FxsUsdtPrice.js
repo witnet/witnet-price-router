@@ -1,4 +1,5 @@
 import * as Witnet from "witnet-requests"
+import * as WitnetSLA from "../../../../../migrations/witnet-slas"
 
 // Retrieve FXS/USDT-6 price from the Binance HTTP-GET API
 const binance = new Witnet.Source("https://api.binance.com/api/v3/ticker/price?symbol=FXSUSDT")
@@ -59,9 +60,9 @@ const request = new Witnet.Request()
   .addSource(mexc)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
-  .setQuorum(10, 51) // Set witness count and minimum consensus percentage
-  .setFees(15 * 10 ** 7, 10 ** 7) // Witnessing fee: 0.1 wit; Commit/Reveal fee: 0.01 wit;
-  .setCollateral(15 * 10 ** 8) // Require 5 wits as collateral
+  .setQuorum(WitnetSLA.numWitnesses, WitnetSLA.witnessingQuorum) // Set witness count and minimum consensus percentage
+  .setFees(WitnetSLA.witnessReward, WitnetSLA.witnessCommitFee) // Set witness reward and commit/reveal fees
+  .setCollateral(WitnetSLA.witnessCollateral) // Set witness collateral
 
 // Do not forget to export the request object
 export { request as default }

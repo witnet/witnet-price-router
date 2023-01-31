@@ -1,4 +1,5 @@
 import * as Witnet from "witnet-requests"
+import * as WitnetSLA from "../../../../../migrations/witnet-slas"
 
 // Retrieves BTC price of OMG from the BitStamp API
 const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/omgbtc/")

@@ -1,4 +1,5 @@
 import * as Witnet from "witnet-requests"
+import * as WitnetSLA from "../../../../../migrations/witnet-slas"
 
 const ultronswap = new Witnet.Source("https://exchange-info.ultron-dev.net/api/v1/ultronswap")
   .parseJSONMap() // Parse a `Map` from the retrieved `String`

@@ -1,4 +1,5 @@
 import * as Witnet from "witnet-requests"
+import * as WitnetSLA from "../../../../../migrations/witnet-slas"
 
 // Retrieve ULX/USDT-6 price from the UniswapV3 DEX API:
 const uniswap = new Witnet.GraphQLSource(

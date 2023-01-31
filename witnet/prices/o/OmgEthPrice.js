@@ -1,4 +1,5 @@
 import * as Witnet from "witnet-requests"
+import * as WitnetSLA from "../../../../../migrations/witnet-slas"
 
 // Retrieves ETH price of OMG from the Binance API
 const binance = new Witnet.Source("https://api.binance.com/api/v3/ticker/price?symbol=OMGETH")
