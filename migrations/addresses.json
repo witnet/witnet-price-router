@@ -337,6 +337,16 @@
             "UlxUsdtPriceFeed": "",
             "WbtcWulxPriceFeed": "",
             "WethWulxPriceFeed": ""
+        },
+        "ultron.mainnet": {
+            "AvaxUsdPriceFeed": "0xF849C1ddd19f524c12A043556fAa5602a6B81F98",
+            "BtcUsdPriceFeed": "0xBaaF31F4AAc5ab5334b6E239a83bf4E855C55ea7",
+            "EthUsdPriceFeed": "0x8555fF5b5A370FEF73Ce723b3fFfC57c161a1945",
+            "FtmUsdtPriceFeed": "0xD7f7933992c25A504e9Ddf7e76a3c1D6c432b25D",
+            "MaticUsdPriceFeed": "0xb794a7D2c650659ed5F1ea447078bCE24F4137af",
+            "UlxUsdtPriceFeed": "0x7FdB9CDe98967140a5627dA5221DBC03Bd8e8ad5",
+            "WbtcWulxPriceFeed": "0xd56EB61fD21537Ef570400130343e8060d8C3B17",
+            "WethWulxPriceFeed": "0xCb3E765362E91f45a369c65fAACf15e59aA3595c"
         }
     }
 }
