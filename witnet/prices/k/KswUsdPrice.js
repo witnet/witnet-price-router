@@ -42,7 +42,7 @@ const request = new Witnet.Request()
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
   .setQuorum(WitnetSLA.numWitnesses, WitnetSLA.witnessingQuorum) // Set witness count and minimum consensus percentage
-  .setFees(WitnetSLA.witnessReward, WitnetSLA.witnessCommitFee) // Set witness reward and commit/reveal fees
+  .setFees(WitnetSLA.witnessReward, WitnetSLA.witnessCommitFee) // Set witness reward and witness commit fee
   .setCollateral(WitnetSLA.witnessCollateral) // Set witness collateral
 
 // Do not forget to export the request object
