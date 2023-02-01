@@ -35,6 +35,13 @@ module.exports = async function (deployer, network) {
 
 async function revisitPriceFeeds (deployer, realm, chain, isDryRun) {
 
+  var updateAll = false
+  process.argv.map((argv) => {
+    if (argv === "--update-all") {
+      updateAll = true
+    }
+  })
+
   let witnetAddresses
   try {
     witnetAddresses = require("witnet-solidity-bridge/migrations/witnet.addresses")[realm][chain]
@@ -123,7 +130,9 @@ async function revisitPriceFeeds (deployer, realm, chain, isDryRun) {
         console.log("   > Router address:\t ", router.address)
         let currentPoller = await router.getPriceFeed(erc2362id)
         if (!isDryRun && (utils.isNullAddress(currentPoller) || currentPoller !== WitnetPriceFeed.address)) {
-          let answer = (await utils.prompt(`     ? Substitute current pricefeed at ${currentPoller}? [y/N] `)).toLowerCase().trim()
+          let answer = updateAll === true
+            ? "yes"
+            : (await utils.prompt(`     ? Substitute current pricefeed at ${currentPoller}? [y/N] `)).toLowerCase().trim()
           if (["y", "yes"].includes(answer)) {
             await router.setPriceFeed(
               WitnetPriceFeed.address,
