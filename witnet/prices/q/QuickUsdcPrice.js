@@ -1,4 +1,5 @@
 import * as Witnet from "witnet-requests"
+import * as WitnetSLA from "../../../../../migrations/witnet-slas"
 
 // Retrieve QUICK/USDC-6 price from Quickswap DEX on Polygon
 const quickswap = new Witnet.GraphQLSource(
@@ -41,9 +42,9 @@ const request = new Witnet.Request()
   .addSource(quickswap)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
-  .setQuorum(10, 51) // Set witness count and minimum consensus percentage
-  .setFees(10 ** 6, 10 ** 6) // Set economic incentives
-  .setCollateral(5 * 10 ** 9) // Require 5 wits as collateral
+  .setQuorum(WitnetSLA.numWitnesses, WitnetSLA.witnessingQuorum) // Set witness count and minimum consensus percentage
+  .setFees(WitnetSLA.witnessReward, WitnetSLA.witnessCommitFee) // Set witness reward and witness commit fee
+  .setCollateral(WitnetSLA.witnessCollateral) // Set witness collateral
 
 // Do not forget to export the request object
 export { request as default }
