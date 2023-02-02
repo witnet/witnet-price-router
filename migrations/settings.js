@@ -15,16 +15,24 @@ module.exports = {
         "ethereum.mainnet": {
           skipDryRun: true,
           confirmations: 2
+        },
+        "ethereum.goerli": {
+          gasPrice: 50 * 10 ** 9,
         }
       },
       conflux: {
-        "conflux.mainnet": {
-          gasPrice: 30 * 10 ** 9
+        "conflux.espace.testnet": {
+          gasPrice: 10 * 10 ** 9
         }
       },
       polygon: {
         "polygon.mainnet": {
           gasPrice: 50 * 10 ** 9
+        },
+      },
+      arbitrum: {
+        "arbitrum.goerli": {
+          from: "0x8c49CAfC4542D9EA9107D4E48412ACEd2A68aA77",
         }
       }
     }
