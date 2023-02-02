@@ -288,6 +288,8 @@
             "DaiUsdPriceFeed": "",
             "EthUsdPriceFeed": "",
             "MaticUsdPriceFeed": "",
+            "QuickUsdcPriceFeed": "",
+            "UsdcUsdPriceFeed": "",
             "VsqDaiPriceFeed": ""
         },
         "polygon.mainnet": {
