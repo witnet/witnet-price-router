@@ -288,9 +288,9 @@
             "DaiUsdPriceFeed": "0xE09A3EB4841A0a96B910d1147233EEB31ff917CA",
             "EthUsdPriceFeed": "0x8f2885e79364703B414994f986889C00fC869fC5",
             "MaticUsdPriceFeed": "0x98C1232922A16F0D13682e40417F8aE178C0B027",
-            "QuickUsdPriceFeed": "",
-            "QuickUsdcPriceFeed": "",
-            "UsdcUsdPriceFeed": "",
+            "QuickUsdPriceFeed": "0x8211bf30B0e8B2C17420F3fd29854a5CEdA028ca",
+            "QuickUsdcPriceFeed": "0xA36cac1c58a9C7fC637531919738AF6b5E9EC60F",
+            "UsdcUsdPriceFeed": "0x6477d16206789347898b1aA135EDB1f56A351196",
             "VsqDaiPriceFeed": "0x844177258C389d74b36e0D56Db814EEfCa9f070b"
         },
         "polygon.mainnet": {
