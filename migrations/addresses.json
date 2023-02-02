@@ -288,6 +288,9 @@
             "DaiUsdPriceFeed": "",
             "EthUsdPriceFeed": "",
             "MaticUsdPriceFeed": "",
+            "QuickUsdPriceFeed": "",
+            "QuickUsdcPriceFeed": "",
+            "UsdcUsdPriceFeed": "",
             "VsqDaiPriceFeed": ""
         },
         "polygon.mainnet": {
@@ -295,6 +298,9 @@
             "DaiUsdPriceFeed": "",
             "EthUsdPriceFeed": "",
             "MaticUsdPriceFeed": "",
+            "QuickUsdPriceFeed": "",
+            "QuickUsdcPriceFeed": "",
+            "UsdcUsdPriceFeed": "",
             "VsqDaiPriceFeed": ""
         }
     },
