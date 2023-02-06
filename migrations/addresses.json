@@ -155,7 +155,7 @@
             "DogeUsdPriceFeed": "0xcFE4c3D365906a5bFF7e076f07F39d9effb00447"
         },
         "dogechain.mainnet": {
-            "DogeUsdPriceFeed": ""
+            "DogeUsdPriceFeed": "0x7Ea678710F0086353EFf5Bdc9286E8B4908c520e"
         }
     },
     "kava": {
