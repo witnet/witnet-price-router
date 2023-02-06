@@ -16,7 +16,7 @@
     },
     "avalanche": {
         "avalanche.testnet": {
-            "AvaxUsdPriceFeed": "0xBA1Dea02d95BdC66c8E512C5C55144b5DC6664a4",
+            "AvaxUsdPriceFeed": "",
             "BtcUsdPriceFeed": "0xCDDC3492F7048D79d8a077a15BB95d4756Ec88df",
             "EthUsdPriceFeed": "0xB4Bc908A4E4072DaC5D3340EeA39470355fb3C1C"
         },
@@ -108,7 +108,7 @@
             "AlgoUsdPriceFeed": "0xD26c187AD0358cEd89106613bc86ba29a3ccfF1c",
             "ApeUsdPriceFeed": "",
             "AtomUsdPriceFeed": "0x046db6364bca700f3761FbCa481F5e89F6e91A85",
-            "AvaxUsdPriceFeed": "0xbA516144CAaF840502C5D0B74026B1987ecA82E6",
+            "AvaxUsdPriceFeed": "",
             "BtcUsdPriceFeed": "0xb49DdA423A3f386BDDc26cC81362d1b5614f7F9e",
             "CroUsdPriceFeed": "0x60F9Fd21b5ff7F83Cc7a94d4dD2BE43876570EDc",
             "CroUsdtPriceFeed": "0x5Ff116024EF7adb8f10dD8bDb617B0880240A3e1",
@@ -335,7 +335,7 @@
     },
     "ultron": {
         "ultron.testnet": {
-            "AvaxUsdPriceFeed": "0x98Aa37CEBB5B0fb740B47928b1a24D735d5Aa8F2",
+            "AvaxUsdPriceFeed": "",
             "BtcUsdPriceFeed": "0xe68a973448B02219d9f6Ab587CD14476Ae6c5A95",
             "EthUsdPriceFeed": "0xfE9F2d7Fb984e0093Ba12FFC0C007C7eAf68D414",
             "FtmUsdtPriceFeed": "0x93Fc800730b780f7919FD7Eb679a80e925568457",
@@ -345,7 +345,7 @@
             "WethWulxPriceFeed": "0x8b5f73a873b34d2EA94423139eD86F71B05aF7fb"
         },
         "ultron.mainnet": {
-            "AvaxUsdPriceFeed": "0xF849C1ddd19f524c12A043556fAa5602a6B81F98",
+            "AvaxUsdPriceFeed": "",
             "BtcUsdPriceFeed": "0xBaaF31F4AAc5ab5334b6E239a83bf4E855C55ea7",
             "EthUsdPriceFeed": "0x8555fF5b5A370FEF73Ce723b3fFfC57c161a1945",
             "FtmUsdtPriceFeed": "0xD7f7933992c25A504e9Ddf7e76a3c1D6c432b25D",
