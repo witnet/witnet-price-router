@@ -270,7 +270,7 @@
     },
     "okxchain": {
         "okxchain.testnet": {
-            "OktUsdtPriceFeed": "",
+            "OktUsdtPriceFeed": "0x556f29CA25d88F7C33aA22238B5cD19fEcD3621E",
             "UsdtUsdPriceFeed": "0x7E14f7B3bd4EcF232Da96A78Aa8Cf9B8b239ad30"
         }
     },
