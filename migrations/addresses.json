@@ -26,10 +26,10 @@
     },
     "boba": {
         "boba.ethereum.goerli": {
-            "BobaUsdtPriceFeed": "",
-            "DaiUsdPriceFeed": "",
-            "FraxUsdtPriceFeed": "",
-            "OloUsdcPriceFeed": ""
+            "BobaUsdtPriceFeed": "0x3d8659c22BcEb02f5871ACA1904486B5BB2b39B4",
+            "DaiUsdPriceFeed": "0xFe1d6F2164Cf8ba10F8DA7d6c9ACddB97c188f86",
+            "FraxUsdtPriceFeed": "0x2F225cF6aD306574181A6C991898022bEd25805A",
+            "OloUsdcPriceFeed": "0x0bFD7a880f657B9a465ea369559636A9daa7088B"
         },
         "boba.ethereum.rinkeby": {
             "BobaUsdtPriceFeed": "",
@@ -251,7 +251,7 @@
             "UsdtUsdPriceFeed": "0x121583B688eab45D15910cD74516471e934f728C"
         },
         "moonbeam.moonriver": {
-            "MovrUsdtPriceFeed":  "",
+            "MovrUsdtPriceFeed": "",
             "UsdcUsdPriceFeed": "",
             "UsdtUsdPriceFeed": ""
         },
