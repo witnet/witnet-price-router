@@ -222,7 +222,7 @@
     },
     "meter": {
         "meter.testnet": {
-            "MtrgUsdtPriceFeed": "",
+            "MtrgUsdtPriceFeed": "0xA3DdC9FC9A80C34B878Af9492EaF997973460Df6",
             "MtrUsdtPriceFeed": "0xA48d67fC09E376C6752F4dD7fca259F635fdcD32"
         },
         "meter.mainnet": {
