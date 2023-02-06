@@ -16,12 +16,12 @@ const coinone = new Witnet.Source("https://api.coinone.co.kr/public/v2/ticker_ne
   .multiply(10 ** 3)
   .round()
 
-// Filters out any value that is more than 1.5 times the standard
+// Filters out any value that is more than 1.4 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
 const aggregator = new Witnet.Aggregator({
   filters: [
-    [Witnet.Types.FILTERS.deviationStandard, 1.5],
+    [Witnet.Types.FILTERS.deviationStandard, 1.4],
   ],
   reducer: Witnet.Types.REDUCERS.averageMean,
 })

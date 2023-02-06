@@ -35,12 +35,12 @@ const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/algou
   .multiply(10 ** 6)
   .round()
 
-// Filters out any value that is more than 1.5 times the standard
+// Filters out any value that is more than 1.4 times the standard
 // deviation away from the average, then computes the average mean of the
 // values that pass the filter.
 const aggregator = new Witnet.Aggregator({
   filters: [
-    [Witnet.Types.FILTERS.deviationStandard, 1.5],
+    [Witnet.Types.FILTERS.deviationStandard, 1.4],
   ],
   reducer: Witnet.Types.REDUCERS.averageMean,
 })

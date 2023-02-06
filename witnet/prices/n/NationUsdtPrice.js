@@ -26,12 +26,12 @@ const uniswap = new Witnet.GraphQLSource(
 .multiply(10 ** 6) // Use 6 digit precision
 .round() // Cast to integer
 
-// Filters out any value that is more than 1.5 times the standard
+// Filters out any value that is more than 1.4 times the standard
 // deviationaway from the average, then computes the average mean of the
 // values that pass the filter.
 const aggregator = new Witnet.Aggregator({
   filters: [
-    [Witnet.Types.FILTERS.deviationStandard, 1.5],
+    [Witnet.Types.FILTERS.deviationStandard, 1.4],
   ],
   reducer: Witnet.Types.REDUCERS.averageMean,
 })
