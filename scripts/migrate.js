@@ -35,8 +35,11 @@ migrate(network)
 
 async function migrate (network) {
   console.log(`> Migrating from ${process.env.FLATTENED_DIRECTORY} into network '${network}'...`)
-  var updateAll = false
-  process.argv.map(argv => { if (argv === "--update-all") updateAll = true })
+  let updateAll = false
+  process.argv.map(argv => {
+    if (argv === "--update-all") updateAll = true
+    return argv
+  })
   return new Promise((resolve) => {
     const subprocess = require("child_process").spawn(
       "truffle",
@@ -46,7 +49,7 @@ async function migrate (network) {
         "--reset",
         "--network",
         network,
-        updateAll ? "--update-all" : ""
+        updateAll ? "--update-all" : "",
       ],
       {
         shell: true,
