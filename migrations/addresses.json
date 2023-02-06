@@ -106,22 +106,22 @@
         "cronos.testnet": {
             "AdaUsdPriceFeed": "0x09202429058f41763eE68173f01b69d805ae6EC0",
             "AlgoUsdPriceFeed": "0xD26c187AD0358cEd89106613bc86ba29a3ccfF1c",
-            "ApeUsdPriceFeed": "0x766CA0b5456bc41B09005a2BD2644F81dB46c439",
-            "AtomUsdPriceFeed": "0x046db6364bca700f3761FbCa481F5e89F6e91A85",
+            "ApeUsdPriceFeed": "",
+            "AtomUsdPriceFeed": "",
             "AvaxUsdPriceFeed": "0xbA516144CAaF840502C5D0B74026B1987ecA82E6",
             "BtcUsdPriceFeed": "0xb49DdA423A3f386BDDc26cC81362d1b5614f7F9e",
             "CroUsdPriceFeed": "0x60F9Fd21b5ff7F83Cc7a94d4dD2BE43876570EDc",
             "CroUsdtPriceFeed": "0x5Ff116024EF7adb8f10dD8bDb617B0880240A3e1",
             "DaiUsdPriceFeed": "0xEb73F83F1967A6D05b8908926A78FB1422292140",
-            "DogeUsdPriceFeed": "0xbD769f4F4A7a9DB103FeF9e95c35255cE9D5eAA3",
-            "DotUsdPriceFeed": "0xee7749ceffa2de196E2A4Dd3d484cA9E74fc74cd",
+            "DogeUsdPriceFeed": "",
+            "DotUsdPriceFeed": "",
             "ElonUsdPriceFeed": "0x77A87f3A0f71A69D32E59A8ebBa34aBD90EB8cd9",
             "ElonUsdtPriceFeed": "0x49DF2856a5A668de64df1B7b1fA1e6b580AbFB5a",
-            "EosUsdPriceFeed": "0x6c9D0B318A0dC43e3a8C0ACF3B85f8BeED7622FF",
+            "EosUsdPriceFeed": "",
             "EthUsdPriceFeed": "0x78d36963838d4d74c782F6dd99b01c6633A2f3F3",
-            "LinkUsdPriceFeed": "0xF4cC3182b5a1653EB78C88FcE0B26f24C9c8b7fD",
+            "LinkUsdPriceFeed": "",
             "MaticUsdPriceFeed": "0xe111E7F5FBa2C1D041bAED3ED226C537354aBA0b",
-            "ShibUsdPriceFeed": "0x4AcB06e97e061846600E96be54C1cC14Cf470642",
+            "ShibUsdPriceFeed": "",
             "SolUsdPriceFeed": "0xC4155A6981Fdb309c0008eB165e8AA3db95eE95D",
             "TusdUsdPriceFeed": "0xD23337371a57f2273141b8D6e813e8c545932e94",
             "UsdcUsdPriceFeed": "0x7a9705012935F03BC92AA321a4d71B3D9ef834a1",
@@ -152,7 +152,7 @@
     },
     "dogechain": {
         "dogechain.testnet": {
-            "DogeUsdPriceFeed": "0xA368b444D554F669D139045FAD273fDc8DCB34FD"
+            "DogeUsdPriceFeed": ""
         },
         "dogechain.mainnet": {
             "DogeUsdPriceFeed": ""
@@ -206,8 +206,8 @@
         "klaytn.testnet": {
             "KlayUsdPriceFeed": "0x9C9c45162e8aa238c3d6B05BFc085D99f6B73CE8",
             "KlayUsdtPriceFeed": "0x0191f80396beF097d4f866600407F9Ba292FD673",
-            "KrwUsdPriceFeed": "0x4ce5f5eC6e3bf27345a8Ceaf10993806A403567B",
-            "KspKrwPriceFeed": "0xAfdcAA9D5FC049214Fe2570b57849343e8022220",
+            "KrwUsdPriceFeed": "",
+            "KspKrwPriceFeed": "",
             "KspUsdPriceFeed": "0xb4ff1f559e0cD3d955D62996Ae79e5a2a207bf8A",
             "UsdtUsdPriceFeed": "0x5d3c4D017a597E7A1037F2D2a86d75526Ea33FF0"
         },
@@ -222,7 +222,7 @@
     },
     "meter": {
         "meter.testnet": {
-            "MtrgUsdtPriceFeed": "0x25Ecb392895eA45e28Cf5dc978F7779e04FB5BF8",
+            "MtrgUsdtPriceFeed": "",
             "MtrUsdtPriceFeed": "0xA48d67fC09E376C6752F4dD7fca259F635fdcD32"
         },
         "meter.mainnet": {
@@ -251,7 +251,7 @@
             "UsdtUsdPriceFeed": "0x121583B688eab45D15910cD74516471e934f728C"
         },
         "moonbeam.moonriver": {
-            "MovrUsdtPriceFeed": "",
+            "MovrUsdtPriceFeed":  "",
             "UsdcUsdPriceFeed": "",
             "UsdtUsdPriceFeed": ""
         },
@@ -270,7 +270,7 @@
     },
     "okxchain": {
         "okxchain.testnet": {
-            "OktUsdtPriceFeed": "0x77E1dE5aa986bA4A4D4399955A6C8C138E4b97fa",
+            "OktUsdtPriceFeed": "",
             "UsdtUsdPriceFeed": "0x7E14f7B3bd4EcF232Da96A78Aa8Cf9B8b239ad30"
         }
     },
