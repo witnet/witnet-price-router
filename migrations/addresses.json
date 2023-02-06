@@ -106,7 +106,7 @@
         "cronos.testnet": {
             "AdaUsdPriceFeed": "0x09202429058f41763eE68173f01b69d805ae6EC0",
             "AlgoUsdPriceFeed": "0xD26c187AD0358cEd89106613bc86ba29a3ccfF1c",
-            "ApeUsdPriceFeed": "0x766CA0b5456bc41B09005a2BD2644F81dB46c439",
+            "ApeUsdPriceFeed": "",
             "AtomUsdPriceFeed": "0x046db6364bca700f3761FbCa481F5e89F6e91A85",
             "AvaxUsdPriceFeed": "0xbA516144CAaF840502C5D0B74026B1987ecA82E6",
             "BtcUsdPriceFeed": "0xb49DdA423A3f386BDDc26cC81362d1b5614f7F9e",

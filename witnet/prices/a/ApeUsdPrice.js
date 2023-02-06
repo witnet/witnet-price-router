@@ -52,7 +52,7 @@ const tally = new Witnet.Tally({
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
   .addSource(coinbase)
-  .addSource(binance)
+  // .addSource(binance)
   .addSource(kraken)
   .setAggregator(aggregator) // Set the aggregator function
   .setTally(tally) // Set the tally function
