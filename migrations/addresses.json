@@ -206,8 +206,8 @@
         "klaytn.testnet": {
             "KlayUsdPriceFeed": "0x9C9c45162e8aa238c3d6B05BFc085D99f6B73CE8",
             "KlayUsdtPriceFeed": "0x0191f80396beF097d4f866600407F9Ba292FD673",
-            "KrwUsdPriceFeed": "",
-            "KspKrwPriceFeed": "",
+            "KrwUsdPriceFeed": "0x063B598C83b72Bb4722858fA69B3802c4a2D3387",
+            "KspKrwPriceFeed": "0xfb97aD2e13581648639447dE7F14476C997B5FC6",
             "KspUsdPriceFeed": "0xb4ff1f559e0cD3d955D62996Ae79e5a2a207bf8A",
             "UsdtUsdPriceFeed": "0x5d3c4D017a597E7A1037F2D2a86d75526Ea33FF0"
         },
