@@ -9,11 +9,11 @@ const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/matic
   .round()
 
 // Retrieve MATIC/USD-6 price from the Binance HTTP-GET API
-    const binance = new Witnet.Source("https://api.binance.us/api/v3/ticker/price?symbol=MATICUSD")
-      .parseJSONMap()
-      .getFloat("price")
-      .multiply(10 ** 6)
-      .round()
+const binance = new Witnet.Source("https://api.binance.us/api/v3/ticker/price?symbol=MATICUSD")
+  .parseJSONMap()
+  .getFloat("price")
+  .multiply(10 ** 6)
+  .round()
 
 // Retrieve MATIC/USD-6 price from Coinbase
 const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?currency=USD")
@@ -58,7 +58,7 @@ const tally = new Witnet.Tally({
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
   .addSource(bitstamp)
-  .addSource(binance)
+  // .addSource(binance)
   .addSource(coinbase)
   .addSource(kraken)
   .setAggregator(aggregator) // Set the aggregator function
