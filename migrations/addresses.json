@@ -152,10 +152,10 @@
     },
     "dogechain": {
         "dogechain.testnet": {
-            "DogeUsdPriceFeed": "0xA368b444D554F669D139045FAD273fDc8DCB34FD"
+            "DogeUsdPriceFeed": "0xAAfF7B8F14883619C17db08B0193436401E77D0A"
         },
         "dogechain.mainnet": {
-            "DogeUsdPriceFeed": ""
+            "DogeUsdPriceFeed": "0x01673796C51EDfFba3EAb7bf308bEA352D73A017"
         }
     },
     "kava": {
