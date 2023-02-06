@@ -57,7 +57,7 @@ const tally = new Witnet.Tally({
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
   .addSource(bittrex)
-  .addSource(binance)
+  // .addSource(binance)
   .addSource(coinbase)  
   .addSource(okex)
   .setAggregator(aggregator) // Set the aggregator function
