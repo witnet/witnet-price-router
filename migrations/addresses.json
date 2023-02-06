@@ -152,7 +152,7 @@
     },
     "dogechain": {
         "dogechain.testnet": {
-            "DogeUsdPriceFeed": ""
+            "DogeUsdPriceFeed": "0xcFE4c3D365906a5bFF7e076f07F39d9effb00447"
         },
         "dogechain.mainnet": {
             "DogeUsdPriceFeed": ""
