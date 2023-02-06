@@ -112,7 +112,7 @@
             "BtcUsdPriceFeed": "",
             "CroUsdPriceFeed": "0x60F9Fd21b5ff7F83Cc7a94d4dD2BE43876570EDc",
             "CroUsdtPriceFeed": "0x5Ff116024EF7adb8f10dD8bDb617B0880240A3e1",
-            "DaiUsdPriceFeed": "0xEb73F83F1967A6D05b8908926A78FB1422292140",
+            "DaiUsdPriceFeed": "",
             "DogeUsdPriceFeed": "0xbD769f4F4A7a9DB103FeF9e95c35255cE9D5eAA3",
             "DotUsdPriceFeed": "0xee7749ceffa2de196E2A4Dd3d484cA9E74fc74cd",
             "ElonUsdPriceFeed": "0x77A87f3A0f71A69D32E59A8ebBa34aBD90EB8cd9",
@@ -144,7 +144,7 @@
             "BtcUsdPriceFeed": "",
             "CubeUsdPriceFeed": "0x0C4be6AA667df48de54BA174bE7948875fdf152B",
             "CubeUsdtPriceFeed": "0x52DB5c7067139e84ff3eEd6928a39b0a343ce6a1",
-            "DaiUsdPriceFeed": "0x806f9a780BDECd6c51F0F33715eb5152d682AB28",
+            "DaiUsdPriceFeed": "",
             "EthUsdPriceFeed": "0x0F551C4426Ed65752aA56B7473DC841e1CaE1de7",
             "UsdcUsdPriceFeed": "0x13B912E6f375320fe1D4d2d3A97c87de40616B85",
             "UsdtUsdPriceFeed": "0x715E592Ba9E5c13B819f6dD5c03A89ceDbb2CC85"
@@ -180,7 +180,7 @@
         "kcc.testnet": {
             "BoringUsdtPriceFeed": "0x13347aBd48aEbDe9401aBb8d1b395f480c92612E",
             "BtcUsdPriceFeed": "",
-            "DaiUsdPriceFeed": "0x7A18bc04Bb9c90f6B253c7Cc697F52DC271A80D9",
+            "DaiUsdPriceFeed": "",
             "EthUsdPriceFeed": "0xcb596dE79cdc60B16d61af02F0e5FB73deF05032",
             "KcsUsdtPriceFeed": "0xD2B62124d28054970aFb5097b581bd93e711d94C",
             "KswUsdPriceFeed": "0x58f0eA0616b9bB2243F1d3E0372084b4b35271a4",
@@ -285,7 +285,7 @@
     "polygon": {
         "polygon.goerli": {
             "BtcUsdPriceFeed": "",
-            "DaiUsdPriceFeed": "0xE09A3EB4841A0a96B910d1147233EEB31ff917CA",
+            "DaiUsdPriceFeed": "",
             "EthUsdPriceFeed": "0x8f2885e79364703B414994f986889C00fC869fC5",
             "MaticUsdPriceFeed": "0x98C1232922A16F0D13682e40417F8aE178C0B027",
             "QuickUsdPriceFeed": "0xd5bAd0e3918AaDFA907cA944A598be86d5C67D47",
