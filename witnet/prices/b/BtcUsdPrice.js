@@ -70,7 +70,7 @@ const tally = new Witnet.Tally({
 
 // This is the Witnet.Request object that needs to be exported
 const request = new Witnet.Request()
-  .addSource(binance)
+  // .addSource(binance)
   .addSource(bitfinex)
   .addSource(bitstamp)
   .addSource(bittrex)
