@@ -161,6 +161,7 @@
     "kava": {
         "kava.testnet": {
             "BtcUsdPriceFeed": "0xfb3B23e295E5ce4012c134E337B3aEF7B549dfA6",
+            "DaiUsdPrice": "",
             "EthUsdPriceFeed": "0x80FdB3fB0370514F8b0e262fFA57ef907F36a1B8",
             "KavaUsdPriceFeed": "0xAf89a59876145202a027E73340592F05B28A6D99",
             "KavaUsdtPriceFeed": "0xc6b8c76007AeCc8a77A7c13E283bE2A0A9D51Ed7",
@@ -169,6 +170,7 @@
         },
         "kava.mainnet": {
             "BtcUsdPriceFeed": "",
+            "DaiUsdPrice": "",
             "EthUsdPriceFeed": "",
             "KavaUsdPriceFeed": "0x4F861288D48dBB8d71B4e03f6748263b13294420",
             "KavaUsdtPriceFeed": "",
