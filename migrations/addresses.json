@@ -302,6 +302,11 @@
             "DaiUsdPriceFeed": "0xB7B2302799B40aae09b5ff9Fe79CEC2AE6dbEA2e",
             "EthUsdPriceFeed": "0x0541F2746A05C58CBf04f2935f8c3Eb7e06Ab3E7",
             "MaticUsdPriceFeed": "0xEEd0d8E685b9989C91242d018778129c2FA8C81c",
+            "QuickUsdPriceFeed": "0x31c526E9A120F7d1037bE268563bd226Cf509B85",
+            "QuickUsdcPriceFeed": "0x0aE9CC88560307f80cDC1194e8f13f07762E0e0f",
+            "QuickWethPriceFeed": "0xF25112188702685b36660f687e4E5dab0FfbdDB7",
+            "QuickWmaticPriceFeed": "0xa5BDf0040d3BB326d8Dab20F466b966159e86DfD",
+            "UsdcUsdPriceFeed": "0xaDF2115f97348cF663C0ba4d659AfFeC469611eD",
             "VsqDaiPriceFeed": "0xc09a1ecFbcb1A18D29C2c5E72c779EA167243191"
         }
     },
