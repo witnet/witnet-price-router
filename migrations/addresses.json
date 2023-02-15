@@ -298,16 +298,11 @@
             "VsqDaiPriceFeed": "0x844177258C389d74b36e0D56Db814EEfCa9f070b"
         },
         "polygon.mainnet": {
-            "BtcUsdPriceFeed": "",
-            "DaiUsdPriceFeed": "",
-            "EthUsdPriceFeed": "",
-            "MaticUsdPriceFeed": "",
-            "QuickUsdPriceFeed": "",
-            "QuickUsdcPriceFeed": "",
-            "QuickWethPriceFeed": "",
-            "QuickWmaticPriceFeed": "",
-            "UsdcUsdPriceFeed": "",
-            "VsqDaiPriceFeed": ""
+            "BtcUsdPriceFeed": "0xC22989AFB342265fbed22Aa994582f2FCfd668Bd",
+            "DaiUsdPriceFeed": "0xB7B2302799B40aae09b5ff9Fe79CEC2AE6dbEA2e",
+            "EthUsdPriceFeed": "0x0541F2746A05C58CBf04f2935f8c3Eb7e06Ab3E7",
+            "MaticUsdPriceFeed": "0xEEd0d8E685b9989C91242d018778129c2FA8C81c",
+            "VsqDaiPriceFeed": "0xc09a1ecFbcb1A18D29C2c5E72c779EA167243191"
         }
     },
     "reef": {
