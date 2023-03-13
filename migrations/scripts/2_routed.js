@@ -6,7 +6,7 @@ const addresses = require("../addresses")
 const queries = require("../witnet-queries")
 const settings = require("../settings")
 
-module.exports = async function (deployer, network) {
+module.exports = async function (deployer, network, [, from]) {
   const [realm, chain] = utils.getRealmNetworkFromString(network.split("-")[0])
   const isDryRun = network.split("-")[1] === "fork"
   if (chain !== "test" && chain.split(".")[1] !== "test") {
@@ -48,7 +48,7 @@ module.exports = async function (deployer, network) {
           // If no bytecode is found, there should be a compiled artifact named as `exampleName + "Feed"`
           // and inherited from "WitnetPriceFeedRouted", that will be deployed instead of a regular WitnetPriceFeed:
           const WitnetPriceFeedRouted = artifacts.require(contract_name)
-          const contract = await deployer.deploy(WitnetPriceFeedRouted, router.address)
+          const contract = await deployer.deploy(WitnetPriceFeedRouted, router.address, { from })
           contract_address = contract.address
 
           console.log("   > Artifact name:\t  \"" + contract_name + "\"")
@@ -84,7 +84,8 @@ module.exports = async function (deployer, network) {
                 contract_address,
                 pf.decimals,
                 pf.base,
-                pf.quote
+                pf.quote,
+                { from }
               )
               console.log("     > Done.")
             }

@@ -9,7 +9,7 @@ const utils = require("../../scripts/utils")
 
 const WitnetRequestBoard = artifacts.require("WitnetRequestBoard")
 
-module.exports = async function (deployer, network) {
+module.exports = async function (deployer, network, [, from]) {
 
   const [realm, chain] = utils.getRealmNetworkFromString(network.split("-")[0])
 
@@ -36,8 +36,8 @@ module.exports = async function (deployer, network) {
     const addr = addresses[realm][chain][feed]
     if (addr && queries[key]?.bytecode) {
       const contract = await WitnetPriceFeed.at(addr)        
-      const queryId = await contract.latestQueryId()
-      const pending = await contract.pendingUpdate()
+      const queryId = await contract.latestQueryId.call()
+      const pending = await contract.pendingUpdate.call()
       const dryrun = exec(`npx witnet-toolkit try-query --hex ${queries[key]?.bytecode} | tail -n 2 | head -n 1 | awk -F: '{ print $2 }' | sed 's/ //g' | tr -d \"│\"`).toString().split('\n')[0]
       process.stdout.write(`${feed}${feed.length > 15 ? "\t\t" : "\t\t\t"}${addr}\t`)
       process.stdout.write(`${queryId}\t${pending}\t`)
@@ -55,7 +55,7 @@ module.exports = async function (deployer, network) {
   if (batch.length > 0) {
     let answer = (await utils.prompt(`\nForcely update pending feeds (${batch.length})? [y/N] `)).toLowerCase().trim()
     if (["y", "yes"].includes(answer)) {
-      const tx = await wrb.reportResultBatch(batch, true, { gas: 4000000 })
+      const tx = await wrb.reportResultBatch(batch, true, { gas: 4000000 }, { from })
       console.log()
       tx.logs.map(log => console.log(`  => ${log.event}(${log.args[0].toString()}, ${log.args[1]})`))
     }

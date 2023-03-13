@@ -6,10 +6,10 @@ const addresses = require("../addresses")
 const queries = require("../witnet-queries")
 const settings = require("../settings")
 
-module.exports = async function (deployer, network) {
+module.exports = async function (deployer, network, [, from]) {
   const [realm, chain] = utils.getRealmNetworkFromString(network.split("-")[0])
   if (chain !== "test" && chain.split(".")[1] !== "test") {
-    await revisitPriceFeeds(deployer, realm, chain, network.split("-")[1] === "fork")
+    await revisitPriceFeeds(deployer, from, realm, chain, network.split("-")[1] === "fork")
   }
   else {
     if (realm !== "default") {
@@ -33,7 +33,7 @@ module.exports = async function (deployer, network) {
   }
 }
 
-async function revisitPriceFeeds (deployer, realm, chain, isDryRun) {
+async function revisitPriceFeeds (deployer, from, realm, chain, isDryRun) {
 
   var updateAll = false
   process.argv.map((argv) => {
@@ -96,7 +96,8 @@ async function revisitPriceFeeds (deployer, realm, chain, isDryRun) {
         const contract = await deployer.deploy(
           WitnetPriceFeed,
           witnetAddresses.WitnetRequestBoard,
-          pf.bytecode
+          pf.bytecode, 
+          { from }
         )
         console.log("   > Artifact name:\t  \"" + artifactNames.WitnetPriceFeed + "\"")
         console.log("   > Contract name:\t  \"" + WitnetPriceFeed.contractName + "\"")
@@ -138,7 +139,8 @@ async function revisitPriceFeeds (deployer, realm, chain, isDryRun) {
               WitnetPriceFeed.address,
               pf.decimals,
               pf.base,
-              pf.quote
+              pf.quote,
+              { from }
             )
             console.log("     > Done.")
           }
