@@ -308,11 +308,11 @@
         }
     },
     "scroll": {
-        "scroll.alpha": {
-            "BtcUsdPriceFeed": "",
-            "EthUsdPriceFeed": "",
-            "UniUsdPriceFeed": "",
-            "UsdcUsdPriceFeed": ""
+        "scroll.goerli": {
+            "BtcUsdPriceFeed": "0xA8f0487eaf3640e30F472b815A45a7d4e96f18CB",
+            "EthUsdPriceFeed": "0x8D20457d968c937b7cb65be6B8cC766613fBcF28",
+            "UniUsdPriceFeed": "0x7de5fE2458b198A0Fe9B557bC485825A10978cf9",
+            "UsdcUsdPriceFeed": "0xB1Ee13a85B2593D5191f3a2A08f175b1c918B9bb"
         }
     },
     "smartbch": {
