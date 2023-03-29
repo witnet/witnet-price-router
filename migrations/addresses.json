@@ -148,6 +148,11 @@
             "DogeUsdPriceFeed": "0x7Ea678710F0086353EFf5Bdc9286E8B4908c520e"
         }
     },
+    "elastos": {
+        "elastos.testnet": {
+            "ElaUsdtPriceFeed": "0x620e20d91C9b0e11ecAE439E7b85138DA2a1003F"
+        }
+    },
     "kava": {
         "kava.testnet": {
             "BtcUsdPriceFeed": "0xfb3B23e295E5ce4012c134E337B3aEF7B549dfA6",
