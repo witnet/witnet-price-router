@@ -23,7 +23,7 @@
     "flatten": "npm run clean:flattened && node ./scripts/flatten.js contracts/ 2>&1 && node ./scripts/flatten.js contracts/routed/ 2>&1",
     "fmt": "solhint --max-warnings 0 \"contracts/**/*.sol\" && eslint ./test && eslint ./scripts/*.js && solhint \"test/**/*.sol\"",
     "fmt!": "solhint --max-warnings 0 \"contracts/**/*.sol\" --fix && eslint ./test --fix && eslint ./scripts/*.js --fix && solhint \"test/**/*.sol\" --fix",
-    "ops:force:feeds": "truffle migrate --reset --migrations_directory ./migrations/ops --network",
+    "ops:force:feeds": "truffle migrate --reset --migrations_directory ./migrations/ops/feeds/update --network",
     "migrate": "npm run clean:build && node ./scripts/migrate.js 2>&1",
     "test": "npx truffle test",
     "try-query:hex": "npx witnet-toolkit try-query --hex",

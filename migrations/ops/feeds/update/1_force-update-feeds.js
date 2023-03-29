@@ -2,10 +2,10 @@ const cbor = require("cbor")
 const exec = require("child_process").execSync
 const { merge } = require("lodash")
 
-const addresses = require("../addresses")
-const queries = require("../witnet-queries")
-const settings = require("../settings")
-const utils = require("../../scripts/utils")
+const addresses = require("../../../addresses")
+const queries = require("../../../witnet-queries")
+const settings = require("../../../settings")
+const utils = require("../../../../scripts/utils")
 
 const WitnetRequestBoard = artifacts.require("WitnetRequestBoard")
 
