@@ -61,6 +61,7 @@
             "CeloEurPriceFeed": "0x30e7D86b3DcdC0CC90509b1F7C27eA8e5481FAc5",
             "CeloUsdPriceFeed": "0x5832e99368877a63dd1c2cea941C2b43E1F6b16A",
             "EthUsdPriceFeed": "0x49dbaA6eE184Da1bCAba0764B5Daa363d49b3fe5",
+            "ImmoMcusdPriceFeed": "0x0e4F5763f417BB13AF759da4d36af50d13F02730",
             "NctCeloPriceFeed": "0x5FB499336aee67EC1183F49A8265CC3E2599C2ae",
             "NctUsdPriceFeed": "0x8b789377FC4e98911dF419DBBe9d46D23adbF451"
         }
