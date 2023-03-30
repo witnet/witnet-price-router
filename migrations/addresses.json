@@ -150,7 +150,7 @@
     },
     "elastos": {
         "elastos.testnet": {
-            "ElaUsdtPriceFeed": "0x620e20d91C9b0e11ecAE439E7b85138DA2a1003F"
+            "ElaUsdtPriceFeed": "0xB4f1f8E27799256ec95C5b5A8d2A5722Bd542E69"
         }
     },
     "kava": {
