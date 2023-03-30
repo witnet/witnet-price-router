@@ -3,17 +3,16 @@ pragma solidity >=0.7.0 <0.9.0;
 pragma experimental ABIEncoderV2;
 
 import "witnet-solidity-bridge/contracts/UsingWitnet.sol";
-import "witnet-solidity-bridge/contracts/requests/WitnetRequest.sol";
-
-// force WitnetPriceRouter artifact generation on deployment
-import "witnet-solidity-bridge/contracts/apps/WitnetPriceRouter.sol";
+import "witnet-solidity-bridge/contracts/interfaces/IERC165.sol";
+import "witnet-solidity-bridge/contracts/interfaces/IWitnetPriceFeed.sol";
+import "witnet-solidity-bridge/contracts/requests/WitnetRequestBase.sol";
 
 // Your contract needs to inherit from UsingWitnet
 contract WitnetPriceFeed
     is
         IWitnetPriceFeed,
         UsingWitnet,
-        WitnetRequest
+        WitnetRequestBase
 {
     using Witnet for bytes;
 
@@ -31,7 +30,7 @@ contract WitnetPriceFeed
             bytes memory _witnetRequestBytecode
         )
         UsingWitnet(_witnetRequestBoard)
-        WitnetRequest(_witnetRequestBytecode)
+        WitnetRequestBase(_witnetRequestBytecode)
     {}
 
     /// Estimates minimum fee amount in native currency to be paid when
@@ -60,12 +59,12 @@ contract WitnetPriceFeed
         ) {
             _result = witnet.readResponseResult(_latestQueryId);
             if (_result.success) {
-                return int256(int64(witnet.asUint64(_result)));
+                return int256(witnet.asUint64(_result));
             }
         }
         if (__lastValidQueryId > 0) {
             _result = witnet.readResponseResult(__lastValidQueryId);
-            return int256(int64(witnet.asUint64(_result)));
+            return int256(witnet.asUint64(_result));
         }
     }
 
@@ -118,7 +117,7 @@ contract WitnetPriceFeed
                 Witnet.Result memory _latestResult = witnet.resultFromCborBytes(_latestResponse.cborBytes);
                 if (_latestResult.success) {
                     return (
-                        int256(int64(witnet.asUint64(_latestResult))),
+                        int256(witnet.asUint64(_latestResult)),
                         _latestResponse.timestamp,
                         _latestResponse.drTxHash,
                         200
@@ -129,7 +128,7 @@ contract WitnetPriceFeed
                 Witnet.Response memory _lastValidResponse = witnet.readResponse(__lastValidQueryId);
                 Witnet.Result memory _lastValidResult = witnet.resultFromCborBytes(_lastValidResponse.cborBytes);
                 return (
-                    int256(int64(witnet.asUint64(_lastValidResult))),
+                    int256(witnet.asUint64(_lastValidResult)),
                     _lastValidResponse.timestamp,
                     _lastValidResponse.drTxHash,
                     _completed ? 400 : 404
