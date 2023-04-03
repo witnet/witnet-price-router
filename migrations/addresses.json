@@ -281,8 +281,8 @@
     },
     "polygon": {
         "polygon.goerli": {
-            "BatUsdPriceFeed": "",
-            "BatUsdtPriceFeed": "",
+            "BatUsdPriceFeed": "0xe381f706f2932049A844791f41b2863884c4e6CA",
+            "BatUsdtPriceFeed": "0x4164402ce3559316f2C792cd09214Dc586475C6D",
             "BtcUsdPriceFeed": "0x7A5F9D7B2a5b6ba54984FeAA4492c8E07f08c254",
             "DaiUsdPriceFeed": "0xE09A3EB4841A0a96B910d1147233EEB31ff917CA",
             "EthUsdPriceFeed": "0x8f2885e79364703B414994f986889C00fC869fC5",
@@ -292,7 +292,7 @@
             "QuickWethPriceFeed": "0xc1F1367ff3caEb8BB45c7deE5Cc9f8C6b3cEF53a",
             "QuickWmaticPriceFeed": "0xc3f15B02bFeeb540Fa79D05e44c40c186F2bcFF7",
             "UsdcUsdPriceFeed": "0x6477d16206789347898b1aA135EDB1f56A351196",
-            "UsdtUsdPriceFeed": "",     
+            "UsdtUsdPriceFeed": "0x1aaD03ECfb062A0Af5FAc0276791621740b1CE56",
             "VsqDaiPriceFeed": "0x844177258C389d74b36e0D56Db814EEfCa9f070b"
         },
         "polygon.mainnet": {
