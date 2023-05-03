@@ -11,7 +11,7 @@
     "avail": "npm run avail:networks && npm run avail:feeds",
     "avail:feeds": "node ./scripts/avail-feeds.js 2>&1",
     "avail:networks": "node ./scripts/avail-networks.js 2>&1",
-    "console": "npx truffle console",
+    "console": "npx truffle console --network",
     "clean": "npm run clean:build && npm rum clean:flattened",
     "clean:build": "node ./scripts/clean.js build/",
     "clean:flattened": "node ./scripts/clean.js flattened/",
@@ -23,8 +23,8 @@
     "flatten": "npm run clean:flattened && node ./scripts/flatten.js contracts/ 2>&1 && node ./scripts/flatten.js contracts/routed/ 2>&1",
     "fmt": "solhint --max-warnings 0 \"contracts/**/*.sol\" && eslint ./test && eslint ./scripts/*.js && solhint \"test/**/*.sol\"",
     "fmt!": "solhint --max-warnings 0 \"contracts/**/*.sol\" --fix && eslint ./test --fix && eslint ./scripts/*.js --fix && solhint \"test/**/*.sol\" --fix",
-    "ops:force:feeds": "truffle migrate --reset --migrations_directory ./migrations/ops/feeds/update --network",
     "migrate": "npm run clean:build && node ./scripts/migrate.js 2>&1",
+    "ops:force:feeds": "truffle migrate --reset --migrations_directory ./migrations/ops/feeds/update --network",
     "test": "npx truffle test",
     "try-query:hex": "npx witnet-toolkit try-query --hex",
     "try-query:js": "npx witnet-toolkit try-query --from-javascript",
@@ -36,7 +36,7 @@
     "ado-contracts": "^1.0.0",
     "lodash": "^4.17.21",
     "openzeppelin-solidity": "^2.4.0",
-    "witnet-solidity-bridge": "https://github.com/guidiaz/witnet-solidity-bridge#8e7c3cddeb0eaf86777ddc5c7ae68ab2a2de3a58"
+    "witnet-solidity-bridge": "https://github.com/witnet/witnet-solidity-bridge#0.7.x"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
