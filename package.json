@@ -1,6 +1,6 @@
 {
   "name": "witnet-price-feeds",
-  "version": "0.7.1",
+  "version": "0.7.5",
   "description": "This repository contains the price feeds currently mantained by the Witnet Foundation within all the EVM-compatible networks supported by the Witnet oracle",
   "main": "",
   "repository": "https://github.com/witnet/witnet-price-feeds",
