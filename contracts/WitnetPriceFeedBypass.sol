@@ -75,8 +75,8 @@ contract WitnetPriceFeedBypass
         external view
         returns (uint256)
     {
-        Witnet.Response memory _response = feeds.latestResponse(feedId);
-        return _response.timestamp;
+        IWitnetPriceSolver.Price memory _price = feeds.latestPrice(feedId);
+        return _price.timestamp;
     }
 
     /// @notice Returns tuple containing last valid price and timestamp, as well as status code of latest update
@@ -124,8 +124,8 @@ contract WitnetPriceFeedBypass
         external view
         returns (bytes32)
     {
-        Witnet.Response memory _response = feeds.latestUpdateResponse(feedId);
-        return _response.drTxHash;
+        IWitnetPriceSolver.Price memory _price = feeds.latestPrice(feedId);
+        return _price.drTxHash;
     }
 
     /// @notice Returns error message of latest update request posted to the Witnet Request Board.
