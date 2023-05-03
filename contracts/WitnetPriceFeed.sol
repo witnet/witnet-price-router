@@ -3,6 +3,7 @@ pragma solidity >=0.7.0 <0.9.0;
 pragma experimental ABIEncoderV2;
 
 import "witnet-solidity-bridge/contracts/UsingWitnet.sol";
+
 import "witnet-solidity-bridge/contracts/interfaces/IERC165.sol";
 import "witnet-solidity-bridge/contracts/interfaces/IWitnetPriceFeed.sol";
 import "witnet-solidity-bridge/contracts/requests/WitnetRequestBase.sol";
@@ -14,7 +15,7 @@ contract WitnetPriceFeed
         UsingWitnet,
         WitnetRequestBase
 {
-    using Witnet for bytes;
+    using Witnet for Witnet.Result;
 
     /// Stores the ID of the last price update posted to the Witnet Request Board.
     uint256 public override latestQueryId;
@@ -51,20 +52,15 @@ contract WitnetPriceFeed
         virtual override
         returns (int256 _lastPrice)
     {
-        Witnet.Result memory _result;
         uint _latestQueryId = latestQueryId;
         if (
             _latestQueryId > 0
-                && _witnetCheckResultAvailability(_latestQueryId)
+                && witnet.checkResultStatus(_latestQueryId) == Witnet.ResultStatus.Ready
         ) {
-            _result = witnet.readResponseResult(_latestQueryId);
-            if (_result.success) {
-                return int256(witnet.asUint64(_result));
-            }
+            return int(witnet.readResponseResult(_latestQueryId).asUint());
         }
         if (__lastValidQueryId > 0) {
-            _result = witnet.readResponseResult(__lastValidQueryId);
-            return int256(witnet.asUint64(_result));
+            return int(witnet.readResponseResult(__lastValidQueryId).asUint());
         }
     }
 
@@ -74,22 +70,15 @@ contract WitnetPriceFeed
         virtual override
         returns (uint256 _lastTimestamp)
     {
-        Witnet.Result memory _result;
-        Witnet.Response memory _response;
         uint _latestQueryId = latestQueryId;
         if (
             _latestQueryId > 0
-                && _witnetCheckResultAvailability(_latestQueryId)
+                && witnet.checkResultStatus(_latestQueryId) == Witnet.ResultStatus.Ready
         ) {
-            _response = witnet.readResponse(_latestQueryId);
-            _result = witnet.resultFromCborBytes(_response.cborBytes);
-            if (_result.success) {
-                return _response.timestamp;
-            }
+            return witnet.readResponseTimestamp(_latestQueryId);
         }
         if (__lastValidQueryId > 0) {
-            _response = witnet.readResponse(__lastValidQueryId);
-            return _response.timestamp;
+            return witnet.readResponseTimestamp(__lastValidQueryId);
         }
     }
 
@@ -109,29 +98,24 @@ contract WitnetPriceFeed
             uint _latestUpdateStatus
         )
     {
-        uint _latestQueryId = latestQueryId;
-        if (_latestQueryId > 0) {
-            bool _completed = _witnetCheckResultAvailability(_latestQueryId);
-            if (_completed) {
-                Witnet.Response memory _latestResponse = witnet.readResponse(_latestQueryId);
-                Witnet.Result memory _latestResult = witnet.resultFromCborBytes(_latestResponse.cborBytes);
-                if (_latestResult.success) {
-                    return (
-                        int256(witnet.asUint64(_latestResult)),
-                        _latestResponse.timestamp,
-                        _latestResponse.drTxHash,
-                        200
-                    );
-                }
+        if (latestQueryId > 0) {
+            Witnet.ResultStatus _latestResultStatus = witnet.checkResultStatus(latestQueryId);
+            if (_latestResultStatus == Witnet.ResultStatus.Ready) {
+                Witnet.Response memory _latestResponse = witnet.readResponse(latestQueryId);
+                return (
+                    int(Witnet.resultFromCborBytes(_latestResponse.cborBytes).asUint()),
+                    _latestResponse.timestamp,
+                    _latestResponse.drTxHash,
+                    200
+                );
             }
             if (__lastValidQueryId > 0) {
                 Witnet.Response memory _lastValidResponse = witnet.readResponse(__lastValidQueryId);
-                Witnet.Result memory _lastValidResult = witnet.resultFromCborBytes(_lastValidResponse.cborBytes);
                 return (
-                    int256(witnet.asUint64(_lastValidResult)),
+                    int(Witnet.resultFromCborBytes(_lastValidResponse.cborBytes).asUint()),
                     _lastValidResponse.timestamp,
                     _lastValidResponse.drTxHash,
-                    _completed ? 400 : 404
+                    _latestResultStatus == Witnet.ResultStatus.Error ? 400 : 404
                 );
             }
         }
@@ -162,14 +146,9 @@ contract WitnetPriceFeed
         virtual override
         returns (string memory _errorMessage)
     {
-        uint256 _latestQueryId = latestQueryId;
-        if (_latestQueryId > 0) {
-            if (_witnetCheckResultAvailability(_latestQueryId)) {
-                Witnet.Result memory _latestResult = witnet.readResponseResult(_latestQueryId);
-                if (_latestResult.success == false) {
-                    (, _errorMessage) = witnet.asErrorMessage(_latestResult);
-                }
-            }
+        if (latestQueryId > 0) {
+            Witnet.ResultError memory _error = witnet.checkResultError(latestQueryId);
+            return _error.reason;
         }
     }
 
@@ -183,17 +162,14 @@ contract WitnetPriceFeed
         virtual override
         returns (uint256)
     {
-        uint _latestQueryId = latestQueryId;
-        if (_latestQueryId > 0) {
-            if (_witnetCheckResultAvailability(_latestQueryId)) {
-                Witnet.Result memory _result = witnet.readResponseResult(_latestQueryId);
-                return (
-                    _result.success
-                        ? 200 // OK
-                        : 400 // Bad result
-                );
+        if (latestQueryId > 0) {
+            Witnet.ResultStatus _latestResultStatus = witnet.checkResultStatus(latestQueryId);
+            if (_latestResultStatus == Witnet.ResultStatus.Ready) {
+                return 200; 
+            } else if (_latestResultStatus == Witnet.ResultStatus.Awaiting) {
+                return 404;
             } else {
-                return 404; // not yet solved;
+                return 400;
             }
         }
         return 200;
@@ -232,13 +208,13 @@ contract WitnetPriceFeed
             if (_latestUpdateStatus == 200) {
                 // If so, remove previous last valid query from the WRB:
                 if (__lastValidQueryId > 0) {
-                    _witnetDeleteQuery(__lastValidQueryId);
+                    witnet.deleteQuery(__lastValidQueryId);
                 }
                 __lastValidQueryId = _latestQueryId;
             } else {
                 // Otherwise, delete latest query, as it was faulty
                 // and we are about to post a new update request:
-                _witnetDeleteQuery(_latestQueryId);
+                witnet.deleteQuery(_latestQueryId);
             }
             // Post update request to the WRB:
             (_latestQueryId, _usedFunds) = _witnetPostRequest(this);
