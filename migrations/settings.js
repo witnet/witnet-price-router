@@ -4,6 +4,9 @@ module.exports = {
   artifacts: merge({
       default: {
         WitnetPriceFeed: "WitnetPriceFeed",
+      },
+      elastos: {
+        WitnetPriceFeed: "WitnetPriceFeedBypass",
       }
     },
     require("witnet-solidity-bridge/migrations/witnet.settings").artifacts
