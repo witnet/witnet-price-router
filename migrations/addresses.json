@@ -150,7 +150,19 @@
     },
     "elastos": {
         "elastos.testnet": {
-            "ElaUsdtPriceFeed": "0xB4f1f8E27799256ec95C5b5A8d2A5722Bd542E69"
+            "BnbUsdPriceFeed": "",
+            "BnbUsdtPriceFeed": "",
+            "BtcUsdPriceFeed": "",
+            "BusdUsdPriceFeed": "",
+            "BusdUsdtPriceFeed": "",
+            "ElaUsdPriceFeed": "",
+            "ElaUsdtPriceFeed": "",
+            "EthUsdPriceFeed": "",
+            "HtUsdPriceFeed": "",
+            "HtUsdtPriceFeed": "",
+            "UsdcUsdPriceFeed": "",
+            "UsdtUsdPriceFeed": ""
+        },
         }
     },
     "kava": {
