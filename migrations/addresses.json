@@ -318,6 +318,14 @@
             "QuickWmaticPriceFeed": "0xa5BDf0040d3BB326d8Dab20F466b966159e86DfD",
             "UsdcUsdPriceFeed": "0xaDF2115f97348cF663C0ba4d659AfFeC469611eD",
             "VsqDaiPriceFeed": "0xc09a1ecFbcb1A18D29C2c5E72c779EA167243191"
+        },
+        "polygon.zkevm.goerli": {
+            "EthUsdPriceFeed": "0x71D5D7F2ed2436062946727DB84E44588F765D02",
+            "QuickUsdPriceFeed": "0xc228d93908bd3E9E9015f83f125d1514803eDC06",
+            "QuickUsdcPriceFeed": "0x03D884F4fF7f8f78310Df6879eF4031e1229bb07",
+            "QuickWethPriceFeed": "0x078790f8A1c6e49A192c6259D040EC3B36D9EB0E",
+            "QuickWmaticPriceFeed": "0x79C16459A025245752c14F86Edf7a0aeAf44B200",
+            "UsdcUsdPriceFeed": "0xbe5f409201C6d7C054Bd164d4cd2Fd366D2aAaf7"
         }
     },
     "reef": {
