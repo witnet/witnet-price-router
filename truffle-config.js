@@ -36,4 +36,12 @@ module.exports = {
     timeout: 100000,
     useColors: true,
   },
+  plugins: [
+    'truffle-plugin-verify',
+  ],
+  api_keys: {
+    elastos: "",
+    etherscan: process.env.ETHERSCAN_API_KEY,
+    polygonscan: process.env.POLYGONSCAN_API_KEY,
+  },
 }
