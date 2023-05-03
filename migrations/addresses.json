@@ -339,8 +339,8 @@
             "FtmUsdtPriceFeed": "0x93Fc800730b780f7919FD7Eb679a80e925568457",
             "MaticUsdPriceFeed": "0x6Cb1658a261c229Df24ada6C9f52839F5d4e7214",
             "UlxUsdtPriceFeed": "0x7fa12A1e8b1927A61B4934c6b7d5A95890812A4a",
-            "WbtcWulxPriceFeed": "0x5D612563334ff8e36C114C292D090c597c98b409",
-            "WethWulxPriceFeed": "0x8b5f73a873b34d2EA94423139eD86F71B05aF7fb"
+            "WbtcWulxPriceFeed": "0x1b91eAB33362f10A5F803Fe3f0d181F42caFaac3",
+            "WethWulxPriceFeed": "0xB5447342cA17A40e59d410b340ba412E22e36201"
         },
         "ultron.mainnet": {
             "AvaxUsdPriceFeed": "0xF849C1ddd19f524c12A043556fAa5602a6B81F98",
@@ -349,8 +349,8 @@
             "FtmUsdtPriceFeed": "0xD7f7933992c25A504e9Ddf7e76a3c1D6c432b25D",
             "MaticUsdPriceFeed": "0xb794a7D2c650659ed5F1ea447078bCE24F4137af",
             "UlxUsdtPriceFeed": "0x7FdB9CDe98967140a5627dA5221DBC03Bd8e8ad5",
-            "WbtcWulxPriceFeed": "0xd56EB61fD21537Ef570400130343e8060d8C3B17",
-            "WethWulxPriceFeed": "0xCb3E765362E91f45a369c65fAACf15e59aA3595c"
+            "WbtcWulxPriceFeed": "0x1225A47bC743199dFef9FEEf065b3B76695AaaaC",
+            "WethWulxPriceFeed": "0xF503A52bEcF03d9d5fc85459906a4d280142B1cd"
         }
     }
 }

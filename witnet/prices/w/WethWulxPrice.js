@@ -1,13 +1,29 @@
 import * as Witnet from "witnet-requests"
 import * as WitnetSLA from "../../../../../migrations/witnet-slas"
 
-const ultronswap = new Witnet.Source("https://exchange-info.ultron-dev.net/api/v1/ultronswap")
-  .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getMap("0x2318bf5809a72aabadd15a3453a18e50bbd651cd_0x3a4f06431457de873b588846d139ec0d86275d54")
-  .getFloat("last_price")
-  .power(-1)
-  .multiply(10 ** 6)
-  .round()
+const ultronswap = new Witnet.GraphQLSource(
+  "https://graph-node.ultron-rpc.net/subgraphs/name/root/ultronswap-exchange",
+  `{
+    pairHourDatas(
+      first: 1
+      where: {pair: "0x166559b5965cefd8d3d999ae068ea8c481702dc5"}
+      orderBy: hourStartUnix
+      orderDirection: desc
+    ) {
+      pair {
+        token1Price
+      }
+    }
+  }`,
+)
+.parseJSONMap()
+.getMap("data")
+.getArray("pairHourDatas")
+.getMap(0)
+.getMap("pair")
+.getFloat("token1Price")
+.multiply(10 ** 6)
+.round()
 
 // Apply no filter on aggregation, as only one source is referred.
 const aggregator = new Witnet.Aggregator({
