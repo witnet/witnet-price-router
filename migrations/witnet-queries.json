@@ -250,6 +250,11 @@
         "decimals": 6,
         "path": "witnet/prices/g/GlmrUsdtPrice.js"
     },
+    "FuseUsdtPrice": {
+        "base": "FUSE",
+        "quote": "USDT",
+        "decimals": 6
+    },
     "HtUsdPrice": {
         "base": "HT",
         "quote": "USD",

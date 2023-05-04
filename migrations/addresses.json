@@ -163,6 +163,19 @@
             "UsdcUsdPriceFeed": "0xF22fcebC0CaC37CE863a65Ca24ACb4C7b9724bC3",
             "UsdtUsdPriceFeed": "0x286361C52A5316Ed2CdcC68e10c5f5ce24CD9Ff1"
         },
+        "elastos.mainnet": {
+            "ElaUsdtPriceFeed": "0xD111C0ef9A8FA71a66E37255d255abd8879D143C"
+        }
+    },
+    "fuse": {
+        "fuse.testnet": {
+            "BnbUsdPriceFeed": "0x1f35F6d6BE5Bd574b2B00Ac2Dc0BeCAfcc04Ed51",
+            "BnbUsdtPriceFeed": "0x2163DBCBdbBeC066EF8d8Adab75Af8b0B9A5cfAA",
+            "BtcUsdPriceFeed": "0x87cB87b649A75c608402Cb9F030129510e201BB4",
+            "EthUsdPriceFeed": "0x2Bd9457ACaD957B9E75d28011D2Cc4A0cf1107Cf",
+            "FuseUsdtPriceFeed": "0x49d3f1C57C320f833FF96bd9786Ae7DB8854B680",
+            "MaticUsdPriceFeed": "0xef978B8CdA6464D0fBaCE5FBC8Ed7A7A8976E094",
+            "UsdtUsdPriceFeed": "0x6395d83C9Aa803498980A5ab78217785d4db7bE7"
         }
     },
     "kava": {

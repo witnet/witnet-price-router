@@ -7,7 +7,10 @@ module.exports = {
       },
       elastos: {
         WitnetPriceFeed: "WitnetPriceFeedBypass",
-      }
+      },
+      fuse: {
+        WitnetPriceFeed: "WitnetPriceFeedBypass",
+      },
     },
     require("witnet-solidity-bridge/migrations/witnet.settings").artifacts
   ),
