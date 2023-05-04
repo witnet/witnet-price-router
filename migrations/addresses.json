@@ -338,10 +338,10 @@
     },
     "scroll": {
         "scroll.goerli": {
-            "BtcUsdPriceFeed": "0xE04332cC92F90e566f3dE55384A2b659CAd84422",
-            "EthUsdPriceFeed": "0xA14a1fD9b1C6023f87f3A7E97DbdFdf1a9413D0A",
-            "UniUsdPriceFeed": "0xB740E58D185558FF4FaaBf430fc87a6801208f38",
-            "UsdcUsdPriceFeed": "0x14417b205ef242a364Dc68540Eb42F974b1Ea909"
+            "BtcUsdPriceFeed": "0x17C46099CcD9D227AE13E80B15b1199C2776f9Be",
+            "EthUsdPriceFeed": "0x938D6B941982Bfd65C772Cf0fa194Ca6e245D4fe",
+            "UniUsdPriceFeed": "0x08ab48202B8F985F9E90fEF86Cf4d7dC979544BB",
+            "UsdcUsdPriceFeed": "0xAdef9D304E7c363629621BF1c2e8F24CF87ad0a7"
         }
     },
     "smartbch": {
