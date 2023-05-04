@@ -8,7 +8,7 @@ const settings = require("../settings")
 
 const WitnetPriceFeeds = artifacts.require("WitnetPriceFeeds");
 const WitnetPriceRouter = artifacts.require("WitnetPriceRouter")
-
+const WitnetRequestBoard = artifacts.require("WitnetRequestBoard")
 
 module.exports = async function (deployer, network, [, from]) {
   const [realm, chain] = utils.getRealmNetworkFromString(network.split("-")[0])
