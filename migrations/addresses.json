@@ -150,18 +150,18 @@
     },
     "elastos": {
         "elastos.testnet": {
-            "BnbUsdPriceFeed": "0x49030E216d49Fbf443CBe3692De5A6B97AEcFFCA",
-            "BnbUsdtPriceFeed": "0x9bcD148e7933312240959CABA0F3ff943A8116C3",
-            "BtcUsdPriceFeed": "0xdd124EDF6c5f2032bDf2Ff73D4a1C5A74262B61F",
-            "BusdUsdPriceFeed": "0x6364cB2ab0a39E231E9EC7Ad08fAAE845C86b2e8",
-            "BusdUsdtPriceFeed": "0x6f63C1472C8acb40a74189b342Cb742eE3dC4480",
-            "ElaUsdPriceFeed": "0x4538001E509672FAE84AF7428E51439899B0865f",
-            "ElaUsdtPriceFeed": "0x8de7BD6be7439309828651B298b883c451AC6E32",
-            "EthUsdPriceFeed": "0xa5db9A0F3c63A26cDc46B970F4E8d469fc839477",
-            "HtUsdPriceFeed": "0x3B11614242b2e8DEB54656E606B7B530ff49Dc9B",
-            "HtUsdtPriceFeed": "0x6908D68Da3518EDe0115c06057d74d102ad3dee5",
-            "UsdcUsdPriceFeed": "0xF22fcebC0CaC37CE863a65Ca24ACb4C7b9724bC3",
-            "UsdtUsdPriceFeed": "0x286361C52A5316Ed2CdcC68e10c5f5ce24CD9Ff1"
+            "BnbUsdPriceFeed": "0x6B9d80368FA68ab15F49b057b1F61Bac15788B36",
+            "BnbUsdtPriceFeed": "0x67168f438E1400Ce9356a597603C7b4332A45a20",
+            "BtcUsdPriceFeed": "0xC81Ad04Ba8540cCc3941f4f096178BdDdeE08872",
+            "BusdUsdPriceFeed": "0x7a1e4F41c1864F99e52E3B1c736A1398804AD719",
+            "BusdUsdtPriceFeed": "0x2187F1Eb951Aa609C0735724d5FBBcE622AFF98c",
+            "ElaUsdPriceFeed": "0x3c7461d74cDdF22017B88485cD8fedF270cCCa6f",
+            "ElaUsdtPriceFeed": "0x305432d212D7a6785aa40E30dF49a4b0b9765637",
+            "EthUsdPriceFeed": "0xEAf2E93EBD92491d6e0C46b955829CEAc234DD05",
+            "HtUsdPriceFeed": "0xD3EFdce6C678dcF5555b283B01bedDed8D979099",
+            "HtUsdtPriceFeed": "0xC2926787B0595bCC379005cFC15b8060d2C20023",
+            "UsdcUsdPriceFeed": "0x46e6c5cE981FF6eEfF26F4d2493b374dCA7d7105",
+            "UsdtUsdPriceFeed": "0xE3aC8c2C9c46276801a83167d4930c09d5100ebb"
         },
         "elastos.mainnet": {
             "ElaUsdtPriceFeed": "0xD111C0ef9A8FA71a66E37255d255abd8879D143C"
@@ -169,13 +169,13 @@
     },
     "fuse": {
         "fuse.testnet": {
-            "BnbUsdPriceFeed": "0x1f35F6d6BE5Bd574b2B00Ac2Dc0BeCAfcc04Ed51",
-            "BnbUsdtPriceFeed": "0x2163DBCBdbBeC066EF8d8Adab75Af8b0B9A5cfAA",
-            "BtcUsdPriceFeed": "0x87cB87b649A75c608402Cb9F030129510e201BB4",
-            "EthUsdPriceFeed": "0x2Bd9457ACaD957B9E75d28011D2Cc4A0cf1107Cf",
-            "FuseUsdtPriceFeed": "0x49d3f1C57C320f833FF96bd9786Ae7DB8854B680",
-            "MaticUsdPriceFeed": "0xef978B8CdA6464D0fBaCE5FBC8Ed7A7A8976E094",
-            "UsdtUsdPriceFeed": "0x6395d83C9Aa803498980A5ab78217785d4db7bE7"
+            "BnbUsdPriceFeed": "0x6f0da7F65Aaa090C48B371ADEfA1997e4e3cE39a",
+            "BnbUsdtPriceFeed": "0x2F0912fa566B5B3215e746Dc108d85fDd4A8113A",
+            "BtcUsdPriceFeed": "0xC768fD0A0EC5B788524227abEBf4Da021e85908c",
+            "EthUsdPriceFeed": "0x3f189fAc162d3CC6d84EF72c8177afAd8f3DBeE1",
+            "FuseUsdtPriceFeed": "0xce66333c9D7BE37D61d3c5b57D6D41ff082Ca92f",
+            "MaticUsdPriceFeed": "0x5c1dD29563203883A5D5C3136783D3119B2C4e57",
+            "UsdtUsdPriceFeed": "0x9ebaCbe3B5b03e164E9dfd15Ad8e86697f6d5bF6"
         }
     },
     "kava": {

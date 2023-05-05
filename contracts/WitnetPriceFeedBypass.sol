@@ -182,6 +182,11 @@ contract WitnetPriceFeedBypass
         if (_usedFunds < msg.value) {
             payable(msg.sender).transfer(msg.value - _usedFunds);
         }
+        emit PriceFeeding(
+            msg.sender,
+            feeds.latestUpdateQueryId(feedId),
+            _usedFunds
+        );
     }
 
     /// @notice Tells whether this contract implements the interface defined by `interfaceId`. 
