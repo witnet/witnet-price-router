@@ -15,29 +15,29 @@ const bitrue = new Witnet.Source("https://openapi.bitrue.com/api/v1/ticker/price
   .multiply(10 ** 6)
   .round()
 
-// Retrieve BAT/USDT-6 price from Upbit
-const upbit = new Witnet.Source("https://api.upbit.com/v1/ticker?markets=USDT-BAT")
-  .parseJSONArray()
-  .getMap(0)
-  .getFloat("trade_price")
-  .multiply(10 ** 6)
-  .round()
-
-// Retrieves BAT/USDT-6 price from the OkEx API
-const okex = new Witnet.Source("https://www.okx.com/api/v5/market/ticker?instId=BAT-USDT")
-  .parseJSONMap() // Parse a `Map` from the retrieved `String`
-  .getArray("data") // Access to the `Map` object at `data` key
-  .getMap(0)
-  .getFloat("last") // Get the `Float` value associated to the `last` key
-  .multiply(10 ** 6) // Use 6 digit precision
-  .round() // Cast to integer
-
 // Retrieve BAT/USDT-6 price from Coinbase
 const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?currency=BAT")
   .parseJSONMap()
   .getMap("data")
   .getMap("rates")
   .getFloat("USDT")
+  .multiply(10 ** 6)
+  .round()
+
+  // Retrieves BAT/USDT-6 price from the OkEx API
+const okex = new Witnet.Source("https://www.okx.com/api/v5/market/ticker?instId=BAT-USDT")
+.parseJSONMap() // Parse a `Map` from the retrieved `String`
+.getArray("data") // Access to the `Map` object at `data` key
+.getMap(0)
+.getFloat("last") // Get the `Float` value associated to the `last` key
+.multiply(10 ** 6) // Use 6 digit precision
+.round() // Cast to integer
+
+// Retrieve BAT/USDT-6 price from Upbit
+const upbit = new Witnet.Source("https://api.upbit.com/v1/ticker?markets=USDT-BAT")
+  .parseJSONArray()
+  .getMap(0)
+  .getFloat("trade_price")
   .multiply(10 ** 6)
   .round()
 

@@ -1,19 +1,19 @@
 import * as Witnet from "witnet-requests"
 import * as WitnetSLA from "../../../../../migrations/witnet-slas"
 
+// Retrieve MATIC/USD-6 price from the Binance HTTP-GET API
+const binance = new Witnet.Source("https://api.binance.us/api/v3/ticker/price?symbol=MATICUSD")
+  .parseJSONMap()
+  .getFloat("price")
+  .multiply(10 ** 6)
+  .round()
+  
 // Retrieve MATIC/USD price from BitStamp
 const bitstamp = new Witnet.Source("https://www.bitstamp.net/api/v2/ticker/maticusd/")
   .parseJSONMap()
   .getFloat("last")
   .multiply(10 ** 6)
   .round()
-
-// Retrieve MATIC/USD-6 price from the Binance HTTP-GET API
-    const binance = new Witnet.Source("https://api.binance.us/api/v3/ticker/price?symbol=MATICUSD")
-      .parseJSONMap()
-      .getFloat("price")
-      .multiply(10 ** 6)
-      .round()
 
 // Retrieve MATIC/USD-6 price from Coinbase
 const coinbase = new Witnet.Source("https://api.coinbase.com/v2/exchange-rates?currency=USD")
