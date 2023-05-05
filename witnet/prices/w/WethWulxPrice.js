@@ -2,7 +2,7 @@ import * as Witnet from "witnet-requests"
 import * as WitnetSLA from "../../../../../migrations/witnet-slas"
 
 const ultronswap = new Witnet.GraphQLSource(
-  "https://graph-node.ultron-rpc.net/subgraphs/name/root/ultronswap-exchange",
+  "https://graph-node.ultron-dev.net/subgraphs/name/root/ultronswap-exchange",
   `{
     pairHourDatas(
       first: 1
