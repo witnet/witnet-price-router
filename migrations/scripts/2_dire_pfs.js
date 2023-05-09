@@ -6,6 +6,7 @@ const addresses = require("../addresses")
 const queries = require("../witnet-queries")
 const settings = require("../settings")
 
+const WitnetPriceFeedBypass = artifacts.require("WitnetPriceFeedBypass")
 const WitnetPriceFeeds = artifacts.require("WitnetPriceFeeds");
 const WitnetPriceRouter = artifacts.require("WitnetPriceRouter")
 const WitnetRequestBoard = artifacts.require("WitnetRequestBoard")
@@ -57,13 +58,23 @@ async function revisitPriceFeeds (deployer, from, realm, chain, isDryRun) {
   
   let WitnetPriceFeed = artifacts.require(artifactNames.WitnetPriceFeed)
   const bypass = artifactNames.WitnetPriceFeed === "WitnetPriceFeedBypass"
+  if (bypass) {
+    if (utils.isNullAddress(addresses[realm][chain].WitnetPriceFeedBypass)) {
+      // deploy bypass contract just once, if not found in address list
+      await deployer.deploy(WitnetPriceFeedBypass, WitnetPriceFeeds.address, { from })
+      addresses[realm][chain].WitnetPriceFeedBypass = WitnetPriceFeedBypass.address
+    } else {
+      WitnetPriceFeedBypass.address = addresses[realm][chain].WitnetPriceFeedBypass
+      await WitnetPriceFeedBypass.deployed()
+    }
+  }
   const pfs = Object.keys(queries)
   for (let i = 0; i < pfs.length; i++) {
     const pf_name = pfs[i]
     const pf = queries[pf_name]
     WitnetPriceFeed.contractName = pf_name + "Feed"
     if (addresses[realm][chain][WitnetPriceFeed.contractName] !== undefined) {
-      const address = addresses[realm][chain][WitnetPriceFeed.contractName]
+      let address = addresses[realm][chain][WitnetPriceFeed.contractName]
       // Ignore routed price feeds, by now
       if (!pf.bytecode && !bypass) {
         continue
@@ -83,14 +94,17 @@ async function revisitPriceFeeds (deployer, from, realm, chain, isDryRun) {
       const caption = "Price-" + pf.base + "/" + pf.quote + "-" + pf.decimals
       // Deploy new contract if it still has no corresponding entry in the 'migrations/addresses.json' file:
       if (utils.isNullAddress(address)) {
-        if (bypass) {
-          // Continue only if this is an unrouted price feed
-          await deployer.deploy(
-            WitnetPriceFeed,
-            WitnetPriceFeeds.address,
-            caption, 
-            { from }
-          )
+        if (bypass) { 
+          // clone the bypass contract
+          utils.traceHeader(`Cloning '${WitnetPriceFeed.contractName}'`)
+          const contract = await WitnetPriceFeedBypass.deployed()
+          const tx = await contract.cloneAndInitialize(caption, { from })
+          const logs = tx.logs.filter(log => log.event === 'Cloned')
+          address = logs[0].args.clone
+          console.log("   > transaction hash:", tx.tx)
+          console.log("   > contract address:", address)
+          console.log("   > block number:    ", tx.receipt.blockNumber)
+          console.log("   > gas used:        ", tx.receipt.gasUsed)
         } else {
           // Continue only if this is an unrouted price feed
           await deployer.deploy(
@@ -99,11 +113,12 @@ async function revisitPriceFeeds (deployer, from, realm, chain, isDryRun) {
             pf.bytecode, 
             { from }
           )
+          address = WitnetPriceFeed.address
+          console.log("   > artifact name:      \"" + artifactNames.WitnetPriceFeed + "\"")
+          console.log("   > contract name:      \"" + WitnetPriceFeed.contractName + "\"")
         }
         // Write new contract address into 'migrations/addresses.json'
-        console.log("   > Artifact name:\t  \"" + artifactNames.WitnetPriceFeed + "\"")
-        console.log("   > Contract name:\t  \"" + WitnetPriceFeed.contractName + "\"")
-        addresses[realm][chain][WitnetPriceFeed.contractName] = WitnetPriceFeed.address
+        addresses[realm][chain][WitnetPriceFeed.contractName] = address
         if (!isDryRun) {
           fs.writeFileSync(
             "./migrations/addresses.json",
@@ -118,23 +133,23 @@ async function revisitPriceFeeds (deployer, from, realm, chain, isDryRun) {
         const header = `Skipped '${WitnetPriceFeed.contractName}'`
         console.log("\n  ", header)
         console.log("  ", "-".repeat(header.length))
-        console.log("   > contract address:\t", address)
       }
 
       // Update Price Router if necessary:
       var router = await WitnetPriceRouter.deployed()
       const erc2362id = await router.currencyPairId.call(caption)
-      console.log("\n   > ERC2362 caption:\t ", caption)
-      console.log("   > ERC2362 id:     \t ", erc2362id)
-      console.log("   > Router address:\t ", router.address)
+      console.log("\n   > ERC2362 feed address:", address)
+      console.log("   > ERC2362 feed caption:", caption)
+      console.log("   > ERC2362 feed id:     ", erc2362id)
+      
       let currentPoller = await router.getPriceFeed(erc2362id)
-      if (!isDryRun && (utils.isNullAddress(currentPoller) || currentPoller !== WitnetPriceFeed.address)) {
+      if (!isDryRun && (utils.isNullAddress(currentPoller) || currentPoller !== address)) {
         let answer = updateAll === true
           ? "yes"
           : (await utils.prompt(`     ? Substitute current pricefeed at ${currentPoller}? [y/N] `)).toLowerCase().trim()
         if (["y", "yes"].includes(answer)) {
           await router.setPriceFeed(
-            WitnetPriceFeed.address,
+            address,
             pf.decimals,
             pf.base,
             pf.quote,
@@ -147,8 +162,7 @@ async function revisitPriceFeeds (deployer, from, realm, chain, isDryRun) {
       // Try to get Witnet general info, if any (contract may not actually be a WitnetPriceFeed implementation)
       let contract = await WitnetPriceFeed.at(WitnetPriceFeed.address)
       try {
-        console.log("\n   > Witnet address:\t ", await contract.witnet.call())
-        console.log("   > Witnet Request hash:", await contract.hash.call())
+        console.log("   > Witnet Request hash: ", await contract.hash.call())
       } catch {}
     }
   }

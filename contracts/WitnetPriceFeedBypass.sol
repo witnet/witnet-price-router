@@ -6,38 +6,67 @@ import "witnet-solidity-bridge/contracts/WitnetPriceFeeds.sol";
 import "witnet-solidity-bridge/contracts/interfaces/IERC165.sol";
 import "witnet-solidity-bridge/contracts/interfaces/IWitnetPriceFeed.sol";
 import "witnet-solidity-bridge/contracts/interfaces/IWitnetRequest.sol";
+import "witnet-solidity-bridge/contracts/patterns/Clonable.sol";
 
 
 // Your contract needs to inherit from UsingWitnet
 contract WitnetPriceFeedBypass
     is
+        Clonable,
         IWitnetPriceFeed,
         IWitnetRequest
 {
     WitnetPriceFeeds immutable public feeds;
-    bytes4 immutable public feedId;
     WitnetRequestBoard immutable public witnet;
 
-    constructor(
-            WitnetPriceFeeds _feeds,
-            string memory _caption
-        )    
-    {
+    string public caption;
+    bytes4 public feedId;
+
+    constructor(WitnetPriceFeeds _feeds) {
         assert(address(_feeds) != address(0));
+        feeds = _feeds;
+        witnet = feeds.witnet();
+    }
+
+    receive() external payable {}
+
+    function cloneAndInitialize(string calldata _caption)
+        virtual external
+        returns (WitnetPriceFeedBypass)
+    {
+        return WitnetPriceFeedBypass(payable(_clone())).initializeClone(_caption);
+    }
+
+
+    /// ===============================================================================================================
+    /// --- Clonable implementation -----------------------------------------------------------------------------------
+
+    function initializeClone(string calldata _caption)
+        virtual external
+        initializer
+        onlyDelegateCalls
+        returns (WitnetPriceFeedBypass)
+    {
         require(
-            _feeds.supportsCaption(_caption), 
+            feeds.supportsCaption(_caption), 
             string(abi.encodePacked(
                 "WitnetPriceFeedBypass: unsupported '",
                 _caption,
                 "'"
             ))
         );
-        feeds = _feeds;
+        caption = _caption;
         feedId = bytes4(keccak256(bytes(_caption)));
-        witnet = feeds.witnet();
+        return WitnetPriceFeedBypass(payable(address(this)));
     }
 
-    receive() external payable {}
+    function initialized() virtual override public view returns (bool) {
+        return feedId != 0;
+    }
+
+    
+    /// ===============================================================================================================
+    /// --- IWitnetRequest implementation -----------------------------------------------------------------------------
 
     function bytecode() override external view returns (bytes memory) {
         return feeds.lookupBytecode(feedId);
@@ -46,6 +75,10 @@ contract WitnetPriceFeedBypass
     function hash() override external view returns (bytes32) {
         return feeds.lookupRadHash(feedId);
     }
+
+
+    /// ===============================================================================================================
+    /// --- IWitnetPriceFeed implementation ---------------------------------------------------------------------------
 
     /// @notice Estimates minimum fee amount in native currency to be paid when 
     /// @notice requesting a new price update.
