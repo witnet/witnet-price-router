@@ -169,13 +169,14 @@
     },
     "fuse": {
         "fuse.testnet": {
-            "BnbUsdPriceFeed": "0x6f0da7F65Aaa090C48B371ADEfA1997e4e3cE39a",
-            "BnbUsdtPriceFeed": "0x2F0912fa566B5B3215e746Dc108d85fDd4A8113A",
-            "BtcUsdPriceFeed": "0xC768fD0A0EC5B788524227abEBf4Da021e85908c",
-            "EthUsdPriceFeed": "0x3f189fAc162d3CC6d84EF72c8177afAd8f3DBeE1",
-            "FuseUsdtPriceFeed": "0xce66333c9D7BE37D61d3c5b57D6D41ff082Ca92f",
-            "MaticUsdPriceFeed": "0x5c1dD29563203883A5D5C3136783D3119B2C4e57",
-            "UsdtUsdPriceFeed": "0x9ebaCbe3B5b03e164E9dfd15Ad8e86697f6d5bF6"
+            "BnbUsdPriceFeed": "0x607D967635DE378b751b243Ca793D592ed58D5aD",
+            "BnbUsdtPriceFeed": "0x5130d304AD6C431BbD50e91f988Ab1dDF294EF49",
+            "BtcUsdPriceFeed": "0x786Ae4b8B6bEC907c0D33239Aae0783ad0AB2685",
+            "EthUsdPriceFeed": "0x841738C3891aA9ce17A5D2026C4996255A1BCD81",
+            "FuseUsdtPriceFeed": "0x1cB256FAA6B71f29CC1464BB46876d8670e18300",
+            "MaticUsdPriceFeed": "0x5f030F72a69509930862Af32a2755882078db6c8",
+            "UsdtUsdPriceFeed": "0xC505395FAF27F48b8bFB1D55493005823Ec332A4",
+            "WitnetPriceFeedBypass": "0x88a456C0Bd557DDA942FBc1DB86C0E35c529A6AE"
         }
     },
     "kava": {
