@@ -95,7 +95,7 @@ async function prompt (text) {
   return answer
 }
 
-function traceHeader(header) {
+function traceHeader (header) {
   console.log("")
   console.log("  ", header)
   console.log("  ", `${"-".repeat(header.length)}`)
