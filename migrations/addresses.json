@@ -150,18 +150,19 @@
     },
     "elastos": {
         "elastos.testnet": {
-            "BnbUsdPriceFeed": "0x6B9d80368FA68ab15F49b057b1F61Bac15788B36",
-            "BnbUsdtPriceFeed": "0x67168f438E1400Ce9356a597603C7b4332A45a20",
-            "BtcUsdPriceFeed": "0xC81Ad04Ba8540cCc3941f4f096178BdDdeE08872",
-            "BusdUsdPriceFeed": "0x7a1e4F41c1864F99e52E3B1c736A1398804AD719",
-            "BusdUsdtPriceFeed": "0x2187F1Eb951Aa609C0735724d5FBBcE622AFF98c",
-            "ElaUsdPriceFeed": "0x3c7461d74cDdF22017B88485cD8fedF270cCCa6f",
-            "ElaUsdtPriceFeed": "0x305432d212D7a6785aa40E30dF49a4b0b9765637",
-            "EthUsdPriceFeed": "0xEAf2E93EBD92491d6e0C46b955829CEAc234DD05",
-            "HtUsdPriceFeed": "0xD3EFdce6C678dcF5555b283B01bedDed8D979099",
-            "HtUsdtPriceFeed": "0xC2926787B0595bCC379005cFC15b8060d2C20023",
-            "UsdcUsdPriceFeed": "0x46e6c5cE981FF6eEfF26F4d2493b374dCA7d7105",
-            "UsdtUsdPriceFeed": "0xE3aC8c2C9c46276801a83167d4930c09d5100ebb"
+            "BnbUsdPriceFeed": "0x6b842726dAba56b646D60bFe12d9169d62eDaEd4",
+            "BnbUsdtPriceFeed": "0xC7DE1964d6e00B297be7709D6de201AB2288942F",
+            "BtcUsdPriceFeed": "0x937Dd233A7525b9fFC2F83bDfC1Ef7c270B08A91",
+            "BusdUsdPriceFeed": "0x6280578Ed51C4a7c0b06c75a7d9eD87ff1c9a570",
+            "BusdUsdtPriceFeed": "0x4b93F02b41Ef5b999845e70B9a126FDF20d66D7b",
+            "ElaUsdPriceFeed": "0xb813b7F6e97EC3a9f1653EFd5CA42C43C17b2002",
+            "ElaUsdtPriceFeed": "0xFfa6eCFe5251BFaf74118be105B500F784738B68",
+            "EthUsdPriceFeed": "0x1b570b4A6F482dd7CF07F4814D1979e3b47da151",
+            "HtUsdPriceFeed": "0xac4aEb8652eE0Be798ca386C37F85568a7527275",
+            "HtUsdtPriceFeed": "0x86A3151D8AC8725E6B3c5C47c9CB3188dd1AAe5C",
+            "UsdcUsdPriceFeed": "0x258A9d4E0Bf870D148aab948F76E5b4cA63dE651",
+            "UsdtUsdPriceFeed": "0x1B2C09f732E48F21b50428369aA8ee0D7D7dfE1b",
+            "WitnetPriceFeedBypass": "0xDBa95Ba18B678c1E1ef7bcD66279e8fD24b013d7"
         },
         "elastos.mainnet": {
             "ElaUsdtPriceFeed": "0xD111C0ef9A8FA71a66E37255d255abd8879D143C"
