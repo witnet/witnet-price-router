@@ -11,6 +11,9 @@ module.exports = {
       fuse: {
         WitnetPriceFeed: "WitnetPriceFeedBypass",
       },
+      "metis.goerli": {
+        WitnetPriceFeed: "WitnetPriceFeedBypass",
+      },
     },
     require("witnet-solidity-bridge/migrations/witnet.settings").artifacts
   ),
@@ -39,6 +42,11 @@ module.exports = {
       arbitrum: {
         "arbitrum.goerli": {
           from: "0x8c49CAfC4542D9EA9107D4E48412ACEd2A68aA77",
+        }
+      },
+      scroll: {
+        "scroll.goerli": {
+          gas: 3000000,
         }
       }
     }
