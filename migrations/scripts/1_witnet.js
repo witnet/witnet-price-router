@@ -14,15 +14,19 @@ module.exports = async function (deployer, network, [, from]) {
   if (!isDryRun) {
     try {
       witnetAddresses = addresses[ecosystem][network]
-      WitnetPriceFeeds.address = witnetAddresses.WitnetPriceFeeds
-      WitnetPriceRouter.address = witnetAddresses.WitnetPriceRouter
       WitnetRequestBoard.address = witnetAddresses.WitnetRequestBoard
       const header = "Witnet artifacts:"
       console.info("\n  ", header)
       console.info("  ", ".".repeat(header.length))
-      console.info("  ", "> WitnetPriceFeeds:   ", WitnetPriceFeeds.address)
-      console.info("  ", "> WitnetPriceRouter:  ", WitnetPriceRouter.address)
       console.info("  ", "> WitnetRequestBoard: ", WitnetRequestBoard.address)
+      if (witnetAddresses?.WitnetPriceRouter) {
+        WitnetPriceRouter.address = witnetAddresses?.WitnetPriceRouter
+        console.info("  ", "> WitnetPriceRouter:  ", WitnetPriceRouter.address)
+      }
+      if (witnetAddresses?.WitnetPriceFeeds) {
+        WitnetPriceFeeds.address = witnetAddresses?.WitnetPriceFeeds
+        console.info("  ", "> WitnetPriceFeeds:   ", WitnetPriceFeeds.address)
+      }
     } catch (e) {
       console.error("Fatal: Witnet Foundation addresses were not provided!")
       console.error(e)
