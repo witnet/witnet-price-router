@@ -255,10 +255,13 @@
         }
     },
     "metis": {
-        "metis.rinkeby": {
-            "BtcUsdPriceFeed": "0x7A51DE6E9491B0a1db63091152C7Efe8f80E7916",
-            "EthUsdPriceFeed": "0xd95A1bad490BaFb3cFD1CEc2E7629b28df747aF7",
-            "MetisUsdtPriceFeed": "0xbDF6d5f339feD0488449777d3A6aEa95d32D685f"
+        "metis.goerli": {
+            "BtcUsdPriceFeed": "0xA842de63F73F80801C07a1579Cb35911B0310209",
+            "EthUsdPriceFeed": "0x296Fe98359EBb89e828d725cd370dEB66a074Bf3",
+            "MetisUsdPriceFeed": "0x999de6C8Cf61649489A986E2224875010098800b",
+            "MetisUsdtPriceFeed": "0x00D7106075dD86745C2c5B0ed1D6E5cbF9502047",
+            "UsdtUsdPriceFeed": "0xB8671B33CaDDF18Af1dfD500533392C045A1b38C",
+            "WitnetPriceFeedBypass": "0xFB36b14df6D319A5A7F418C80b0700664A4f9e6a"
         }
     },
     "moonbeam": {
