@@ -12,6 +12,10 @@
     "arbitrum": {
         "arbitrum.goerli": {
             "EthUsdPriceFeed": "0x5246715063135F636D2876CB8788e622110BA7B8"
+        },
+        "arbitrum.one": {
+            "EthUsdPriceFeed": "0x3A9c83092C0701Bc26509C20d299D8bf31b8B40b",
+            "WitnetPriceFeedBypass": "0x9890ef27B5d0e5b191ee355013Dd37E221c50A9C"
         }
     },
     "avalanche": {
