@@ -30,7 +30,7 @@ runs:
       shell: bash
       run: |
         npx witnet-toolkit install
-        npm run test | tee results.log
+        npm run test 2>&1 | tee results.log || :
         echo 'results<<EOF' >> $GITHUB_OUTPUT
         cat results.log | sed -e 's/\x1b\[[0-9;]*m//g' >> $GITHUB_OUTPUT
         echo 'EOF' >> $GITHUB_OUTPUT

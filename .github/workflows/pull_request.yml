@@ -41,6 +41,8 @@ jobs:
             <summary>Unsuccessful test results</summary>
             <pre>${{ needs.ci.outputs.results }}</pre>
             </details>
+      - name: Fail
+        run: exit 1
 
   post_success_onto_pr:
     name: Post success message onto PR
