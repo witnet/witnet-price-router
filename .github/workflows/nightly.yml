@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CI: true
+    outputs:
+      results: ${{ steps.ci.outputs.results }}
     strategy:
       matrix:
         node-version: [14.x, 16.x]
@@ -38,3 +40,5 @@ jobs:
           filename: .github/ISSUE_TEMPLATE_NIGHLY_TESTS.md
           search_existing: all
           update_existing: true
+      - name: Fail
+        run: exit 1
