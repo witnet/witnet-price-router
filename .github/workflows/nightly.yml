@@ -18,7 +18,7 @@ jobs:
       CI: true
     outputs:
       results: ${{ steps.ci.outputs.results }}
-    container: node:18.16.0
+    container: node:16.20.0-bullseye
     steps:
     - uses: actions/checkout@v1
     - id: ci
