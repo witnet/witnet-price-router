@@ -29,6 +29,12 @@
         }
     },
     "boba": {
+        "boba.bnb.testnet": {
+            "BnbUsdtPriceFeed": "0x3B15aaF440dEcc894f183841073B9ADeCF5bE9cd",
+            "BobaUsdtPriceFeed": "0x9925C141e6c92685a91724c70bF2CE44D46cCB5f",
+            "WitUsdtPriceFeed": "0x8F515a4462Fa5B0EE0F5BAB9c50313C97DA80221",
+            "WitnetPriceFeedBypass": "0x57Eeea3E88E052C872db220B53fcAa6a5caA3d96"
+        },
         "boba.ethereum.goerli": {
             "BobaUsdtPriceFeed": "0x3d8659c22BcEb02f5871ACA1904486B5BB2b39B4",
             "DaiUsdPriceFeed": "0xFe1d6F2164Cf8ba10F8DA7d6c9ACddB97c188f86",

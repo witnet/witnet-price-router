@@ -36,7 +36,7 @@
     "ado-contracts": "^1.0.0",
     "lodash": "^4.17.21",
     "openzeppelin-solidity": "^2.4.0",
-    "witnet-solidity-bridge": "https://github.com/guidiaz/witnet-solidity-bridge#77c55e6c6a12f99c4853ca0f264e5cc4bd09d61b"
+    "witnet-solidity-bridge": "https://github.com/guidiaz/witnet-solidity-bridge#305e14bab1cae0e2974149b654aea9d635141942"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",

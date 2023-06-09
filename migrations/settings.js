@@ -5,6 +5,12 @@ module.exports = {
       default: {
         WitnetPriceFeed: "WitnetPriceFeed",
       },
+      arbitrum: {
+        WitnetPriceFeed: "WitnetPriceFeedBypass",
+      },
+      "boba.bnb.testnet": {
+        WitnetPriceFeed: "WitnetPriceFeedBypass"
+      },
       elastos: {
         WitnetPriceFeed: "WitnetPriceFeedBypass",
       },
