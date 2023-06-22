@@ -65,7 +65,6 @@ async function revisitPriceFeeds (deployer, from, realm, chain, isDryRun) {
       addresses[realm][chain].WitnetPriceFeedBypass = WitnetPriceFeedBypass.address
     } else {
       WitnetPriceFeedBypass.address = addresses[realm][chain].WitnetPriceFeedBypass
-      await WitnetPriceFeedBypass.deployed()
     }
   }
   const pfs = Object.keys(queries)
@@ -98,6 +97,7 @@ async function revisitPriceFeeds (deployer, from, realm, chain, isDryRun) {
           // clone the bypass contract
           utils.traceHeader(`Cloning '${WitnetPriceFeed.contractName}'`)
           const contract = await WitnetPriceFeedBypass.deployed()
+          console.log("   > bypass contract: ", contract.address)
           const tx = await contract.cloneAndInitialize(caption, { from })
           const logs = tx.logs.filter(log => log.event === 'Cloned')
           address = logs[0].args.clone
@@ -129,7 +129,6 @@ async function revisitPriceFeeds (deployer, from, realm, chain, isDryRun) {
       }
       // Otherwise, just update the local artifact file:
       else {
-        WitnetPriceFeed.address = address
         const header = `Skipped '${WitnetPriceFeed.contractName}'`
         console.log("\n  ", header)
         console.log("  ", "-".repeat(header.length))

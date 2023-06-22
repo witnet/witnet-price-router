@@ -175,7 +175,14 @@
             "WitnetPriceFeedBypass": "0xDBa95Ba18B678c1E1ef7bcD66279e8fD24b013d7"
         },
         "elastos.mainnet": {
-            "ElaUsdtPriceFeed": "0xD111C0ef9A8FA71a66E37255d255abd8879D143C"
+            "BnbUsdPriceFeed": "0x20Ee36dBb672D198836b779D3C8D6eb718b516b0",
+            "BnbUsdtPriceFeed": "0xAc3270f9C9C035E3d33c2E3FFD4Cbd8138d03522",
+            "ElaUsdtPriceFeed": "0x283770a8EB507b4d1336E2776eb738ed96A6Cf5f",
+            "EthUsdPriceFeed": "0x330480e2c17d6a725374697646FA0c9389A4eAf1",
+            "HtUsdPriceFeed": "0xf8cCC78CBF1Be001A4adb023eAde8CA22D599d72",
+            "HtUsdtPriceFeed": "0x02EeCb5F297596aC70b3880ea01A046988F4d54C",
+            "UsdtUsdPriceFeed": "0x720a4dAc7F70Ff90299f4036D1A8C56053192f5F",
+            "WitnetPriceFeedBypass": "0x6469d3180f3D59424544AeC6d3CdBE72939a85aB"
         }
     },
     "fuse": {
@@ -198,7 +205,8 @@
             "KavaUsdPriceFeed": "0xAf89a59876145202a027E73340592F05B28A6D99",
             "KavaUsdtPriceFeed": "0xc6b8c76007AeCc8a77A7c13E283bE2A0A9D51Ed7",
             "UsdcUsdPriceFeed": "0x7047F44B4D69769Cf21a0795367B21D321901180",
-            "UsdtUsdPriceFeed": "0xE9Db5fB6d538D0d1ebE4019EED928d219aEe3A2f"
+            "UsdtUsdPriceFeed": "0xE9Db5fB6d538D0d1ebE4019EED928d219aEe3A2f",
+            "VaraUsdcPriceFeed": ""
         },
         "kava.mainnet": {
             "BtcUsdPriceFeed": "0xCdDB95cB4Ee308f4D834a781C1Afc2A1Ec28B7A0",
@@ -207,7 +215,8 @@
             "KavaUsdPriceFeed": "0x4F861288D48dBB8d71B4e03f6748263b13294420",
             "KavaUsdtPriceFeed": "0x16d159aC475D6A7924237e671438F5A96aE51bd8",
             "UsdcUsdPriceFeed": "0x7462896558d958117eab5C99436b09E5bb4dEc39",
-            "UsdtUsdPriceFeed": "0xD0749889c2560d38cA87903c09e0a14FDEDA0121"
+            "UsdtUsdPriceFeed": "0xD0749889c2560d38cA87903c09e0a14FDEDA0121",
+            "VaraUsdcPriceFeed": ""
         }
     },
     "kcc": {

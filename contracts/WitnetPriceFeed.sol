@@ -6,14 +6,14 @@ import "witnet-solidity-bridge/contracts/UsingWitnet.sol";
 
 import "witnet-solidity-bridge/contracts/interfaces/IERC165.sol";
 import "witnet-solidity-bridge/contracts/interfaces/IWitnetPriceFeed.sol";
-import "witnet-solidity-bridge/contracts/requests/WitnetRequestBase.sol";
+import "witnet-solidity-bridge/contracts/requests/WitnetRequestPrecompiled.sol";
 
 // Your contract needs to inherit from UsingWitnet
 contract WitnetPriceFeed
     is
         IWitnetPriceFeed,
         UsingWitnet,
-        WitnetRequestBase
+        WitnetRequestPrecompiled
 {
     using Witnet for Witnet.Result;
 
@@ -31,7 +31,7 @@ contract WitnetPriceFeed
             bytes memory _witnetRequestBytecode
         )
         UsingWitnet(_witnetRequestBoard)
-        WitnetRequestBase(_witnetRequestBytecode)
+        WitnetRequestPrecompiled(_witnetRequestBytecode)
     {}
 
     /// Estimates minimum fee amount in native currency to be paid when
