@@ -11,6 +11,9 @@ module.exports = {
       "boba.bnb.testnet": {
         WitnetPriceFeed: "WitnetPriceFeedBypass"
       },
+      "boba.bnb.mainnet": {
+        WitnetPriceFeed: "WitnetPriceFeedBypass"
+      },
       elastos: {
         WitnetPriceFeed: "WitnetPriceFeedBypass",
       },
