@@ -20,6 +20,9 @@ module.exports = {
       fuse: {
         WitnetPriceFeed: "WitnetPriceFeedBypass",
       },
+      gnosis: {
+        WitnetPriceFeed: "WitnetPriceFeedBypass",
+      },
       "metis.goerli": {
         WitnetPriceFeed: "WitnetPriceFeedBypass",
       },

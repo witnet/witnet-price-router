@@ -203,6 +203,13 @@
             "WitnetPriceFeedBypass": "0x88a456C0Bd557DDA942FBc1DB86C0E35c529A6AE"
         }
     },
+    "gnosis": {
+        "gnosis.testnet": {
+            "DaiUsdPriceFeed": "0x2c8f04499c33c7Eea5e269d257E8Fb82f2f60069",
+            "WitUsdtPriceFeed": "0xb52881B1A5f64f7857313A6a3ABCa34CF7564023",
+            "WitnetPriceFeedBypass": "0x50AA08187D2F648Dd428784AF6489c3F12e942CC"
+        }
+    },
     "kava": {
         "kava.testnet": {
             "BtcUsdPriceFeed": "0xfb3B23e295E5ce4012c134E337B3aEF7B549dfA6",
