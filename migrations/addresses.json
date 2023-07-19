@@ -149,6 +149,7 @@
     },
     "kava": {
         "kava.testnet": {
+            "AtomUsdPriceFeed": "0xB5447342cA17A40e59d410b340ba412E22e36201",
             "BtcUsdPriceFeed": "0xfb3B23e295E5ce4012c134E337B3aEF7B549dfA6",
             "DaiUsdPriceFeed": "0xFc2d03FC7983690e59b19742Df95921f6f427619",
             "EthUsdPriceFeed": "0x80FdB3fB0370514F8b0e262fFA57ef907F36a1B8",
@@ -158,6 +159,7 @@
             "UsdtUsdPriceFeed": "0xE9Db5fB6d538D0d1ebE4019EED928d219aEe3A2f"
         },
         "kava.mainnet": {
+            "AtomUsdPriceFeed": "0xF503A52bEcF03d9d5fc85459906a4d280142B1cd",
             "BtcUsdPriceFeed": "0xCdDB95cB4Ee308f4D834a781C1Afc2A1Ec28B7A0",
             "DaiUsdPriceFeed": "0x4C5bE19CA11EAd22Ed0231D3AC63bFd1ABE10467",
             "EthUsdPriceFeed": "0xD8EBAAf409a53668E630Eeed4c9a98C2248E0DBb",
