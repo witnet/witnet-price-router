@@ -129,6 +129,7 @@ async function revisitPriceFeeds (deployer, from, realm, chain, isDryRun) {
       }
       // Otherwise, just update the local artifact file:
       else {
+        WitnetPriceFeed.address = address
         const header = `Skipped '${WitnetPriceFeed.contractName}'`
         console.log("\n  ", header)
         console.log("  ", "-".repeat(header.length))

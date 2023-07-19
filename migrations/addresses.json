@@ -212,24 +212,24 @@
     },
     "kava": {
         "kava.testnet": {
+            "AtomUsdPriceFeed": "0x1b91eAB33362f10A5F803Fe3f0d181F42caFaac3",
             "BtcUsdPriceFeed": "0xfb3B23e295E5ce4012c134E337B3aEF7B549dfA6",
             "DaiUsdPriceFeed": "0xFc2d03FC7983690e59b19742Df95921f6f427619",
             "EthUsdPriceFeed": "0x80FdB3fB0370514F8b0e262fFA57ef907F36a1B8",
             "KavaUsdPriceFeed": "0xAf89a59876145202a027E73340592F05B28A6D99",
             "KavaUsdtPriceFeed": "0xc6b8c76007AeCc8a77A7c13E283bE2A0A9D51Ed7",
             "UsdcUsdPriceFeed": "0x7047F44B4D69769Cf21a0795367B21D321901180",
-            "UsdtUsdPriceFeed": "0xE9Db5fB6d538D0d1ebE4019EED928d219aEe3A2f",
-            "VaraUsdcPriceFeed": ""
+            "UsdtUsdPriceFeed": "0xE9Db5fB6d538D0d1ebE4019EED928d219aEe3A2f"
         },
         "kava.mainnet": {
+            "AtomUsdPriceFeed": "0x0Dd81412825b9C3960195ab47F14dFa9Fd70e36e",
             "BtcUsdPriceFeed": "0xCdDB95cB4Ee308f4D834a781C1Afc2A1Ec28B7A0",
             "DaiUsdPriceFeed": "0x4C5bE19CA11EAd22Ed0231D3AC63bFd1ABE10467",
             "EthUsdPriceFeed": "0xD8EBAAf409a53668E630Eeed4c9a98C2248E0DBb",
             "KavaUsdPriceFeed": "0x4F861288D48dBB8d71B4e03f6748263b13294420",
             "KavaUsdtPriceFeed": "0x16d159aC475D6A7924237e671438F5A96aE51bd8",
             "UsdcUsdPriceFeed": "0x7462896558d958117eab5C99436b09E5bb4dEc39",
-            "UsdtUsdPriceFeed": "0xD0749889c2560d38cA87903c09e0a14FDEDA0121",
-            "VaraUsdcPriceFeed": ""
+            "UsdtUsdPriceFeed": "0xD0749889c2560d38cA87903c09e0a14FDEDA0121"
         }
     },
     "kcc": {
