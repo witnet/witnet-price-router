@@ -3,27 +3,6 @@ const { merge } = require("lodash")
 module.exports = {
   artifacts: merge({
       default: {
-        WitnetPriceFeed: "WitnetPriceFeed",
-      },
-      arbitrum: {
-        WitnetPriceFeed: "WitnetPriceFeedBypass",
-      },
-      "boba.bnb.testnet": {
-        WitnetPriceFeed: "WitnetPriceFeedBypass"
-      },
-      "boba.bnb.mainnet": {
-        WitnetPriceFeed: "WitnetPriceFeedBypass"
-      },
-      elastos: {
-        WitnetPriceFeed: "WitnetPriceFeedBypass",
-      },
-      fuse: {
-        WitnetPriceFeed: "WitnetPriceFeedBypass",
-      },
-      gnosis: {
-        WitnetPriceFeed: "WitnetPriceFeedBypass",
-      },
-      "metis.goerli": {
         WitnetPriceFeed: "WitnetPriceFeedBypass",
       },
     },
@@ -41,11 +20,6 @@ module.exports = {
           gasPrice: 50 * 10 ** 9,
         }
       },
-      conflux: {
-        "conflux.espace.testnet": {
-          gasPrice: 10 * 10 ** 9
-        }
-      },
       polygon: {
         "polygon.mainnet": {
           gasPrice: 50 * 10 ** 9
@@ -60,7 +34,7 @@ module.exports = {
         "scroll.goerli": {
           gas: 3000000,
         }
-      }
+      },
     }
   )
 }
