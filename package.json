@@ -1,6 +1,6 @@
 {
   "name": "witnet-price-feeds",
-  "version": "0.7.9",
+  "version": "0.7.11",
   "description": "This repository contains the price feeds currently mantained by the Witnet Foundation within all the EVM-compatible networks supported by the Witnet oracle",
   "main": "",
   "repository": "https://github.com/witnet/witnet-price-feeds",
@@ -36,7 +36,7 @@
     "ado-contracts": "^1.0.0",
     "lodash": "^4.17.21",
     "openzeppelin-solidity": "^2.4.0",
-    "witnet-solidity-bridge": "https://github.com/guidiaz/witnet-solidity-bridge#2dd179d0adc708fb4b6f872db4e47816b91c8b88"
+    "witnet-solidity-bridge": "https://github.com/guidiaz/witnet-solidity-bridge#460ba32fb6853e53f87c344f9f5263a93ac438ab"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
