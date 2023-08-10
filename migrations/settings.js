@@ -22,7 +22,6 @@ module.exports = {
       },
       polygon: {
         "polygon.mainnet": {
-          gasPrice: 50 * 10 ** 9
         },
       },
       arbitrum: {

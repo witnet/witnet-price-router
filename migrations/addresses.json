@@ -374,16 +374,17 @@
             "WitnetPriceFeedBypass": "0x2710cbCd109e87056FA0AF4494a408A0CD75Bbb7"
         },
         "polygon.mainnet": {
-            "BtcUsdPriceFeed": "0xC22989AFB342265fbed22Aa994582f2FCfd668Bd",
-            "DaiUsdPriceFeed": "0xB7B2302799B40aae09b5ff9Fe79CEC2AE6dbEA2e",
-            "EthUsdPriceFeed": "0x0541F2746A05C58CBf04f2935f8c3Eb7e06Ab3E7",
-            "MaticUsdPriceFeed": "0xEEd0d8E685b9989C91242d018778129c2FA8C81c",
-            "QuickUsdPriceFeed": "0x31c526E9A120F7d1037bE268563bd226Cf509B85",
-            "QuickUsdcPriceFeed": "0x0aE9CC88560307f80cDC1194e8f13f07762E0e0f",
-            "QuickWethPriceFeed": "0xF25112188702685b36660f687e4E5dab0FfbdDB7",
-            "QuickWmaticPriceFeed": "0xa5BDf0040d3BB326d8Dab20F466b966159e86DfD",
-            "UsdcUsdPriceFeed": "0xaDF2115f97348cF663C0ba4d659AfFeC469611eD",
-            "VsqDaiPriceFeed": "0xc09a1ecFbcb1A18D29C2c5E72c779EA167243191"
+            "BtcUsdPriceFeed": "0x33a15cff4efB5c7c55FE40b693Ab97AeD4eE488C",
+            "DaiUsdPriceFeed": "0x958c09e4489DaA05d0D2c231B70A734085eF20c1",
+            "EthUsdPriceFeed": "0x8298DF7d18C09F1408dE420b875F7bDea232F462",
+            "MaticUsdPriceFeed": "0x7a879E19711140bCc8287b8dB61A64cAC510668a",
+            "QuickUsdPriceFeed": "0xe2B5c364f08153fd380f3C41C931050BFA98ec88",
+            "QuickUsdcPriceFeed": "0x363613DC8A4aDC810716256172c541a2ad605F0D",
+            "QuickWethPriceFeed": "0x832Cc8fcAd95d9730E1cA2eBE8e67eA6f618a9FE",
+            "QuickWmaticPriceFeed": "0xca7f85F2c3A854745Ee3040e6a030E7D0A67dA4C",
+            "UsdcUsdPriceFeed": "0x7C2b91D05137fF5926d5BC7b840E97Db08F7bAF3",
+            "VsqDaiPriceFeed": "0x5226501A18e784456C32fB0436D6e3aE3359e766",
+            "WitnetPriceFeedBypass": "0xEb9293996Da011D95720fC791C57CE1647065b44"
         },
         "polygon.zkevm.goerli": {
             "EthUsdPriceFeed": "0x1a0Df40e0F195593d244Eb99E2Ad9Ba7f34C1076",
