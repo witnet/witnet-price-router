@@ -77,13 +77,14 @@
             "WitnetPriceFeedBypass": "0x69891cE36F6dFbef4A7BdD0E95A15CBA916f206b"
         },
         "celo.mainnet": {
-            "BtcUsdPriceFeed": "0x0Dd81412825b9C3960195ab47F14dFa9Fd70e36e",
-            "CeloEurPriceFeed": "0x30e7D86b3DcdC0CC90509b1F7C27eA8e5481FAc5",
-            "CeloUsdPriceFeed": "0x5832e99368877a63dd1c2cea941C2b43E1F6b16A",
-            "EthUsdPriceFeed": "0x49dbaA6eE184Da1bCAba0764B5Daa363d49b3fe5",
-            "ImmoMcusdPriceFeed": "0x0e4F5763f417BB13AF759da4d36af50d13F02730",
-            "NctCeloPriceFeed": "0x5FB499336aee67EC1183F49A8265CC3E2599C2ae",
-            "NctUsdPriceFeed": "0x8b789377FC4e98911dF419DBBe9d46D23adbF451"
+            "BtcUsdPriceFeed": "0xA182a2F9e31A730ED4bd76bf4DEB237cbbA89997",
+            "CeloEurPriceFeed": "0x6E0D59b3DFC0e4d525FB5783B558B563F1d975b3",
+            "CeloUsdPriceFeed": "0x6AEa6dE3198dC5786Eb8c7e73606C2aC5104795a",
+            "EthUsdPriceFeed": "0x7d1d60b847cbe5F8CF7583d8c8d41732961cEE30",
+            "ImmoMcusdPriceFeed": "0xb1817F168B01156593D6e238709393bC2c50bec5",
+            "NctCeloPriceFeed": "0xEDe82D7994c4F8a7Cc2Cd5BADC058aFB29FB4962",
+            "NctUsdPriceFeed": "0xD86e7eF33d92F86Dc5c6d9aa30b92Eb3B614E1E7",
+            "WitnetPriceFeedBypass": "0x56E44A9f86C2e3a53e816335cBE6deaE440b0856"
         }
     },
     "conflux": {
