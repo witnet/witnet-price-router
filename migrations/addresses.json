@@ -296,6 +296,14 @@
             "UsdcUsdPriceFeed": "0xd59238d9117F97B03BCd4F0B23bd8552fa55B8a4",
             "UsdtUsdPriceFeed": "0x5f9415518DD7a52f9CDD2035Aa74a08D3813Ff5f",
             "WitnetPriceFeedBypass": "0xB1Ee13a85B2593D5191f3a2A08f175b1c918B9bb"
+        },
+        "mantle.mainnet": {
+            "BtcUsdPriceFeed": "0x8aDe7295e5672cF090CEC195581c4AbD2C494a09",
+            "EthUsdPriceFeed": "0x98550640dACa72fb770732c8EC2efe01B9232d6A",
+            "MntUsdtPriceFeed": "0x0C8d6bD25Df2Cf5cFB30c41C41AEA9D7E14355c2",
+            "UsdcUsdPriceFeed": "0x53B98E1c927F8C26c1c3d6B1F9fB9A43dF5471F4",
+            "UsdtUsdPriceFeed": "0xeD57810926e89bb8300586F3A8F786F7C583F1a8",
+            "WitnetPriceFeedBypass": "0x6Af31B632A20185ff96FC47a8576a6980Cd99FEC"
         }
     },
     "meter": {
