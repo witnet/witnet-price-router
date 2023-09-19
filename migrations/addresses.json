@@ -413,6 +413,15 @@
             "QuickWmaticPriceFeed": "0x88F58cE0cb84E905F2ee54B59325B77d40615b40",
             "UsdcUsdPriceFeed": "0x9D4EE9732aA2b57083cB4d321c248472923faA8b",
             "WitnetPriceFeedBypass": "0x307b1a85dC9BE441Cd7e4931266Dd6a24C4A98d2"
+        },
+        "polygon.zkevm.mainnet": {
+            "EthUsdPriceFeed": "0x3A9c83092C0701Bc26509C20d299D8bf31b8B40b",
+            "QuickUsdPriceFeed": "0xEAF40cc825A35d51Ddd15e757Da1Fd225dE56B33",
+            "QuickUsdcPriceFeed": "0xE444893831B3a59558D252f09BD8662E9fAE81f3",
+            "QuickWethPriceFeed": "0x5eb55A76b9E90362c2b23aacB8917059A2F81E04",
+            "QuickWmaticPriceFeed": "0x76C31c5a14522BCEB4323b2d5F6592442218412B",
+            "UsdcUsdPriceFeed": "0xfaADA547bB8a3b73D9613646Fac39c54e83F4efE",
+            "WitnetPriceFeedBypass": "0x9890ef27B5d0e5b191ee355013Dd37E221c50A9C"
         }
     },
     "reef": {
