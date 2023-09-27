@@ -452,6 +452,10 @@
         },
         "syscoin.mainnet": {
             "SysUsdtPriceFeed": "0x0Dd81412825b9C3960195ab47F14dFa9Fd70e36e"
+        },
+        "syscoin.rollux.testnet": {
+            "SysUsdtPriceFeed": "0xe184Bd4f4A2A9AF38642E3595Aa004b071934B58",
+            "WitnetPriceFeedBypass": "0xB772f86004330738C1529cC1b0327D24aeF8c370"
         }
     },
     "ultron": {
