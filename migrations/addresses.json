@@ -435,6 +435,13 @@
             "UniUsdPriceFeed": "0x8d0af33230C1d28bc8f4fB579F3726E0362bad66",
             "UsdcUsdPriceFeed": "0x420dCE64119700948586d48cF06401faF76789bD",
             "WitnetPriceFeedBypass": "0x0fab02a4E2fE4976c2c89470622bc63a46A9096a"
+        },
+        "scroll.mainnet": {
+            "BtcUsdPriceFeed": "0x2FBA3Aad4F2e2BBC562b4fdA76D82e8036dbEd3c",
+            "EthUsdPriceFeed": "0x6C74Aa59D58c0C2A26B07845dC607CD3fECF6B90",
+            "UniUsdPriceFeed": "0x96a215587C06EeAADDc51feDF8C5918a59970CE3",
+            "UsdcUsdPriceFeed": "0x0dAc06Ca814b6238524FcB2044108fa112aDf199",
+            "WitnetPriceFeedBypass": "0xC467B6E0F700D3E044C9F20BB76957eEC0B33c8C"
         }
     },
     "smartbch": {
