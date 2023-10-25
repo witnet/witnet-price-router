@@ -433,12 +433,12 @@
         }
     },
     "scroll": {
-        "scroll.goerli": {
-            "BtcUsdPriceFeed": "0x8bb3DDbA9a6A0647C9287166AFAc6b589a05314d",
-            "EthUsdPriceFeed": "0xf45eEd6a7cB76a415050D17592D90A6eB707D962",
-            "UniUsdPriceFeed": "0x8d0af33230C1d28bc8f4fB579F3726E0362bad66",
-            "UsdcUsdPriceFeed": "0x420dCE64119700948586d48cF06401faF76789bD",
-            "WitnetPriceFeedBypass": "0x0fab02a4E2fE4976c2c89470622bc63a46A9096a"
+        "scroll.sepolia": {
+            "BtcUsdPriceFeed": "0xe184Bd4f4A2A9AF38642E3595Aa004b071934B58",
+            "EthUsdPriceFeed": "0x08A30c218fB4E0357639E1984caec232a7108411",
+            "UniUsdPriceFeed": "0x27190703F0b64F8fAfcf3c0e76649040afBE26C6",
+            "UsdcUsdPriceFeed": "0x830a48FEf29e155A38238E7cF5728336Bd87c533",
+            "WitnetPriceFeedBypass": "0xB772f86004330738C1529cC1b0327D24aeF8c370"
         },
         "scroll.mainnet": {
             "BtcUsdPriceFeed": "0x2FBA3Aad4F2e2BBC562b4fdA76D82e8036dbEd3c",
