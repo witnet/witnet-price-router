@@ -5,6 +5,10 @@
             "EthUsdPriceFeed": "0x94E4851bdb089Af8D4b2D2f3528A24f36D3E8d7D",
             "WitnetPriceFeedBypass": "0xA8767A6EA3099De344499B35f725A38E3cD15562"
         },
+        "ethereum.sepolia": {
+            "EthUsdPriceFeed": "0x50f7cECd06b6377F952b6c2B5a891624F4C7b5b0",
+            "WitnetPriceFeedBypass": "0xd6d4B24219751A7725ce972E68B1067Ee57CC85a"
+        },
         "ethereum.mainnet": {
             "EthUsdPriceFeed": "0x0Dd81412825b9C3960195ab47F14dFa9Fd70e36e"
         }
