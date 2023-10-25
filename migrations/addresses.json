@@ -5,6 +5,10 @@
             "EthUsdPriceFeed": "0x94E4851bdb089Af8D4b2D2f3528A24f36D3E8d7D",
             "WitnetPriceFeedBypass": "0xA8767A6EA3099De344499B35f725A38E3cD15562"
         },
+        "ethereum.sepolia": {
+            "EthUsdPriceFeed": "0x50f7cECd06b6377F952b6c2B5a891624F4C7b5b0",
+            "WitnetPriceFeedBypass": "0xd6d4B24219751A7725ce972E68B1067Ee57CC85a"
+        },
         "ethereum.mainnet": {
             "EthUsdPriceFeed": "0x0Dd81412825b9C3960195ab47F14dFa9Fd70e36e"
         }
@@ -429,12 +433,19 @@
         }
     },
     "scroll": {
-        "scroll.goerli": {
-            "BtcUsdPriceFeed": "0x8bb3DDbA9a6A0647C9287166AFAc6b589a05314d",
-            "EthUsdPriceFeed": "0xf45eEd6a7cB76a415050D17592D90A6eB707D962",
-            "UniUsdPriceFeed": "0x8d0af33230C1d28bc8f4fB579F3726E0362bad66",
-            "UsdcUsdPriceFeed": "0x420dCE64119700948586d48cF06401faF76789bD",
-            "WitnetPriceFeedBypass": "0x0fab02a4E2fE4976c2c89470622bc63a46A9096a"
+        "scroll.sepolia": {
+            "BtcUsdPriceFeed": "0xe184Bd4f4A2A9AF38642E3595Aa004b071934B58",
+            "EthUsdPriceFeed": "0x08A30c218fB4E0357639E1984caec232a7108411",
+            "UniUsdPriceFeed": "0x27190703F0b64F8fAfcf3c0e76649040afBE26C6",
+            "UsdcUsdPriceFeed": "0x830a48FEf29e155A38238E7cF5728336Bd87c533",
+            "WitnetPriceFeedBypass": "0xB772f86004330738C1529cC1b0327D24aeF8c370"
+        },
+        "scroll.mainnet": {
+            "BtcUsdPriceFeed": "0x2FBA3Aad4F2e2BBC562b4fdA76D82e8036dbEd3c",
+            "EthUsdPriceFeed": "0x6C74Aa59D58c0C2A26B07845dC607CD3fECF6B90",
+            "UniUsdPriceFeed": "0x96a215587C06EeAADDc51feDF8C5918a59970CE3",
+            "UsdcUsdPriceFeed": "0x0dAc06Ca814b6238524FcB2044108fa112aDf199",
+            "WitnetPriceFeedBypass": "0xC467B6E0F700D3E044C9F20BB76957eEC0B33c8C"
         }
     },
     "smartbch": {
