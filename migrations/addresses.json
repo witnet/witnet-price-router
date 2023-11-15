@@ -308,8 +308,11 @@
     },
     "meter": {
         "meter.testnet": {
+            "BtcUsdPriceFeed": "0x6D071177F2399Ee362f56B52e130abB1679a5D41",
+            "EthUsdPriceFeed": "0x86790eBE0960A11B8dFF195a1CC2e9A0861cE176",
             "MtrgUsdtPriceFeed": "0x68529970B6055998d9911320E3dBB29dD9406849",
             "MtrUsdtPriceFeed": "0x94ECbA85dcE3679a1FD737964e974e63E2db91AF",
+            "UsdcUsdPriceFeed": "0xDB0dE4980627e958813fEFA5746C75a43da462Bb",
             "WitnetPriceFeedBypass": "0x7D0c8Fc63104B33d26F5734Ebc986E630DC7e004"
         },
         "meter.mainnet": {
