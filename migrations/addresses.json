@@ -318,8 +318,14 @@
             "WitnetPriceFeedBypass": "0x7D0c8Fc63104B33d26F5734Ebc986E630DC7e004"
         },
         "meter.mainnet": {
-            "MtrgUsdtPriceFeed": "0x3f9e2631F94503dCFaB269D3E50A0C57e0EC31DC",
-            "MtrUsdtPriceFeed": "0x76802C755E89E2B33f8d0e5A877A68dCFE5cf5f2"
+            "BtcUsdPriceFeed": "0x015451c15A513cAEb73AA48765Aee27F72e58450",
+            "EthUsdPriceFeed": "0x129F4A4C4d2a45163357057E089C9d5d0F2e59b0",
+            "MtrgUsdPriceFeed": "0x51dd746D7DEa5623675Ae6521B8E5eeB7c556B88",
+            "MtrgUsdtPriceFeed": "0x01CDAdA341f905FE96468c5A57e2891a5653eD1c",
+            "MtrUsdtPriceFeed": "0x3bE447FF48e3bF11B15020F9D1ad4a54FBC4787f",
+            "UsdcUsdPriceFeed": "0xBf7ce305a505817aA6D7bbf4511cFB00F27d3CE4",
+            "UsdtUsdPriceFeed": "0x39C851Ca0FB448761408B1e71742106D9652b19E",
+            "WitnetPriceFeedBypass": "0xDb4595e22bb826236cd88740fB075133a2De035E"
         }
     },
     "metis": {
