@@ -370,11 +370,20 @@
             "UsdtUsdPriceFeed": "0xa239729c399c9eBae7fdc188A1Dbb2c4a06Cd4Bb"
         }
     },
-    "okxchain": {
-        "okxchain.testnet": {
+    "okx": {
+        "okx.okxchain.testnet": {
             "OktUsdtPriceFeed": "0xA86b7C50F1ad9bC43af34eFd505d4a059E67e56f",
             "UsdtUsdPriceFeed": "0xa0E13F98D009d4976d1cE2f8E03228B656596c69",
             "WitnetPriceFeedBypass": "0xB4f1f8E27799256ec95C5b5A8d2A5722Bd542E69"
+        },
+        "okx.x1.sepolia": {
+            "OkbUsdtPriceFeed": "0x758A15C3b32AD8353176014BC41fC7401650261D",
+            "BtcUsdPriceFeed": "0xcB8E58A8878a2d86B299064536119148B7B735cd",
+            "EthUsdPriceFeed": "0xCb17069BF40B1d80a7e4F1Ff2AfA9D3Ee4a3190d",
+            "UsdcUsdPriceFeed": "0x8Eb174752c99A70Fe0022e06fB35DA15608FF548",
+            "UsdtUsdPriceFeed": "0x67D5F7574F81B8923F15b8F3838AAf341D722239",
+            "WbtcUsdPriceFeed": "0x64aC13c925d268cA90653DBA96Ec342950eF3293",
+            "WitnetPriceFeedBypass": "0x2ef492c5300Ba8002ECC1ee44fD758be1d3B6e89"
         }
     },
     "optimism": {
