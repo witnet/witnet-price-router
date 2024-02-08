@@ -390,7 +390,7 @@
             "WitnetPriceFeedBypass": "0xe04408124498F5812Ad341Df6038f11f18dC538e"
         },
         "optimism.mainnet": {
-            "OpUsdtPriceFeed": "0x0Dd81412825b9C3960195ab47F14dFa9Fd70e36e"
+            "OpUsdtPriceFeed": ""
         }
     },
     "polygon": {
