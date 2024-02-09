@@ -483,6 +483,14 @@
             "WitnetPriceFeedBypass": "0xB772f86004330738C1529cC1b0327D24aeF8c370"
         }
     },
+    "ten": {
+        "ten.testnet": {
+            "BtcUsdPriceFeed": "0x83b48e49b4661712613Cc96B3385a5e1C2039daa",
+            "EthUsdPriceFeed": "0x4dD61B2fDdd92680950FCF3C8d22d58f343F21bB",
+            "WitUsdtPriceFeed": "0xA2254e9b8d63D91473Ef5451eea42Ffa293E8A63",
+            "WitnetPriceFeedBypass": "0x9d39313F5D9c7575EeDA9ACdE6a91BBCc4D6D2B2"
+        }
+    },
     "ultron": {
         "ultron.testnet": {
             "AvaxUsdPriceFeed": "0x83b48e49b4661712613Cc96B3385a5e1C2039daa",
