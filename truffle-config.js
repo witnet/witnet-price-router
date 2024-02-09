@@ -43,5 +43,6 @@ module.exports = {
     elastos: "",
     etherscan: process.env.ETHERSCAN_API_KEY,
     polygonscan: process.env.POLYGONSCAN_API_KEY,
+    scrollscan: process.env.SCROLLSCAN_API_KEY,
   },
 }
