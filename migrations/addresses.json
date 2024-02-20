@@ -278,12 +278,13 @@
             "WitnetPriceFeedBypass": "0x7de5fE2458b198A0Fe9B557bC485825A10978cf9"
         },
         "klaytn.mainnet": {
-            "KlayUsdPriceFeed": "0xC32238702E364A93d07d5b3334d3FCdd65371b56",
-            "KlayUsdtPriceFeed": "0x0Dd81412825b9C3960195ab47F14dFa9Fd70e36e",
-            "KrwUsdPriceFeed": "0x30e7D86b3DcdC0CC90509b1F7C27eA8e5481FAc5",
-            "KspKrwPriceFeed": "0x5832e99368877a63dd1c2cea941C2b43E1F6b16A",
-            "KspUsdPriceFeed": "0x3a68d074Be7cAcf48642AafB3D07400711fE2509",
-            "UsdtUsdPriceFeed": "0x49dbaA6eE184Da1bCAba0764B5Daa363d49b3fe5"
+            "KlayUsdPriceFeed": "0x9bC67f052FF5D5fb1cc744627c84bf69c27dEe90",
+            "KlayUsdtPriceFeed": "0x341f38b1fefF16919E48bA13ab67E163422a5716",
+            "KrwUsdPriceFeed": "0x1E27D2dCc045EbC24130DE0AD02d3fb47fa925bb",
+            "KspKrwPriceFeed": "0x1Eb0FA62Fd83658D26d01273caD68B34d86e70B5",
+            "KspUsdPriceFeed": "0x50135e62dF8830dC9F6294f9F05d818B248AaC85",
+            "UsdtUsdPriceFeed": "0x68aBB8fE035b46e5cE69E9dD1A1b3aE41805970C",
+            "WitnetPriceFeedBypass": "0x79c27c0555C95DBfd38e97023c3257376aaa154d"
         }
     },
     "mantle": {
