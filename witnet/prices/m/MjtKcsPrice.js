@@ -17,6 +17,9 @@ const mojito = new Witnet.GraphQLSource(
         token1Price
       }
     }`,
+    { 
+      "Content-Type": "application/json" 
+    },
   )
   .parseJSONMap()
   .getMap("data")
