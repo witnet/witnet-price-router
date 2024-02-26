@@ -103,6 +103,7 @@
             "BtcUsdPriceFeed": "0xe184Bd4f4A2A9AF38642E3595Aa004b071934B58",
             "CfxUsdtPriceFeed": "0x08A30c218fB4E0357639E1984caec232a7108411",
             "EthUsdPriceFeed": "0x27190703F0b64F8fAfcf3c0e76649040afBE26C6",
+            "HkdUsdPriceFeed": "0x2f75e5EF1c7db927ea297e33BB1E62Dcb065Dc75",
             "UsdcUsdPriceFeed": "0x830a48FEf29e155A38238E7cF5728336Bd87c533",
             "UsdtUsdPriceFeed": "0xFD4D9bf50012AfEA2884d2Dc7Ca8fDC01fE8136F",
             "WitnetPriceFeedBypass": "0xB772f86004330738C1529cC1b0327D24aeF8c370"

@@ -255,6 +255,11 @@
         "decimals": 6,
         "path": "witnet/prices/g/GlmrUsdtPrice.js"
     },
+    "HkdUsdPrice": {
+        "base": "HKD",
+        "quote": "USD",
+        "decimals": 6
+    },
     "HtUsdPrice": {
         "base": "HT",
         "quote": "USD",
